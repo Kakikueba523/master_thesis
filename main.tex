@@ -1,0 +1,66 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{physics}
+% 画像
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{here} %画像の表示位置調整用
+\usepackage{type1cm}
+\usepackage{hyperref}
+\usepackage{isotope}
+\usepackage[style=phys,articletitle=false,biblabel=brackets,chaptertitle=false,pageranges=false]{biblatex}
+\addbibresource{main.bib}
+%A4: 21.0 x 29.7cm
+
+
+\begin{document}
+
+\title{test}
+\author{長尾 昂青}
+\date{\today}
+\maketitle
+
+\tableofcontents
+
+\newpage
+\section{はじめに}
+
+$^{12}$Cの核融合
+
+\begin{align}\label{eq:fusion}
+  \isotope[12]{C} + \isotope[12]{C} \rightarrow  \isotope[24]{Mg}
+\end{align}
+式\ref{eq:fusion}は巨大恒星の進化の終盤において，重要な役割を担う．
+現状では，この過程における反応率は，
+実験で得られた断面積を低エネルギー領域へと外挿することに
+よってのみ，見積もられている．
+しかしながら，この外挿は$\isotope[12]{C} + \isotope[12]{C}$核融合反応の低エネルギー，重心系での運動エネルギー
+$E_\text{c.m.} \lesssim 7$MeV，における共鳴構造により難しくなっている．
+
+さらに，片方の原子核に中性子を一つ加えた形である，$\isotope[12]{C} + \isotope[13]{C}$核融合反応との違いも注目を集めている．
+これら二つの系の断面積の振る舞いを比べたら一目瞭然であるが，
+
+\section{Potential}
+
+本研究では，原子核間の有効ポテンシャルをいくつか用いる．
+\subsection{M3Y + repulsive double folding potential}
+一つ目のポテンシャルとして，Esbensenら\cite{Esbensen2011}がC+C核融合反応の解析に用いた，M3Y + repulsive Double Folding potentialを用いる．
+このポテンシャルは，低エネルギー重イオン核融合反応におけるhindranceを説明するために導入されたポテンシャル\cite{PhysRevC.75.034606}であり，
+$\isotope[60]{Ni} + \isotope[89]{Y}$の核融合反応において最初に観測された\cite{PhysRevLett.89.052701}．
+
+M3Y double folding potentialは，
+\begin{align}
+  U_n (\bm{r}) = \int \dd{\bm{r}_1} \dd{\bm{r}_2} \rho_1(\bm{r}_1) \rho_2(\bm{r}_2) v_\mathrm{M3Y} (\bm{r} + \bm{r}_2 - \bm{r}_1)
+\end{align}
+のように定義される．
+ここで，$v_\mathrm{M3Y}(\bm{r})$は，Reidポテンシャルから導かれる有効核子間相互作用である．
+
+% \bibliographystyle{unsrt}
+% \bibliography{main}
+\printbibliography% biblatex
+\end{document}

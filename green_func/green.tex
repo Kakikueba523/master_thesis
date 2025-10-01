@@ -1,0 +1,41 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{physics}
+% 画像
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{here} %画像の表示位置調整用
+\usepackage{type1cm}
+\usepackage{hyperref}
+\usepackage{isotope}
+\usepackage[style=phys,articletitle=false,biblabel=brackets,chaptertitle=false,pageranges=false]{biblatex}
+\addbibresource{green.bib}
+%A4: 21.0 x 29.7cm
+\newtheorem{theorem}{定理}[section]   % sectionごとに番号リセット
+\newtheorem{lemma}[theorem]{補題}      % theoremと同じカウンタを共有
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{corollary}[theorem]{系}
+
+\begin{document}
+
+\title{test}
+\author{長尾 昂青}
+\date{\today}
+\maketitle
+
+\tableofcontents
+
+\newpage
+\section{Green's Functions, T- and S-Matrices}
+\cite{canto2013scattering}を参照すること．
+\newpage
+% \bibliographystyle{unsrt}
+% \bibliography{main}
+\printbibliography% biblatex
+\end{document}

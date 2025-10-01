@@ -1,0 +1,252 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{physics}
+% 画像
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{here} %画像の表示位置調整用
+\usepackage{type1cm}
+\usepackage{hyperref}
+\usepackage{isotope}
+\usepackage[style=phys,articletitle=false,biblabel=brackets,chaptertitle=false,pageranges=false]{biblatex}
+\addbibresource{coulomb.bib}
+%A4: 21.0 x 29.7cm
+\newtheorem{theorem}{定理}[section]   % sectionごとに番号リセット
+\newtheorem{lemma}[theorem]{補題}      % theoremと同じカウンタを共有
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{corollary}[theorem]{系}
+
+\begin{document}
+
+\title{test}
+\author{長尾 昂青}
+\date{\today}
+\maketitle
+
+\tableofcontents
+
+\newpage
+\section{クーロン散乱の量子論}
+
+主に\cite{canto2013scattering}や\cite{BN00026961}を参照されたい．
+
+クーロン散乱の波動関数は，シュレーディンガー方程式
+\begin{align}\label{eq:coulomb_scattering_schrodinger}
+  - \frac{\hbar^2}{2 \mu} \nabla^2 \phi_C(\bm{k}; \bm{r}) 
+  + \frac{1}{4 \pi \varepsilon_0} \frac{q_P q_T}{r} \phi_C(\bm{k}; \bm{r}) = E\phi_C(\bm{k}; \bm{r})
+\end{align}
+を満たす．
+これは，
+\begin{align}\label{eq:coulomb_s_schro_rev}
+  \qty[\nabla^2 + k^2- \frac{2\eta k}{r}] \phi_C(\bm{k}; \bm{r}) = 0
+\end{align}
+変形することができる．
+ここで，$\eta$はゾンマーフェルトパラメータであり，
+\begin{align}
+  \eta = \frac{1}{4 \pi \varepsilon_0} \frac{q_P q_T}{\hbar v}
+\end{align}
+である．また，$q_T, q_P$はそれぞれ，標的核と入射核の電荷であり，$k = \sqrt{2\mu E}/\hbar$，$\mu$は換算質量である．
+
+クーロン力は長距離力なので，波動関数は平面波には漸近しない．この方程式を解くために，
+入射ビームの方向を$z$軸にとり，
+\begin{align}\label{eq:coulomb_s_initial_ansatz}
+  \phi_C(\bm{k};\bm{r}) = C e^{ikz}g(r-z)
+\end{align}
+と置く．クーロン力を0とする($\eta \rightarrow 0$)と，$ g \rightarrow 1$となる．
+極座標$(r, \theta, \varphi)$を放物線座標$(\xi, \zeta, \varphi)$へと変換する．
+ここで，
+\begin{align}\label{eq:parabolic_coordinates}
+  \xi = r-z = r(1-\cos \theta), \quad \zeta = r + z = r(1+ \cos \theta)
+\end{align}
+である．
+
+ここで，$\xi$が定数の局面は，原点を共通の焦点としての$z$の方向に開いた放物線を$z$軸回りに
+回転してできる回転放物面の集まりである．
+また，$\zeta$が定数の局面も同様に，$z$の負の方向に開いた回転放物面の集まりである．
+これは，式\ref{eq:parabolic_coordinates}の形から明らかである．
+
+波動関数を式\ref{eq:coulomb_s_initial_ansatz}のように置いたが，これは散乱波を含む波動関数の
+漸近的な振る舞いが
+\begin{align}\label{eq:asymptotic_form}
+  \psi(\bm{k};\bm{r}) \rightarrow e^{i \bm{k} \cdot \bm{r}} + f(\theta) \frac{e^{ikr}}{r}
+\end{align}
+であり，$e^{-ikr}$の形を含んでいない．このことから$e^{ikz}$という位相因子を取り出したときに，$g(r+z)$ではなくて$g(r-z)$となることが予想されるのである．
+
+
+放物線座標でのラプラシアンを求める．これには，極座標のラプラシアンから出発するのがよいだろう．
+\begin{align}\label{eq:laplacian_polar}
+  \nabla^2 = \frac{1}{r^2} \pdv{r}\qty(r^2\pdv{r}) + \frac{1}{r^2 \sin \theta} 
+  \pdv{\theta}\qty(\sin \theta \pdv{\theta}) + \frac{1}{r^2 \sin^2 \theta} \pdv[2]{\varphi}
+\end{align}
+式\ref{eq:parabolic_coordinates}を参照しながら，式\ref{eq:laplacian_polar}に出てくる各項を求める．
+\begin{align*}
+  r = \frac{\xi + \zeta}{2}, \quad r^2\sin^2\theta = \xi \zeta
+\end{align*}
+であり，偏微分項は，
+\begin{align*}
+  \pdv{r} = \pdv{\xi}{r} \pdv{\xi} + \pdv{\zeta}{r} \pdv{\zeta} = \qty(1- \cos \theta) \pdv{\xi} + \qty(1 + \cos \theta) \pdv{\zeta}
+  = \frac{\xi}{r} \pdv{\xi} + \frac{\zeta}{r} \pdv{\zeta}
+\end{align*}
+\begin{align*}
+  \pdv{\theta} = \pdv{\xi}{\theta} \pdv{\xi} + \pdv{\zeta}{\theta} \pdv{\zeta} = r \sin \theta \pdv{\xi} - r  \sin \theta \pdv{\zeta}
+\end{align*}
+よって，
+\begin{align*}
+  \pdv{r}\qty(r^2\pdv{r}) 
+  &=  \pdv{r} \qty[r^2\qty( \frac{\xi}{r} \pdv{\xi} + \frac{\zeta}{r} \pdv{\zeta})] \\
+  &=  r \pdv{r} \qty(\xi \pdv{\xi} + \zeta \pdv{\zeta}) + \qty(\xi \pdv{\xi} + \zeta \pdv{\zeta}) \\
+  &= \qty(\xi \pdv{\xi} + \zeta \pdv{\zeta})\qty(\xi \pdv{\xi} + \zeta \pdv{\zeta}) + \qty(\xi \pdv{\xi} + \zeta \pdv{\zeta}) \\
+  &= \qty(\xi^2 \pdv[2]{\xi} + \zeta^2 \pdv[2]{\zeta} + 2\xi\zeta \pdv{}{\xi}{\zeta}) + 2\qty(\xi \pdv{\xi} + \zeta \pdv{\zeta}) \\
+\end{align*}
+$\theta$の微分項は，
+\begin{align*}
+  \frac{1}{r^2 \sin \theta}\pdv{\theta}\qty(\sin \theta \pdv{\theta}) 
+  &= \frac{1}{r^2 \sin \theta}\pdv{\theta} \qty(r \sin^2 \theta \pdv{\xi} - r  \sin^2 \theta \pdv{\zeta}) \\
+  &= \frac{2\cos\theta}{r}\qty(\pdv{\xi} - \pdv{\zeta}) + \frac{\sin\theta}{r} \pdv{\theta}\qty( \pdv{\xi} - \pdv{\zeta}) \\
+  &= \frac{2\cos\theta}{r}\qty(\pdv{\xi} - \pdv{\zeta}) + \frac{\sin\theta}{r}  \qty(r \sin \theta \pdv{\xi} - r  \sin \theta \pdv{\zeta} )\qty( \pdv{\xi} - \pdv{\zeta}) \\
+  &= \frac{2\cos\theta}{r}\qty(\pdv{\xi} - \pdv{\zeta}) +  \qty(\sin^2 \theta \pdv{\xi} - \sin^2 \theta \pdv{\zeta} )\qty( \pdv{\xi} - \pdv{\zeta}) \\
+  &= \frac{\zeta - \xi}{r^2}\qty(\pdv{\xi} - \pdv{\zeta}) +  \frac{1}{r^2}\qty( \xi\zeta \pdv{\xi} - \xi\zeta \pdv{\zeta} )\qty( \pdv{\xi} - \pdv{\zeta}) \\
+  &= \frac{\zeta - \xi}{r^2}\qty(\pdv{\xi} - \pdv{\zeta}) +  \frac{\xi\zeta}{r^2}\qty(\pdv[2]{\xi} + \pdv[2]{\zeta} - 2 \pdv{}{\xi}{\zeta}) \\
+\end{align*}
+であるため，
+\begin{align*}
+  &\frac{1}{r^2}\pdv{r}\qty(r^2\pdv{r}) +  \frac{1}{r^2 \sin \theta}\pdv{\theta}\qty(\sin \theta \pdv{\theta}) \\
+  &= \frac{\xi + \zeta}{r^2} \qty(\xi\pdv[2]{\xi} + \zeta\pdv[2]{\zeta}) + \frac{\xi + \zeta}{r^2}\qty(\pdv{\xi} + \pdv{\zeta}) \\
+  &= \frac{2}{r}\qty(\xi \pdv[2]{\xi} + \pdv{\xi} + \zeta\pdv[2]{\zeta} + \pdv{\zeta}) \\
+  &= \frac{4}{\xi + \zeta} \qty[\pdv{\xi}\qty(\xi\pdv{\xi}) + \pdv{\zeta}\qty(\zeta\pdv{\zeta})]
+\end{align*}
+を得る．
+よって，式\ref{eq:laplacian_polar}は，放物線座標では，
+\begin{align}\label{eq:laplacian_parabolic}
+  \nabla^2 = \frac{4}{\xi + \zeta} \qty[\pdv{\xi}\qty(\xi\pdv{\xi}) + \pdv{\zeta}\qty(\zeta\pdv{\zeta})] + \frac{1}{\xi\zeta} \pdv[2]{\varphi}
+\end{align}
+となる．
+
+式\ref{eq:laplacian_parabolic}を用い，式\ref{eq:coulomb_s_schro_rev}に式\ref{eq:coulomb_s_initial_ansatz}を代入する．
+ここで，
+\begin{align*}
+  &\pdv{\xi} e^{ikz} = \pdv{\xi} e^{ik(\zeta-\xi)/2} = - \frac{ik}{2} e^{ikz}\\
+  &\pdv{\zeta} e^{ikz} =   \pdv{\zeta} e^{ik(\zeta-\xi)/2} =  \frac{ik}{2} e^{ikz}
+\end{align*}
+であることと，$g(r-z) = g(\xi)$が$\zeta$に依らないことから，
+\begin{align*}
+  \pdv{\xi}\qty(\xi \pdv{\xi} e^{ikz}g(\xi)) 
+  &= \pdv{\xi}\qty[\xi\qty(\frac{-ik}{2}e^{ikz}g(\xi) + e^{ikz}g'(\xi))] \\
+  &=e^{ikz}\qty[\frac{-ik}{2} g(\xi) + g'(\xi) + \xi\qty(-\frac{k^2}{4} g(\xi) - ikg'(\xi) + g''(\xi))] \\
+  \pdv{\zeta}\qty(\zeta \pdv{\zeta} e^{ikz} g(\xi)) &= \qty( \frac{ik}{2}  - \zeta \frac{k^2}{4})g(\xi)e^{ikz}
+\end{align*}
+となる．
+
+よって，それぞれ足し合わせることで，
+\begin{align*}
+  \qty[\pdv{\xi}\qty(\xi\pdv{\xi}) + \pdv{\zeta}\qty(\zeta\pdv{\zeta})]e^{ikz} g(\xi)
+  = \qty[ - \frac{k^2}{4}(\xi+\zeta)g(\xi) + \qty(1 - ik\xi )g'(\xi) + \xi g''(\xi)] e^{ikz}
+\end{align*}
+となるため，式\ref{eq:coulomb_s_schro_rev}に\ref{eq:coulomb_s_initial_ansatz}を代入すると，
+\begin{align}\label{eq:scat_sol_dif_eq}
+&\qty[-k^2 g(\xi) + \frac{4}{\xi + \zeta} \qty(1-ik\xi )g'(\xi) + \frac{4\xi}{\xi+ \zeta}g''(\xi) + k^2g(\xi) - \frac{4\eta k}{\xi + \zeta} g(\xi)] e^{ikz} = 0 
+\end{align}
+であり，変形して，
+\begin{align}\label{eq:coulomb_sc_dif_eq}
+  \xi g''(\xi) + (1 - ik\xi) g'(\xi) - \eta k g(\xi) = 0
+\end{align}
+が，$g(\xi)$の従う微分方程式である．
+この微分方程式の解は合流型超幾何関数であり，
+\begin{align}\label{eq:cofluent_hyp_geom_dif}
+  z \dv[2]{F}{z} + (b - z) \dv{F}{z} - aF = 0
+\end{align}
+の解を，$F(a,b,z)$と書く．
+
+よって，式\ref{eq:coulomb_sc_dif_eq}において，$s = ik\xi$と変数変換をし，$f(s) = g(\xi)$と置き換えることで，
+\begin{align*}
+  &\frac{s}{ik} (ik)^2 f''(s) + (1 - s) (ik) f'(s) - \eta k f(s) = 0 \\
+  & s f''(s) + (1-s) f'(s) - (- i \eta) f(s)  = 0
+\end{align*}
+となる．よって\ref{eq:coulomb_s_schro_rev}の解は，
+\begin{align}\label{eq:coulomb_sc_solution}
+  \phi_C(\bm{k};\bm{r}) = C e^{ikz} F(-i\eta, 1, ik(r-z))
+\end{align}
+である．
+\subsection{合流型超幾何関数}
+\cite{BN01957611}，\cite{igi_kawai1994}を参照されたい．
+
+合流型超幾何関数は，式\ref{eq:cofluent_hyp_geom_dif}の解であり，
+ガンマ関数を用いることで，
+\begin{align}\label{eq:expansion_cofluent_hyp}
+  F(a,b,z) = \sum_{n=0}^{\infty} \frac{\Gamma(a+n)\Gamma(b)}{\Gamma(a)\Gamma(b+n)} \frac{x^n}{n!}
+\end{align}
+と表される．
+
+実際に，式\ref{eq:cofluent_hyp_geom_dif}から，級数解を求めてみる．
+\begin{theorem}[合流型超幾何関数]
+  \begin{align}\tag{\ref{eq:cofluent_hyp_geom_dif}}
+    z \dv[2]{F}{z} + (b - z) \dv{F}{z} - aF = 0
+  \end{align}
+  の解は，
+  \begin{align}\tag{\ref{eq:expansion_cofluent_hyp}}
+    F(a,b,z) = \sum_{n=0}^{\infty} \frac{\Gamma(a+n)\Gamma(b)}{\Gamma(a)\Gamma(b+n)} \frac{x^n}{n!}
+  \end{align}
+  と書かれる．
+\end{theorem}
+\begin{proof}
+  式\ref{eq:cofluent_hyp_geom_dif}について，$F$を
+  \begin{align}\label{eq:cofluent_initial_guess}
+    F(z) = \sum_{n = 0}^{\infty} c_n \frac{z^n}{n!}
+  \end{align}
+  と置く．式\ref{eq:cofluent_initial_guess}を式\ref{eq:cofluent_hyp_geom_dif}に代入して，漸化式を求める．
+  まず，各項について求めると，
+  \begin{align*}
+    z \dv[2]{F}{z} &= \sum_{n = 2}^{\infty} c_n \frac{z^{n-1}}{(n-2)!} = \sum_{n=0}^{\infty} n c_{n+1} \frac{z^n}{n!} \\
+    (b - z) \dv{F}{z} &= \sum_{n=1}^{\infty} c_n (b-z) \frac{z^{n-1}}{(n-1)!} = \sum_{n=0}^{\infty} (b c_{n+1} - n c_n) \frac{z^n}{n!} \\
+    a F(z) &= \sum_{n=0}^{\infty} a c_n \frac{z^n}{n!} .
+  \end{align*}
+  よって，
+  \begin{align}\label{eq:reccurance_cofluent_coeff}
+    \sum_{n=0}^{\infty} \qty[\qty(n+b)c_{n+1} - (n + a) c_n] \frac{z^n}{n!} = 0
+  \end{align}
+  となる．式\ref{eq:reccurance_cofluent_coeff}が任意の$z$で成り立つことから，
+  \begin{align}\label{eq:coeff_ratio}
+    \frac{c_{n+1}}{c_n} = \frac{n+a}{n+b}
+  \end{align}
+  となるため，
+  \begin{align}\label{eq:coeff_det}
+    c_n = c_0 \prod_{k=0}^{n-1} \qty(\frac{k+a}{k+b}) = c_0 \frac{\Gamma(n + a)}{\Gamma(a)} \frac{\Gamma(b)}{\Gamma(n + b)}
+  \end{align}
+  を得る．
+  ここで，$\Gamma(n+a) = (n-1+a) \Gamma(n-1 + a) = \cdots = (n-1 + a)(n-2 + a) \cdots (1 + a) a\Gamma(a)$を用いた．
+
+  式，\ref{eq:coeff_det}を式\ref{eq:cofluent_initial_guess}に代入することで，
+  \begin{align}\label{eq:solution_cofluent_diffeq}
+    F(z) = c_0 \sum_{n=0}^{\infty}  \frac{\Gamma(a+n)\Gamma(b)}{\Gamma(a)\Gamma(b+n)} \frac{z^n}{n!}.
+  \end{align}
+  となり，式\ref{eq:solution_cofluent_diffeq}の係数を1としたものが，式\ref{eq:expansion_cofluent_hyp}となっている．
+\end{proof}
+
+さらに，β関数
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+% \bibliographystyle{unsrt}
+% \bibliography{main}
+\printbibliography% biblatex
+\end{document}
