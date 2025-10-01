@@ -118,7 +118,50 @@ $\ket{\psi^\mathrm{sc}(\bm{k})} = \ket{\psi (\bm{k})} - \ket{\phi(\bm{k})}$
 \end{align}
 となる．式\ref{eq:lippman_schwinger_eq_1}，\ref{eq:lippman_scwinger_eq_2}がリップマン・シュウィンガー方程式である．
 
-\subsubsection{The free particle Green's function}
+\subsubsection{The M\o ller wave operators}
+散乱状態と平面波の間の関係を結ぶM\o ller wave operators，$\Omega^{(\pm)}$を導入すると便利であろう．
+\begin{align}\label{eq:def_Moller_wave_op}
+  \Omega^{(\pm)} \ket{\phi(\bm{k})} = \ket{\psi^{(\pm)}(\bm{k})}
+\end{align}
+これは，リップマンシュウィンガー方程式から，
+\begin{align*}
+  \Omega^{(\pm)}\ket{\phi(\bm{k})} = \qty[1 + G_0^{(\pm)}(E_k) V \Omega^{(\pm)}] \ket{\phi(\bm{k})}
+\end{align*}
+という関係式があるため，M\o ller wave operatorsは，エネルギー$E_k$依存性をもち，
+\begin{align}\label{eq:Moller_wop_expression}
+  \Omega^{(\pm)} (E_k)= 1 + G_0^{(\pm)}(E_k) V \Omega^{(\pm)} 
+\end{align}
+と表されることがわかる．
+また，
+\begin{align}
+  \Omega^{(\pm)} (E_k) = 1 + G^{(\pm)}(E_k) V
+\end{align}
+という関係もわかる．また，$\Omega^{(\pm)}$は
+\begin{align}
+  \Omega^{(\pm)} = \int \dd[3]{\bm{k}} \ket{\psi^{(\pm )} (\bm{k})} \bra{\phi(\bm{k})}
+\end{align}
+と表されることもわかる．この表式から，
+\begin{align}
+  \Omega^{(\pm)\dagger} \Omega^{(\pm)} &= \bm{1} \\
+  \Omega^{(\pm)} \Omega^{(\pm)\dagger} &= 1 - \sum_n \ket{\psi_n} \bra{\psi_n}
+\end{align}
+が満たされることもわかる．
+
+いくつかの便利な恒等式を導こう．式\ref{eq:Moller_wop_expression}から，
+\begin{align}
+  \Omega^{(\pm)\dagger} = 1 + \Omega^{(\pm)\dagger} V G_0^{(\pm) \dagger} = 1 + \Omega^{(\pm)\dagger} V G_0^{(\mp)}
+\end{align}
+となるため，
+\begin{align}
+  \Omega^{(\pm)\dagger} = \frac{1}{1-VG_0^{(\mp)}} \\
+  \Omega^{(\pm)} = \frac{1}{1-G_0^{(\pm)}V}.
+\end{align}
+
+
+
+\subsection{The transition and the scattering operators}
+
+
 
 
 
