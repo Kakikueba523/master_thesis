@@ -36,6 +36,104 @@
 
 \cite{canto2013scattering}を参照すること．
 
+\subsection{Lippmann-Schwinger equations}
+波数ベクトル$\bm{k}$，エネルギー$E_{\bm{k}} := \hbar^2 k^2 / 2\mu$の自由粒子のシュレーディンガー方程式は，
+\begin{align}\label{eq:free_p_shcrodinger}
+  (E_k - H_0) \ket{\phi(\bm{k})} = 0
+\end{align}
+であり，$r>\bar{R}$で消えるポテンシャル$V$をもつシュレーディンガー方程式は，
+\begin{align}\label{eq:int_p_schrodinger}
+  (E_k - H)\ket{\psi(\bm{k})} = 0
+\end{align}
+と書ける．ここで，$H_0 = K$は運動エネルギー演算子であり，$H = H_0 + V$である．
+
+$H = H^\dagger, H_0 = H_0^\dagger$であることから，$\ket{\phi(\bm{k})}$と$\ket{\psi(\bm{k})}$は，以下の関係で正規化される．
+\begin{align}\label{eq:normalization_condition}
+  \braket{\phi(\bm{k}')}{\phi(\bm{k})} &= \delta (\bm{k}- \bm{k}') \\
+  \braket{\psi(\bm{k}')}{\psi(\bm{k})} &= \delta (\bm{k}-\bm{k}') \\
+  \braket{\psi_m}{\psi(\bm{k})} &= 0 \\
+  \braket{\psi_m}{\psi_n} &= \delta_{mn}
+\end{align}
+$m$，$n$はハミルトニアン$H$の負エネルギー固有状態を表している．
+$\ket{\psi(\bm{k})}$，$\ket{\phi(\bm{k})}$
+における完全性の式は，
+\begin{gather}\label{eq:complete_set}
+  \int \ket{\phi(\bm{k})} \dd[3]{\bm{k}} \bra{\phi(\bm{k})} = \bm{1} \\
+  \int \ket{\psi(\bm{k})} \dd[3]{\bm{k}} \bra{\psi(\bm{k})} + \sum_n \ket{\psi_n} \bra{\psi_n} = \bm{1} 
+\end{gather}
+
+freeとfullのグリーン関数はそれぞれ，
+\begin{align}\label{eq:def_green_fnc}
+  G_0(E) = \frac{1}{E - H_0} \\
+  G(E) = \frac{1}{E- H}
+\end{align}
+と定義される．
+$G$と$G_0$の間の関係を求めるために，
+\begin{align*}
+  A^{-1} = B^{-1} + B^{-1}(B-A)A^{-1}
+\end{align*}
+という恒等式を用い，$A = E-H = E - (H_0 + V)$，$B = E - H_0$
+と置き換えることで，
+\begin{align}\label{eq:G_equal_G_0_equation}
+  G(E) = G_0(E) + G_0(E)V G(E)
+\end{align}
+となり，$A = E - H_0$，$B = E-(H_0 +V)$と置き換えることで，
+\begin{align}\label{eq:G_0_equal_G_equation}
+  G_0(E) = G(E) + G(E)(-V)G_0(E) \notag \\
+  G(E) = G_0(E) + G(E) V G_0(E)  
+\end{align}
+となる．
+
+$\ket{\psi(\bm{k})}$についてみてみよう．
+いま，式\ref{eq:int_p_schrodinger}において，
+\begin{align}\label{eq:int_p_shcro_rev}
+  (E_k-H_0) \ket{\psi(\bm{k})} = V \ket{\psi(\bm{k})}
+\end{align}
+と書き換えて，
+$\ket{\psi(\bm{k})} = \ket{\phi(\bm{k})} + \ket{\psi^\mathrm{sc} (\bm{k})}$と分解し，式\ref{eq:int_p_shcro_rev}
+に代入し式\ref{eq:free_p_shcrodinger}を用いると，
+\begin{align}\label{eq:int_p_shcro_rev_2}
+  (E_k - H_0) \ket{\psi^\mathrm{sc}(\bm{k})} = V \ket{\psi(\bm{k})}
+\end{align}
+を得る．式\ref{eq:int_p_shcro_rev_2}に左から$G_0(E_k)$を掛けて，
+$\ket{\psi^\mathrm{sc}(\bm{k})} = \ket{\psi (\bm{k})} - \ket{\phi(\bm{k})}$
+を代入して，
+\begin{align}\label{eq:lippman_schwinger_eq_1}
+  \ket{\psi(\bm{k})} = \ket{\phi(\bm{k})} + G_0(E_k) V \ket{\psi(\bm{k})}
+\end{align}
+を得る．
+一方で，式\ref{eq:int_p_shcro_rev_2}の右辺に，$\ket{\psi(\bm{k})} = \ket{\phi(\bm{k})} + \ket{\psi^\mathrm{sc} (\bm{k})}$
+という関係式を用いることで，
+\begin{align}\label{eq:inti_p_shcro_rev_3}
+  (E_k - H_0 - V) \ket{\psi^\mathrm{sc}(\bm{k})} = V \ket{\phi(\bm{k})}
+\end{align}
+となり，左から$G(E_k)$を掛けて，
+\begin{align*}
+  \ket{\psi^\mathrm{sc}(\bm{k})} = G(E_k) V \ket{\phi(\bm{k})}
+\end{align*}
+を得る．よって，$\ket{\psi(\bm{k})} = \ket{\phi(\bm{k})} + \ket{\psi^\mathrm{sc} (\bm{k})}$
+を用いると，
+\begin{align}\label{eq:lippman_scwinger_eq_2}
+  \ket{\psi(\bm{k})} = \ket{\phi(\bm{k})} + G(E_k) V \ket{\phi(\bm{k})} = (1 + G(E_k) V) \ket{\phi(\bm{k})}
+\end{align}
+となる．式\ref{eq:lippman_schwinger_eq_1}，\ref{eq:lippman_scwinger_eq_2}がリップマン・シュウィンガー方程式である．
+
+\subsubsection{The free particle Green's function}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
