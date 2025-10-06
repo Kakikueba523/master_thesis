@@ -60,6 +60,67 @@ M3Y double folding potentialは，
 のように定義される．
 ここで，$v_\mathrm{M3Y}(\bm{r})$は，Reidポテンシャルから導かれる有効核子間相互作用である．
 
+
+\section{S行列の求め方と，ポール探索}
+
+
+\subsection{ハミルトニアン}
+$\isotope{C} + \isotope{C}$チャネルと，複合核($\isotope{Mg}$)チャネルを記述するハミルトニアンは，
+行列形式で，
+\begin{align}\label{eq:total_hamiltonian}
+  \bm{H} = 
+  \begin{pmatrix}
+    \bm{H}_\text{C+C} & \bm{V} \\
+    \bm{V}^T & \bm{H}_\text{CN}
+  \end{pmatrix}
+\end{align}
+のように書かれる．
+ここで，$\bm{H}_\text{C+C}$はC+Cチャネルのハミルトニアン，$\bm{H}_\text{CN}$は複合核チャネルのハミルトニアン，$\bm{V}$はカップリング行列である．
+
+$\bm{H}_\text{C+C}$は，メッシュ間隔$\Delta r$であり，サイトが$r_i = i \Delta r$，($i = 1, \dots , N_\text{C+C}$)
+をもつ，動径方向の相対運動シュレーディンガー方程式，
+\begin{align}\label{eq:entrance_hamiltonian}
+  \bm{H}_{\text{C+C}, ij} = \qty[2t + V(r_i)]\delta_{ij} - t\delta_{i, j+1} - t\delta_{i,j-1}
+\end{align}
+
+を解く．
+
+
+\subsection{S行列の計算}
+
+\subsection{S行列のポール探索}
+共鳴は，$S$行列のポールとして定義され，共鳴エネルギーを持つとき，
+系は外向波境界条件が課される．
+つまり，
+\begin{align}
+  \frac{u(N_\text{C+C} + 1) }{ u(N_\text{C+C})}= \frac{H_l^+(k (N_\text{C+C} + 1)) }{ H_l^+(k N_\text{C+C})}
+\end{align}
+と，$u(0) = 0$を境界条件として固有値問題を解く．
+\begin{align}
+  \bm{M}(k) \vec{u} = \qty(\bm{H} - t )
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
 % \bibliographystyle{unsrt}
 % \bibliography{main}
 \printbibliography% biblatex
