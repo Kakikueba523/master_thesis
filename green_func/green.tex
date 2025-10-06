@@ -161,16 +161,103 @@ $\ket{\psi^\mathrm{sc}(\bm{k})} = \ket{\psi (\bm{k})} - \ket{\phi(\bm{k})}$
 
 \subsection{The transition and the scattering operators}
 
+散乱振幅は，散乱状態と平面波のポテンシャルの行列要素に比例している．
+\begin{align}\label{eq:scattering_amplitude}
+  f(\theta) = -2\pi^2 \qty(\frac{2\mu}{\hbar^2}) \mel{\phi(\bm{q})}{V}{\psi^{(\pm)}(\bm{k})}
+\end{align}
+これらは，同じ基底による表現になっていないため，
+前節で導入したM\o ller演算子を用いて，
+\begin{align}\label{eq:scattering_amplitude_moller}
+  f(\theta) = -2\pi^2\qty(\frac{2\mu}{\hbar^2}) \mel{\phi(\bm{k}')}{V \Omega{(+)}}{\phi(\bm{k})}
+\end{align}
+と書き換える．遷移演算子は，
+\begin{align}\label{eq:def_transition_operator}
+  T = V \Omega^{(+)}
+\end{align}
+で定義され，自由状態における$T$の行列要素は，
+\begin{align}\label{eq:mel_T_free}
+  T_{\bm{k}', \bm{k}} \equiv \mel{\phi(\bm{k}')}{T}{\phi(\bm{k})}
+\end{align}
+と書かれ，$T$行列と呼ばれる．$\bm{k}' = \bm{k}$において運動量$\hbar \bm{k}$から$\hbar \bm{k}'$
+へのポテンシャル$V$の下での遷移確率を与える．
+式\ref{eq:mel_T_free}を式\ref{eq:scattering_amplitude}に代入することで，
+\begin{align}\label{eq:scattering_amplitude_tmatrix}
+  f(\theta) = -2\pi^2 \qty(\frac{2\mu}{\hbar^2}) T_{\bm{k}', \bm{k}}
+\end{align}
+を得る．
+それゆえ，$T$行列は散乱振幅を与え，断面積を得ることができる．
 
+式\ref{eq:mel_T_free}は$G$行列のパワーシリーズで書くことができ，
+リップマンシュウィンガー方程式から，
+\begin{align}\label{eq:tmatrix_power_series}
+  T_{\bm{k}', \bm{k}} = \mel{\phi(\bm{k}')}{V\sum_{n=0}^{\infty} \qty(G_0^{(+)}(E_k)V)^n}{\phi(\bm{k})}
+\end{align}
+となり，これを\emph{ボルン近似}と呼ぶ．$n=0$のみをとったものを一次ボルン近似，
+あるいは単にボルン近似と呼ぶ．
 
+式\ref{eq:Moller_wop_expression}の+に対して，左から$V$を作用させると，
+\begin{align}\label{eq:LS_for_t}
+  T = V + V G_0^{(+)}(E_k)T
+\end{align}
+を得る．また，
+\begin{align}\label{eq:LS_for_t_g}
+  T = V + VG^{(+)}(E_k)V
+\end{align}
+もわかる．
 
+遷移演算子$T$は，$\Omega^{-}$についても与えることができ，
+\begin{align}\label{eq:omega_minus_t}
+  V \Omega^{(-)}(E) = V + V G^{(-)}(E) V
+\end{align}
+となる．この式でエルミート共役をとり，$V^\dagger = V$と$\qty[G^{(-)(E)}] ^\dagger = G^{(+)}(E) $
+を用いることで，
+\begin{align}\label{eq:omega_minus_t_dagger}
+  \qty[\Omega^{(-)}(E)]^\dagger V = V + V G^{(+)}(E) V
+\end{align}
+となる．式\ref{eq:omega_minus_t_dagger}と式\ref{eq:LS_for_t_g}を比較することで，
+\begin{align}\label{eq:t_for_omega_pm}
+  T = V \Omega^{(+)} = \Omega^{(-)\dagger} V
+\end{align}
+を得る．また，散乱振幅についても$\Omega^{(-)}$を用いて，
+\begin{align}
+  f(\theta) = - 2\pi^2 \frac{2\mu}{\hbar^2} \mel{\psi^{(-)}(\bm{k}')}{V}{\phi(\bm{k})}
+\end{align}
+と書けることがわかる．
+\subsubsection{The Optical Theorem}
+$T$行列のリップマンシュウィンガー方程式から，光学定理を導出しよう．
+\begin{align}\label{eq:completeset}
+  \int \ket{\psi^{(+)}(\bm{q})} \dd[3]{\bm{q}} \bra{\psi^{(+)}} + \sum_n \ket{n}\bra{n} = 1
+\end{align}
+という完全系を用いて，$G^{(+)}(E)$のスペクトル展開を行う．
+ここで，$\ket{n}$はエネルギー$E_n = - B_n$の束縛状態を表している．
+式\ref{eq:LS_for_t_g}に代入し，平面波状態で挟むことで，
+\begin{align}\label{eq:spectral_exp_for_t}
+  T_{\bm{k}', \bm{k}}(E) = V_{\bm{k}', \bm{k}} + \sum_n \frac{V_{\bm{k}', n} V_{n, \bm{k}}}{E + B_n} + \int \dd[3]{\bm{q}} \frac{\mel{\phi(\bm{k}')}{V}{\psi^{(+)}(\bm{q})}\mel{\psi^{(+)}(\bm{q})}{V}{\phi(\bm{k})}}{E-E_q + i\epsilon}
+\end{align}
+となる．ここで，$\mel{\phi(\bm{k}')}{V}{\psi^{(+)}(\bm{q})} = T_{\bm{k}', \bm{q}}(E_q)$，$\mel{\psi^{(+)}(\bm{q})}{V}{\phi(\bm{k})} = T_{\bm{k}, \bm{q}}^*(E_q)$と置き換えることで，
+\begin{align}\label{eq:spectral_exp_for_t_2}
+  T_{\bm{k}', \bm{k}}(E) = V_{\bm{k}', \bm{k}} + \sum_n \frac{V_{\bm{k}', n} V_{n, \bm{k}}}{E + B_n} + \int \dd[3]{\bm{q}} \frac{T_{\bm{k}', \bm{q}}(E_q)T_{\bm{k}, \bm{q}}^*(E_q)}{E-E_q + i\epsilon}
+\end{align}
+と書かれる．これは，Law's equationと呼ばれる．
 
-
-
-
-
-
-
+$\bm{k}' = \bm{k}$，$E = E_k$とおいて，式\ref{eq:spectral_exp_for_t_2}の虚部をみることで，
+\begin{align}\label{eq:imaginary_part_of_T}
+  T_{\bm{k}, \bm{k}}(E_k) - T_{\bm{k}, \bm{k}}^*(E_k) = -2\pi i \int \dd[3]{\bm{q}}T_{\bm{k}, \bm{q}}(E_q) T_{\bm{k}, \bm{q}}^*(E_q)\delta(E-E_q)
+\end{align}
+積分測度を
+\begin{align*}
+  \dd[3]{\bm{q}} = q^2 \dd{q} \dd{\Omega_{\bm{q}}} = \frac{\mu q}{\hbar^2} \dd{E_q} \dd{\Omega_{\bm{q}}}
+\end{align*}
+と置き換えることで，
+\begin{align}\label{eq:imaginary_part_of_t_2}
+  \mathrm{Im} \qty{T_{\bm{k}, \bm{k}}(E_k)} = - \pi \frac{\mu k}{\hbar^2} \int \dd{\Omega_{\bm{q}}} \abs{T_{\bm{k},\bm{q}}(E_k)}^2
+\end{align}
+となり，式\ref{eq:scattering_amplitude_tmatrix}を用いることで，
+\begin{align}\label{eq:optical_theorem}
+  \frac{4\pi}{k}\mathrm{Im}\qty{f(0)} = \int \dd{\Omega} \abs{f(\theta)}^2 = \sigma_\text{el}
+\end{align}
+を得る．
+\subsubsection{The S-matrix}
 
 
 
