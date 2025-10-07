@@ -133,7 +133,7 @@ $\ket{\psi^\mathrm{sc}(\bm{k})} = \ket{\psi (\bm{k})} - \ket{\phi(\bm{k})}$
 \end{align}
 と表されることがわかる．
 また，
-\begin{align}
+\begin{align}\label{eq:moller_op_by_g}
   \Omega^{(\pm)} (E_k) = 1 + G^{(\pm)}(E_k) V
 \end{align}
 という関係もわかる．また，$\Omega^{(\pm)}$は
@@ -258,6 +258,96 @@ $\bm{k}' = \bm{k}$，$E = E_k$とおいて，式\ref{eq:spectral_exp_for_t_2}の
 \end{align}
 を得る．
 \subsubsection{The S-matrix}
+散乱演算子$S$を導入しよう．
+\begin{align}\label{eq:def_of_S_operator}
+  S = \Omega^{(-)\dagger} \Omega^{(+)}
+\end{align}
+オンシェルの$S$演算子の行列要素は，\emph{S行列}と呼ばれ，散乱理論において重要な役割を担う．
+$S$行列の行列要素は，
+\begin{align}\label{eq:s_matrix_element}
+  S_{\bm{k}', \bm{k}} = \mel{\phi(\bm{k}')}{\Omega^{(-)\dagger} \Omega^{(+)}}{\phi(\bm{k})}
+\end{align}
+と書かれ，式\ref{eq:def_Moller_wave_op}を考慮すると，
+\begin{align}\label{eq:s_matrix_element_2}
+  S_{\bm{k}', \bm{k} } = \braket{\psi^{(-)}(\bm{k}')}{\psi^{(+)}(\bm{k})}
+\end{align}
+と書かれることもわかる．散乱演算子の重要な性質として，ユニタリ性があげられる．
+\begin{align}\label{eq:unitarity_of_S}
+  S^{\dagger} S = S S^{\dagger} = \bm{1}
+\end{align}
+あるいは，運動量空間では
+\begin{align}\label{eq:unitarity_of_s_in_momentum}
+  \qty(S^{\dagger} S)_{\bm{k}', \bm{k}} = \qty(S S^{\dagger})_{\bm{k}', \bm{k}} = \delta(\bm{k} -\bm{k}')
+\end{align}
+と表される． 
+\begin{align*}
+  S^{\dagger} S 
+  &= \Omega^{(+)\dagger} \Omega^{(-)} \Omega^{(-)} \Omega^{(+)} \\
+  &= \Omega^{(+)\dagger} \qty(\bm{1} - \sum_n \ket{\psi_n}\bra{\psi_n}) \Omega^{(+)} \\
+  &= \Omega^{(+)\dagger} \Omega^{(+)} = \bm{1}
+\end{align*}
+
+$S$行列は，オンシェルの$T$行列と， 
+\begin{align}\label{eq:s_matrix_by_t}
+  S_{\bm{k}', \bm{k}} = \delta(\bm{k} - \bm{k}') - 2 \pi i \delta(E_k - E_{k'}) T_{\bm{k}', \bm{k}}
+\end{align}
+のような関係があり，演算子のノーテーションでは，
+\begin{align}
+  S(E) = 1 - 2\pi i \delta(E-H_0) T(E)
+\end{align}
+という関係があることがわかる．以下で証明を行おう．
+
+まず，$\Omega^{(-)}$について，式\ref{eq:moller_op_by_g}を用いることで，式\ref{eq:s_matrix_element}は，
+\begin{align}\label{eq:S_matrix_by_g}
+  S_{\bm{k}', \bm{k}} &= \mel{\phi(\bm{k}')}{1+VG^{(-)\dagger}(E_{k'})}{\psi^{(+)}(\bm{k})} \notag \\
+  &= \mel{\phi(\bm{k}')}{1+VG^{(+)}(E_{k'})}{\psi^{(+)}(\bm{k})} \equiv A + B
+\end{align}
+と書ける．ここで，
+\begin{align}
+  A = \braket{\phi(\bm{k}')}{\psi^{(+)}(\bm{k})} = \mel{\phi(\bm{k}')}{\Omega^{(+)}(E_k)}{\phi(\bm{k})}
+\end{align}
+および，
+\begin{align}
+  B = \mel{\phi(\bm{k}')}{VG^{(+)}(E_{k'})}{\psi^{(+)}(\bm{k})}
+\end{align}
+と置き換えた．$\Omega^{(+)}(E_k) = 1 + G_0^{(+)}(E_k)V\Omega^{(+)}(E_k)$
+という関係式を用いて，$A$を変形して，
+\begin{align}
+  A 
+  &= \mel{\phi(\bm{k}')}{1 + G_0^{(+)}(E_{k})V\Omega^{(+)}(E_{k})}{\phi(\bm{k})} \notag \\
+  &= \braket{\phi(\bm{k}')}{\phi(\bm{k})} + \mel{\phi(\bm{k}')}{\frac{1}{E_k - H_0 + i\epsilon}V\Omega^{(+)}(E_k)}{\phi(\bm{k})}  \notag \\
+  &= \delta(\bm{k}-\bm{k}') + \frac{1}{E_k - E_{k'} + i\epsilon}\mel{\phi(\bm{k}')}{V\Omega^{(+)}(E_k)}{\phi(\bm{k})} \notag \\
+  &= \delta(\bm{k}-\bm{k}') + \frac{1}{E_k - E_{k'} + i\epsilon}\mel{\phi(\bm{k}')}{T}{\phi(\bm{k})} 
+\end{align}
+と書かれる．
+また，$B$については，
+\begin{align}
+  B 
+  &= \mel{\phi(\bm{k}')}{V \frac{1}{E_{k'} - H + i\epsilon}}{\psi^{(+)}(\bm{k})} \notag \\
+  &= \frac{1}{E_{k'} - E_k + i\epsilon} \mel{\phi(\bm{k}')}{V}{\psi^{(+)}(\bm{k})} \notag \\
+  &= - \frac{1}{E_k - E_{k'} - i \epsilon} \mel{\phi(\bm{k}')}{V \Omega^{(+)}(E_k)}{\phi(\bm{k})} \notag \\
+  &= - \frac{1}{E_k - E_{k'} - i \epsilon} \mel{\phi(\bm{k}')}{T}{\phi(\bm{k})} 
+\end{align}
+となるため，$A+B$を実行することで，式\ref{eq:s_matrix_element}が示された．
+
+また，$S$行列のユニタリ性である式\ref{eq:unitarity_of_S}を式\ref{eq:s_matrix_by_t}で置き換えることで，
+光学定理が導かれる．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
