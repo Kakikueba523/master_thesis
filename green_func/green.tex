@@ -21,7 +21,7 @@
 \newtheorem{lemma}[theorem]{補題}      % theoremと同じカウンタを共有
 \newtheorem{proposition}[theorem]{命題}
 \newtheorem{corollary}[theorem]{系}
-
+\numberwithin{equation}{section}
 \begin{document}
 
 \title{test}
@@ -334,15 +334,89 @@ $S$行列は，オンシェルの$T$行列と，
 光学定理が導かれる．
 
 
+\subsection{The time-dependent picture}
 
+波束の時間発展を追うことにより，散乱演算子についてより理解しよう．
+入射粒子は，全体のハミルトニアン$H$の時間依存シュレーディンガー方程式に従って
+時間発展するため，波束は$H$の固有状態の重ね合わせとして表現できる．漸近的な散乱状態は
+外向き球面波を含むので，$\psi^{(+)}$の展開で書かれる．
+つまり，
+\begin{align}
+  \Psi^{(+)}(\bm{k}; \bm{r}, t) = \int \dd[3]{\bm{k}'} A(\bm{k}' - \bm{k}) e^{-i\omega_{k'} t} \psi^{(+)} (\bm{k}'; \bm{r}) 
+\end{align}
 
+結局，
+\begin{align}\label{eq:moller_op_t_dep}
+  \Omega^{(\pm)} = \lim_{t' \rightarrow \pm \infty} \qty[e^{-iH(t'-t)/\hbar} e^{iH_0(t'-t)/\hbar}] 
+\end{align}
+となります．
 
+これは，演算子$\Omega^{(\pm)}$が，
+\begin{align} 
+  \ket{\Psi^{(\pm)}(\bm{k};t)} = \Omega^{(\pm)} \ket{\Phi(\bm{k}; t)}
+\end{align}
+という関係で，散乱波と平面波状態をつなげるために，
+$\Omega^{(+)}$という演算子は，
+時刻$t$における平面波状態を一度$t \rightarrow -\infty$へプロパゲートさせて，$\Psi^{(+)}(\bm{k}; \bm{r}, t')$という状態に一致させて，
+それから時刻$t$へ$H$によってプロパゲートさせる演算子となっている．
+$\Omega^{(-)}$という演算子は，逆に，平面波状態を$t \rightarrow \infty$へと発展させて，
+フルのハミルトニアン$H$で時刻$t$へと戻すような演算子となっている．
 
+\subsubsection{Time-dependent definition of the scattering operator}
+散乱実験は，自由波束$\Phi^{\text{in}}(\bm{k}_i)$という状態から始まる．
+波束は，標的核から十分に離れているため，自由粒子と同様にプロパゲートする
+$\Psi^{(+)}(\bm{k}_i; \bm{r}, t\rightarrow -\infty) = \Phi^{\text{in}} (\bm{k}_i;\bm{r}, t \rightarrow -\infty)$
+が成り立つ．標的核と相互作用することで，$\Phi^{\text{in}} (\bm{k}_i; \bm{r}, t)$との差が生じ，さらに時間がたつと再び自由プロパゲートし，
+$\Phi^{\text{out}}$へと漸近する．
+断面積は，このような状態で測定されるために，散乱過程にかんするあらゆる情報は$\Phi^{\text{out}}$に含まれている．
+よって，散乱問題は$\Phi^{\text{in}}(\bm{k}_i;\bm{r},t)$を$\Phi^{\text{out}}(\bm{k}_i;\bm{r}, t)$へと変換する散乱演算子
+$S$を見つけることへと帰着される．
+\begin{align}
+  \ket{\Phi^{\text{out}}(\bm{k}_i)} = S \ket{\Phi^{\text{in}}(\bm{k}_i)}
+\end{align}
+角度$\theta$における断面積が求められたとき，
+測定は$\ket{\Psi^{\text{out}}(\bm{k}_i)}$を$\ket{\bar{\Phi}(\bm{k}_f)}$という状態へと射影することを表しており，
+$\bm{k}_f$は$\bm{k}_i$とおなじ大きさをもち成す角度が$\theta$のベクトルである．
+断面積は，波束の形の詳細にはよらないので，
+$\ket{\bar{\Phi}(\bm{k}_f)} \simeq \ket{\Phi(\bm{k}_f)}$と置き換えることができる．
+よって，弾性散乱断面積に関する情報は，S行列要素，
+\begin{align}\label{eq:s_matrix_el_t_dep}
+  S_{fi} \equiv \mel{\Phi(\bm{k}_f)}{S}{\Phi(\bm{k}_i)} = \braket{\Phi(\bm{k}_f)}{\Phi^{\text{out}}(\bm{k}_i)}  
+\end{align} 
+に含まれることがわかる．ここで，$\Phi^{\text{out}}(\bm{k}_i) = S \ket{\Phi^{\text{in}}(\bm{k}_i)} \rightarrow S \ket{\Phi(\bm{k}_i)}$ 
+と書き換えた．
+式\ref{eq:s_matrix_el_t_dep}
+において，$\ket{\Phi^{\text{out}}(\bm{k}_f)}$と$\ket{\Phi(\bm{k}_f)}$は$t \rightarrow +\infty$における正確な漸近形であるが，
+$H$がエルミート演算子であるため，このS行列は任意の時間$t_0$において同じ値をとる．
+よって，$t = +\infty$における漸近形をフルのハミルトニアンで$t = t_0$までプロパゲートさせて
+\begin{align*}
+  \ket{\Psi^{\text{out}}(\bm{k}_i)} \rightarrow \ket{\Psi^{(+)}(\bm{k}_i)} \quad \mathrm{and} \quad \ket{\Phi(\bm{k}_f)} \rightarrow \ket{\Phi^{(-)}(\bm{k}_f)}
+\end{align*}
+を得るために，式\ref{eq:s_matrix_el_t_dep}は
+\begin{align}
+  S_{fi} = \braket{\Psi^{(-)}(\bm{k}_f)}{\Psi^{(+)}(\bm{k}_i)}
+\end{align}
+あるいは，M\o ller演算子を用いて，
+\begin{align}
+  S_{fi} = \mel{\Phi(\bm{k}_f)}{\Omega^{(-)\dagger}\Omega^{(+)}}{\Phi(\bm{k}_i)}
+\end{align}
+と書ける．よって，
+\begin{align}
+  S = \Omega^{(-)\dagger}\Omega^{(+)}
+\end{align}
+が導かれる．
 
+時間依存シュレーディンガー方程式からS行列を定義したが，これは時間依存をしない系から定義したS行列と等価である．
+じっさい，式\ref{eq:def_of_S_operator}において，式\ref{eq:moller_op_t_dep}を代入すると，
+\begin{align}
+  S 
+  &= \lim_{t_1 \rightarrow \infty , t_2 \rightarrow -\infty} \qty[e^{-iH_0(t_2 - t)/\hbar} e^{iH(t_2 - t)/ \hbar} e^{-iH(t_1 -t)/\hbar} e^{iH_0(t_1 - t)/\hbar}] \notag \\
+  &= \lim_{t_1 \rightarrow \infty , t_2 \rightarrow -\infty} \qty[e^{-iH_0t_2/\hbar} e^{iH(t_2 -t_1 )/ \hbar} e^{iH_0t_1 /\hbar}] \notag
+\end{align}
+という関係式が得られる．($t_2 -t \rightarrow t_2, \quad t_1- t \rightarrow t_1 $)
+と置き換えた．
 
-
-
-
+\subsubsection{Energy conservation}
 
 
 
