@@ -20,7 +20,7 @@
 
 \begin{document}
 
-\title{test}
+\title{炭素核融合反応の微視的原子核模型による記述}
 \author{長尾 昂青}
 \date{\today}
 \maketitle
@@ -30,12 +30,14 @@
 \newpage
 \section{はじめに}
 
-$^{12}$Cの核融合
+$\isotope[12]{C} + \isotope[12]{C}$核融合反応は，巨大恒星の進化の過程や宇宙における
+爆発現象に深く関わっている．
 
 \begin{align}\label{eq:fusion}
-  \isotope[12]{C} + \isotope[12]{C} \rightarrow  \isotope[24]{Mg}
+  \isotope[12]{C} + \isotope[12]{C} \rightarrow  \isotope[24]{Mg}^* &\rightarrow \isotope[23]{Na} + p \notag \\
+                                                                  &\rightarrow \isotope[20]{Ne} + \alpha \notag
 \end{align}
-式\ref{eq:fusion}は巨大恒星の進化の終盤において，重要な役割を担う．
+は巨大恒星の進化の終盤において，重要な役割を担う．
 現状では，この過程における反応率は，
 実験で得られた断面積を低エネルギー領域へと外挿することに
 よってのみ，見積もられている．
@@ -45,7 +47,7 @@ $E_\text{c.m.} \lesssim 7$MeV，における共鳴構造により難しくなっ
 さらに，片方の原子核に中性子を一つ加えた形である，$\isotope[12]{C} + \isotope[13]{C}$核融合反応との違いも注目を集めている．
 これら二つの系の断面積の振る舞いを比べたら一目瞭然であるが，
 
-\section{Potential}
+\section{模型}
 
 本研究では，原子核間の有効ポテンシャルをいくつか用いる．
 \subsection{M3Y + repulsive double folding potential}
@@ -65,28 +67,118 @@ M3Y double folding potentialは，
 
 
 \subsection{ハミルトニアン}
-$\isotope{C} + \isotope{C}$チャネルと，複合核($\isotope{Mg}$)チャネルを記述するハミルトニアンは，
-行列形式で，
+本研究で用いるハミルトニアンは，文献\cite{PhysRevC.98.014604}で用いられたものと同様のものを用いる．
+文献\cite{PhysRevC.98.014604}では，$n + \isotope[194]{Pt}$反応の解析をおこなっており，そこでは$s$波
+のみの解析に限られていたが，本研究ではそれを荷電粒子同士の反応，およびすべての部分は$l$で用いられるように拡張した．
+
+具体的には，
+$\isotope{C} + \isotope{C}$チャネルおよび複合核($\isotope{Mg}$)チャネルを一つのハミルトニアンで，
+陽に取り扱う．系全体のハミルトニアンは，
 \begin{align}\label{eq:total_hamiltonian}
-  \bm{H} = 
+  \bm{H}^{l,J^\pi} = 
   \begin{pmatrix}
-    \bm{H}_\text{C+C} & \bm{V} \\
-    \bm{V}^T & \bm{H}_\text{CN}
+    \bm{H}^l_\text{C+C} & \bm{V} \\
+    \bm{V}^T & \bm{H}^{J^\pi}_\text{CN}
   \end{pmatrix}
 \end{align}
 のように書かれる．
-ここで，$\bm{H}_\text{C+C}$はC+Cチャネルのハミルトニアン，$\bm{H}_\text{CN}$は複合核チャネルのハミルトニアン，$\bm{V}$はカップリング行列である．
+ここで，$l$は$\isotope{C}+\isotope{C}$チャネルの相対角運動量，$J^\pi$は$\isotope{Mg}$のスピンおよびパリティ，$\bm{H}_\text{C+C}$はC+Cチャネルのハミルトニアン，$\bm{H}_\text{CN}$は複合核チャネルのハミルトニアン，$\bm{V}$はカップリング行列である．
 
-$\bm{H}_\text{C+C}$は，メッシュ間隔$\Delta r$であり，サイトが$r_i = i \Delta r$，($i = 1, \dots , N_\text{C+C}$)
-をもつ，動径方向の相対運動シュレーディンガー方程式，
+\subsection{入口チャネル}
+  $\bm{H}_\text{C+C}$は，
+炭素原子核$\isotope[12]{C}$，$\isotope[13]{C}$を球形と近似し，二つの原子核間の相対運動を記述する：
 \begin{align}\label{eq:entrance_hamiltonian}
-  \bm{H}_{\text{C+C}, ij} = \qty[2t + V(r_i)]\delta_{ij} - t\delta_{i, j+1} - t\delta_{i,j-1}
+  \bm{H}^l_{\text{C+C}, ij} = \qty[2t + V_l(r_i)]\delta_{ij} - t\delta_{i, j+1} - t\delta_{i,j-1}．
 \end{align}
+ここで，$i,j = (1, 2, \dots, N_\text{C+C})$，$N_\text{C+C}$は$\isotope{C}+\isotope{C}$チャネルのメッシュのサイト数
+であり，$t = \hbar^2/ 2\mu \Delta r^2$，$\mu$は換算質量である．
+また，$\Delta r$はメッシュ間隔であり，$r_i = i \Delta r$である．
+$V_l(r_i)$は遠心力ポテンシャルを含む，原子核間ポテンシャルであり，原子核間ポテンシャルとしては，いくつかのケースを
+試す．
 
-を解く．
+\subsection{複合核チャネル}
+  $\bm{H}^{J^\pi}_\text{CN}$は複合核状態を記述するハミルトニアンであり，
+\begin{align}\label{eq:compound_hamiltonian}
+  \bm{H}^{J^\pi}_{\text{CN}, \mu \nu} = \qty[\mathcal{E}^{J^\pi}_\mu - i \Gamma^{J^\pi}(\mathcal{E}^{J^\pi}_\mu)/2]\delta_{\mu\nu}
+\end{align}
+と書かれる($\mu = 1, 2, \cdots , N_\text{CN}$)．ここで，$\mathcal{E}^{J^\pi}_\mu$はスピン$J^\pi$を持つ複合核の第$\mu$励起エネルギーでそれに対応する崩壊幅$\Gamma^J(\mathcal{E}_\mu)$を
+虚部に加えている．
+複合核の励起スペクトルとして，本研究では殻模型を用いて計算を行った．
+具体的にはKSHELL\cite{Shimizu2016}というコードを用いて，$\isotope[24]{Mg}$，$\isotope[25]{Mg}$の励起スペクトルを
+計算した．
+$\isotope[16]{O}$を不活性コアとし，$sd - pf$軌道をバレンス軌道として，励起スペクトルを計算した．
+用いた核子間相互作用はsdpf-mu\cite{PhysRevC.86.051301}と呼ばれる相互作用である．
+
+\subsection{カップリング行列}
+  $\bm{V}$は$\isotope{C} + \isotope{C}$チャネルと$\isotope{Mg}$チャネルを結合する行列であり，
+本研究では
+\begin{align}
+  \bm{V}_{i,\mu} = v_0 (\Delta r)^{-1/2} \delta_{i,i_e}
+\end{align}
+という形を用いる．
+ここで，$\Delta r$はメッシュ間隔であり，$i_e$は相互作用点である．
+$i_e$の選び方はさまざまあるが，今回は$\isotope{C} + \isotope{C}$チャネルのポテンシャル最小点
+でとる．また，$v_0$はカップリングパラメータであり，本研究では，このパラメータを変えながら議論する．
+ただし，簡単のために，$v_0$は$l$および$J^\pi$にはよらないパラメータとする．
+
 
 
 \subsection{S行列の計算}
+核融合断面積は，$\isotope{C} + \isotope{C}$チャネルの境界条件と，\ref{eq:total_hamiltonian}の固有ベクトルから得られる．
+$\isotope{C} + \isotope{C}$チャネルの波動関数に境界条件として，
+\begin{align}
+  u(0) &= 0， \label{eq:boundary_origin}\\
+  u(r) &\rightarrow A(k) \qty[H_l^- (kr) - S^{J^\pi}_l H_l^+(kr)] \label{eq:boundary_approxfrom}
+\end{align}
+を課す．ここで，$S^{J^\pi}_l$は弾性チャネルの$S$行列である．
+次に，\ref{eq:total_hamiltonian}の固有ベクトルについて考える．\ref{eq:total_hamiltonian}は
+$N_\text{C+C} + N_\text{CN}$次元のハミルトニアンだから，固有ベクトルは$N_\text{C+C} + N_\text{CN}$
+成分を持ったベクトルである．固有ベクトルを$\vec{u}$とすると，
+\begin{align}\label{eq:eigenvector_of_total_H}
+  \vec{u} = \begin{pmatrix}
+    (N_\text{C+C}\text{成分}) \\
+    (N_\text{CN}\text{成分}) 
+  \end{pmatrix}
+\end{align}
+のようになり，上$N_\text{C+C}$成分は$\isotope{C} + \isotope{C}$チャネルの波動関数に対応しており，
+下$N_\text{CN}$成分は複合核チャネルの固有ベクトルに対応する．
+
+\ref{eq:boundary_approxfrom}から，メッシュ点$N_\text{C+C}$，$N_\text{C+C}+1$について，
+\begin{align}\label{eq:ratio_from_boundary}
+  \frac{u(N_\text{C+C})}{u(N_\text{C+C}+1)} = \frac{H_l^-(k\Delta r N_\text{C+C}) - S^{J^\pi}_l H_l^+(k\Delta r N_\text{C+C})}{H_l^-(k\Delta r (N_\text{C+C}+1)) - S^{J^\pi}_l H_l^+ (k\Delta r (N_\text{C+C} + 1))}
+\end{align}
+を得る．
+
+次に，シュレーディンガー方程式について考える．$\isotope{C}+\isotope{C}$チャネルにおいて
+$-t u(N_\text{C+C} + 1)$という，チャネルの外側であり，かつ0でない項を考えなければならない．
+よって，エネルギー$E = \hbar^2 k^2 / 2\mu$の散乱解をもつシュレーディンガー方程式は，
+\begin{align}\label{eq:total_hamiltonian_eigen_problem}
+  (E - \bm{H}^{l, J^\pi}) \vec{u} = \vec{h}
+\end{align}
+となる．ここで，$h(i) = -tu(N_\text{C+C}+1) \delta_{i, N_\text{C+C}}$である．\ref{eq:total_hamiltonian_eigen_problem}に左から，
+$G^{l, J^\pi}(E) = (E - \bm{H}^{l, J^\pi})^{-1}$を掛けて，第$N_\text{C+C}$成分を比較することで，
+\begin{align}\label{eq:ratio_from_eigenvector}
+  \frac{u(N_\text{C+C})}{u(N_\text{C+C}+1)} = - t G^{l, J^\pi}(E)_{N_\text{C+C}, N_\text{C+C}}
+\end{align}
+\ref{eq:ratio_from_boundary}，\ref{eq:ratio_from_eigenvector}から，$S^{J^\pi}_l$について整理すると，
+\begin{align}
+  S^{J^\pi}_l = \frac{H_l^- (k\Delta r N_\text{C+C}) + t G^{l, J^\pi}(E)_{N_\text{C+C}, N_\text{C+C}} H^-_l(k\Delta r (N_\text{C+C}+1))}{H_l^+(k \Delta r N_\text{C+C})+ t G^{l, J^\pi}(E)_{N_\text{C+C}, N_\text{C+C}} H_l^+(k\Delta r (N_\text{C+C} + 1))}
+\end{align}
+を得る．
+リアクションチャネルを核融合チャネルとすることで，核融合断面積を$S^{J^\pi}_l$を用いて計算することができる．
+ただし，$\isotope[12]{C} + \isotope[12]{C}$反応では，$\isotope[12]{C}$の基底状態が$0^+$のボース粒子であることから，
+\begin{align}\label{eq:fus_cs_12_12}
+  \sigma_{\text{fus}, \isotope[12]{C} + \isotope[12]{C}} = \frac{\pi}{k^2} \sum_l (2l + 1) \qty(1-\abs{S^{J^\pi=l^+}_l}^2) \qty(1 + (-1)^l)
+\end{align}
+となる．
+
+また，$\isotope[12]{C} + \isotope[13]{C}$反応では，$\isotope[13]{C}$の基底状態が，$\frac{1}{2}^-$であることから，
+\begin{align}\label{eq:fus_cs_12_13}
+  \sigma_{\text{fus}, \isotope[12]{C} + \isotope[13]{C}} = \frac{\pi}{k^2} \sum_l \sum_{J^\pi = (l - 1/2)^{(-1)^{l+1}}}^{(l + 1/2)^{(-1)^{l+1}}} \frac{2 J + 1}{2} \qty(1 - \abs{S^{J^\pi}_l}^2)
+\end{align}
+となる．ここで，$(2J+1)/2$はスピン統計因子であり，始状態の状態数2で割ってある．
+
+
 
 \subsection{S行列のポール探索}
 共鳴は，$S$行列のポールとして定義され，共鳴エネルギーを持つとき，
