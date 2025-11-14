@@ -17,6 +17,11 @@
 \addbibresource{main.bib}
 %A4: 21.0 x 29.7cm
 
+\numberwithin{figure}{section}
+\numberwithin{equation}{section}
+\numberwithin{table}{section}
+
+
 
 \begin{document}
 
@@ -32,12 +37,11 @@
 
 $\isotope[12]{C} + \isotope[12]{C}$核融合反応は，巨大恒星の進化の過程や宇宙における
 爆発現象に深く関わっている．
-
-\begin{align}\label{eq:fusion}
+\begin{align}
   \isotope[12]{C} + \isotope[12]{C} \rightarrow  \isotope[24]{Mg}^* &\rightarrow \isotope[23]{Na} + p \notag \\
                                                                   &\rightarrow \isotope[20]{Ne} + \alpha \notag
 \end{align}
-は巨大恒星の進化の終盤において，重要な役割を担う．
+が主反応となっている．
 現状では，この過程における反応率は，
 実験で得られた断面積を低エネルギー領域へと外挿することに
 よってのみ，見積もられている．
@@ -46,6 +50,62 @@ $E_\text{c.m.} \lesssim 7$MeV，における共鳴構造により難しくなっ
 
 さらに，片方の原子核に中性子を一つ加えた形である，$\isotope[12]{C} + \isotope[13]{C}$核融合反応との違いも注目を集めている．
 これら二つの系の断面積の振る舞いを比べたら一目瞭然であるが，
+
+\section{散乱理論}
+本研究において，重要なパートを担う散乱理論についてこの節で議論する．
+クーロン場がない場合から始め，ある場合について述べる．
+また，同種粒子同士の散乱問題についても，相互作用がスピンに依らない場合に限り，議論する．
+
+\subsection{原子核間ポテンシャル}
+原子核間ポテンシャルは，相対距離$r$の関数として，
+\begin{align}\label{eq:general_ion_potential}
+  V(r) = V_N(r) + V_C(r)
+\end{align}
+と書かれる．ここで，$V_N(r)$核力に由来する原子核ポテンシャルであり，$V_C(r)$がクーロンポテンシャルである．
+入射粒子と標的粒子の電荷を$Z_1，Z_2$とすると，クーロンポテンシャルは，
+\begin{align}\label{eq:naive_coulomb}
+  V_C(r) = \frac{Z_1 Z_2 e^2}{r}
+\end{align}
+と書かれる．
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=8cm]{figure/potential_example.pdf}
+  \caption{原子核間ポテンシャルの相対角運動量が0の場合の例．赤の点線がクーロンポテンシャルであり，青の破線が核力に由来するポテンシャルであり，全ポテンシャルが
+  その和を表している．}
+  \label{fig:potential_example}
+\end{figure}
+
+図~\ref{fig:potential_example}に式~(\ref{eq:general_ion_potential})の例をプロットしている．
+点線がクーロンポテンシャルであり，破線が核力であり，その和が実線でプロットされている．
+短距離力である核力と，長距離力であるクーロンポテンシャルの差分により，ポテンシャル障壁が
+生じていることがわかる．このポテンシャル障壁はクーロン障壁と呼ばれ，核融合反応が生じるためには
+この障壁を越えなければならない．
+
+\subsection{クーロン場がないときの散乱理論}
+
+% 短距離ポテンシャル$V_0(r)$があるときの，シュレーディンガー方程式は，
+% \begin{align}\label{eq:shrodinger_eq_wo_coulomb}
+%   \qty[-\frac{\hbar^2}{2\mu}\nabla^2 + V_0(r) - E] \psi(\bm{r}) = 0
+% \end{align}
+% のように書かれる．ポテンシャルがない場合，波数ベクトル$\bm{k}$，$\abs{\bm{k}} = \sqrt{2\mu E/ \hbar}$を用いて，式~(\ref{eq:shrodinger_eq_wo_coulomb})の解は，
+% $\psi(\bm{r}) = \exp(i \bm{k} \cdot \bm{r})$と書かれる．
+
+短距離ポテンシャル$V_0(r)$の下で，シュレーディンガー方程式は，波数ベクトル$\bm{k}$，
+大きさ$k = \abs{\bm{k}} = \sqrt{2\mu E}/\hbar$を用いて，
+\begin{align}\label{eq:stationary_schrodinger_eq}
+  \qty(\nabla^2 + k^2) \psi(\bm{r}) = U(r) \psi(\bm{r})
+\end{align}
+と書ける．ここで，$\mu$は系の換算質量であり，$U(r) = \frac{2\mu}{\hbar^2}V_0(r)$である．
+式~(\ref{eq:stationary_schrodinger_eq})の解は，平面波と散乱波の二つに分解できて，
+\begin{align}\label{eq:desired_wave_function}
+  \psi^{(+)}(\bm{k}; \bm{r}) = \phi(\bm{k};\bm{r}) + \psi^{\text{sc}}(\bm{k}; \bm{r})
+\end{align}
+と書かれる．ここで，
+\begin{align}\label{eq:plane_wave}
+  \phi(\bm{k};\bm{r}) = A e^{i \bm{k} \cdot \bm{r}}
+\end{align}
+
 
 \section{模型}
 
@@ -62,6 +122,9 @@ M3Y double folding potentialは，
 のように定義される．
 ここで，$v_\mathrm{M3Y}(\bm{r})$は，Reidポテンシャルから導かれる有効核子間相互作用である．
 
+\subsection{Woods-Saxon Potential}
+
+
 
 \section{S行列の求め方と，ポール探索}
 
@@ -69,7 +132,7 @@ M3Y double folding potentialは，
 \subsection{ハミルトニアン}
 本研究で用いるハミルトニアンは，文献\cite{PhysRevC.98.014604}で用いられたものと同様のものを用いる．
 文献\cite{PhysRevC.98.014604}では，$n + \isotope[194]{Pt}$反応の解析をおこなっており，そこでは$s$波
-のみの解析に限られていたが，本研究ではそれを荷電粒子同士の反応，およびすべての部分は$l$で用いられるように拡張した．
+のみの解析に限られていたが，本研究ではそれを荷電粒子同士の反応，およびすべての部分波$l$で用いられるように拡張した．
 
 具体的には，
 $\isotope{C} + \isotope{C}$チャネルおよび複合核($\isotope{Mg}$)チャネルを一つのハミルトニアンで，
@@ -93,6 +156,7 @@ $\isotope{C} + \isotope{C}$チャネルおよび複合核($\isotope{Mg}$)チャ�
 ここで，$i,j = (1, 2, \dots, N_\text{C+C})$，$N_\text{C+C}$は$\isotope{C}+\isotope{C}$チャネルのメッシュのサイト数
 であり，$t = \hbar^2/ 2\mu \Delta r^2$，$\mu$は換算質量である．
 また，$\Delta r$はメッシュ間隔であり，$r_i = i \Delta r$である．
+なお，ここで$\isotope[12]{C}$，$\isotope[13]{C}$の励起状態は考えず，質点として取り扱っている．
 $V_l(r_i)$は遠心力ポテンシャルを含む，原子核間ポテンシャルであり，原子核間ポテンシャルとしては，いくつかのケースを
 試す．
 
@@ -130,7 +194,12 @@ $\isotope{C} + \isotope{C}$チャネルの波動関数に境界条件として�
   u(0) &= 0， \label{eq:boundary_origin}\\
   u(r) &\rightarrow A(k) \qty[H_l^- (kr) - S^{J^\pi}_l H_l^+(kr)] \label{eq:boundary_approxfrom}
 \end{align}
-を課す．ここで，$S^{J^\pi}_l$は弾性チャネルの$S$行列である．
+を課す．ここで，$S^{J^\pi}_l$は弾性チャネルの$S$行列である．また，$H^\pm_l(kr)$はクーロン・ハンケル関数であり，正則なクーロン関数$F_l(kr)$と
+比正則なクーロン関数$G_l(kr)$を用いて，
+\begin{align}\label{eq:coulomb_hankel_function}
+  H^\pm_l (kr) = G_l(kr) \pm i F_l(kr)
+\end{align}
+と定義される．
 次に，\ref{eq:total_hamiltonian}の固有ベクトルについて考える．\ref{eq:total_hamiltonian}は
 $N_\text{C+C} + N_\text{CN}$次元のハミルトニアンだから，固有ベクトルは$N_\text{C+C} + N_\text{CN}$
 成分を持ったベクトルである．固有ベクトルを$\vec{u}$とすると，
@@ -161,7 +230,7 @@ $G^{l, J^\pi}(E) = (E - \bm{H}^{l, J^\pi})^{-1}$を掛けて，第$N_\text{C+C}$
   \frac{u(N_\text{C+C})}{u(N_\text{C+C}+1)} = - t G^{l, J^\pi}(E)_{N_\text{C+C}, N_\text{C+C}}
 \end{align}
 \ref{eq:ratio_from_boundary}，\ref{eq:ratio_from_eigenvector}から，$S^{J^\pi}_l$について整理すると，
-\begin{align}
+\begin{align}\label{eq:s_matrix}
   S^{J^\pi}_l = \frac{H_l^- (k\Delta r N_\text{C+C}) + t G^{l, J^\pi}(E)_{N_\text{C+C}, N_\text{C+C}} H^-_l(k\Delta r (N_\text{C+C}+1))}{H_l^+(k \Delta r N_\text{C+C})+ t G^{l, J^\pi}(E)_{N_\text{C+C}, N_\text{C+C}} H_l^+(k\Delta r (N_\text{C+C} + 1))}
 \end{align}
 を得る．
@@ -179,18 +248,21 @@ $G^{l, J^\pi}(E) = (E - \bm{H}^{l, J^\pi})^{-1}$を掛けて，第$N_\text{C+C}$
 となる．ここで，$(2J+1)/2$はスピン統計因子であり，始状態の状態数2で割ってある．
 
 
-
-\subsection{S行列のポール探索}
-共鳴は，$S$行列のポールとして定義され，共鳴エネルギーを持つとき，
-系は外向波境界条件が課される．
-つまり，
+\ref{eq:s_matrix}と，\ref{eq:fus_cs_12_12}および\ref{eq:fus_cs_12_13}から，核融合断面積を計算するが，
+$S$行列は1にとても近い量であるため，直接計算すると精度が足りない．
+よって，$1-\abs{S^{J^\pi}_l}^2$を直接計算する．そのために，解析的な式を以下で与えておく．
+\ref{eq:coulomb_hankel_function}を用いて，
 \begin{align}
-  \frac{u(N_\text{C+C} + 1) }{ u(N_\text{C+C})}= \frac{H_l^+(k (N_\text{C+C} + 1)) }{ H_l^+(k N_\text{C+C})}
+  1 - S^{J^\pi}_l =2i \frac{F_l (k\Delta r N_\text{C+C}) + t G^{l, J^\pi}(E)_{N_\text{C+C}, N_\text{C+C}} F_l(k\Delta r (N_\text{C+C}+1))}{H_l^+(k \Delta r N_\text{C+C})+ t G^{l, J^\pi}(E)_{N_\text{C+C}, N_\text{C+C}} H_l^+(k\Delta r (N_\text{C+C} + 1))}
 \end{align}
-と，$u(0) = 0$を境界条件として固有値問題を解く．
-\begin{align}
-  \bm{M}(k) \vec{u} = \qty(\bm{H} - t )
+$1 - S^{J^\pi}_l = \delta^{J^\pi}_l$と$\delta^{J^\pi}_l$を定義すると，
+\begin{align}\label{eq:1_minus_s_squared}
+  1-\abs{S^{J^\pi}_l}^2 
+  &= 1 - \abs{1 - \delta^{J^\pi}_l}^2 \notag \\
+  &= 1 - \qty(1 -  \delta^{J^\pi}_l -  (\delta^{J^\pi}_l)^*  + \abs{ \delta^{J^\pi}_l}^2 ) \notag \\
+  &= 2 \mathrm{Re}\qty( \delta^{J^\pi}_l) - \abs{ \delta^{J^\pi}_l}^2
 \end{align}
+となり，この式を用いて，\ref{eq:fus_cs_12_12}および\ref{eq:fus_cs_12_13}を計算する．
 
 
 
