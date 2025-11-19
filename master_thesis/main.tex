@@ -105,7 +105,57 @@ $E_\text{c.m.} \lesssim 7$MeV，における共鳴構造により難しくなっ
 \begin{align}\label{eq:plane_wave}
   \phi(\bm{k};\bm{r}) = A e^{i \bm{k} \cdot \bm{r}}
 \end{align}
+および，$\psi^{(+)}(\bm{k};\bm{r})$は散乱源により生じた外向き波である．よって，$r \rightarrow \infty$において，
+\begin{align}\label{eq:scatt_asympt_form}
+  \psi^{\text{sc}}(\bm{k};\bm{r}) \rightarrow A f(\Omega) \frac{e^{ikr}}{r}
+\end{align}
+のような漸近的な振る舞いをする．
+ここで，$f(\Omega) \equiv f(\theta, \varphi)$は散乱振幅であり，断面積の計算において重要な役割を担う．
+式~(\ref{eq:plane_wave})，~(\ref{eq:scatt_asympt_form})より，
+\begin{align}\label{eq:outgoing_asympt_form}
+  \psi^{\text{(+)}}(\bm{k};\bm{r}) \rightarrow A\qty(e^{i\bm{k}\cdot \bm{r}} + f(\Omega)\frac{e^{ikr}}{r})
+\end{align}
+なる漸近形が得られる．
 
+\subsubsection{部分波展開}
+別のアプローチとして，部分波展開と呼ばれる方法がある．これは，ポテンシャルが球対称な場合かつ
+低エネルギーの解析において極めて有効な方法である．
+ハミルトニアンは運動エネルギー演算子$K \equiv -\frac{\hbar^2}{2\mu}\nabla^2$と，ポテンシャル$V$を用いて，
+\begin{align}\label{eq:hamiltonian_op}
+  H = K + V
+\end{align}
+と書こう．このときシュレーディンガー方程式は，
+\begin{align}\label{eq:shcrodinger_eq_op}
+  H \psi = E \psi 
+\end{align}
+となる．ここで，$E$は衝突エネルギーである．
+
+まず，運動エネルギー演算子$K \equiv -\frac{\hbar^2}{2\mu}\nabla^2$を球座標$(r, \theta, \varphi)$で書き換える．
+\begin{align}\label{eq:kinetic_op_in_spherical}
+  K = -\frac{\hbar^2}{2\mu}\qty[\frac{1}{r^2}\pdv{r}\qty(r^2\pdv{r}) + \frac{1}{r^2\sin^2 \theta}\pdv{\theta}\qty(\sin \theta \pdv{\theta}) + \frac{1}{r^2\sin^2\theta} \pdv[2]{}{\varphi}]
+\end{align}
+軌道角運動量演算子$L^2$が，
+\begin{align}\label{eq:angular_momentum_op}
+  L^2 = -\frac{\hbar^2}{\sin^2\theta}\qty[\pdv{\theta}\qty(\sin\theta \pdv{\theta}) + \pdv[2]{}{\varphi}]
+\end{align}
+で書かれることから，運動エネルギー演算子は，
+\begin{align}\label{eq:kinetic_op_angular_op}
+  K = - \frac{\hbar^2}{2\mu} \qty[\frac{1}{r^2}\pdv{r}\qty(r^2\pdv{r})-\frac{L^2}{\hbar^2r^2}]
+\end{align}
+と書き直すことができる．ポテンシャルが球対称な場合には，式~(\ref{eq:kinetic_op_angular_op})から，ハミルトニアン$H$と
+$L^2$および$L_z$が可換であることがわかる．
+よって，式~(\ref{eq:shcrodinger_eq_op})の解は，演算子$H,L^2, L_z$の同時固有状態で書くことができ，
+\begin{align}\label{eq:shrodinger_eq_eigenf}
+  \psi_{klm}(\bm{r}) = R_l(k, r) Y_{l m} (\hat{\bm{r}})
+\end{align}
+となる．ここで，$\hat{\bm{r}}$は$\theta, \varphi$の略記である．
+また，$Y_{lm}$は球面調和関数であり，$R_l$は動径波動関数である．散乱波動関数をこの基底で展開して，
+$Y_{lm}$と内積をとることで，
+動径方向のシュレーディンガー方程式
+\begin{align}\label{eq:radial_eq}
+  -\frac{\hbar^2}{2\mu}\qty[\frac{1}{r^2}\dv{r}\qty(r^2\dv{r})-\frac{l(l+1)}{r^2}]R_l(k, r) + V(r) R_l(k, r) = E R_l(k, r)
+\end{align}
+を得る．
 
 \section{模型}
 
@@ -195,7 +245,7 @@ $\isotope{C} + \isotope{C}$チャネルの波動関数に境界条件として�
   u(r) &\rightarrow A(k) \qty[H_l^- (kr) - S^{J^\pi}_l H_l^+(kr)] \label{eq:boundary_approxfrom}
 \end{align}
 を課す．ここで，$S^{J^\pi}_l$は弾性チャネルの$S$行列である．また，$H^\pm_l(kr)$はクーロン・ハンケル関数であり，正則なクーロン関数$F_l(kr)$と
-比正則なクーロン関数$G_l(kr)$を用いて，
+非正則なクーロン関数$G_l(kr)$を用いて，
 \begin{align}\label{eq:coulomb_hankel_function}
   H^\pm_l (kr) = G_l(kr) \pm i F_l(kr)
 \end{align}
