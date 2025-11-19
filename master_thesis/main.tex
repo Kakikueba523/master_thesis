@@ -155,7 +155,27 @@ $Y_{lm}$と内積をとることで，
 \begin{align}\label{eq:radial_eq}
   -\frac{\hbar^2}{2\mu}\qty[\frac{1}{r^2}\dv{r}\qty(r^2\dv{r})-\frac{l(l+1)}{r^2}]R_l(k, r) + V(r) R_l(k, r) = E R_l(k, r)
 \end{align}
-を得る．
+を得る．さらに，
+\begin{align}\label{eq:mod_radiad_wf}
+  R_l(k, r) = \frac{u_l(k, r)}{kr}
+\end{align}
+のように動径波動関数を変換することで，式~(\ref{eq:radial_eq})は，
+\begin{align}\label{eq:mod_radial_eq}
+  -\frac{\hbar^2}{2\mu}\qty[\dv[2]{}{r} - \frac{l(l+1)}{r^2}]u_l(k, r) + V(r)u_l(k, r) = E u_l(k, r)
+\end{align}
+となる．これは，ポテンシャルが
+\begin{align}
+  V_l(r) = V(r) + V_l^{\text{Cf}}(r)
+\end{align}
+である，一次元シュレーディンガー方程式となっており，
+$V_l^{\text{Cf}}$は遠心力ポテンシャルとよばれ，
+\begin{align}\label{eq:centrifugal_potential}
+  V_l^{\text{Cf}}(r) = \frac{\hbar^2}{2\mu}\frac{l(l+1)}{r^2}
+\end{align}
+で定義される．
+
+
+
 
 \section{模型}
 
