@@ -15,6 +15,7 @@
 \usepackage{isotope}
 \usepackage[style=phys,articletitle=false,biblabel=brackets,chaptertitle=false,pageranges=false]{biblatex}
 \addbibresource{main.bib}
+\usepackage{appendix}
 %A4: 21.0 x 29.7cm
 
 \numberwithin{figure}{section}
@@ -22,6 +23,14 @@
 \numberwithin{table}{section}
 
 
+\makeatletter
+\g@addto@macro\appendix{%
+  % セクション番号を A, B, C... にする（普通は自動だけど念のため）
+  \renewcommand{\thesection}{\Alph{section}}
+  % 式番号を A.1 の形式にする
+  \renewcommand{\theequation}{\thesection.\arabic{equation}}
+}
+\makeatother
 
 \begin{document}
 
@@ -148,7 +157,7 @@ $L^2$および$L_z$が可換であることがわかる．
 \begin{align}\label{eq:shrodinger_eq_eigenf}
   \psi_{klm}(\bm{r}) = R_l(k, r) Y_{l m} (\hat{\bm{r}})
 \end{align}
-となる．ここで，$\hat{\bm{r}}$は$\theta, \varphi$の略記である．
+となる．ここで，$\hat{\bm{r}}$は~($\theta, \varphi$)の略記である．
 また，$Y_{lm}$は球面調和関数であり，$R_l$は動径波動関数である．散乱波動関数をこの基底で展開して，
 $Y_{lm}$と内積をとることで，
 動径方向のシュレーディンガー方程式
@@ -173,6 +182,65 @@ $V_l^{\text{Cf}}$は遠心力ポテンシャルとよばれ，
   V_l^{\text{Cf}}(r) = \frac{\hbar^2}{2\mu}\frac{l(l+1)}{r^2}
 \end{align}
 で定義される．
+
+$\rho = k r$という無次元量を導入すると便利である．
+このとき，式~(\ref{eq:mod_radial_eq})は，
+\begin{align}\label{eq:mod_radial_eq_by_rho}
+  \qty[\dv[2]{}{\rho} - \frac{l(l+1)}{\rho^2} + 1 ]u_l(\rho) = U(\rho) u_l(\rho)
+\end{align}
+となる．ここで，
+\begin{align}
+  U(\rho) = \frac{V(\rho/k)}{E}
+\end{align}
+とした．また，式~(\ref{eq:radial_eq})は，
+\begin{align}\label{eq:radial_eq_by_rho}
+  \qty[\dv[2]{}{\rho} + \frac{2}{\rho}\dv{\rho} + \qty(1 - \frac{l(l+1)}{\rho^2})]R_l(\rho) = U(\rho) R_l (\rho)
+\end{align}
+となる．
+
+$V_0(r) = 0$の場合について考える．このとき，式~(\ref{eq:radial_eq_by_rho})および~(\ref{eq:mod_radial_eq_by_rho})の右辺は0となる．
+式~(\ref{eq:radial_eq_by_rho})は球ベッセル方程式に帰着される．その解は，独立な2解$j_l(\rho)$と$n_l(\rho)$の
+線形結合で表される．$j_l(\rho)$は原点で正則な球ベッセル関数であり，$n_l(\rho)$は原点で非正則な
+球ノイマン関数である．詳しくは付録~(\ref{apx:bessel_eq})で述べている．それぞれの~$\rho \rightarrow \infty$での漸近形は，
+\begin{align}
+  j_l(\rho \rightarrow \infty) \sim \frac{\sin(\rho-l\pi/2)}{\rho} \label{eq:asympt_form_spherical_bessel_inf} \\
+  n_l(\rho \rightarrow \infty) \sim \frac{\cos(\rho-l\pi/2)}{\rho} \label{eq:asympt_form_spherical_neumann_inf}
+\end{align}
+である．複素数の解として，
+\begin{align}\label{eq:def_of_hankel_func}
+  h_l^{(\pm)}(\rho) = n_l(\rho) \pm i j_l(\rho)
+\end{align}
+で定義される．ハンケル関数も球ベッセル方程式の解であり，それらの漸近的な振る舞いは，
+外向き波と内向き波になる．つまり，
+\begin{align}\label{eq:asympt_form_of_hankel_func}
+  h_l^{(\pm)}(\rho) \sim \frac{e^{\pm(\rho-l\pi/2)}}{\rho}
+\end{align}
+となる．
+
+また，
+\begin{align}\label{eq:ricatti_bessel_and_neumann}
+  \hat{\jmath}_l(\rho) = \rho j_l(\rho) ; \quad \hat{n}_l(\rho) = \rho n_l(\rho)
+\end{align}
+で定義される，リカッチ・ベッセル関数~$\hat{\jmath}_l$とリカッチ・ノイマン関数~$\hat{n}_l$もよく用いられる．
+これらは，$\rho \rightarrow \infty$での漸近形は，
+\begin{align}
+  \hat{\jmath}_l(\rho \rightarrow \infty) \sim \sin(\rho-l\pi/2) \label{eq:asympt_form_ricatti_bessel_inf} \\
+  \hat{n}_l(\rho \rightarrow \infty) \sim \cos(\rho-l\pi/2) \label{eq:asympt_form_ricatti_neumann_inf}
+\end{align}
+であり，ハンケル関数についても同様に，
+\begin{align}\label{eq:def_of_ricatti_hankel}
+  \hat{h}_l^{(\pm)}(\rho) = \rho h_l^{(\pm)}(\rho) = \hat{n}_l(\rho) \pm i \hat{\jmath}_l(\rho) 
+\end{align}
+でリカッチ・ハンケル関数が定義され，その漸近的な振る舞いは，
+\begin{align}\label{eq:asympt_form_ricatti_hankel}
+  \hat{h}_l^{(\pm)}(\rho \rightarrow \infty) \sim e^{\pm(\rho-l\pi/2)}
+\end{align}
+となる．
+
+\subsubsection{散乱振幅と断面積}
+まず，平面波の部分波展開をする．$\bm{k}$と$\bm{r}$の成す角度を$\theta$とすると，
+$e^{i\bm{k}\cdot \bm{r}} = e^{ikr\cos\theta}$となり，
+
 
 
 
@@ -349,10 +417,97 @@ $1 - S^{J^\pi}_l = \delta^{J^\pi}_l$と$\delta^{J^\pi}_l$を定義すると，
 
 
 
+\newpage
+\appendix
+\section{微分方程式の解}
+\subsection{球ベッセル微分方程式}\label{apx:bessel_eq}
+球ベッセル微分方程式は，
+\begin{align}\label{eq:spherical_bessel_differential_equation}
+  \qty[\dv[2]{}{\rho} + \frac{2}{\rho}\dv{\rho} + 1 - \frac{l(l+1)}{\rho^2}]f_l(\rho) = 0
+\end{align}
+であらわされる．この解を式~(\ref{eq:spherical_bessel_sol})と書けることを示そう．
+まず，
+\begin{align}\label{eq:f_l_by_chi}
+  f_l (\rho) = (-\rho)^l \chi_l(\rho)
+\end{align}
+と置き換える．これを，式~(\ref{eq:spherical_bessel_differential_equation})に代入し，~$\chi_l$についての式に
+書き直すと，
+\begin{align*}
+  (-\rho)^l \qty[\frac{l(l-1)}{\rho^2} + \frac{2l}{\rho}  \dv{\rho} + \dv[2]{}{\rho}]\chi_l(\rho) 
+  + \frac{2}{\rho}(-\rho)^l\qty[\frac{l}{\rho} + \dv{\rho}]\chi_l(\rho) + \qty(1 - \frac{l(l+1)}{\rho^2})\chi_l(\rho) = 0 
+\end{align*}
+\begin{align}\label{eq:spherical_besse_eq_for_chi}
+  \qty[\dv[2]{}{\rho} + \frac{2(l + 1)}{\rho}\dv{\rho} + 1 ]\chi_l(\rho) = 0
+\end{align}
+となる．この両辺に，~$\frac{1}{\rho}\dv{\rho}$を作用させると，
+\begin{align}\label{eq:diff_eq_chi}
+  \qty[\frac{1}{\rho}\dv[2]{}{\rho} + \frac{2(l+1)}{\rho^2}\dv{\rho} - \frac{2(l+1)}{\rho^3} + \frac{1}{\rho}]\dv{\chi_l}{\rho} = 0
+\end{align}
+となる．ここで，微分可能な関数$g(\rho)$について，
+\begin{align*}
+  \dv[2]{}{\rho}\frac{1}{\rho} g(\rho) &= \frac{1}{\rho} \dv[2]{g(\rho)}{\rho} -  2\frac{1}{\rho^2} \dv{g(\rho)}{\rho} + \frac{2}{\rho^3} g(\rho) \\
+  \dv{\rho} \frac{1}{\rho}g(\rho) &= \frac{1}{\rho} \dv{g(\rho)}{\rho} - \frac{1}{\rho^2} g(\rho)
+\end{align*}
+という関係が成り立つことから，
+\begin{align*}
+  \frac{1}{\rho}\dv[2]{g(\rho)}{\rho} &= \dv[2]{}{\rho} \frac{1}{\rho} g(\rho) + \frac{2}{\rho} \dv{\rho} \frac{1}{\rho} g(\rho) \\
+  \frac{1}{\rho} \dv{g(\rho)}{\rho} &= \dv{\rho} \frac{1}{\rho} g(\rho) + \frac{1}{\rho^2} g(\rho)
+\end{align*}
+が得られる．
+
+よって，式~(\ref{eq:diff_eq_chi})に代入することで，
+\begin{align*}
+  \qty[\dv[2]{}{\rho} + \frac{2}{\rho} \dv{\rho} + \frac{2(l+1)}{\rho} \qty(\dv{\rho} + \frac{1}{\rho^2}) - \frac{2(l+1)}{\rho^2} + 1] \frac{1}{\rho} \dv{\chi_l}{\rho} = 0
+\end{align*}
+となり，まとめると，
+\begin{align}\label{eq:diff_eq_chi_henkei}
+  \qty[\dv[2]{}{\rho} + \frac{2(l+2)}{\rho} \dv{\rho} + 1] \frac{1}{\rho} \dv{\chi_l}{\rho} = 0
+\end{align}
+となる．これは式~(\ref{eq:diff_eq_chi})で，$l$を$l+1$で置き換えたものとなっているため，
+\begin{align}\label{eq:reccursion_chi}
+  \chi_{l+1} = \frac{1}{\rho} \dv{\chi_l}{\rho} 
+\end{align}
+であることがわかる．
+よって，式~(\ref{eq:reccursion_chi})を繰り返し適用することで，
+\begin{align}\label{eq:reccurion_chi_ans}
+  \chi_l = \qty(\frac{1}{\rho}\dv{\rho})^l \chi_0
+\end{align}
+となることがわかる．
+よって，式~(\ref{eq:f_l_by_chi})に代入することで，
+式~(\ref{eq:spherical_bessel_differential_equation})の解が，
+\begin{align}\label{eq:sol_of_spherical_bessel_in_deriv}
+  f_l(\rho) = (-\rho)^l \qty(\frac{1}{\rho}\dv{\rho})^l \chi_0(\rho) = (-\rho)^l \qty(\frac{1}{\rho}\dv{\rho})^l f_0(\rho)
+\end{align}
+となることがわかる．$l = 0$の解は，
+$f_l(\rho) = F_l(\rho)/\rho$の置き換えの下で，式~(\ref{eq:spherical_bessel_differential_equation})を
+$F_l(\rho)$についての式に書き直すと，
+\begin{align}\label{eq:diff_eq_l0_F0}
+  \qty[\dv[2]{}{\rho} + 1] F_0(\rho) = 0
+\end{align}
+となるため，$F_0(\rho)$は，$\sin\rho$および$\cos\rho$の線形結合か，$e^{i\rho}$と$e^{-i\rho}$
+の線形結合かで表される．
+特に，$F_0(\rho) = \sin \rho$つまり，$f_0(\rho) = \sin\rho/\rho$
+としたものである，
+\begin{align}\label{eq:def_of_spherical_bessel}
+  j_l(\rho) = (-\rho)^l \qty(\frac{1}{\rho}\dv{\rho})^l \qty(\frac{\sin\rho}{\rho})
+\end{align}
+は，球ベッセル関数と呼ばれ，$F_0(\rho) = \cos \rho$つまり，$f_0(\rho) = \cos\rho/\rho$とした，
+\begin{align}\label{eq:def_of_nuemann_func}
+  n_l(\rho) = (-\rho)^l \qty(\frac{1}{\rho}\dv{\rho})^l\qty(\frac{\cos\rho}{\rho})
+\end{align}
+は，球ノイマン関数と呼ばれる\footnote{式~\ref{eq:def_of_nuemann_func}について，符号の異なる定義もあることに注意．}．
+
+また，式~(\ref{eq:f_l_by_chi})と~(\ref{eq:reccursion_chi})から，
+\begin{align}
+  f_{l+1} 
+  &= (-\rho)^{l+1} \frac{1}{\rho} \dv{\rho}\qty(\frac{f_{l}}{(-\rho)^{l}}) \notag \\
+  &= \frac{l}{\rho} f_{l} - \dv{\rho} f_{l}
+\end{align}
+という関係式が得られる．
 
 
 
-
+\section{ほげ}
 
 \newpage
 % \bibliographystyle{unsrt}
