@@ -1,0 +1,368 @@
+\section{微分方程式の解}
+\subsection{球ベッセル微分方程式}\label{apx:bessel_eq}
+球ベッセル微分方程式は，
+\begin{align}\label{eq:spherical_bessel_differential_equation}
+  \qty[\dv[2]{}{\rho} + \frac{2}{\rho}\dv{\rho} + 1 - \frac{l(l+1)}{\rho^2}]f_l(\rho) = 0
+\end{align}
+であらわされる．この解を式~(\ref{eq:spherical_bessel_sol})と書けることを示そう．
+まず，
+\begin{align}\label{eq:f_l_by_chi}
+  f_l (\rho) = (-\rho)^l \chi_l(\rho)
+\end{align}
+と置き換える．これを，式~(\ref{eq:spherical_bessel_differential_equation})に代入し，~$\chi_l$についての式に
+書き直すと，
+\begin{align*}
+  (-\rho)^l \qty[\frac{l(l-1)}{\rho^2} + \frac{2l}{\rho}  \dv{\rho} + \dv[2]{}{\rho}]\chi_l(\rho) 
+  + \frac{2}{\rho}(-\rho)^l\qty[\frac{l}{\rho} + \dv{\rho}]\chi_l(\rho) + \qty(1 - \frac{l(l+1)}{\rho^2})\chi_l(\rho) = 0 
+\end{align*}
+\begin{align}\label{eq:spherical_besse_eq_for_chi}
+  \qty[\dv[2]{}{\rho} + \frac{2(l + 1)}{\rho}\dv{\rho} + 1 ]\chi_l(\rho) = 0
+\end{align}
+となる．この両辺に，~$\frac{1}{\rho}\dv{\rho}$を作用させると，
+\begin{align}\label{eq:diff_eq_chi}
+  \qty[\frac{1}{\rho}\dv[2]{}{\rho} + \frac{2(l+1)}{\rho^2}\dv{\rho} - \frac{2(l+1)}{\rho^3} + \frac{1}{\rho}]\dv{\chi_l}{\rho} = 0
+\end{align}
+となる．ここで，微分可能な関数$g(\rho)$について，
+\begin{align*}
+  \dv[2]{}{\rho}\frac{1}{\rho} g(\rho) &= \frac{1}{\rho} \dv[2]{g(\rho)}{\rho} -  2\frac{1}{\rho^2} \dv{g(\rho)}{\rho} + \frac{2}{\rho^3} g(\rho) \\
+  \dv{\rho} \frac{1}{\rho}g(\rho) &= \frac{1}{\rho} \dv{g(\rho)}{\rho} - \frac{1}{\rho^2} g(\rho)
+\end{align*}
+という関係が成り立つことから，
+\begin{align*}
+  \frac{1}{\rho}\dv[2]{g(\rho)}{\rho} &= \dv[2]{}{\rho} \frac{1}{\rho} g(\rho) + \frac{2}{\rho} \dv{\rho} \frac{1}{\rho} g(\rho) \\
+  \frac{1}{\rho} \dv{g(\rho)}{\rho} &= \dv{\rho} \frac{1}{\rho} g(\rho) + \frac{1}{\rho^2} g(\rho)
+\end{align*}
+が得られる．
+
+よって，式~(\ref{eq:diff_eq_chi})に代入することで，
+\begin{align*}
+  \qty[\dv[2]{}{\rho} + \frac{2}{\rho} \dv{\rho} + \frac{2(l+1)}{\rho} \qty(\dv{\rho} + \frac{1}{\rho^2}) - \frac{2(l+1)}{\rho^2} + 1] \frac{1}{\rho} \dv{\chi_l}{\rho} = 0
+\end{align*}
+となり，まとめると，
+\begin{align}\label{eq:diff_eq_chi_henkei}
+  \qty[\dv[2]{}{\rho} + \frac{2(l+2)}{\rho} \dv{\rho} + 1] \frac{1}{\rho} \dv{\chi_l}{\rho} = 0
+\end{align}
+となる．これは式~(\ref{eq:diff_eq_chi})で，$l$を$l+1$で置き換えたものとなっているため，
+\begin{align}\label{eq:reccursion_chi}
+  \chi_{l+1} = \frac{1}{\rho} \dv{\chi_l}{\rho} 
+\end{align}
+であることがわかる．
+よって，式~(\ref{eq:reccursion_chi})を繰り返し適用することで，
+\begin{align}\label{eq:reccurion_chi_ans}
+  \chi_l = \qty(\frac{1}{\rho}\dv{\rho})^l \chi_0
+\end{align}
+となることがわかる．
+よって，式~(\ref{eq:f_l_by_chi})に代入することで，
+式~(\ref{eq:spherical_bessel_differential_equation})の解が，
+\begin{align}\label{eq:sol_of_spherical_bessel_in_deriv}
+  f_l(\rho) = (-\rho)^l \qty(\frac{1}{\rho}\dv{\rho})^l \chi_0(\rho) = (-\rho)^l \qty(\frac{1}{\rho}\dv{\rho})^l f_0(\rho)
+\end{align}
+となることがわかる．$l = 0$の解は，
+$f_l(\rho) = F_l(\rho)/\rho$の置き換えの下で，式~(\ref{eq:spherical_bessel_differential_equation})を
+$F_l(\rho)$についての式に書き直すと，
+\begin{align}\label{eq:diff_eq_l0_F0}
+  \qty[\dv[2]{}{\rho} + 1] F_0(\rho) = 0
+\end{align}
+となるため，$F_0(\rho)$は，$\sin\rho$および$\cos\rho$の線形結合か，$e^{i\rho}$と$e^{-i\rho}$
+の線形結合かで表される．
+特に，$F_0(\rho) = \sin \rho$つまり，$f_0(\rho) = \sin\rho/\rho$
+としたものである，
+\begin{align}\label{eq:def_of_spherical_bessel}
+  j_l(\rho) = (-\rho)^l \qty(\frac{1}{\rho}\dv{\rho})^l \qty(\frac{\sin\rho}{\rho})
+\end{align}
+は，球ベッセル関数と呼ばれ，$F_0(\rho) = \cos \rho$つまり，$f_0(\rho) = \cos\rho/\rho$とした，
+\begin{align}\label{eq:def_of_nuemann_func}
+  n_l(\rho) = (-\rho)^l \qty(\frac{1}{\rho}\dv{\rho})^l\qty(\frac{\cos\rho}{\rho})
+\end{align}
+は，球ノイマン関数と呼ばれる\footnote{式~\ref{eq:def_of_nuemann_func}について，符号の異なる定義もあることに注意．}．
+
+また，式~(\ref{eq:f_l_by_chi})と~(\ref{eq:reccursion_chi})から，
+\begin{align}
+  f_{l+1} 
+  &= (-\rho)^{l+1} \frac{1}{\rho} \dv{\rho}\qty(\frac{f_{l}}{(-\rho)^{l}}) \notag \\
+  &= \frac{l}{\rho} f_{l} - \dv{\rho} f_{l}
+\end{align}
+という関係式が得られる．また，式~(\ref{eq:sol_of_spherical_bessel_in_deriv})から，
+\begin{align}
+  f_l = (-\rho)^l
+\end{align}
+
+\subsection{クーロンポテンシャル下}\label{app:coulomb_diff_eq}
+
+放物線座標でのラプラシアンを求める．これには，極座標のラプラシアンから出発するのがよいだろう．
+放物線座標は，
+\begin{align}\label{eq:parabolic_coordinates}
+  \xi = r-z = r(1-\cos \theta), \quad \zeta = r + z = r(1+ \cos \theta)
+\end{align}
+で定義される，$\xi, \zeta$を用いて，球座標$(r, \theta, \varphi)$から$(\xi, \zeta, \varphi)$へと変換される座標である．
+
+\begin{align}\label{eq:laplacian_polar}
+  \nabla^2 = \frac{1}{r^2} \pdv{r}\qty(r^2\pdv{r}) + \frac{1}{r^2 \sin \theta} 
+  \pdv{\theta}\qty(\sin \theta \pdv{\theta}) + \frac{1}{r^2 \sin^2 \theta} \pdv[2]{\varphi}
+\end{align}
+式~(\ref{eq:parabolic_coordinates})を参照しながら，式~(\ref{eq:laplacian_polar})に出てくる各項を求める．
+\begin{align*}
+  r = \frac{\xi + \zeta}{2}, \quad r^2\sin^2\theta = \xi \zeta
+\end{align*}
+であり，偏微分項は，
+\begin{align*}
+  \pdv{r} = \pdv{\xi}{r} \pdv{\xi} + \pdv{\zeta}{r} \pdv{\zeta} = \qty(1- \cos \theta) \pdv{\xi} + \qty(1 + \cos \theta) \pdv{\zeta}
+  = \frac{\xi}{r} \pdv{\xi} + \frac{\zeta}{r} \pdv{\zeta}
+\end{align*}
+\begin{align*}
+  \pdv{\theta} = \pdv{\xi}{\theta} \pdv{\xi} + \pdv{\zeta}{\theta} \pdv{\zeta} = r \sin \theta \pdv{\xi} - r  \sin \theta \pdv{\zeta}
+\end{align*}
+よって，
+\begin{align*}
+  \pdv{r}\qty(r^2\pdv{r}) 
+  &=  \pdv{r} \qty[r^2\qty( \frac{\xi}{r} \pdv{\xi} + \frac{\zeta}{r} \pdv{\zeta})] \\
+  &=  r \pdv{r} \qty(\xi \pdv{\xi} + \zeta \pdv{\zeta}) + \qty(\xi \pdv{\xi} + \zeta \pdv{\zeta}) \\
+  &= \qty(\xi \pdv{\xi} + \zeta \pdv{\zeta})\qty(\xi \pdv{\xi} + \zeta \pdv{\zeta}) + \qty(\xi \pdv{\xi} + \zeta \pdv{\zeta}) \\
+  &= \qty(\xi^2 \pdv[2]{\xi} + \zeta^2 \pdv[2]{\zeta} + 2\xi\zeta \pdv{}{\xi}{\zeta}) + 2\qty(\xi \pdv{\xi} + \zeta \pdv{\zeta}) \\
+\end{align*}
+$\theta$の微分項は，
+\begin{align*}
+  \frac{1}{r^2 \sin \theta}\pdv{\theta}\qty(\sin \theta \pdv{\theta}) 
+  &= \frac{1}{r^2 \sin \theta}\pdv{\theta} \qty(r \sin^2 \theta \pdv{\xi} - r  \sin^2 \theta \pdv{\zeta}) \\
+  &= \frac{2\cos\theta}{r}\qty(\pdv{\xi} - \pdv{\zeta}) + \frac{\sin\theta}{r} \pdv{\theta}\qty( \pdv{\xi} - \pdv{\zeta}) \\
+  &= \frac{2\cos\theta}{r}\qty(\pdv{\xi} - \pdv{\zeta}) + \frac{\sin\theta}{r}  \qty(r \sin \theta \pdv{\xi} - r  \sin \theta \pdv{\zeta} )\qty( \pdv{\xi} - \pdv{\zeta}) \\
+  &= \frac{2\cos\theta}{r}\qty(\pdv{\xi} - \pdv{\zeta}) +  \qty(\sin^2 \theta \pdv{\xi} - \sin^2 \theta \pdv{\zeta} )\qty( \pdv{\xi} - \pdv{\zeta}) \\
+  &= \frac{\zeta - \xi}{r^2}\qty(\pdv{\xi} - \pdv{\zeta}) +  \frac{1}{r^2}\qty( \xi\zeta \pdv{\xi} - \xi\zeta \pdv{\zeta} )\qty( \pdv{\xi} - \pdv{\zeta}) \\
+  &= \frac{\zeta - \xi}{r^2}\qty(\pdv{\xi} - \pdv{\zeta}) +  \frac{\xi\zeta}{r^2}\qty(\pdv[2]{\xi} + \pdv[2]{\zeta} - 2 \pdv{}{\xi}{\zeta}) \\
+\end{align*}
+であるため，
+\begin{align*}
+  &\frac{1}{r^2}\pdv{r}\qty(r^2\pdv{r}) +  \frac{1}{r^2 \sin \theta}\pdv{\theta}\qty(\sin \theta \pdv{\theta}) \\
+  &= \frac{\xi + \zeta}{r^2} \qty(\xi\pdv[2]{\xi} + \zeta\pdv[2]{\zeta}) + \frac{\xi + \zeta}{r^2}\qty(\pdv{\xi} + \pdv{\zeta}) \\
+  &= \frac{2}{r}\qty(\xi \pdv[2]{\xi} + \pdv{\xi} + \zeta\pdv[2]{\zeta} + \pdv{\zeta}) \\
+  &= \frac{4}{\xi + \zeta} \qty[\pdv{\xi}\qty(\xi\pdv{\xi}) + \pdv{\zeta}\qty(\zeta\pdv{\zeta})]
+\end{align*}
+を得る．
+よって，式~(\ref{eq:laplacian_polar})は，放物線座標では，
+\begin{align}\label{eq:laplacian_parabolic}
+  \nabla^2 = \frac{4}{\xi + \zeta} \qty[\pdv{\xi}\qty(\xi\pdv{\xi}) + \pdv{\zeta}\qty(\zeta\pdv{\zeta})] + \frac{1}{\xi\zeta} \pdv[2]{\varphi}
+\end{align}
+となる．
+
+では，これを用いて，
+\begin{align}\label{eq:coulomb_s_schro_henkei}
+  \qty[\nabla^2 + k^2- \frac{2\eta k}{r}] \phi_C(\bm{k}; \bm{r}) = 0
+\end{align}
+を解こう．
+本文中と同様に，
+入射ビームの方向を$z$軸にとり，
+\begin{align}\label{eq:coulomb_s_initial_katei}
+  \phi_C(\bm{k};\bm{r}) = C e^{ikz}g(r-z)
+\end{align}
+と解の形を仮定する．
+
+式~(\ref{eq:laplacian_parabolic})を用い，式~(\ref{eq:coulomb_s_schro_henkei})に式~(\ref{eq:coulomb_s_initial_katei})を代入する．
+ここで，
+\begin{align*}
+  &\pdv{\xi} e^{ikz} = \pdv{\xi} e^{ik(\zeta-\xi)/2} = - \frac{ik}{2} e^{ikz}\\
+  &\pdv{\zeta} e^{ikz} =   \pdv{\zeta} e^{ik(\zeta-\xi)/2} =  \frac{ik}{2} e^{ikz}
+\end{align*}
+であることと，$g(r-z) = g(\xi)$が$\zeta$に依らないことから，
+\begin{align*}
+  \pdv{\xi}\qty(\xi \pdv{\xi} e^{ikz}g(\xi)) 
+  &= \pdv{\xi}\qty[\xi\qty(\frac{-ik}{2}e^{ikz}g(\xi) + e^{ikz}g'(\xi))] \\
+  &=e^{ikz}\qty[\frac{-ik}{2} g(\xi) + g'(\xi) + \xi\qty(-\frac{k^2}{4} g(\xi) - ikg'(\xi) + g''(\xi))] \\
+  \pdv{\zeta}\qty(\zeta \pdv{\zeta} e^{ikz} g(\xi)) &= \qty( \frac{ik}{2}  - \zeta \frac{k^2}{4})g(\xi)e^{ikz}
+\end{align*}
+となる．
+
+よって，それぞれ足し合わせることで，
+\begin{align*}
+  \qty[\pdv{\xi}\qty(\xi\pdv{\xi}) + \pdv{\zeta}\qty(\zeta\pdv{\zeta})]e^{ikz} g(\xi)
+  = \qty[ - \frac{k^2}{4}(\xi+\zeta)g(\xi) + \qty(1 - ik\xi )g'(\xi) + \xi g''(\xi)] e^{ikz}
+\end{align*}
+となるため，式~(\ref{eq:coulomb_s_schro_rev})に(\ref{eq:coulomb_s_initial_ansatz})を代入すると，
+\begin{align}\label{eq:scat_sol_dif_eq}
+&\qty[-k^2 g(\xi) + \frac{4}{\xi + \zeta} \qty(1-ik\xi )g'(\xi) + \frac{4\xi}{\xi+ \zeta}g''(\xi) + k^2g(\xi) - \frac{4\eta k}{\xi + \zeta} g(\xi)] e^{ikz} = 0 
+\end{align}
+であり，変形して，
+\begin{align}
+  \xi g''(\xi) + (1 - ik\xi) g'(\xi) - \eta k g(\xi) = 0
+\end{align}
+が，$g(\xi)$の従う微分方程式である．
+上式において，$s = ik\xi$と変数変換をし，$f(s) = g(\xi)$と置き換えることで，
+\begin{align*}
+  s f''(s) + (1-s) f'(s) - (- i \eta) f(s)  = 0
+\end{align*}
+なる，合流型超幾何微分方程式を得る．
+
+以下では，$b$は正の整数とする．
+合流型超幾何関数は，式~(\ref{eq:cofluent_hyp_geom_dif})の解であり，
+ガンマ関数を用いることで，
+\begin{align}\label{eq:expansion_cofluent_hyp}
+  F(a,b,z) = \sum_{n=0}^{\infty} \frac{\Gamma(a+n)\Gamma(b)}{\Gamma(a)\Gamma(b+n)} \frac{x^n}{n!}
+\end{align}
+と表される．
+
+実際に，式~(\ref{eq:cofluent_hyp_geom_dif})から，級数解を求めてみる．
+  \begin{align}\tag{\ref{eq:cofluent_hyp_geom_dif}}
+    z \dv[2]{F}{z} + (b - z) \dv{F}{z} - aF = 0
+  \end{align}
+  の解は，
+  \begin{align}\tag{\ref{eq:expansion_cofluent_hyp}}
+    F(a,b,z) = \sum_{n=0}^{\infty} \frac{\Gamma(a+n)\Gamma(b)}{\Gamma(a)\Gamma(b+n)} \frac{z^n}{n!}
+  \end{align}
+  と書かれる．
+  式~(\ref{eq:cofluent_hyp_geom_dif})について，$F$を
+  \begin{align}\label{eq:cofluent_initial_guess}
+    F(z) = \sum_{n = 0}^{\infty} c_n \frac{z^n}{n!}
+  \end{align}
+  と置く．式~(\ref{eq:cofluent_initial_guess})を式~(\ref{eq:cofluent_hyp_geom_dif})に代入して，漸化式を求める．
+  まず，各項について求めると，
+  \begin{align*}
+    z \dv[2]{F}{z} &= \sum_{n = 2}^{\infty} c_n \frac{z^{n-1}}{(n-2)!} = \sum_{n=0}^{\infty} n c_{n+1} \frac{z^n}{n!} \\
+    (b - z) \dv{F}{z} &= \sum_{n=1}^{\infty} c_n (b-z) \frac{z^{n-1}}{(n-1)!} = \sum_{n=0}^{\infty} (b c_{n+1} - n c_n) \frac{z^n}{n!} \\
+    a F(z) &= \sum_{n=0}^{\infty} a c_n \frac{z^n}{n!} .
+  \end{align*}
+  よって，
+  \begin{align}\label{eq:reccurance_cofluent_coeff}
+    \sum_{n=0}^{\infty} \qty[\qty(n+b)c_{n+1} - (n + a) c_n] \frac{z^n}{n!} = 0
+  \end{align}
+  となる．式~(\ref{eq:reccurance_cofluent_coeff})が任意の$z$で成り立つことから，
+  \begin{align}\label{eq:coeff_ratio}
+    \frac{c_{n+1}}{c_n} = \frac{n+a}{n+b}
+  \end{align}
+  となるため，
+  \begin{align}\label{eq:coeff_det}
+    c_n = c_0 \prod_{k=0}^{n-1} \qty(\frac{k+a}{k+b}) = c_0 \frac{\Gamma(n + a)}{\Gamma(a)} \frac{\Gamma(b)}{\Gamma(n + b)}
+  \end{align}
+  を得る．
+  ここで，$\Gamma(n+a) = (n-1+a) \Gamma(n-1 + a) = \cdots = (n-1 + a)(n-2 + a) \cdots (1 + a) a\Gamma(a)$を用いた．
+
+  式，\ref{eq:coeff_det}を式~(\ref{eq:cofluent_initial_guess})に代入することで，
+  \begin{align}\label{eq:solution_cofluent_diffeq}
+    F(z) = c_0 \sum_{n=0}^{\infty}  \frac{\Gamma(a+n)\Gamma(b)}{\Gamma(a)\Gamma(b+n)} \frac{z^n}{n!}.
+  \end{align}
+  となり，式~(\ref{eq:solution_cofluent_diffeq})の係数を1としたものが，式~(\ref{eq:expansion_cofluent_hyp})となっている．
+
+ここで，式~(\ref{eq:cofluent_hyp_geom_dif})の解について，
+\begin{align}
+  F(z) = \int_C \dd{t} e^{tz} v(t)
+\end{align}
+の形を仮定し，代入してみると，$v(t)$についての微分方程式が得られる．
+\begin{align}
+  \dv{F}{z} = \int_C \dd{t} e^{tz} t v(t)， \quad \dv[2]{F}{z} = \int_C \dd{t} e^{tz} t^2 v(t)
+\end{align}
+および，
+\begin{align}
+  z e^{tz} = \dv{t} e^{zt}
+\end{align}
+を用いることで，
+\begin{align}
+  \int_C \dd{t} \qty[\qty(t^2 - t)\dv{e^{zt}}{t} + (bt - a) e^{zt}]v(t) = 0
+\end{align}
+となる．ここで，第一項について部分積分をすると，
+\begin{align}
+  \int_C \dd{t} e^{zt}\qty{-(t^2 - t)\dv{v}{t} + \qty[(b-2)t -a + 1]v} + \qty[(t^2-t)ve^{zt}]_C = 0
+\end{align}
+となる．ここで，$\qty[\quad]_C$は経路$C$の始点と終点の差で定義される．
+$[\quad]_C = 0$とし，非積分関数$=0$から，
+\begin{align}
+  v(t) = A t^{a-1}(1-t)^{b-a-1}
+\end{align}
+となり，
+\begin{align}
+  F(z) = A \int_C \dd{t} t^{a-1} (1-t)^{b-a-1} e^{tz} 
+\end{align}
+を得る．ただし，積分経路$C$として，
+\begin{align}
+  \qty[t^a (1-t)^{b-a} e^{zt}]_C = 0
+\end{align}
+を課す．また，式~(\ref{eq:cofluent_hyp_geom_dif})において，$F = z^{1-b} F_1$と置き換えることで，
+$F_1$についての微分方程式
+\begin{align}
+  z \dv[2]{F_1}{z} + (2-b-z)\dv{F_1}{z} - (1-b+a)F_1 = 0
+\end{align}
+を得る．この方程式の解は，$F(1-b+a, 2-b, z)$であり，積分系は，同様にして，
+\begin{align}
+  F(z) = A_1\int_{C_1} \dd{t}e^{zt} t^{a-b}(1-t)^{-a}
+\end{align}
+となる．ただし経路$C_1$は，
+\begin{align}
+  \qty[t^{1-b+a}(1-t)^{1-a}e^{zt}]_{C_1} = 0
+\end{align}
+となるように取る．これらは$b=1$では同一の解となるが，それ以外では線形独立な解となっているため，
+式~(\ref{eq:cofluent_hyp_geom_dif})の一般解は，
+\begin{align}
+  F = c_1 F(a, b, z) + c_2 z^{1-b} F(1-b+a, 2-b, z)
+\end{align}
+となる．
+ここで，規格化定数$A$を求めよう．
+積分経路として，\ref{fig:dogbone_contour}をとる．
+ただし，$C_0$は実軸上において$\arg t - \arg(1-t) = 0$に取る．
+\begin{figure}[thbp]
+    \centering
+    \begin{tikzpicture}[scale=4]
+        % --- パラメータ設定 ---
+        \def\r{0.15}    % 両端の円の半径
+        \def\ang{30}    % 通路との接続角度 (degree)
+        
+        % 補助計算: 直線と円の接点の座標
+        % 0の周りの接点: (r*cos(ang), r*sin(ang))
+        % 1の周りの接点: (1-r*cos(ang), r*sin(ang))
+        \pgfmathsetmacro{\px}{ \r*cos(\ang) }
+        \pgfmathsetmacro{\py}{ \r*sin(\ang) }
+        \pgfmathsetmacro{\qx}{ 1 - \r*cos(\ang) }
+
+        % 座標軸
+        \draw[->, >=stealth, gray!40] (-0.3, 0) -- (1.3, 0) node[right, black] {Re($t$)};
+        \draw[->, >=stealth, gray!40] (0, -0.3) -- (0, 0.3) node[above, black] {Im($t$)};
+
+        % 特異点 0 と 1
+        \fill (0,0) circle (0.5pt) node[below left] {$0$};
+        \fill (1,0) circle (0.5pt) node[below right] {$1$};
+
+        % 分枝切断線 (Branch Cut)
+        \draw[dashed, red!80] (0,0) -- (1,0);
+
+        % ドッグボーン輪郭の描画
+        \draw[
+            blue, thick,
+            decoration={
+                markings,
+                mark=at position 0.10 with {\arrow{Stealth}},
+                mark=at position 0.35 with {\arrow{Stealth}},
+                mark=at position 0.60 with {\arrow{Stealth}},
+                mark=at position 0.85 with {\arrow{Stealth}}
+            },
+            postaction={decorate}
+        ]
+        % 1. 右端の円弧から開始 (1の右側を回る)
+        (1+\r, 0) arc (0 : {180-\ang} : \r) -- 
+        % 2. 上側の水平線 (1から0へ)
+        (\px, \py) arc (\ang : {360-\ang} : \r) -- 
+        % 3. 下側の水平線 (0から1へ)
+        (\qx, -\py) arc ({180+\ang} : 360 : \r) -- cycle;
+
+        % ラベル
+        \node[blue, above] at (0.5, \py) {$C_0$};
+    \end{tikzpicture}
+    \caption{$t=0$ と $t=1$ を囲むドッグボーン型（ダンベル型）積分路}
+    \label{fig:dogbone_contour}
+\end{figure}
+
+$F(0) = 1$であることから，
+\begin{align}
+  A^{-1} = \int_{C_0} \dd{t} t^{a-1}(1-t)^{b-1-a} = \int_{C_0} \dd{t} t^{b-2} \qty(\frac{t}{1-t})^{a-1}
+\end{align}
+となる．$t = 0$および，$t = 1$を囲む積分の寄与は0になる．
+また，$c$が正の整数であることから，$t^{b-2}$は1価関数であり，$\arg t - \arg(1-t) = 0$という仮定から，下を通る積分の値と
+上を通る積分の値では~$e^{-2i\pi a}$だけ位相がずれる．
+よって，
+\begin{align}
+  A^{-1} = (1-e^{-2\pi i a})B(a, b-a)
+\end{align}
+となる．ここで，$B(a, b-a)$はベータ関数であり，ガンマ関数を用いて
+\begin{align}
+  B(a, b-a) = \frac{\Gamma(a)\Gamma(b-a)}{\Gamma(b)}
+\end{align}
+と表されるために，
+\begin{align}
+  A = \qty(1-e^{-2\pi i a})^{-1} \frac{\Gamma(b)}{\Gamma(a)\Gamma(b-a)}
+\end{align}
+となる．

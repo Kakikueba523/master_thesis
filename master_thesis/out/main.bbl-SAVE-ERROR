@@ -1,0 +1,456 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{PhysRevLett.110.072701}{article}{}
+      \name{author}{6}{}{%
+        {{hash=8c2c38ca74699763c37294f37f403b6d}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={C.\bibnamedelimi L.},
+           giveni={C\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=9ffff2ff6cc7b845ae71e1dbe5c2bdd8}{%
+           family={Back},
+           familyi={B\bibinitperiod},
+           given={B.\bibnamedelimi B.},
+           giveni={B\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=fbc7bf44765bb0638c5e65fe230f26b5}{%
+           family={Esbensen},
+           familyi={E\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=03185fa586c3e47628b46b6c251e1384}{%
+           family={Janssens},
+           familyi={J\bibinitperiod},
+           given={R.\bibnamedelimi V.\bibnamedelimi F.},
+           giveni={R\bibinitperiod\bibinitdelim V\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=bd5b3553547d40d4d3e5bfaa986a9a53}{%
+           family={Rehm},
+           familyi={R\bibinitperiod},
+           given={K.\bibnamedelimi E.},
+           giveni={K\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=f5f7b3ff573d49140eda1fbafb2da9d9}{%
+           family={Charity},
+           familyi={C\bibinitperiod},
+           given={R.\bibnamedelimi J.},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society}%
+      }
+      \strng{namehash}{6e277f1485d3c0ed728d7c538c4675e6}
+      \strng{fullhash}{fe0b6cb4b6789c214af3488f66e66a5f}
+      \strng{bibnamehash}{fe0b6cb4b6789c214af3488f66e66a5f}
+      \strng{authorbibnamehash}{fe0b6cb4b6789c214af3488f66e66a5f}
+      \strng{authornamehash}{6e277f1485d3c0ed728d7c538c4675e6}
+      \strng{authorfullhash}{fe0b6cb4b6789c214af3488f66e66a5f}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{7}
+      \field{journaltitle}{Phys. Rev. Lett.}
+      \field{month}{2}
+      \field{title}{Origin and Consequences of $^{12}\mathbf{C}+^{12}\mathbf{C}$ Fusion Resonances at Deep Sub-barrier Energies}
+      \field{volume}{110}
+      \field{year}{2013}
+      \field{pages}{072701}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevLett.110.072701
+      \endverb
+      \verb{urlraw}
+      \verb https://link.aps.org/doi/10.1103/PhysRevLett.110.072701
+      \endverb
+      \verb{url}
+      \verb https://link.aps.org/doi/10.1103/PhysRevLett.110.072701
+      \endverb
+    \endentry
+    \entry{Esbensen2011}{article}{}
+      \name{author}{3}{}{%
+        {{hash=fbc7bf44765bb0638c5e65fe230f26b5}{%
+           family={Esbensen},
+           familyi={E\bibinitperiod},
+           given={H},
+           giveni={H\bibinitperiod}}}%
+        {{hash=f5b6a698669c62232fdf42115d528d64}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={X},
+           giveni={X\bibinitperiod}}}%
+        {{hash=8c2c38ca74699763c37294f37f403b6d}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={C\bibnamedelima L},
+           giveni={C\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society}%
+      }
+      \strng{namehash}{77ae1223edd37eb242bee89d31f836d9}
+      \strng{fullhash}{25a1f3bdec7fae830f27120805be787e}
+      \strng{bibnamehash}{25a1f3bdec7fae830f27120805be787e}
+      \strng{authorbibnamehash}{25a1f3bdec7fae830f27120805be787e}
+      \strng{authornamehash}{77ae1223edd37eb242bee89d31f836d9}
+      \strng{authorfullhash}{25a1f3bdec7fae830f27120805be787e}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{6}
+      \field{journaltitle}{Phys. Rev. C}
+      \field{month}{12}
+      \field{title}{Effects of mutual excitations in the fusion of carbon isotopes}
+      \field{volume}{84}
+      \field{year}{2011}
+      \field{pages}{64613}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevC.84.064613
+      \endverb
+      \verb{urlraw}
+      \verb https://link.aps.org/doi/10.1103/PhysRevC.84.064613
+      \endverb
+      \verb{url}
+      \verb https://link.aps.org/doi/10.1103/PhysRevC.84.064613
+      \endverb
+    \endentry
+    \entry{PhysRevC.75.034606}{article}{}
+      \name{author}{2}{}{%
+        {{hash=6365c8b0433dc8242d6dc92e39b89b90}{%
+           family={Mi\ifmmode\bibnamedelima \mbox{ş}icu},
+           familyi={M\bibinitperiod\bibinitdelim ş\bibinitperiod},
+           given={\ifmmode\bibnamedelimb \mbox{Ş}\else\bibnamedelima Ş\fi{}.},
+           giveni={Ş\bibinitperiod\bibinitdelim Ş\bibinitperiod}}}%
+        {{hash=fbc7bf44765bb0638c5e65fe230f26b5}{%
+           family={Esbensen},
+           familyi={E\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society}%
+      }
+      \strng{namehash}{b49d4eaec35db28c80141b515bc9790b}
+      \strng{fullhash}{b49d4eaec35db28c80141b515bc9790b}
+      \strng{bibnamehash}{b49d4eaec35db28c80141b515bc9790b}
+      \strng{authorbibnamehash}{b49d4eaec35db28c80141b515bc9790b}
+      \strng{authornamehash}{b49d4eaec35db28c80141b515bc9790b}
+      \strng{authorfullhash}{b49d4eaec35db28c80141b515bc9790b}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{3}
+      \field{journaltitle}{Phys. Rev. C}
+      \field{month}{3}
+      \field{title}{Signature of shallow potentials in deep sub-barrier fusion reactions}
+      \field{volume}{75}
+      \field{year}{2007}
+      \field{pages}{034606}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevC.75.034606
+      \endverb
+      \verb{urlraw}
+      \verb https://link.aps.org/doi/10.1103/PhysRevC.75.034606
+      \endverb
+      \verb{url}
+      \verb https://link.aps.org/doi/10.1103/PhysRevC.75.034606
+      \endverb
+    \endentry
+    \entry{PhysRevLett.89.052701}{article}{}
+      \name{author}{13}{}{%
+        {{hash=8c2c38ca74699763c37294f37f403b6d}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={C.\bibnamedelimi L.},
+           giveni={C\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=fbc7bf44765bb0638c5e65fe230f26b5}{%
+           family={Esbensen},
+           familyi={E\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=bd5b3553547d40d4d3e5bfaa986a9a53}{%
+           family={Rehm},
+           familyi={R\bibinitperiod},
+           given={K.\bibnamedelimi E.},
+           giveni={K\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=9ffff2ff6cc7b845ae71e1dbe5c2bdd8}{%
+           family={Back},
+           familyi={B\bibinitperiod},
+           given={B.\bibnamedelimi B.},
+           giveni={B\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=03185fa586c3e47628b46b6c251e1384}{%
+           family={Janssens},
+           familyi={J\bibinitperiod},
+           given={R.\bibnamedelimi V.\bibnamedelimi F.},
+           giveni={R\bibinitperiod\bibinitdelim V\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=5433d77e748094e4c24d2186a571d152}{%
+           family={Caggiano},
+           familyi={C\bibinitperiod},
+           given={J.\bibnamedelimi A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=4589b1bef82f6a81c04aa0e5145a17f3}{%
+           family={Collon},
+           familyi={C\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=99a34948cbad5191e9f18d5fef2f8233}{%
+           family={Greene},
+           familyi={G\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=6ff646097dcd3603cfbd67a07b1dca1b}{%
+           family={Heinz},
+           familyi={H\bibinitperiod},
+           given={A.\bibnamedelimi M.},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=fb2556068caeba109cae84449ed39eea}{%
+           family={Henderson},
+           familyi={H\bibinitperiod},
+           given={D.\bibnamedelimi J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=dfc7d2087c5f82a9b93ebef616742d43}{%
+           family={Nishinaka},
+           familyi={N\bibinitperiod},
+           given={I.},
+           giveni={I\bibinitperiod}}}%
+        {{hash=3366fc937a1c5b9ed7df1e87331f16f4}{%
+           family={Pennington},
+           familyi={P\bibinitperiod},
+           given={T.\bibnamedelimi O.},
+           giveni={T\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=93f2bfd0c964f56e24427d7485a4842e}{%
+           family={Seweryniak},
+           familyi={S\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society}%
+      }
+      \strng{namehash}{6e277f1485d3c0ed728d7c538c4675e6}
+      \strng{fullhash}{c23d6e4e5df1b5b6d39b715256c18b65}
+      \strng{bibnamehash}{c23d6e4e5df1b5b6d39b715256c18b65}
+      \strng{authorbibnamehash}{c23d6e4e5df1b5b6d39b715256c18b65}
+      \strng{authornamehash}{6e277f1485d3c0ed728d7c538c4675e6}
+      \strng{authorfullhash}{c23d6e4e5df1b5b6d39b715256c18b65}
+      \field{extraname}{2}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{5}
+      \field{journaltitle}{Phys. Rev. Lett.}
+      \field{month}{7}
+      \field{title}{Unexpected Behavior of Heavy-Ion Fusion Cross Sections at Extreme Sub-Barrier Energies}
+      \field{volume}{89}
+      \field{year}{2002}
+      \field{pages}{052701}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevLett.89.052701
+      \endverb
+      \verb{urlraw}
+      \verb https://link.aps.org/doi/10.1103/PhysRevLett.89.052701
+      \endverb
+      \verb{url}
+      \verb https://link.aps.org/doi/10.1103/PhysRevLett.89.052701
+      \endverb
+    \endentry
+    \entry{PhysRevC.98.014604}{article}{}
+      \name{author}{3}{}{%
+        {{hash=b2b6815d0470e0d14f5be67d4cda1c6b}{%
+           family={Fanto},
+           familyi={F\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=5f91615178370341d96069852b45017e}{%
+           family={Bertsch},
+           familyi={B\bibinitperiod},
+           given={G.\bibnamedelimi F.},
+           giveni={G\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=eab043e8f82655f02ac30219f3a50e02}{%
+           family={Alhassid},
+           familyi={A\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society}%
+      }
+      \strng{namehash}{9d847983ed056f4c4c63cbb0c87240d4}
+      \strng{fullhash}{2f4ceff9d3676be5baeb78c286b070f3}
+      \strng{bibnamehash}{2f4ceff9d3676be5baeb78c286b070f3}
+      \strng{authorbibnamehash}{2f4ceff9d3676be5baeb78c286b070f3}
+      \strng{authornamehash}{9d847983ed056f4c4c63cbb0c87240d4}
+      \strng{authorfullhash}{2f4ceff9d3676be5baeb78c286b070f3}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{1}
+      \field{journaltitle}{Phys. Rev. C}
+      \field{month}{7}
+      \field{title}{Neutron width statistics in a realistic resonance-reaction model}
+      \field{volume}{98}
+      \field{year}{2018}
+      \field{pages}{014604}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevC.98.014604
+      \endverb
+      \verb{urlraw}
+      \verb https://link.aps.org/doi/10.1103/PhysRevC.98.014604
+      \endverb
+      \verb{url}
+      \verb https://link.aps.org/doi/10.1103/PhysRevC.98.014604
+      \endverb
+    \endentry
+    \entry{Shimizu2016}{article}{}
+      \name{author}{6}{}{%
+        {{hash=60558ff0e5232ee531f200fc84a02a61}{%
+           family={Shimizu},
+           familyi={S\bibinitperiod},
+           given={Noritaka},
+           giveni={N\bibinitperiod}}}%
+        {{hash=3ae969000f80f5ed4a52c34b786fda24}{%
+           family={Utsuno},
+           familyi={U\bibinitperiod},
+           given={Yutaka},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=5b27c3630f18f1effc61893b6824f6f4}{%
+           family={Futamura},
+           familyi={F\bibinitperiod},
+           given={Yasunori},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=d2cb027dcd4c3d4c4b678f8625aa8284}{%
+           family={Sakurai},
+           familyi={S\bibinitperiod},
+           given={Tetsuya},
+           giveni={T\bibinitperiod}}}%
+        {{hash=0b0bf1015d2ac676f42455fa0a07858b}{%
+           family={Mizusaki},
+           familyi={M\bibinitperiod},
+           given={Takahiro},
+           giveni={T\bibinitperiod}}}%
+        {{hash=1469aae28f3e0d2b2966a149389a23b9}{%
+           family={Otsuka},
+           familyi={O\bibinitperiod},
+           given={Takaharu},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {North-Holland}%
+      }
+      \strng{namehash}{7c6b62a67d4232cd91a68f9bb1b83117}
+      \strng{fullhash}{8484b0a4a1c105b82313eaae0392d463}
+      \strng{bibnamehash}{8484b0a4a1c105b82313eaae0392d463}
+      \strng{authorbibnamehash}{8484b0a4a1c105b82313eaae0392d463}
+      \strng{authornamehash}{7c6b62a67d4232cd91a68f9bb1b83117}
+      \strng{authorfullhash}{8484b0a4a1c105b82313eaae0392d463}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We introduce a novel method to obtain level densities in large-scale shell-model calculations. Our method is a stochastic estimation of eigenvalue count based on a shifted Krylov-subspace method, which enables us to obtain level densities of huge Hamiltonian matrices. This framework leads to a successful description of both low-lying spectroscopy and the experimentally observed equilibration of Jπ=2+ and 2- states in 58Ni in a unified manner.}
+      \field{issn}{0370-2693}
+      \field{journaltitle}{Physics Letters B}
+      \field{month}{2}
+      \field{title}{Stochastic estimation of nuclear level density in the nuclear shell model: An application to parity-dependent level density in 58Ni}
+      \field{volume}{753}
+      \field{year}{2016}
+      \field{pages}{13\bibrangedash 17}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1016/J.PHYSLETB.2015.12.005
+      \endverb
+      \keyw{Conjugate gradient method,Nuclear level density,Nuclear shell model,Parity dependence}
+    \endentry
+    \entry{PhysRevC.86.051301}{article}{}
+      \name{author}{6}{}{%
+        {{hash=3ae969000f80f5ed4a52c34b786fda24}{%
+           family={Utsuno},
+           familyi={U\bibinitperiod},
+           given={Yutaka},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=1469aae28f3e0d2b2966a149389a23b9}{%
+           family={Otsuka},
+           familyi={O\bibinitperiod},
+           given={Takaharu},
+           giveni={T\bibinitperiod}}}%
+        {{hash=2d62887e6f13f70a24316f0109321fcd}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={B.\bibnamedelimi Alex},
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=603c49112d86535f3ebc7a3339cad26b}{%
+           family={Honma},
+           familyi={H\bibinitperiod},
+           given={Michio},
+           giveni={M\bibinitperiod}}}%
+        {{hash=0b0bf1015d2ac676f42455fa0a07858b}{%
+           family={Mizusaki},
+           familyi={M\bibinitperiod},
+           given={Takahiro},
+           giveni={T\bibinitperiod}}}%
+        {{hash=60558ff0e5232ee531f200fc84a02a61}{%
+           family={Shimizu},
+           familyi={S\bibinitperiod},
+           given={Noritaka},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society}%
+      }
+      \strng{namehash}{972f760fd4cba4e61213867d29c5b0a3}
+      \strng{fullhash}{027269d116561bf468236737561d04c4}
+      \strng{bibnamehash}{027269d116561bf468236737561d04c4}
+      \strng{authorbibnamehash}{027269d116561bf468236737561d04c4}
+      \strng{authornamehash}{972f760fd4cba4e61213867d29c5b0a3}
+      \strng{authorfullhash}{027269d116561bf468236737561d04c4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{5}
+      \field{journaltitle}{Phys. Rev. C}
+      \field{month}{11}
+      \field{title}{Shape transitions in exotic Si and S isotopes and tensor-force-driven Jahn-Teller effect}
+      \field{volume}{86}
+      \field{year}{2012}
+      \field{pages}{051301}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevC.86.051301
+      \endverb
+      \verb{urlraw}
+      \verb https://link.aps.org/doi/10.1103/PhysRevC.86.051301
+      \endverb
+      \verb{url}
+      \verb https://link.aps.org/doi/10.1103/PhysRevC.86.051301
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

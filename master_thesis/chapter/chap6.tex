@@ -1,0 +1,153 @@
+\section{S行列の求め方と，ポール探索}
+
+
+\subsection{ハミルトニアン}
+本研究で用いるハミルトニアンは，文献\cite{PhysRevC.98.014604}で用いられたものと同様のものを用いる．
+この模型は散乱状態と複合核状態を陽に取り扱うことのできる模型である．
+文献\cite{PhysRevC.98.014604}では，$n + \isotope[194]{Pt}$反応の解析をおこなっており，そこでは$s$波
+のみの解析に限られていたが，本研究ではそれを荷電粒子同士の反応，およびすべての部分波$l$で用いられるように拡張した．
+
+具体的には，
+$\isotope{C} + \isotope{C}$チャネルおよび複合核($\isotope{Mg}$)チャネルを一つのハミルトニアンで，
+陽に取り扱う．系全体のハミルトニアンは，
+\begin{align}\label{eq:total_hamiltonian}
+  \bm{H}^{l,J^\pi} = 
+  \begin{pmatrix}
+    \bm{H}^l_\text{C+C} & \bm{V} \\
+    \bm{V}^T & \bm{H}^{J^\pi}_\text{CN}
+  \end{pmatrix}
+\end{align}
+のように書かれる．
+ここで，$l$は$\isotope{C}+\isotope{C}$チャネルの相対角運動量，$J^\pi$は$\isotope{Mg}$のスピンおよびパリティ，$\bm{H}_\text{C+C}$はC+Cチャネルのハミルトニアン，$\bm{H}_\text{CN}$は複合核チャネルのハミルトニアン，$\bm{V}$はカップリング行列である．
+
+\subsection{入口チャネル}
+  $\bm{H}_\text{C+C}$は，
+炭素原子核$\isotope[12]{C}$，$\isotope[13]{C}$を球形と近似し，二つの原子核間の相対運動を記述する：
+\begin{align}\label{eq:entrance_hamiltonian}
+  \bm{H}^l_{\text{C+C}, ij} = \qty[2t + V_l(r_i)]\delta_{ij} - t\delta_{i, j+1} - t\delta_{i,j-1}．
+\end{align}
+ここで，$i,j = (1, 2, \dots, N_\text{C+C})$，$N_\text{C+C}$は$\isotope{C}+\isotope{C}$チャネルのメッシュのサイト数
+であり，$t = \hbar^2/ 2\mu \Delta r^2$，$\mu$は換算質量である．
+また，$\Delta r$はメッシュ間隔であり，$r_i = i \Delta r$である．
+なお，ここで$\isotope[12]{C}$，$\isotope[13]{C}$の励起状態は考えず，質点として取り扱っている．
+$V_l(r_i)$は遠心力ポテンシャルを含む，原子核間ポテンシャルであり，原子核間ポテンシャルとしては，いくつかのケースを
+試す．
+
+\subsection{複合核チャネル}
+  $\bm{H}^{J^\pi}_\text{CN}$は複合核状態を記述するハミルトニアンであり，
+\begin{align}\label{eq:compound_hamiltonian}
+  \bm{H}^{J^\pi}_{\text{CN}, \mu \nu} = \qty[\mathcal{E}^{J^\pi}_\mu - i \Gamma^{J^\pi}(\mathcal{E}^{J^\pi}_\mu)/2]\delta_{\mu\nu}
+\end{align}
+と書かれる($\mu = 1, 2, \cdots , N_\text{CN}$)．ここで，$\mathcal{E}^{J^\pi}_\mu$はスピン$J^\pi$を持つ複合核の第$\mu$励起エネルギーでそれに対応する崩壊幅$\Gamma^J(\mathcal{E}_\mu)$を
+虚部に加えている．
+複合核の励起スペクトルとして，本研究では殻模型を用いて計算を行った．
+具体的にはKSHELL\cite{Shimizu2016}というコードを用いて，$\isotope[24]{Mg}$，$\isotope[25]{Mg}$の励起スペクトルを
+計算した．
+$\isotope[16]{O}$を不活性コアとし，$sd - pf$軌道をバレンス軌道として，励起スペクトルを計算した．
+用いた核子間相互作用はsdpf-mu\cite{PhysRevC.86.051301}と呼ばれる相互作用である．
+
+\subsection{カップリング行列}
+  $\bm{V}$は$\isotope{C} + \isotope{C}$チャネルと$\isotope{Mg}$チャネルを結合する行列であり，
+本研究では
+\begin{align}
+  \bm{V}_{i,\mu} = v_0 (\Delta r)^{-1/2} \delta_{i,i_e}
+\end{align}
+という形を用いる．
+ここで，$\Delta r$はメッシュ間隔であり，$i_e$は相互作用点である．
+$i_e$の選び方はさまざまあるが，今回は$\isotope{C} + \isotope{C}$チャネルのポテンシャル最小点
+でとる．また，$v_0$はカップリングパラメータであり，本研究では，このパラメータを変えながら議論する．
+ただし，簡単のために，$v_0$は$l$および$J^\pi$にはよらないパラメータとする．
+
+
+
+\subsection{S行列の計算}
+核融合断面積は，$\isotope{C} + \isotope{C}$チャネルの境界条件と，式~(\ref{eq:total_hamiltonian})の固有ベクトルから得られる．
+$\isotope{C} + \isotope{C}$チャネルの波動関数に境界条件として，
+\begin{align}
+  u(0) &= 0， \label{eq:boundary_origin}\\
+  u(r) &\rightarrow A(k) \qty[H_l^- (kr) - S^{J^\pi}_l H_l^+(kr)] \label{eq:boundary_approxfrom}
+\end{align}
+を課す．ここで，$S^{J^\pi}_l$は弾性チャネルの$S$行列である．また，$H^\pm_l(kr)$はクーロン・ハンケル関数であり，正則なクーロン関数$F_l(kr)$と
+非正則なクーロン関数$G_l(kr)$を用いて，
+\begin{align}\label{eq:coulomb_hankel_function}
+  H^\pm_l (kr) = G_l(kr) \pm i F_l(kr)
+\end{align}
+と定義される．
+次に，式~(\ref{eq:total_hamiltonian})の固有ベクトルについて考える．式~(\ref{eq:total_hamiltonian})は
+$N_\text{C+C} + N_\text{CN}$次元のハミルトニアンだから，固有ベクトルは$N_\text{C+C} + N_\text{CN}$
+成分を持ったベクトルである．固有ベクトルを$\vec{u}$とすると，
+\begin{align}\label{eq:eigenvector_of_total_H}
+  \vec{u} = \begin{pmatrix}
+    (N_\text{C+C}\text{成分}) \\
+    (N_\text{CN}\text{成分}) 
+  \end{pmatrix}
+\end{align}
+のようになり，上$N_\text{C+C}$成分は$\isotope{C} + \isotope{C}$チャネルの波動関数に対応しており，
+下$N_\text{CN}$成分は複合核チャネルの固有ベクトルに対応する．
+
+式~(\ref{eq:boundary_approxfrom})から，メッシュ点$N_\text{C+C}$，$N_\text{C+C}+1$について，
+\begin{align}\label{eq:ratio_from_boundary}
+  \frac{u(N_\text{C+C})}{u(N_\text{C+C}+1)} = \frac{H_l^-(k\Delta r N_\text{C+C}) - S^{J^\pi}_l H_l^+(k\Delta r N_\text{C+C})}{H_l^-(k\Delta r (N_\text{C+C}+1)) - S^{J^\pi}_l H_l^+ (k\Delta r (N_\text{C+C} + 1))}
+\end{align}
+を得る．
+
+次に，シュレーディンガー方程式について考える．$\isotope{C}+\isotope{C}$チャネルにおいて
+~$-t u(N_\text{C+C} + 1)$という，チャネルの外側であり，かつ0でない項を考えなければならない．
+よって，エネルギー$E = \hbar^2 k^2 / 2\mu$の散乱解をもつシュレーディンガー方程式は，
+\begin{align}\label{eq:total_hamiltonian_eigen_problem}
+  (E - \bm{H}^{l, J^\pi}) \vec{u} = \vec{h}
+\end{align}
+となる．ここで，~$h(i) = -tu(N_\text{C+C}+1) \delta_{i, N_\text{C+C}}$である．式~(\ref{eq:total_hamiltonian_eigen_problem})に左から，
+$G^{l, J^\pi}(E) = (E - \bm{H}^{l, J^\pi})^{-1}$を掛けて，第$N_\text{C+C}$成分を比較することで，
+\begin{align}\label{eq:ratio_from_eigenvector}
+  \frac{u(N_\text{C+C})}{u(N_\text{C+C}+1)} = - t G^{l, J^\pi}(E)_{N_\text{C+C}, N_\text{C+C}}
+\end{align}
+式~(\ref{eq:ratio_from_boundary})，~(\ref{eq:ratio_from_eigenvector})から，$S^{J^\pi}_l$について整理すると，
+\begin{align}\label{eq:s_matrix}
+  S^{J^\pi}_l = \frac{H_l^- (k\Delta r N_\text{C+C}) + t G^{l, J^\pi}(E)_{N_\text{C+C}, N_\text{C+C}} H^-_l(k\Delta r (N_\text{C+C}+1))}{H_l^+(k \Delta r N_\text{C+C})+ t G^{l, J^\pi}(E)_{N_\text{C+C}, N_\text{C+C}} H_l^+(k\Delta r (N_\text{C+C} + 1))}
+\end{align}
+を得る．
+リアクションチャネルを核融合チャネルとすることで，核融合断面積を$S^{J^\pi}_l$を用いて計算することができる．
+ただし，$\isotope[12]{C} + \isotope[12]{C}$反応では，$\isotope[12]{C}$の基底状態が$0^+$のボース粒子であることから，
+\begin{align}\label{eq:fus_cs_12_12}
+  \sigma_{\text{fus}, \isotope[12]{C} + \isotope[12]{C}} = \frac{\pi}{k^2} \sum_l (2l + 1) \qty(1-\abs{S^{J^\pi=l^+}_l}^2) \qty(1 + (-1)^l)
+\end{align}
+となる．
+
+また，$\isotope[12]{C} + \isotope[13]{C}$反応では，$\isotope[13]{C}$の基底状態が，$\frac{1}{2}^-$であることから，
+\begin{align}\label{eq:fus_cs_12_13}
+  \sigma_{\text{fus}, \isotope[12]{C} + \isotope[13]{C}} = \frac{\pi}{k^2} \sum_l \sum_{J^\pi = (l - 1/2)^{(-1)^{l+1}}}^{(l + 1/2)^{(-1)^{l+1}}} \frac{2 J + 1}{2} \qty(1 - \abs{S^{J^\pi}_l}^2)
+\end{align}
+となる．ここで，$(2J+1)/2$はスピン統計因子であり，始状態の状態数2で割ってある．
+
+
+式~(\ref{eq:s_matrix})と，~(\ref{eq:fus_cs_12_12})および~(\ref{eq:fus_cs_12_13})から，核融合断面積を計算するが，
+$S$行列は1にとても近い量であるため，直接計算すると精度が足りない．
+よって，$1-\abs{S^{J^\pi}_l}^2$を直接計算する．そのために，解析的な式を以下で与えておく．
+式~(\ref{eq:coulomb_hankel_function})を用いて，
+\begin{align}
+  1 - S^{J^\pi}_l =2i \frac{F_l (k\Delta r N_\text{C+C}) + t G^{l, J^\pi}(E)_{N_\text{C+C}, N_\text{C+C}} F_l(k\Delta r (N_\text{C+C}+1))}{H_l^+(k \Delta r N_\text{C+C})+ t G^{l, J^\pi}(E)_{N_\text{C+C}, N_\text{C+C}} H_l^+(k\Delta r (N_\text{C+C} + 1))}
+\end{align}
+$1 - S^{J^\pi}_l = \delta^{J^\pi}_l$と$\delta^{J^\pi}_l$を定義すると，
+\begin{align}\label{eq:1_minus_s_squared}
+  1-\abs{S^{J^\pi}_l}^2 
+  &= 1 - \abs{1 - \delta^{J^\pi}_l}^2 \notag \\
+  &= 1 - \qty(1 -  \delta^{J^\pi}_l -  (\delta^{J^\pi}_l)^*  + \abs{ \delta^{J^\pi}_l}^2 ) \notag \\
+  &= 2 \mathrm{Re}\qty( \delta^{J^\pi}_l) - \abs{ \delta^{J^\pi}_l}^2
+\end{align}
+となり，この式を用いて，式~(\ref{eq:fus_cs_12_12})および(\ref{eq:fus_cs_12_13})を計算する．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

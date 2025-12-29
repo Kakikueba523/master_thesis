@@ -1,0 +1,24 @@
+\section{部分波展開}
+\subsection{平面波}
+式~(\ref{eq:plane_wave_exp_by_partial_wave})を証明しよう．
+まず，$e^{ikr\cos\theta}$が，$\cos\theta$の関数であることから，ルジャンドル多項式で展開できるので，
+\begin{align}\label{eq:plane_wave_exp_by_legendre}
+  e^{ikr\cos\theta} = \sum_l a_l(kr)P_l(\cos\theta)
+\end{align}
+となる．ここで，ルジャンドル多項式の直交性，
+\begin{align}\label{eq:legendre_orthogonality}
+  \int_{-1}^{1}\dd{(\cos\theta)} P_l(\cos\theta) P_{l'} (\cos\theta) = \delta_{l,l'} \frac{2}{2l+1}
+\end{align}
+を用いることで，
+\begin{align}\label{eq:plane_wave_exp_coeff}
+  a_l(kr) =\frac{2l+1}{2}  \int_{-1}^{1} \dd{(\cos\theta)} P_l(\cos\theta) e^{ikr\cos\theta} 
+\end{align}
+となる．ここで，
+\begin{align}\label{eq:bauers_expansion}
+  \int_{-1}^{1} \dd{(\cos\theta)} P_l(\cos\theta) e^{ikr\cos\theta} = 2 i^l j_l(kr)
+\end{align}
+という関係式から，
+\begin{align}
+  e^{ikr\cos\theta} = \sum_l (2l+1)i^l j_l(kr)P_l(\cos\theta)
+\end{align}
+を得る．

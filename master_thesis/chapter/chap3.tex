@@ -1,0 +1,752 @@
+\section{散乱理論}
+本研究において，重要なパートを担う散乱理論についてこの節で議論する．
+クーロン場がない場合から始め，ある場合について述べる．
+また，同種粒子同士の散乱問題についても，相互作用がスピンに依らない場合に限り，議論する．
+
+\subsection{原子核間ポテンシャル}
+原子核間ポテンシャルは，相対距離$r$の関数として，
+\begin{align}\label{eq:general_ion_potential}
+  V(r) = V_N(r) + V_C(r)
+\end{align}
+と書かれる．ここで，$V_N(r)$核力に由来する原子核ポテンシャルであり，$V_C(r)$がクーロンポテンシャルである．
+入射粒子と標的粒子の電荷を$Z_1，Z_2$とすると，クーロンポテンシャルは，
+\begin{align}\label{eq:naive_coulomb}
+  V_C(r) = \frac{Z_1 Z_2 e^2}{r}
+\end{align}
+と書かれる．
+
+\begin{figure}[thpb]
+  \centering
+  \includegraphics[width=8cm]{figure/chap3/potential_example.pdf}
+  \caption{原子核間ポテンシャルの相対角運動量が0の場合の例．
+  赤の点線がクーロンポテンシャルであり，青の破線が核力に由来するポテンシャルであり，
+  黒の実線がその和，全ポテンシャルを表している．}
+  \label{fig:potential_example}
+\end{figure}
+
+図~\ref{fig:potential_example}に式~(\ref{eq:general_ion_potential})の例をプロットしている．
+点線がクーロンポテンシャルであり，破線が核力であり，その和が実線でプロットされている．
+短距離力である核力と，長距離力であるクーロンポテンシャルの差分により，ポテンシャル障壁が
+生じていることがわかる．このポテンシャル障壁はクーロン障壁と呼ばれ，核融合反応が生じるためには
+この障壁を越えなければならない．
+
+\subsection{クーロン場がないときの散乱理論}
+
+% 短距離ポテンシャル$V_0(r)$があるときの，シュレーディンガー方程式は，
+% \begin{align}\label{eq:shrodinger_eq_wo_coulomb}
+%   \qty[-\frac{\hbar^2}{2\mu}\nabla^2 + V_0(r) - E] \psi(\bm{r}) = 0
+% \end{align}
+% のように書かれる．ポテンシャルがない場合，波数ベクトル$\bm{k}$，$\abs{\bm{k}} = \sqrt{2\mu E/ \hbar}$を用いて，式~(\ref{eq:shrodinger_eq_wo_coulomb})の解は，
+% $\psi(\bm{r}) = \exp(i \bm{k} \cdot \bm{r})$と書かれる．
+
+短距離ポテンシャル$V_0(r)$の下で，シュレーディンガー方程式は，波数ベクトル$\bm{k}$，
+大きさ$k = \abs{\bm{k}} = \sqrt{2\mu E}/\hbar$を用いて，
+\begin{align}\label{eq:stationary_schrodinger_eq}
+  \qty(\nabla^2 + k^2) \psi(\bm{r}) = U(r) \psi(\bm{r})
+\end{align}
+と書ける．ここで，$\mu$は系の換算質量であり，$U(r) = \frac{2\mu}{\hbar^2}V_0(r)$である．
+式~(\ref{eq:stationary_schrodinger_eq})の解は，平面波と散乱波の二つに分解できて，
+\begin{align}\label{eq:desired_wave_function}
+  \psi^{(+)}(\bm{k}; \bm{r}) = \phi(\bm{k};\bm{r}) + \psi^{\text{sc}}(\bm{k}; \bm{r})
+\end{align}
+と書かれる．ここで，
+\begin{align}\label{eq:plane_wave}
+  \phi(\bm{k};\bm{r}) = A e^{i \bm{k} \cdot \bm{r}}
+\end{align}
+および，$\psi^{(+)}(\bm{k};\bm{r})$は散乱源により生じた外向き波である．よって，$r \rightarrow \infty$において，
+\begin{align}\label{eq:scatt_asympt_form}
+  \psi^{\text{sc}}(\bm{k};\bm{r}) \rightarrow A f(\Omega) \frac{e^{ikr}}{r}
+\end{align}
+のような漸近的な振る舞いをする．
+ここで，$f(\Omega) \equiv f(\theta, \varphi)$は散乱振幅であり，断面積の計算において重要な役割を担う．
+式~(\ref{eq:plane_wave})，~(\ref{eq:scatt_asympt_form})より，
+\begin{align}\label{eq:outgoing_asympt_form}
+  \psi^{\text{(+)}}(\bm{k};\bm{r}) \rightarrow A\qty(e^{i\bm{k}\cdot \bm{r}} + f(\Omega)\frac{e^{ikr}}{r})
+\end{align}
+なる漸近形が得られる．
+次に，この散乱振幅を用いて，微分散乱断面積を求めよう．
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+    >=Latex,
+    beam/.style={thick,->},
+    scat/.style={thick,->},
+    detector/.style={thick,rectangle,draw,minimum width=1.5cm,minimum height=0.7cm},
+    every node/.style={font=\small}
+]
+
+% ターゲット位置
+\coordinate (T) at (0,0);
+
+% ===== ユーザー調整用パラメータ =====
+\def\thetaA{25}   % 散乱方向1
+\def\thetaB{-55}   % 散乱方向2
+\def\thetaC{100}  % 散乱方向3
+\def\thetaD{-120}
+\def\dtheta{3}    % ΔΩ の半開口角
+\def\r{3}
+
+% ===== 極薄ターゲット =====
+\draw[thick] (-0.02,-0.2) rectangle (0.02,0.2);
+\node[below] at (-0.2,-0.25) {ターゲット};
+
+% ===== ビーム =====
+% 入射ビーム
+\draw[beam] (-4,0) -- (-0.02,0) node[midway,above] {入射ビーム};
+
+% 透過ビーム
+\draw[beam] (0.02,0) -- (4,0) node[midway,below] {透過ビーム};
+
+% ===== 散乱ビーム1 =====
+
+
+% ===== 散乱ビーム2 =====
+\draw[scat] (T) -- ({2.6*cos(\thetaB)},{2.6*sin(\thetaB)}) ;
+\draw[scat] (T) -- ({2.6*cos(\thetaC)},{2.6*sin(\thetaC)}) 
+  node[midway,above right] {散乱粒子};
+\draw[scat] (T) -- ({2.6*cos(\thetaD)},{2.6*sin(\thetaD)}) ;
+
+% ===== ΔΩ =====
+\path (T) -- ({\r*cos(\thetaA-\dtheta)},{\r*sin(\thetaA-\dtheta)}) coordinate (L);
+\path (T) -- ({\r*cos(\thetaA+\dtheta)},{\r*sin(\thetaA+\dtheta)}) coordinate (R);
+
+\fill[black!15]
+  (T)--(L) arc (\thetaA-\dtheta:\thetaA+\dtheta:\r) -- cycle;
+\draw[thick]
+  (T)--(L) arc (\thetaA-\dtheta:\thetaA+\dtheta:\r) -- (T);
+
+\node[anchor=east] at ({3.1*cos(\thetaA)},{3.1*sin(\thetaA)+0.2}) {$\Delta\Omega$};
+
+% ===== 検出器 =====
+\node[detector,anchor=west] at ({3.3*cos(\thetaA)},{3.3*sin(\thetaA)}) {検出器};
+\draw[scat] (T) -- ({3*cos(\thetaA)},{3*sin(\thetaA)});
+
+
+% ===== ビーム軸 =====
+\draw[thin,dashed] (-4,-0.8) -- (4,-0.8);
+\node[below] at (-3.3,-0.8) {ビーム軸};
+
+\end{tikzpicture}
+\caption{散乱実験の模式図。}
+\label{fig:scattering_multi}
+\end{figure}
+
+微分散乱断面積は入射ビームのフラックスと，立体角$\Omega$に散乱された粒子のフラックスの比で与えられる．
+散乱波によるフラックス$\bm{j}^{\text{sc}}$は，
+\begin{align}
+  \bm{j}^{\text{sc}} = \frac{\hbar}{2i\mu}\qty[(\psi^{\text{sc}}(\bm{k}; \bm{r}))^*\nabla\psi^{\text{sc}}(\bm{k}; \bm{r}) - \psi^{\text{sc}}(\bm{k};\bm{r})\nabla (\psi^{\text{sc}}(\bm{k}; \bm{r}))^*]
+\end{align}
+で与えられ，単位時間あたりに検出器の表面を通過する粒子数は，
+\begin{align}
+  \bm{\Delta S} = \Delta S \hat{\bm{r}} = \Delta \Omega r^2 \hat{\bm{r}}
+\end{align}
+という面積ベクトルを用いて，
+\begin{align}\label{eq:count_rate_by_flux}
+  N(\Omega, \Delta\Omega) = \bm{j}^{\text{sc}} \cdot \bm{\Delta S} = \Delta \Omega r^2 \hat{\bm{r}} \cdot \bm{j}^{\text{sc}}
+\end{align}
+で与えられる．演算子ナブラは球座標表示で，
+\begin{align}
+  \nabla = \hat{\bm{r}}\pdv{r} + \hat{\bm{\theta}} \frac{1}{r} \pdv{\theta} + \hat{\bm{\phi}} \frac{1}{r\sin\theta}\pdv{\phi}
+\end{align}
+となるため，式~(\ref{eq:count_rate_by_flux})は$r \rightarrow \infty$において，
+\begin{align}
+  N(\Omega, \Delta\Omega) \simeq \frac{\hbar}{2i\mu} \abs{f(\Omega)}^2 \abs{A}^2 \Delta\Omega r^2 
+  \qty[\frac{e^{-ikr}}{r}\dv{r}\qty(\frac{e^{ikr}}{r}) - \frac{e^{ikr}}{r} \dv{r} \qty(\frac{e^{-ikr}}{r})]
+\end{align}
+となる．$r$での微分は，$e^{ikr}$にあたるものだけが残るため，
+\begin{align}
+  N(\Omega, \Delta\Omega) = v \abs{A}^2 \abs{f(\Omega)}^2
+\end{align}
+を得る．ここで，$v = \hbar k / \mu$は，運動量$\hbar k$を持つ質量$\mu$の古典粒子が持つ速さに対応する量である．
+次に，入射ビームのフラックスを求める．入射ビームは平面波であったため，単位時間あたりに散乱源に入射する粒子数は，
+\begin{align}
+  J = \hat{\bm{z}} \cdot \bm{j}^{\text{in}} = \frac{\hbar}{2i\mu} \abs{A}^2 \qty[ e^{-ikz}\dv{z} \qty(e^{ikz}) - e^{ikz} \dv{z} \qty(e^{-ikz})] = v \abs{A}^2
+\end{align}
+と書かれる．
+これらの比をとることで，
+\begin{align}\label{eq:diff_cross_section_by_scattering_amplitude}
+  \dv[]{\sigma}{\Omega} = \abs{f(\Omega)}^2
+\end{align}
+という関係式が得られる．また，全断面積は
+\begin{align}
+  \sigma = \int \dd{\Omega} \dv{\sigma}{\Omega}
+\end{align}
+で与えられる．
+
+\subsubsection{部分波展開}
+別のアプローチとして，部分波展開と呼ばれる方法がある．これは，ポテンシャルが球対称な場合かつ
+低エネルギーの解析において極めて有効な方法である．
+ハミルトニアンは運動エネルギー演算子$K \equiv -\frac{\hbar^2}{2\mu}\nabla^2$と，ポテンシャル$V$を用いて，
+\begin{align}\label{eq:hamiltonian_op}
+  H = K + V
+\end{align}
+と書こう．このときシュレーディンガー方程式は，
+\begin{align}\label{eq:shcrodinger_eq_op}
+  H \psi = E \psi 
+\end{align}
+となる．ここで，$E$は衝突エネルギーである．
+
+まず，運動エネルギー演算子$K \equiv -\frac{\hbar^2}{2\mu}\nabla^2$を球座標$(r, \theta, \varphi)$で書き換える．
+\begin{align}\label{eq:kinetic_op_in_spherical}
+  K = -\frac{\hbar^2}{2\mu}\qty[\frac{1}{r^2}\pdv{r}\qty(r^2\pdv{r}) + \frac{1}{r^2\sin^2 \theta}\pdv{\theta}\qty(\sin \theta \pdv{\theta}) + \frac{1}{r^2\sin^2\theta} \pdv[2]{}{\varphi}]
+\end{align}
+軌道角運動量演算子$L^2$が，
+\begin{align}\label{eq:angular_momentum_op}
+  L^2 = -\frac{\hbar^2}{\sin^2\theta}\qty[\pdv{\theta}\qty(\sin\theta \pdv{\theta}) + \pdv[2]{}{\varphi}]
+\end{align}
+で書かれることから，運動エネルギー演算子は，
+\begin{align}\label{eq:kinetic_op_angular_op}
+  K = - \frac{\hbar^2}{2\mu} \qty[\frac{1}{r^2}\pdv{r}\qty(r^2\pdv{r})-\frac{L^2}{\hbar^2r^2}]
+\end{align}
+と書き直すことができる．ポテンシャルが球対称な場合には，式~(\ref{eq:kinetic_op_angular_op})から，ハミルトニアン$H$と
+$L^2$および$L_z$が可換であることがわかる．
+よって，式~(\ref{eq:shcrodinger_eq_op})の解は，演算子$H,L^2, L_z$の同時固有状態で書くことができ，
+\begin{align}\label{eq:shrodinger_eq_eigenf}
+  \psi_{klm}(\bm{r}) = R_l(k, r) Y_{l m} (\hat{\bm{r}})
+\end{align}
+となる．ここで，$\hat{\bm{r}}$は~($\theta, \varphi$)の略記である．
+また，$Y_{lm}$は球面調和関数であり，$R_l$は動径波動関数である．散乱波動関数をこの基底で展開して，
+$Y_{lm}$と内積をとることで，
+動径方向のシュレーディンガー方程式
+\begin{align}\label{eq:radial_eq}
+  -\frac{\hbar^2}{2\mu}\qty[\frac{1}{r^2}\dv{r}\qty(r^2\dv{r})-\frac{l(l+1)}{r^2}]R_l(k, r) + V(r) R_l(k, r) = E R_l(k, r)
+\end{align}
+を得る．さらに，
+\begin{align}\label{eq:mod_radiad_wf}
+  R_l(k, r) = \frac{u_l(k, r)}{kr}
+\end{align}
+のように動径波動関数を変換することで，式~(\ref{eq:radial_eq})は，
+\begin{align}\label{eq:mod_radial_eq}
+  -\frac{\hbar^2}{2\mu}\qty[\dv[2]{}{r} - \frac{l(l+1)}{r^2}]u_l(k, r) + V(r)u_l(k, r) = E u_l(k, r)
+\end{align}
+となる．これは，ポテンシャルが
+\begin{align}
+  V_l(r) = V(r) + V_l^{\text{Cf}}(r)
+\end{align}
+である，一次元シュレーディンガー方程式となっており，
+$V_l^{\text{Cf}}$は遠心力ポテンシャルとよばれ，
+\begin{align}\label{eq:centrifugal_potential}
+  V_l^{\text{Cf}}(r) = \frac{\hbar^2}{2\mu}\frac{l(l+1)}{r^2}
+\end{align}
+で定義される．
+
+$\rho = k r$という無次元量を導入すると便利である．
+このとき，式~(\ref{eq:mod_radial_eq})は，
+\begin{align}\label{eq:mod_radial_eq_by_rho}
+  \qty[\dv[2]{}{\rho} - \frac{l(l+1)}{\rho^2} + 1 ]u_l(\rho) = U(\rho) u_l(\rho)
+\end{align}
+となる．ここで，
+\begin{align}
+  U(\rho) = \frac{V(\rho/k)}{E}
+\end{align}
+とした．また，式~(\ref{eq:radial_eq})は，
+\begin{align}\label{eq:radial_eq_by_rho}
+  \qty[\dv[2]{}{\rho} + \frac{2}{\rho}\dv{\rho} + \qty(1 - \frac{l(l+1)}{\rho^2})]R_l(\rho) = U(\rho) R_l (\rho)
+\end{align}
+となる．
+
+$V_0(r) = 0$の場合について考える．このとき，式~(\ref{eq:radial_eq_by_rho})および~(\ref{eq:mod_radial_eq_by_rho})の右辺は0となる．
+式~(\ref{eq:radial_eq_by_rho})は球ベッセル方程式に帰着される．その解は，独立な2解$j_l(\rho)$と$n_l(\rho)$の
+線形結合で表される．$j_l(\rho)$は原点で正則な球ベッセル関数であり，$n_l(\rho)$は原点で非正則な
+球ノイマン関数である．詳しくは付録~(\ref{apx:bessel_eq})で述べている．それぞれの~$\rho \rightarrow \infty$での漸近形は，
+\begin{align}
+  j_l(\rho \rightarrow \infty) \sim \frac{\sin(\rho-l\pi/2)}{\rho} \label{eq:asympt_form_spherical_bessel_inf} \\
+  n_l(\rho \rightarrow \infty) \sim \frac{\cos(\rho-l\pi/2)}{\rho} \label{eq:asympt_form_spherical_neumann_inf}
+\end{align}
+である．複素数の解として，
+\begin{align}\label{eq:def_of_hankel_func}
+  h_l^{(\pm)}(\rho) = n_l(\rho) \pm i j_l(\rho)
+\end{align}
+で定義される．ハンケル関数も球ベッセル方程式の解であり，それらの漸近的な振る舞いは，
+外向き波と内向き波になる．つまり，
+\begin{align}\label{eq:asympt_form_of_hankel_func}
+  h_l^{(\pm)}(\rho) \sim \frac{e^{\pm i(\rho-l\pi/2)}}{\rho}
+\end{align}
+となる．
+
+また，
+\begin{align}\label{eq:ricatti_bessel_and_neumann}
+  \hat{\jmath}_l(\rho) = \rho j_l(\rho) ; \quad \hat{n}_l(\rho) = \rho n_l(\rho)
+\end{align}
+で定義される，リッカチ・ベッセル関数~$\hat{\jmath}_l$とリッカチ・ノイマン関数~$\hat{n}_l$もよく用いられる．
+これらは，$\rho \rightarrow \infty$での漸近形は，
+\begin{align}
+  \hat{\jmath}_l(\rho \rightarrow \infty) \sim \sin(\rho-l\pi/2) \label{eq:asympt_form_ricatti_bessel_inf} \\
+  \hat{n}_l(\rho \rightarrow \infty) \sim \cos(\rho-l\pi/2) \label{eq:asympt_form_ricatti_neumann_inf}
+\end{align}
+であり，ハンケル関数についても同様に，
+\begin{align}\label{eq:def_of_ricatti_hankel}
+  \hat{h}_l^{(\pm)}(\rho) = \rho h_l^{(\pm)}(\rho) = \hat{n}_l(\rho) \pm i \hat{\jmath}_l(\rho) 
+\end{align}
+でリッカチ・ハンケル関数が定義され，その漸近的な振る舞いは，
+\begin{align}\label{eq:asympt_form_ricatti_hankel}
+  \hat{h}_l^{(\pm)}(\rho \rightarrow \infty) \sim e^{\pm i(\rho-l\pi/2)}
+\end{align}
+となる．
+
+\subsubsection{位相差}
+
+$r = R$以降では，0と近似できるポテンシャル$V(r)$について考える．
+ここで，$r < R$の領域を領域Ⅰ，$r > R$の領域を領域Ⅱとする．
+領域Ⅱでの動径波動関数$u_l(k, r)$は，ポテンシャルの影響がないため，
+\begin{align}\label{eq:raidal_wf_in_region_2}
+  u_l^{I\hspace{-1.2pt}I} (k, r) = \alpha_l \qty[\hat{\jmath}_l (kr)+\beta_l \hat{n}_l(kr)]
+\end{align}
+と書ける．$\alpha_l$は規格化定数であり，ポテンシャル$V(r)$の影響は，$\beta_l$に含まれる．
+境界，すなわち$r=R$での対数微分を計算すると，
+\begin{align}\label{eq:logarithmic_derivative_in_region_2}
+  \mathcal{L}^{I\hspace{-1.2pt}I} = R \qty[\dv{u_l^{I\hspace{-1.2pt}I}(k, r)}{r}]_{r=R}/u_l^{I\hspace{-1.2pt}I}(k, R) = k R\qty[\frac{\hat{\jmath}_l^\prime (kR)+\beta_l \hat{n}^{\prime}_l(kR)}{\hat{\jmath}_l (kR)+\beta_l \hat{n}_l(kR)}]
+\end{align}
+となる．ここで，関数の引数の微分をプライムを用いて表している．
+領域Ⅰでの動径波動関数について，境界$r=R$での対数微分を$\mathcal{L}^{I}$が得られたとすると，
+その値を用いて，
+\begin{align}
+  \mathcal{L}^I = \mathcal{L}^{I\hspace{-1.2pt}I}
+\end{align}
+という接続条件から，$\beta_l$を得ることができる
+\begin{align}
+  \beta_l = - \frac{kR \hat{\jmath}_l^\prime(kR) - \mathcal{L}^I\hat{\jmath}_l(kR)}{kR \hat{n}_l^\prime(kR) - \mathcal{L}^{I} \hat{n}_l(kR)}．
+\end{align}
+ここで，$\beta_l = \tan\delta_l$と新たなパラメータ$\delta_l$を定義し，
+式~(\ref{eq:asympt_form_ricatti_bessel_inf})，~(\ref{eq:asympt_form_ricatti_neumann_inf})の
+漸近形を用いることで，この系の動径波動関数の漸近的な振る舞いは，
+\begin{align}
+  u_l(k, r \rightarrow \infty) &= \alpha'_l \qty[\sin(kr -l\pi/2) \cos\delta_l + \sin\delta_l \cos(kr-l\pi/2)] \notag \\
+  &= \alpha'_l \qty[\sin(kr-l\pi/2 + \delta_l)] \label{eq:phase_shift_bessel}
+\end{align}
+と書くことができる．
+ここで，$\alpha'_l = \alpha/ \cos\delta_l$は規格化定数である．
+ポテンシャル$V$がなければ，$\delta_l = 0$となり，式~(\ref{eq:phase_shift_bessel})は，リッカチ・ベッセル関数
+と同じ$kr - l\pi/2$という位相を持つ．よって，$\delta_l$は位相差と呼ばれポテンシャル$V$が生じさせる．
+
+また，領域Ⅱでの波動関数を
+\begin{align}
+  u_l^{I\hspace{-1.2pt}I}(k, r) = \gamma_l \qty[\hat{h}_l^{(-)}(kr) - S_l \hat{h}_l^{(+)}(kr)]
+\end{align}
+とすることもあり，~$S_l = e^{2i\delta_l}$とすれば，漸近形は，式~(\ref{eq:asympt_form_ricatti_hankel})から，
+\begin{align}
+  u_l(k, r \rightarrow \infty) &= \frac{2 \gamma_l}{i} e^{i\delta_l}\sin(kr-l\pi/2 + \delta_l) \notag \\
+  &= \gamma_l \qty[e^{-i(kr-l\pi/2)} -S_l e^{i(ir - l\pi/2)}] \label{eq:phase_shift_hankel}
+\end{align}
+となる．
+\subsubsection{散乱振幅と断面積}
+まず，平面波の部分波展開をする．ビームの方向を$z$軸ととると，
+$e^{i\bm{k}\cdot \bm{r}} = e^{ikr\cos\theta}$となり，これを部分波展開すると，
+ルジャンドル多項式$P_l$と，球ベッセル関数を用いて，
+\begin{align}\label{eq:plane_wave_exp_by_partial_wave}
+  e^{ikr\cos\theta} = \sum_l (2l+1)P_l(\cos\theta)i^l j_l(kr)
+\end{align}
+と書かれる．
+
+さらに，散乱波解，式~(\ref{eq:outgoing_asympt_form})も同様に部分波展開する．
+まず，式~(\ref{eq:shrodinger_eq_eigenf})を用いて，固有関数$\psi_{klm}$で展開する．
+ただし，$z$軸をビーム方向に取ったことから，$m = 0$とすることができるので，
+球面調和関数をルジャンドル多項式で置き換えることができ，
+\begin{align}\label{eq:outgoing_base_expansion}
+  \psi_{\bm{k}}^{(+)}(\bm{r}) = \sum_l C_l P_l(\cos\theta) \frac{u_l(k, r)}{kr}
+\end{align}
+と展開することができる．$r \rightarrow \infty$で，式~(\ref{eq:phase_shift_hankel})を用いることで，
+\begin{align}\label{eq:outoing_partial_wave_expansion}
+  \psi_{\bm{k}}^{(+)}(\bm{r}) \rightarrow \sum_{l=0}^{\infty} \gamma_l C_l P_l(\cos\theta) \frac{e^{-i(kr-l\pi/2)} -S_l e^{i(ir - l\pi/2)}}{kr} = \frac{e^{-ikr}}{r} X_{-} + \frac{e^{ikr}}{r} X_{+}
+\end{align}
+となる．ここで，
+\begin{align}\label{eq:x_minus}
+  X_- =\sum_l P_l(\cos\theta) \qty[\frac{\gamma_l C_l}{k} e^{il\pi/2}]
+\end{align}
+と
+\begin{align}\label{eq:x_plus}
+  X_+ = \sum_l P_l(\cos\theta) \qty[-\frac{\gamma_l C_l}{k}e^{-il\pi/2} e^{2i\delta_l}]
+\end{align}
+散乱振幅を位相差で書くために，式~(\ref{eq:outoing_partial_wave_expansion})を式~(\ref{eq:outgoing_asympt_form})と
+比較しなければならない．
+ここで，式~(\ref{eq:plane_wave_exp_by_partial_wave})を外向き波と内向き波に分解しよう．
+\begin{align}
+  \phi_{\bm{k}}(\bm{r}) = A \sum_l (2l+1)P_l(\cos\theta) i^l \frac{\hat{\jmath}_l(kr)}{kr}
+\end{align}
+$\hat{\jmath}_l(kr)$の漸近形を用いて，$\sin(kr-l\pi/2)$を指数関数で書くことにより，
+\begin{align}\label{eq:plane_wave_approx_form}
+  e^{ikr\cos\theta} = \frac{1}{2i} \sum_{l=0}^{\infty} (2l+1)i^l P_l(\cos\theta) \qty[\frac{e^{i(kr-l\pi/2) } - e^{-i(kr-l\pi/2)}}{kr}]
+\end{align}
+という漸近形が得られる．
+第一項が，外向き波を表しており，第二項が内向き波に対応している．
+また，式~(\ref{eq:plane_wave_approx_form})を
+\begin{align}
+  e^{ikr\cos\theta} \rightarrow \frac{e^{-ikr}}{r} \qty{\sum_l P_l(\cos\theta)\qty[-\frac{2l+1}{2ik}i^l e^{il\pi/2}]} + \frac{e^{ikr}}{r}\qty{\sum_l P_l(\cos\theta)\qty[\frac{2l+1}{2ik}i^le^{-il\pi/2}]}
+\end{align}
+と書き換えて，この式を式~(\ref{eq:outgoing_asympt_form})に代入することで，
+\begin{align}\label{eq:outgoing_incoming_decomposition}
+  \psi_{\bm{k}}^{(+)} \rightarrow \frac{e^{-ikr}}{r} \bar{X}_- + \frac{e^{ikr}}{r} \bar{X}_+
+\end{align}
+となる．ここで，
+\begin{align}
+  \bar{X}_- = \sum_l P_l(\cos\theta)\qty[-A\frac{2l+1}{2ik}i^l e^{il\pi/2}]
+\end{align}
+および，
+\begin{align}
+  \bar{X}_+ = A f(\theta) + A \sum_l P_l(\cos\theta) \qty[\frac{2l+1}{2ik}i^l e^{-il\pi/2}]
+\end{align}
+とした．ここで，
+$e^{ikr}/r$と$e^{-ikr}/r$は線形独立であるために，
+\begin{align}
+  \bar{X}_- = X_- \quad \mathrm{and} \quad \bar{X}_+ = X_+
+\end{align}
+が成り立つ．係数を比較することで，
+\begin{align}\label{eq:gamma_l_c_l}
+  \gamma_l C_l = -\frac{A}{2i} (2l+1)i^l
+\end{align}
+を得る．また，これを用いることで，
+\begin{align}
+  f(\theta) 
+  &= \frac{1}{2ik}\sum_l P_l(\cos\theta) (2l+1)\qty[S_l -1] \\
+  &= \frac{1}{k} \sum_l P_l(\cos\theta) (2l+1) e^{i\delta_l} \sin\delta_l \label{eq:scattering_amplitude_partial_expansion}
+\end{align}
+を得る．ただし，$e^{-il\pi/2} = (-i)^l$を用いた．
+
+弾性散乱断面積は
+\begin{align}
+  \dv{\sigma}{\Omega} = \abs{f(\theta)}^2
+\end{align}
+から得られるので，ルジャンドル多項式の直交性
+\begin{align}
+  \int_{-1}^{1} \dd{(\cos\theta)} P_l(\cos\theta)P_l'(\cos\theta) = \frac{2}{2l+1}\delta_{l,l'}
+\end{align}
+を用いることで，
+\begin{align}
+  \sigma_{\text{el}} 
+  &= \frac{\pi}{k^2}\sum_l (2l+1)\abs{S_l-1}^2 \\
+  &= \frac{4\pi}{k^2} \sum_l (2l + 1) \sin^2\delta_l \label{eq:elastic_cross_section_partial_expansion}
+\end{align}
+を得る．
+式~(\ref{eq:elastic_cross_section_partial_expansion})から，
+\begin{align}
+  \mathrm{Im}\qty{f(\theta = 0)} = \frac{1}{k}\sum_l (2l+1) \sin^2 \delta_l
+\end{align}
+であるために，式~(\ref{eq:elastic_cross_section_partial_expansion})と比較して，
+\begin{align}
+  \sigma_{\text{el}} = \frac{4\pi}{k}\mathrm{Im}\qty{f(\theta = 0)}
+\end{align}
+という関係式が得られる．これは光学定理と呼ばれる関係式であり，入射粒子のフラックスの$\theta = 0$での減少分が，
+断面積に反映されていることを表している．
+
+\subsubsection{反応断面積}
+ポテンシャルに虚部がある場合について考えよう．
+このとき，ハミルトニアンは非エルミートになるために，フラックス
+\begin{align*}
+  \bm{j} = \frac{\hbar}{2i\mu} \qty[\psi^*(\bm{r})\nabla \psi(\bm{r}) - \psi(\bm{r})\nabla \psi^*]
+\end{align*}
+について，$\nabla \cdot \bm{j} = 0$が成り立たない．ハミルトニアンを
+\begin{align}\label{eq:hamiltonian_with_imaginary_part}
+  H = -\frac{\hbar^2}{2\mu}\nabla^2 + V(r) - iW(r)
+\end{align}
+とする．ここで，$W(r)$は短距離で正の値をとる関数とする．
+このとき，シュレーディンガー方程式およびその複素共役は，
+\begin{align}
+  \qty[-\frac{\hbar^2}{2\mu}\nabla^2 + V(r) - iW(r)]\psi(\bm{r}) &= E \psi(\bm{r}) \label{eq:schrodinge_eq_with_imaginary} \\
+  \qty[-\frac{\hbar^2}{2\mu}\nabla^2 + V(r) + iW(r)]\psi^*(\bm{r}) &= E \psi^*(\bm{r}) \label{eq:schrodinge_eq_with_imaginary_conjugate} 
+\end{align}
+$\psi^*(\bm{r})\times $式~(\ref{eq:schrodinge_eq_with_imaginary})$- \psi(\bm{r}) \times$式~(\ref{eq:schrodinge_eq_with_imaginary_conjugate})から， 
+\begin{align}
+  \frac{\hbar}{2i\mu}\qty[\psi^*(\bm{r})\nabla^2 \psi(\bm{r}) - \psi(\bm{r})\nabla^2\psi^*(\bm{r})] = -\frac{2}{\hbar} W(\bm{r}) \abs{\psi(\bm{r})}^2
+\end{align}
+左辺を変形し，
+\begin{align}
+  \nabla \cdot \bm{j} = -\frac{2}{\hbar}  W(\bm{r}) \abs{\psi(\bm{r})}^2
+\end{align}
+となる．両辺を$\bm{r}$について積分することで，
+\begin{align}
+  \int \dd{r} \nabla \cdot \bm{j} = \int \dd{\bm{S}} \cdot \bm{j} = - N_a = -\frac{2}{\hbar} \int \dd{r} W(\bm{r}) \abs{\psi(\bm{r})}^2
+\end{align}
+を得る．ここで，$N_a$は単位時間当たりの吸収される粒子数であり，弾性チャネルからほかのチャネルへ
+遷移する粒子数である．
+反応断面積$\sigma_a$は，単位時間当たりの反応粒子数$N_a$を入射粒子のフラックス$J = \abs{A}^2 v$で割ることで得られる．ここで，$A$は波動関数の漸近形の規格化定数である．
+よって，
+\begin{align}
+  \sigma_a = \frac{2}{\hbar \abs{A}^2v} \int \dd{\bm{r}} W(\bm{r}) \abs{\psi(\bm{r})}^2
+\end{align}
+あるいは，$v$を$E，k$を用いて表すことで，
+\begin{align}
+  \sigma_a = \frac{k}{\abs{A}^2E} \ev{W}{\psi}
+\end{align}
+を得る．
+$\psi$の境界条件を外向き波にすることにより，
+\begin{align}\label{eq:absorption_cross_section_of_ev}
+  \sigma_a = \frac{k}{\abs{A}^2E_k}\ev{W}{\psi_{\bm{k}}^{(+)}}
+\end{align}
+と書くことができる．
+
+ポテンシャルの虚部があることにより，漸近形にも変化が生じる．
+実部しかない場合は，$S_l$についてその位相を見るだけでよかったが，その絶対値も変化する．
+弾性散乱の微分散乱断面積は，吸収がない場合も同じく，
+\begin{align}
+  \dv{\sigma_{el}}{\Omega} = \abs{f(\theta)}^2 = \frac{1}{4k^2} \abs{\sum_{l=0}^\infty (2l+1)(1-S_l)P_l(\cos\theta)}
+\end{align}
+と書け，弾性散乱断面積は，
+\begin{align}
+  \sigma_{el} = \frac{\pi}{k^2} \sum_{l=0}^\infty (2l+1) \abs{1-S_l}^2
+\end{align}
+となる．
+
+つぎに，反応断面積を評価しよう．
+式~(\ref{eq:absorption_cross_section_of_ev})から，
+式~(\ref{eq:outgoing_base_expansion})と同じ展開を用いて，
+\begin{align}
+  \sigma_a = \frac{k}{E_k}\int \dd{r} \sum_{l=0}^\infty 4\pi(2l+1) W(r) \frac{\abs{u_l(k, r)}}{k^2} 
+\end{align}
+ここで，透過係数$\mathcal{T}_l$を，
+\begin{align}
+  \mathcal{T}_l = \frac{4k}{E_k}\int \dd{r} W(r) \abs{u_l(k, r)}^2
+\end{align}
+とすることで，反応断面積は，
+\begin{align}
+  \sigma_a = \frac{\pi}{k^2}\sum_{l=0}^{\infty} (2l+1) \mathcal{T}_l
+\end{align}
+となる．透過係数$\mathcal{T}_l$は$S$行列を用いて，
+\begin{align}\label{eq:transmission_by_smat}
+  \mathcal{T}_l = 1 - \abs{S_l}^2
+\end{align}
+となる．これを示すために，
+\begin{align}
+  \sigma_a = \frac{N_a}{J} = - \frac{1}{\abs{A}^2 v} \int \dd{\bm{S}} \cdot \bm{j} = -\frac{r^2}{\abs{A}^2 v} \int \dd{\Omega} j_r 
+\end{align}
+を評価しよう．
+ここで，$j_r$はフラックス$\bm{j}$の動径成分であり，
+\begin{align}
+  j_r &= \frac{\hbar}{2i \mu} \qty[\qty(\psi_{\bm{k}}^{(+)}(\bm{r}))^* \pdv{r} \qty(\psi_{\bm{k}}^{(+)}(\bm{r})) - \qty(\psi_{\bm{k}}^{(+)}(\bm{r}))\pdv{r} \qty(\psi_{\bm{k}}^{(+)}(\bm{r}))^*] \notag\\
+   &= \frac{\hbar}{\mu} \mathrm{Im}\qty[\qty(\psi_{\bm{k}}^{(+)}(\bm{r}))^*\pdv{r} \qty(\psi_{\bm{k}}(\bm{r})^{(+)})]
+\end{align}
+となる．
+ここで，式~(\ref{eq:outoing_partial_wave_expansion})を参照すると，
+残るのは，微分演算子が$e^{\pm i k r}$にあたる項だけであり，
+$X_+$，$X_-$についてのクロスタームは実になることから，
+\begin{align}
+  j_r = \frac{v}{r^2} \qty(\abs{X_+}^2 - \abs{X_+}^2)
+\end{align}
+ここで，式~(\ref{eq:x_minus})，式~(\ref{eq:x_plus})と式~(\ref{eq:gamma_l_c_l})から，
+\begin{align}
+  X_- &=-\sum_{l=0}^{\infty} A \frac{2l+1}{2ik} (-1)^l P_l(\cos\theta) \\
+  X_+ &= \sum_{l=0}^{\infty} \frac{2l+1}{2ik}(-1)^l S_l P_l (\cos\theta)
+\end{align}
+であることから，反応断面積は，
+\begin{align}
+  \sigma_a = \frac{\pi}{k^2} \sum_{l=0}^{\infty} (2l+1) \qty[1 - \abs{S_l}^2]
+\end{align}
+となり，式~(\ref{eq:transmission_by_smat})は示された．
+
+実ポテンシャルのみがある場合は，$\abs{S_l}^2 = 1$となり，反応断面積は常に0となる．
+また，反応断面積の最大値は$\abs{S_l}^2 = 0$となる場合に対応する．
+
+複素ポテンシャルがある場合の光学定理について考えよう．
+まず，散乱振幅$f(\theta)$について，$\abs{S_l} < 1$
+の場合，
+\begin{align}
+  \mathrm{Im} \qty[f(\theta = 0)] = \frac{1}{2k} \sum_{l=0}^{\infty} (2l+1)P_l(1)\qty[1- \mathrm{Re}\qty(S_l)]
+\end{align}
+となるため，
+\begin{align}
+  \frac{4\pi}{k} \mathrm{Im} \qty[f(\theta = 0)] = \frac{2\pi}{k^2} \sum_{l=0}^{\infty} (2l+1)\qty[1-\mathrm{Re}\qty(S_l)]
+\end{align}
+となる．ここで，反応断面積と弾性散乱断面積の和を考えると，
+\begin{align}
+  \sigma_a + \sigma_{el} = \frac{2\pi}{k^2} \sum_{l = 0}^{\infty}(2l+1)\qty[1 - \mathrm{Re}\qty(S_l)]
+\end{align}
+を得る．よって，
+\begin{align}
+  \sigma_a + \sigma_{el} = \frac{4\pi}{k}\mathrm{Im}[f(\theta = 0)]
+\end{align}
+となる．
+\subsubsection{複素ポテンシャルの起源}
+前節では，複素ポテンシャルを形式的に導入して議論したが，
+複素ポテンシャルの理論的定式化については議論しなかった．
+そこで，本節では複素ポテンシャルが理論的にはどのように導入されるか
+を述べる．
+原子核物理学においては古くから複素ポテンシャルを用いて
+原子核反応の計算が行われてきた．
+ここでは，Feshbachの方法に従って複素ポテンシャルの理論的な導出を考える．
+核子と原子核の散乱について考える．ただし，入射エネルギー$E$は，elastic channelのみがある場合
+を考える．
+まず，ハミルトニアンを
+\begin{align}\label{eq:hamiltonian_internal_ex}
+  H = H_0 + V + H'(\xi)
+\end{align}
+とする．ここで，$H_0$は運動項であり，$V$は入射核と標的核の相互作用である．
+また，$H'(\xi)$は標的核の内部ハミルトニアンである．
+ここで，
+\begin{align}
+  (E - H)\Psi = 0
+\end{align}
+というシュレーディンガー方程式について考える．
+まず，$H'(\xi)$というハミルトニアンの固有状態
+\begin{align}
+  H'(\xi)\Phi_\alpha(\xi) = \varepsilon_\alpha \Phi_\alpha(\xi)
+\end{align}
+を用いて，波動関数$\Psi$を
+\begin{align}
+  \Psi = \sum_\alpha \psi_\alpha \Psi_\alpha(\xi)
+\end{align}
+と展開する．開いているチャネルが弾性チャネルのみである
+場合，$\Psi$の弾性チャネルの部分は$\psi_0\Phi_0$
+である．
+ここで，開いているチャネルへの射影演算子$P$とそれ以外へのチャネルへの射影演算子$Q$
+を導入する．
+すなわち，
+\begin{align}
+  P\Psi = \psi_0 \Phi_0，\quad Q\Psi = (1 - P) \Psi
+\end{align}
+および，
+\begin{align}
+  P^2 \Psi = P \Psi，\quad Q^2 \Psi = Q \Psi，\quad QP \Psi = PQ\Psi = 0
+\end{align}
+を満たす演算子$P$および$Q$を導入する．
+シュレーディンガー方程式~$(E-H)(P+Q)\Psi = 0$
+に左から$P$と$Q$をそれぞれ掛けると，
+\begin{align}
+  (E - PHP)P\Psi = (PHQ)Q\Psi \label{eq:projected_to_P_space}\\
+  (E - QHQ)Q\Psi = (QHP)P\Psi \label{eq:projected_to_Q_space}
+\end{align}
+を得る．
+
+
+
+\subsection{クーロン場があるときの散乱理論}
+
+波動関数の漸近形が，式~(\ref{eq:outgoing_asympt_form})で記述されるためには，ポテンシャル$V(r)$が$1/r$よりも
+$r\rightarrow\infty$で，0に近づく必要がある．
+そうでないとき，入射波動関数がポテンシャルによって歪められる．
+これは，荷電粒子同士の反応におけるクーロン力がその例である．
+入射粒子の電荷を$q_P$，標的粒子の電荷を$q_T$とすると，二粒子間のポテンシャルは，
+\begin{align}\label{eq:coulomb_pot_between_two_charged_particles}
+  V_C(r) = \frac{q_P q_T}{r}
+\end{align}
+で書かれる．
+
+ゾンマーフェルトパラメータと呼ばれる量を導入すると便利である：
+\begin{align}\label{eq:def_of_sommerfeld_parameter}
+  \eta = \frac{q_P q_T}{\hbar v}．
+\end{align}
+また，正面衝突における最近接距離の半分
+\begin{align}
+  a = \frac{q_P q_T}{2E}
+\end{align}
+は，ゾンマーフェルトパラメータと，
+\begin{align}
+  \eta = k a
+\end{align}
+という関係にある．
+
+クーロン散乱の波動関数は，シュレーディンガー方程式
+\begin{align}\label{eq:coulomb_scattering_schrodinger}
+  - \frac{\hbar^2}{2 \mu} \nabla^2 \phi_C(\bm{k}; \bm{r}) 
+  + \frac{q_P q_T}{r} \phi_C(\bm{k}; \bm{r}) = E\phi_C(\bm{k}; \bm{r})
+\end{align}
+を満たす．
+これは，
+\begin{align}\label{eq:coulomb_s_schro_rev}
+  \qty[\nabla^2 + k^2- \frac{2\eta k}{r}] \phi_C(\bm{k}; \bm{r}) = 0
+\end{align}
+変形することができる．
+
+クーロン力は長距離力なので，波動関数は平面波には漸近しない．この方程式を解くために，
+入射ビームの方向を$z$軸にとり，
+\begin{align}\label{eq:coulomb_s_initial_ansatz}
+  \phi_C(\bm{k};\bm{r}) = C e^{ikz}g(r-z)
+\end{align}
+と置く．クーロン力を0とする($\eta \rightarrow 0$)と，$ g \rightarrow 1$となる．
+極座標$(r, \theta, \varphi)$を放物線座標$(\xi, \zeta, \varphi)$へと変換する．
+ここで，
+\begin{align}\label{eq:def_of_parabolic_coordinates}
+  \xi = r-z = r(1-\cos \theta), \quad \zeta = r + z = r(1+ \cos \theta)
+\end{align}
+である．
+
+ここで，$\xi$が定数の局面は，原点を共通の焦点としての$z$の方向に開いた放物線を$z$軸回りに
+回転してできる回転放物面の集まりである．
+また，$\zeta$が定数の局面も同様に，$z$の負の方向に開いた回転放物面の集まりである．
+これは，式~(\ref{eq:parabolic_coordinates})の形から明らかである．
+
+波動関数を式~(\ref{eq:coulomb_s_initial_ansatz})のように置いたが，これは散乱波を含む波動関数の
+漸近的な振る舞いが
+\begin{align}\label{eq:asymptotic_form}
+  \psi(\bm{k};\bm{r}) \rightarrow e^{i \bm{k} \cdot \bm{r}} + f(\theta) \frac{e^{ikr}}{r}
+\end{align}
+であり，$e^{-ikr}$の形を含んでいない．このことから$e^{ikz}$という位相因子を取り出したときに，$g(r+z)$ではなくて$g(r-z)$となることが予想されるのである．
+
+放物線座標において，$g$の従う方程式は，
+\begin{align}\label{eq:coulomb_sc_dif_eq}
+  \xi g''(\xi) + (1 - ik\xi) g'(\xi) - \eta k g(\xi) = 0
+\end{align}
+である．詳しい導出は付録\ref{app:coulomb_diff_eq}で行っている．
+この微分方程式は合流型超幾何微分方程式であり，一般に，
+\begin{align}\label{eq:cofluent_hyp_geom_dif}
+  z \dv[2]{F}{z} + (b - z) \dv{F}{z} - aF = 0
+\end{align}
+の解を，$F(a,b,z)$と書く．
+
+よって，式~(\ref{eq:coulomb_sc_dif_eq})において，$s = ik\xi$と変数変換をし，$f(s) = g(\xi)$と置き換えることで，
+\begin{align*}
+  s f''(s) + (1-s) f'(s) - (- i \eta) f(s)  = 0
+\end{align*}
+となる．よって式~(\ref{eq:coulomb_s_schro_rev})の解は，
+\begin{align}\label{eq:coulomb_sc_solution}
+  \phi_C(\bm{k};\bm{r}) = C e^{ikz} F(-i\eta, 1, ik(r-z))
+\end{align}
+である．
+
+
+% \subsection{合流型超幾何関数}
+
+
+% 合流型超幾何関数は，式~(\ref{eq:cofluent_hyp_geom_dif}の解であり，
+% ガンマ関数を用いることで，
+% \begin{align}\label{eq:expansion_cofluent_hyp}
+%   F(a,b,z) = \sum_{n=0}^{\infty} \frac{\Gamma(a+n)\Gamma(b)}{\Gamma(a)\Gamma(b+n)} \frac{x^n}{n!}
+% \end{align}
+% と表される．
+
+% 実際に，式~(\ref{eq:cofluent_hyp_geom_dif}から，級数解を求めてみる．
+% \begin{theorem}[合流型超幾何関数]
+%   \begin{align}\tag{\ref{eq:cofluent_hyp_geom_dif}}
+%     z \dv[2]{F}{z} + (b - z) \dv{F}{z} - aF = 0
+%   \end{align}
+%   の解は，
+%   \begin{align}\tag{\ref{eq:expansion_cofluent_hyp}}
+%     F(a,b,z) = \sum_{n=0}^{\infty} \frac{\Gamma(a+n)\Gamma(b)}{\Gamma(a)\Gamma(b+n)} \frac{x^n}{n!}
+%   \end{align}
+%   と書かれる．
+% \end{theorem}
+% \begin{proof}
+%   式~(\ref{eq:cofluent_hyp_geom_dif}について，$F$を
+%   \begin{align}\label{eq:cofluent_initial_guess}
+%     F(z) = \sum_{n = 0}^{\infty} c_n \frac{z^n}{n!}
+%   \end{align}
+%   と置く．式~(\ref{eq:cofluent_initial_guess}を式~(\ref{eq:cofluent_hyp_geom_dif}に代入して，漸化式を求める．
+%   まず，各項について求めると，
+%   \begin{align*}
+%     z \dv[2]{F}{z} &= \sum_{n = 2}^{\infty} c_n \frac{z^{n-1}}{(n-2)!} = \sum_{n=0}^{\infty} n c_{n+1} \frac{z^n}{n!} \\
+%     (b - z) \dv{F}{z} &= \sum_{n=1}^{\infty} c_n (b-z) \frac{z^{n-1}}{(n-1)!} = \sum_{n=0}^{\infty} (b c_{n+1} - n c_n) \frac{z^n}{n!} \\
+%     a F(z) &= \sum_{n=0}^{\infty} a c_n \frac{z^n}{n!} .
+%   \end{align*}
+%   よって，
+%   \begin{align}\label{eq:reccurance_cofluent_coeff}
+%     \sum_{n=0}^{\infty} \qty[\qty(n+b)c_{n+1} - (n + a) c_n] \frac{z^n}{n!} = 0
+%   \end{align}
+%   となる．式~(\ref{eq:reccurance_cofluent_coeff}が任意の$z$で成り立つことから，
+%   \begin{align}\label{eq:coeff_ratio}
+%     \frac{c_{n+1}}{c_n} = \frac{n+a}{n+b}
+%   \end{align}
+%   となるため，
+%   \begin{align}\label{eq:coeff_det}
+%     c_n = c_0 \prod_{k=0}^{n-1} \qty(\frac{k+a}{k+b}) = c_0 \frac{\Gamma(n + a)}{\Gamma(a)} \frac{\Gamma(b)}{\Gamma(n + b)}
+%   \end{align}
+%   を得る．
+%   ここで，$\Gamma(n+a) = (n-1+a) \Gamma(n-1 + a) = \cdots = (n-1 + a)(n-2 + a) \cdots (1 + a) a\Gamma(a)$を用いた．
+
+%   式，\ref{eq:coeff_det}を式~(\ref{eq:cofluent_initial_guess}に代入することで，
+%   \begin{align}\label{eq:solution_cofluent_diffeq}
+%     F(z) = c_0 \sum_{n=0}^{\infty}  \frac{\Gamma(a+n)\Gamma(b)}{\Gamma(a)\Gamma(b+n)} \frac{z^n}{n!}.
+%   \end{align}
+%   となり，式~(\ref{eq:solution_cofluent_diffeq}の係数を1としたものが，式~(\ref{eq:expansion_cofluent_hyp}となっている．
+% \end{proof}
+
+
+
+
