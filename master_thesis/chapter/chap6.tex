@@ -1,7 +1,7 @@
-\section{S行列の求め方と，ポール探索}
+\chapter{S行列の求め方}
 
 
-\subsection{ハミルトニアン}
+\section{ハミルトニアン}
 本研究で用いるハミルトニアンは，文献\cite{PhysRevC.98.014604}で用いられたものと同様のものを用いる．
 この模型は散乱状態と複合核状態を陽に取り扱うことのできる模型である．
 文献\cite{PhysRevC.98.014604}では，$n + \isotope[194]{Pt}$反応の解析をおこなっており，そこでは$s$波
@@ -20,7 +20,7 @@ $\isotope{C} + \isotope{C}$チャネルおよび複合核($\isotope{Mg}$)チャ�
 のように書かれる．
 ここで，$l$は$\isotope{C}+\isotope{C}$チャネルの相対角運動量，$J^\pi$は$\isotope{Mg}$のスピンおよびパリティ，$\bm{H}_\text{C+C}$はC+Cチャネルのハミルトニアン，$\bm{H}_\text{CN}$は複合核チャネルのハミルトニアン，$\bm{V}$はカップリング行列である．
 
-\subsection{入口チャネル}
+\section{入口チャネル}
   $\bm{H}_\text{C+C}$は，
 炭素原子核$\isotope[12]{C}$，$\isotope[13]{C}$を球形と近似し，二つの原子核間の相対運動を記述する．
 二つの原子核間の重心間距離を$\bm{r}$とすると，動径方向のみを考えればよいので，ハミルトニアンは
@@ -43,7 +43,7 @@ $V_l(r)$は遠心力ポテンシャルを含む原子核間ポテンシャルで
 なお，ここで$\isotope[12]{C}$，$\isotope[13]{C}$の励起状態は考えず，質点として取り扱っている．
 
 
-\subsection{複合核チャネル}
+\section{複合核チャネル}
   $\bm{H}^{J^\pi}_\text{CN}$は複合核状態を記述するハミルトニアンであり，
 \begin{align}\label{eq:compound_hamiltonian}
   \bm{H}^{J^\pi}_{\text{CN}, \mu \nu} = \qty[\mathcal{E}^{J^\pi}_\mu - i \Gamma^{J^\pi}(\mathcal{E}^{J^\pi}_\mu)/2]\delta_{\mu\nu}
@@ -58,7 +58,7 @@ $\isotope[16]{O}$を不活性コアとし，$sd - pf$軌道をバレンス軌道
 また，崩壊幅は\isotope[24]{Mg}および\isotope[25]{Mg}ともに，遷移状態理論と呼ばれる
 統計模型を用いて見積もる．
 
-\subsection{カップリング行列}
+\section{カップリング行列}
   $\bm{V}$は$\isotope{C} + \isotope{C}$チャネルと$\isotope{Mg}$チャネルを結合する行列であり，
 本研究では
 \begin{align}
@@ -72,7 +72,7 @@ $i_e$の選び方はさまざまあるが，今回は$\isotope{C} + \isotope{C}$
 
 
 
-\subsection{S行列の計算}
+\section{S行列の計算}
 核融合断面積は，$\isotope{C} + \isotope{C}$チャネルの境界条件と，式~(\ref{eq:total_hamiltonian})の固有ベクトルから得られる．
 $\isotope{C} + \isotope{C}$チャネルの波動関数に境界条件として，
 \begin{align}

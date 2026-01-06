@@ -1,10 +1,10 @@
-\subsection{\isotope[12]{C} + \isotope[12]{C}核融合反応および，\isotope[12]{C} + \isotope[13]{C}核融合反応}
+\chapter{\isotope{C} + \isotope{C}核融合反応について}
 
 本研究では，\isotope[12]{C} + \isotope[12]{C}核融合反応だけではなく，類似系である\isotope[12]{C} + \isotope[13]{C}核融合反応も同時に
 解析を行う．それは，先行研究\cite{PhysRevLett.110.072701}をリスペクトしたものである．
 そこで，ここではその研究の概要を紹介しよう．
 
-\subsection{\isotope[12]{C} + \isotope[12]{C}核融合反応}
+\section{\isotope[12]{C} + \isotope[12]{C}核融合反応}
 古くは，\isotope[12]{C} + \isotope[12]{C}核融合反応の共鳴の起源は，
 \begin{align}\label{eq:fusion_traditional_analisis}
   \sigma_\text{fus} = \sigma_\text{bkg} + \sigma_\text{BW}
@@ -36,3 +36,223 @@
 断面積よりも減少することを示した．
 そこで彼らは，\isotope[12]{C} + \isotope[12]{C}系だけに注目するのではなく，類似系にも焦点を置いて統一的な
 方法で議論することが必要であると主張した．
+
+\begin{figure}[thbp]
+\centering
+
+\begin{subfigure}{\linewidth}
+\centering
+% ===== 12C + 12C =====
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+
+% entrance reference (arbitrary)
+\def\EIn{0}
+
+% exit relative energies (schematic; replace by actual MeV if desired)
+\def\EoutAlpha{-2.3}
+\def\EoutProton{-1.1}
+\def\EoutNeutron{1.3}
+
+% energy axis
+\draw[->] (-1.2,-2.5) -- (-1.2,3.2) node[left] {$E$};
+
+% title
+\node[anchor=south] at (0.7,0.0) {$^{12}\mathrm{C}+^{12}\mathrm{C}$};
+
+% entrance (left column)
+\node[anchor=east] at (0,\EIn) {入口};
+\draw[thick] (0,\EIn) -- (1.4,\EIn);
+\node[anchor=south] at (0.7,2.2) {始状態};
+
+% exits (right column)
+\node[anchor=south] at (7.5,2.2) {終状態};
+
+\draw[thick] (5.0,\EoutAlpha) -- (6.4,\EoutAlpha);
+\node[anchor=north] at (5.7,\EoutAlpha) {$\alpha + {}^{20}\mathrm{Ne}$};
+\node[anchor=west] at (6.5, \EoutAlpha) {-4.6 MeV};
+
+\draw[thick] (6.8,\EoutProton) -- (8.2,\EoutProton);
+\node[anchor=north] at (7.5,\EoutProton) {$p + {}^{23}\mathrm{Na}$};
+\node[anchor=west] at (8.3, \EoutProton) {-2.2 MeV};
+
+\draw[thick] (8.6,\EoutNeutron) -- (10.0,\EoutNeutron);
+\node[anchor=north] at (9.3,\EoutNeutron) {$n + {}^{23}\mathrm{Mg}$};
+\node[anchor=west] at (10.1, \EoutNeutron) {2.6 MeV};
+
+% arrows (reaction flow)
+% \draw[->] (1.4,\EIn) -- (5.0,\EoutAlpha);
+% \draw[->] (1.4,\EIn) -- (5.0,\EoutProton);
+% \draw[->] (1.4,\EIn) -- (5.0,\EoutNeutron);
+
+\end{tikzpicture}
+\caption{$^{12}\mathrm{C}+^{12}\mathrm{C}$}
+\end{subfigure}
+
+\vspace{1.5em}
+
+\begin{subfigure}{\linewidth}
+\centering
+% ===== 12C + 13C =====
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+
+% entrance reference
+\def\EIn{0}
+
+% exit relative energies (schematic, relative to entrance)
+% Q_alpha ≃ +6.4 MeV, Q_p ≃ +4.3 MeV, Q_n ≃ +9.0 MeV
+\def\EoutAlpha{-3.2}
+\def\EoutProton{-2.1}
+\def\EoutNeutron{-4.5}
+
+% energy axis
+\draw[->] (-1.2,-5.0) -- (-1.2,2.5) node[left] {$E$};
+
+% title
+\node[anchor=south] at (0.7,0.0) {$^{12}\mathrm{C}+^{13}\mathrm{C}$};
+
+% entrance (left column)
+\node[anchor=east] at (0,\EIn) {入口};
+\draw[thick] (0,\EIn) -- (1.4,\EIn);
+\node[anchor=south] at (0.7,2.0) {始状態};
+
+% exits (right column)
+\node[anchor=south] at (7.5,2.0) {終状態};
+
+\draw[thick] (5.0,\EoutAlpha) -- (6.4,\EoutAlpha);
+\node[anchor=north] at (5.7,\EoutAlpha) {$\alpha + {}^{21}\mathrm{Ne}$};
+\node[anchor=west] at (6.5,\EoutAlpha) {-6.4 MeV};
+
+\draw[thick] (6.8,\EoutProton) -- (8.2,\EoutProton);
+\node[anchor=north] at (7.5,\EoutProton) {$p + {}^{24}\mathrm{Na}$};
+\node[anchor=west] at (8.3,\EoutProton) {-4.3 MeV};
+
+\draw[thick] (8.6,\EoutNeutron) -- (10.0,\EoutNeutron);
+\node[anchor=north] at (9.3,\EoutNeutron) {$n + {}^{24}\mathrm{Mg}$};
+\node[anchor=west] at (10.1,\EoutNeutron) {-9.0 MeV};
+
+\end{tikzpicture}
+\caption{$^{12}\mathrm{C}+^{13}\mathrm{C}$}
+\end{subfigure}
+
+\caption{
+炭素同位体融合反応における入口および終状態のエネルギー図。
+上図が\isotope[12]{C}+\isotope[12]{C}核融合反応，下図が
+\isotope[12]{C}+\isotope[13]{C}核融合反応．
+}
+\label{fig:energy_fig_c_plus_c_fusion}
+\end{figure}
+
+ここで，炭素核融合反応系の反応経路について詳しく確認しよう．
+一般に，
+\begin{align}
+  a + A \rightarrow b + B
+\end{align}
+であらわされる核反応の$Q$値は，
+\begin{align}
+  Q = \qty( m_a + m_A - m_b - m_B)c^2
+\end{align}
+で定義される．ここで，$m_a，m_A，m_b，m_B$は$a，A，b，B$の質量であり，$c$は光速である．
+終状態における相対運動エネルギー$E_{\mathrm{final}}$は，始状態での運動エネルギー$E_{\mathrm{c.m.}}$を用いて，
+\begin{align}
+  E_{\mathrm{final}} = E_{\mathrm{c.m.}} + Q
+\end{align}
+で与えられるために，右辺が0より小さいときそのチャネルは閉じている，つまりその反応は起こらない．
+
+\isotope[12]{C}+\isotope[12]{C}核融合反応では，
+終状態として，主に以下のチャネルが寄与する．
+\begin{align*}
+  \isotope[12]{C} + \isotope[12]{C} \rightarrow \isotope[20]{Ne} + \alpha \\
+  \isotope[12]{C} + \isotope[12]{C} \rightarrow \isotope[23]{Na} + p \\
+  \isotope[12]{C} + \isotope[12]{C} \rightarrow \isotope[23]{Mg} + n
+\end{align*}
+それぞれの$Q$値は，
+\begin{align*}
+  Q_{\alpha} = 4.6 \mathrm{MeV} \\
+  Q_p = 2.2 \mathrm{MeV} \\
+  Q_n = -2.6 \mathrm{MeV}
+\end{align*}
+である．特に中性子放出チャネルは$Q$値が負であり，低エネルギー領域においては
+ほか二つのチャネルに比べて強く抑制される．
+
+\isotope[12]{C} + \isotope[13]{C}核融合反応では，
+終状態として，主に以下のチャネルが寄与する．
+\begin{align*}
+    \isotope[12]{C} + \isotope[13]{C} \rightarrow \isotope[21]{Ne} + \alpha \\
+  \isotope[12]{C} + \isotope[13]{C} \rightarrow \isotope[24]{Na} + p \\
+  \isotope[12]{C} + \isotope[13]{C} \rightarrow \isotope[24]{Mg} + n
+\end{align*}
+それぞれの$Q$値は，
+\begin{align*}
+  Q_{\alpha} = 6.4 \mathrm{MeV} \\
+  Q_p = 4.3 \mathrm{MeV} \\
+  Q_n = 9.0 \mathrm{MeV}
+\end{align*}
+である．これらの値を見れば明らかなようにすべて正の値をとり，
+低エネルギーの反応においてもすべてのチャネルが開いている．
+
+
+各反応系におけるエネルギー図を図\ref{fig:energy_fig_c_plus_c_fusion}に書いた．
+$E_{\mathrm{c.m.}}> 2.6$MeVでないと\isotope[12]{C}+\isotope[12]{C}核融合反応において，中性子
+チャネルが開かないことがわかる．
+
+最後に，宇宙物理学において興味のあるエネルギー領域について述べる．
+宇宙における原子核反応は熱運動による運動エネルギーにより生じるため，低エネルギー反応であることが多い．
+さらに，荷電粒子同士の反応であるため，その反応率は地上では再現することが極めて難しくなるほど
+低くなってしまう．
+クーロン障壁のトンネリング確率と，熱運動でのエネルギー分布を乗じた量はガモフピークと呼ばれ，
+このエネルギー範囲における断面積が選択的に効く．温度が0.6GKのときのガモフピークを図\ref{fig:gamow_peak}
+にプロットした．
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=8cm]{figure/chap2/gamow_peak.png}
+  \caption{
+    $T=0.6$GKにおけるガモフピーク．赤の実線がガモフピークであり，紫のdash dotted線であらわされる
+    温度$T = 0.6$GKにおける粒子のエネルギー分布であるマクスウェル分布と，クーロン透過確率を表す
+    青の破線との積で表されている．
+  }
+  \label{fig:gamow_peak}
+\end{figure}
+
+宇宙物理学において，\isotope[12]{C}+\isotope[12]{C}核融合反応が注目を集めているのは，
+以下の3つの反応である．
+１）Ia型超新星爆発\cite{Bravo2011}
+２）巨大恒星の進化の過程\cite{10.1111/j.1365-2966.2012.20193.x}
+３）X線スーパーバースト\cite{Cooper_2009}
+それぞれの反応は温度が1.8GK，0.6GK，0.4GK程度と見積もられているため，それぞれのガモフピークを計算すると，
+図\ref{fig:gamow_peak_three_systems}のようになる．
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=8cm]{figure/chap2/gamow_peak_theree.png}
+  \caption{各温度におけるガモフピーク．赤が0.4GK，青が0.6GK，緑が1.8GKである．}
+  \label{fig:gamow_peak_three_systems}  
+\end{figure}
+
+\section{\isotope[12]{C}+\isotope[13]{C}核融合反応との比較}
+
+\isotope[12]{C}+\isotope[12]{C}核融合反応は，前節で述べたような宇宙物理学における興味だけではなく，
+その共鳴構造により原子核物理学としても古くから注目を集めている．特に，類似系である
+\isotope[12]{C}+\isotope[13]{C}核融合反応との比較においてその振る舞いの差は劇的なものである．
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=8cm]{figure/chap2/sfac_ref_compared.png}
+  \caption{
+    \isotope[12]{C}+\isotope[12]{C}核融合反応と\isotope[12]{C}+\isotope[13]{C}核融合反応
+    の実験データの比較．
+  }
+  \label{fig:exp_data_comp}
+\end{figure}
+図\ref{fig:exp_data_comp}に\isotope[12]{C}+\isotope[12]{C}核融合反応の$S$-factorと，\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの比較
+がされている．赤点は\isotope[12]{C}+\isotope[13]{C}核融合反応であり，エネルギーに対して
+滑らかな依存性を持っている一方で，青点で表されている\isotope[12]{C}+\isotope[12]{C}核融合反応は，
+多数の共鳴構造を持つことがわかる．
+それに加えて，\isotope[12]{C}+\isotope[12]{C}核融合反応の共鳴ピークが，\isotope[12]{C}+\isotope[
+  13  
+]{C}核融合反応の$S$-factorの値に一致することがわかる\cite{PhysRevC.85.014607}．
+
+\isotope[12]{C}+\isotope[12]{C}核融合反応について微視的原子核模型に基づいて
+断面積を計算する試みはいくつもあるものの，
+類似系である\isotope[12]{C}+\isotope[13]{C}核融合反応と同時に，
+同じ枠組みで微視的原子核模型に基づいた計算は行われていない．
+そこで，本研究ではこの二つの系\isotope[12]{C}+\isotope[12]{C}および，
+\isotope[12]{C}+\isotope[13]{C}を
+同じ枠組みでかつ微視的原子核模型に基づいた模型によって計算することを目標とする．

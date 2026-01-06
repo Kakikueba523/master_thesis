@@ -1,8 +1,11 @@
-\section{結果}
+\newpage
+\chapter{結果}
+
 ここでは，原子核ポテンシャルごとに計算結果を載せてその内容について議論する．
-\subsection{M3Y + Rep ポテンシャル}
+\section{M3Y + Rep ポテンシャル}
 M3Y + repulsionポテンシャルにおいては，Repulsion termのdifusenessパラメータ$a_r$と，
 カップリング行列のパラメータ$v_0$が実験にフィットすべきパラメータである．
+\section{二つの系で同じ$v_0$の値を用いる場合}
 最初に
 \isotope[12]{C}+\isotope[12]{C}と\isotope[12]{C}+\isotope[13]{C}の両方の系において
 おなじ$v_0$を用いて計算を行う．
@@ -14,3 +17,47 @@ M3Y + repulsionポテンシャルにおいては，Repulsion termのdifuseness�
 ここで，$\eta = 36/137 \sqrt{\mu c^2/(2 E_{\text{c.m.}})}$はゾンマーフェルトパラメータである．これは，断面積から自明なエネルギー依存性を取り除いたものになっており，
 クーロン障壁以下のエネルギーにおける核融合反応においてよく用いられる．
 
+$a_r = 0.31$および，$v_0 = 0.1$としたときの$S$-factorの比較をしよう．
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=8cm]{figure/chap7/sfac_v0_0.1_comp.png}
+  \caption{
+    $v_0 = 0.1$，$a_r=0.31$としたときの$S$-factorの比較．赤線が\isotope[12]{C}+
+    \isotope[13]{C}核融合反応であり，青線が\isotope[12]{C}+\isotope[12]{C}核融合反応である．
+  }
+  \label{fig:v0_0.1_and_ar_031}
+\end{figure}
+図\ref{fig:v0_0.1_and_ar_031}を見ればわかるように，
+青色の\isotope[12]{C}+\isotope[12]{C}核融合反応では，共鳴構造が多数現れている一方，
+赤色の\isotope[12]{C}+\isotope[13]{C}核融合反応では，そのような構造はなく滑らかなエネルギー依存性を
+見せていることがわかる．
+これは，同じ枠組みで計算した複合核の性質，つまり準位密度と崩壊幅との関係を反映したものである．
+しかしながら，\isotope[12]{C}+\isotope[12]{C}の共鳴ピークが\isotope[12]{C}+\isotope[13]{C}の値に
+一致するような振る舞いは見せない．
+
+つぎに，各$l$ごとに振る舞いの違いを見ていこう．
+%横に2枚の画像(jpg/png)表示
+\begin{figure}[t]
+  \centering
+  \begin{subfigure}[t]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figure/chap7/sfac_v0_0.1_12c12c_eachl.png}
+    \caption{\isotope[12]{C}+\isotope[12]{C}}
+    \label{fig:v001_ar031_12c_12c_eachl}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figure/chap7/sfac_v0_0.1_12c13c_eachl.png}
+    \caption{\isotope[12]{C}+\isotope[13]{C}}
+    \label{fig:v001_ar031_12c_13c_eachl}
+  \end{subfigure}
+  \caption{$v_0 = 0.1，a_r = 0.31$としたときの，$S$-factorの比較．左図が\isotope[12]{C}+\isotope[12]{C}
+  核融合反応であり，右図が\isotope[12]{C}+\isotope[13]{C}核融合反応である．}
+  \label{fig:v001_ar031_c_c_eachl}
+\end{figure}
+図\ref{fig:v001_ar031_12c_12c_eachl}において，$E_{\mathrm{c.m.}} \approx 4.8$MeVにおいて，
+大きなピークがみられることがわかる．これは，$l=0$の原子核間ポテンシャルにおける，位相差から求めることができる
+ポテンシャル共鳴のエネルギーの値と一致しており，このエネルギーの値においてクーロン障壁のトンネリング確率が
+大きくなるため，$S$-factorにおいてもおおきな値を持つことがわかる．
+
+次に，$a_r$は固定したまま，$v_0$を動かしていく．

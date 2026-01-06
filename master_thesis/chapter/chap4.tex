@@ -1,15 +1,15 @@
-\section{殻模型計算}
+\chapter{殻模型計算}
 
 本研究では，複合核(\isotope{Mg})の励起状態をKSHELLという計算コード\cite{SHIMIZU2019372}により求める．
 そこで，本章で殻模型計算について簡単にまとめる．
-\subsection{Large-Scale Shell-Model}
+\section{Large-Scale Shell-Model}
 閉殻原子核の殻模型による記述の成功に基づいて，large-scale shell-model(LSSM)と呼ばれる
 手法が閉殻を超える原子核の記述に適用されるようになった．LSSMでは，原子核を不活性コアと，
 活性軌道上を動く活性粒子で構成されると考える．
 この活性粒子は，通常バレンス粒子，軌道はバレンス軌道として考えられる．原子核波動関数
 は，スレーター行列式の重ね合わせで表現され，そのスレーター行列式は活性粒子の軌道上の占有として表現される．
 
-\subsection{$M$-scheme}
+\section{$M$-scheme}
 
 殻模型計算では，波動関数はバレンス軌道において活性粒子をさまざまな占有によって表現される
 配位の重ね合わせとして表現される．つまり，波動関数は膨大な数のスレーター行列式の
@@ -50,6 +50,125 @@ $M$と$\pi$とすると，$M$と$\pi$で分類されるブロック行列に分�
 奇数核の場合，$M = 1/2$の部分空間ですべての殻模型状態を得ることができる．
 $M$-scheme次元は，そのようなブロック行列の最大次元のことを指す．
 
-\subsection{相互作用について}
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=0.085cm,>=Latex, font=\small]
+  %----------------------------
+  % Woods-Saxon parameters (schematic)
+  %----------------------------
+  \def\Vzero{50}   % depth [MeV]
+  \def\R{4.2}      % radius [arb]
+  \def\a{0.35}     % diffuseness [arb]
+
+  % Plot window
+  \def\xmin{0.0}
+  \def\xmax{6.5}
+  \def\ymin{-60}
+  \def\ymax{10}
+
+  %----------------------------
+  % Axes
+  %----------------------------
+  \draw[->] (\xmin,\ymin) -- (\xmin,\ymax) node[above] {$E,\;V(r)\;[\mathrm{MeV}]$};
+  \draw[->] (\xmin,\ymin) -- (\xmax,\ymin) node[right] {$r$};
+
+  %----------------------------
+  % Woods-Saxon potential: V(r) = -V0 / (1 + exp((r-R)/a))
+  %----------------------------
+  \draw[thick]
+    plot[domain=\xmin:\xmax, samples=200, smooth]
+    (\x, {- \Vzero/(1 + exp((\x-\R)/\a))});
+
+  % \node[anchor=west] at (4.2,-8) {\bfseries Woods--Saxon};
+
+  %----------------------------
+  % Energy levels (schematic)
+  %   core: E1, E2  (inert, fully filled)
+  %   valence: E3, E4 (active)
+  %----------------------------
+  \def\Eone{-42}   % core level 1
+  \def\Etwo{-28}   % core level 2
+  \def\Ethree{-12} % valence level 1
+  \def\Efour{-4}   % valence level 2
+
+  % where to draw levels (inside the well)
+  \def\xL{0.6}
+  \def\xR{4.3}
+
+  % Helper: draw level line
+  \newcommand{\level}[2]{% y, label
+    \draw[thick] (\xL,#1) -- (\xR,#1);
+    \node[anchor=west] at (\xR+0.25,#1) {#2};
+  }
+
+  % Draw levels
+  \level{\Eone}{core 1}
+  \level{\Etwo}{core 2}
+  \level{\Ethree}{valence 1}
+  \level{\Efour}{valence 2}
+
+  % Braces / labels for core and valence groups
+  \draw[decorate,decoration={brace,amplitude=6pt}, thick]
+    (\xR+1.35,\Etwo+1) -- (\xR+1.35,\Eone-1)
+    node[midway, xshift=1.1cm, rotate=90] {\bfseries 不活性コア};
+  \draw[decorate,decoration={brace,amplitude=6pt}, thick]
+    (\xR+1.85,\Efour+1) -- (\xR+1.85,\Ethree-1)
+    node[midway, xshift=1.1cm, rotate=90] {\bfseries バレンス軌道};
+
+  %----------------------------
+  % Occupation markers
+  %   particle: filled circle (occupied)
+  %   hole: open circle with "h"
+  %----------------------------
+  \tikzset{
+    part/.style={circle, fill=black, draw=black, inner sep=1.4pt},
+    hole/.style={circle, fill=white, draw=black, inner sep=1.6pt},
+  }
+
+  % --- Core (fully filled; draw 4 particles as a cartoon) ---
+  \node[part] at (1.2,\Eone) {};
+  \node[part] at (1.5,\Eone) {};
+  \node[part] at (1.8,\Eone) {};
+  \node[part] at (2.1,\Eone) {};
+
+  \node[part] at (1.25,\Etwo) {};
+  \node[part] at (1.55,\Etwo) {};
+  \node[part] at (1.85,\Etwo) {};
+  \node[part] at (2.15,\Etwo) {};
+
+  % --- Valence: show several particle/hole examples ---
+  % valence 1: mostly filled but with holes
+  \node[hole] at (1.35,\Ethree) {};
+  \node[part] at (1.65,\Ethree) {};
+  \node[part] at (1.95,\Ethree) {};
+  \node[hole] at (2.25,\Ethree) {};
+  % \node[anchor=west] at (2.35,\Ethree) {$\;\;h$};
+
+  % valence 2: some particles
+  \node[hole] at (1.45,\Efour) {};
+  \node[part] at (1.75,\Efour) {};
+  \node[part] at (2.05,\Efour) {};
+  % \node[anchor=west] at (2.15,\Efour) {$\;\;p$};
+
+  % Optional: indicate particle-hole excitation with arrows
+  % \draw[->, thick] (2.25,\Ethree+1.5) to[bend left=20] (2.05,\Efour-1.5);
+  % \node[anchor=west] at (2.55,-9.0) {$p\text{-}h$ 励起（例）};
+
+  % Legend
+  % \node[part] (lp) at (5.0,-47) {};
+  % \node[anchor=west] at (5.25,-47) {particle（占有）};
+  % \node[hole] (lh) at (5.0,-52) {};
+  % \node[anchor=west] at (5.25,-52) {hole（抜け）};
+
+\end{tikzpicture}
+\caption{
+  $M$-shceme基底の一例．白丸がホールを，黒丸がパーティクルを表している．
+  バレンス軌道内において，さまざまな配位が実現され，それを基底としてシュレーディンガー方程式を解く．
+    }
+\label{fig:m_basis_shcematic_fig}
+\end{figure}
+
+
+\section{相互作用について}
 殻模型計算においては，模型空間を決めその中での相互作用(式~(\ref{eq:tme_and_ome_shellmodel_h})の係数)
 を決めることにより殻模型ハミルトニアンを作る．

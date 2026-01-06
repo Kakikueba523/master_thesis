@@ -1,17 +1,17 @@
-\section{崩壊幅の評価}
+\chapter{崩壊幅の評価}
 
 複合核の崩壊幅を計算する手法はその多くが統計的な見積りによるものが大きい．
 この章では最も簡単な例である，遷移状態理論について説明する．
 ここでの議論は\cite{frobrich2023theory}の10.4を参照した．
 
-\subsection{フェルミの黄金律を用いた評価}
+\section{フェルミの黄金律を用いた評価}
 複合核の崩壊について考える．エネルギー$E_C$，スピン$J$を持つ複合核状態$C$
 がエネルギー$(\mathcal{E}_b，\mathcal{E}_b + \dd{\mathcal{E}}_b)$，スピン$I_y$
-を持った軽い粒子$y$を放出し，残留核としてスピン$I_B$が残る系を考える．
+を持った軽い粒子$y$を放出し，残留核$B$としてスピン$I_B$が残る系を考える．
 このとき，フェルミの黄金律から反応率が
 \begin{align}
   \dd{R}^J_{\qty{C;J;E_C}\rightarrow \qty{b;I_y I_B;\mathcal{E}_b}} = \frac{2\pi}{\hbar} P^J_{\qty{C;J;E_C}\rightarrow \qty{b;I_y I_B;\mathcal{E}_b}} \notag \\
-  \times \rho_B(E^*_C -B_b -\mathcal{E}_b; I_B) (2I_B+1)(2I_y+1)\frac{V4\pi\mu_{\beta}p_b}{(2\pi \hbar)^3}\dd{\mathcal{E}_b}
+  \times \rho_B(E^*_C -B_b -\mathcal{E}_b; I_B) (2I_B+1)(2I_y+1)\frac{V4\pi\mu_{\beta}p_b}{(2\pi \hbar)^3}\dd{\mathcal{E}_b} \label{eq:diff_reaction_rate_for_ev}
 \end{align}
 であらわされる．ここで，$P_{\qty{C;J;E_C}\rightarrow \qty{b;I_y I_B;\mathcal{E}_b}}$は
 複合核状態$\qty{C;J;E_C}$から蒸発チャネル$\qty{b;I_y I_b;\mathcal{E}_b}$への遷移行列の二乗である．
@@ -20,3 +20,82 @@
   \rho(\mathcal{E}_b) = \frac{V4\pi p_b^2}{(2\pi\hbar)^3}\dv{p_b}{\mathcal{E}_b} = \frac{V4\pi \mu_\beta p_b}{(2\pi\hbar)^3}
 \end{align}
 を掛けてある．また，$B_b$は蒸発粒子$y$の結合エネルギーである．
+
+時間反転対称性により，$T$行列について，$a$から$b$への遷移とその逆の反応について
+同じ値をとるために，
+\begin{align}
+  P_{\qty{C;J;E_C}\rightarrow \qty{b;I_y I_B;\mathcal{E}_b}} = P_{ \qty{b;I_y I_B;\mathcal{E}_b}\rightarrow\qty{C;J;E_C}}
+\end{align}
+が成り立つ．$P_{ \qty{b;I_y I_B;\mathcal{E}_b}\rightarrow\qty{C;J;E_C}}$は
+$y + B \rightarrow C$という核融合反応の遷移行列要素である．
+核融合反応の反応率は，断面積$\sigma^J_F(b;I_y I_b; \mathcal{E}_b)$を用いて
+\begin{align}
+  R^J_{\qty{b;I_y I_B; \mathcal{E}_B} \rightarrow F} = \frac{v_b}{V} \sigma^J_F(b;I_y I_B;\mathcal{E}_b)
+\end{align}
+と書くことができ，フェルミの黄金律から，
+\begin{align}
+  R_{\qty{b;I_y I_B;\mathcal{E}_b}\rightarrow F} = \frac{2\pi}{\hbar} P_{ \qty{b;I_y I_B;\mathcal{E}_b}\rightarrow\qty{C;J;E_C}} (2J+1)\rho_C(E^*_C;J)
+\end{align}
+であるために，式~(\ref{eq:diff_reaction_rate_for_ev})は，
+\begin{align}
+  \dd{R}^J_{\qty{C;J;E_C}\rightarrow \qty{b;I_y I_B;\mathcal{E}_b}} = \frac{(2I_y + 1)(2I_B + 1)}{(2J+1)\rho(E^*_J; J)} \notag \\
+  \times \frac{4\pi p_b^2}{(2\pi \hbar)^3}\rho_B(E^*_C -B_b - \mathcal{E}_b; I_B) \sigma^J_F(b;I_y I_B; \mathcal{E}_b)\dd{\mathcal{E}_b}
+\end{align}
+と変形できる．残留核のスピン$I_B$で和をとり，相対運動エネルギー$\mathcal{E}_b$で積分することで，
+反応率を計算することができ，$p_b^2 = 2 \mu_\beta \mathcal{E}_b$を用いて，
+\begin{align}
+  R^J_{\qty{C;J;E_C}\rightarrow \qty{b;I_y I_B;\mathcal{E}_b}} = \frac{(2I_y + 1)}{(2J+1)\rho(E^*_J; J)} \frac{\mu_\beta}{\pi^2 \hbar^3} \sum_{I_B} (2I_B + 1)\notag \\
+  \times \int_{0}^{E^*_C - B_b} \dd{\mathcal{E}_b }\rho_B(E^*_C -B_b - \mathcal{E}_b; I_B) \sigma^J_F(b;I_y I_B; \mathcal{E}_b) \mathcal{E}_b
+\end{align}
+を得る．ここで，核融合断面積$\sigma^J_F (b;I_y I_B ;\mathcal{E}_b)$について，
+\begin{align}
+  \sigma^J_F(b;I_y I_B; \mathcal{E}_b) = \frac{\hbar^2\pi}{2\mu_\beta \mathcal{E}_b} \sum_{S_b = \abs{I_y - I_B}}^{I_y + I_B} \sum_{l_b = \abs{J - S_b}}^{J+S_b} \frac{2J+1}{(2I_B + 1)(2I_y + 1)} T^J_{l_b S_b}
+\end{align}
+と書くことができるため，反応率と崩壊幅の関係式$R = \hbar \Gamma$を用いることで，崩壊幅は，
+\begin{align}
+  \Gamma^J_{\qty{C;J;E_C}\rightarrow \qty{b;I_y I_B;\mathcal{E}_b}} = \frac{1}{2\pi\rho(E^*_C;J)} \sum_{I_B} 
+  \sum_{S_b = \abs{I_y - I_B}}^{I_y + I_B} \sum_{l_b = \abs{J - S_b}}^{J+S_b} \int_{0}^{E^*_C - B_b} \dd{\mathcal{E}_b }\rho_B(E^*_C -B_b - \mathcal{E}_b; I_B) T^J_{l_b S_b}
+\end{align}
+となる．透過係数$T^J_{l_b S_b}$について，古典極限をとると粒子$y$と$I_B$のポテンシャル障壁の高さ$V_B$を用いることで，
+\begin{align}\label{eq:decay_width_equation}
+  \Gamma^J_{\qty{C;J;E_C}\rightarrow \qty{b;I_y I_B;\mathcal{E}_b}} = \frac{1}{2\pi\rho(E^*_C;J)} \sum_{I_B} 
+  \sum_{S_b = \abs{I_y - I_B}}^{I_y + I_B} \sum_{l_b = \abs{J - S_b}}^{J+S_b} \int_{V_B}^{E^*_C - B_b} \dd{\mathcal{E}_b }\rho_B(E^*_C -B_b - \mathcal{E}_b; I_B)
+\end{align}
+となる．
+
+ポテンシャル障壁の見積りは，クーロン障壁$V_C$を
+\begin{align}
+  V_C = Z_y Z_B \frac{e^2}{R_C}， \quad R_C = 0.5 + 1.36\qty(A_y^{1/3} + A_B^{1/3})\quad \mathrm{fm}
+\end{align}
+として見積り，
+\begin{align}
+  V_b = V_C + \frac{\hbar^2}{2\mu_{\beta}}\frac{l_b(l_b+1)}{R_C^2}
+\end{align}
+とすることで計算した．
+
+\section{準位密度の見積り}
+式~(\ref{eq:decay_width_equation})
+を見ればわかるように崩壊幅を計算する際には複合核$C$および，蒸発残留核$B$の準位密度が必要である．
+準位密度の計算には半経験的な式を用いる\cite{ILJINOV1992517}．
+
+\begin{align}
+  \rho(U) = \frac{\sqrt{\pi} a^{-1/4}}{12} (U - \Delta)^{-5/4}  \exp\qty[2\sqrt{a(U-\Delta)}]
+\end{align}
+ここで，$a$は準位密度パラメータであり，ペアリングエネルギー
+\begin{align}
+  \Delta = \chi \frac{12}{\sqrt{A}}
+\end{align}
+である．ここで，$\chi$は偶偶核で2，偶奇核で1，奇奇核で0となる数である．
+スピン依存性も考慮に入れると，
+\begin{align}
+  \rho(U, I) = \frac{2I + 1}{2\sqrt{2\pi}\sigma^3} \exp\qty[-\frac{(I+1/2)^2}{2\sigma^2}] \rho(U)
+\end{align}
+と書かれる．ここで，$\sigma$はスピンカットオフパラメータであり，原子核の質量$M$と半径$R = 1.2 A^{1/3}$を用いて，
+\begin{align}
+  \sigma^2 = \sqrt{\frac{U-\Delta}{a}} \frac{0.4MR^2}{\hbar^2}
+\end{align}
+と書かれる．
+
+準位密度パラメータ$a$については，実験データにフィットするやり方か
+半経験的な式を用いるやり方の二つがある．
+本研究では，半経験的な式を用いるやり方で行う．

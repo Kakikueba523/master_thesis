@@ -6,6 +6,7 @@
 \usepackage{graphics}
 \usepackage{graphicx}
 \usepackage{here} %画像の表示位置調整用
+\usepackage{subcaption}
 \usepackage{type1cm}
 \usepackage{hyperref}
 \usepackage{isotope}
@@ -18,21 +19,21 @@
 \usepackage{appendix}
 %A4: 21.0 x 29.7cm
 
-\numberwithin{figure}{section}
-\numberwithin{equation}{section}
-\numberwithin{table}{section}
+\numberwithin{figure}{chapter}
+\numberwithin{equation}{chapter}
+\numberwithin{table}{chapter}
 
-\newtheorem{theorem}{定理}[section]   % sectionごとに番号リセット
+\newtheorem{theorem}{定理}[chapter]   % sectionごとに番号リセット
 \newtheorem{lemma}[theorem]{補題}      % theoremと同じカウンタを共有
 \newtheorem{proposition}[theorem]{命題}
 \newtheorem{corollary}[theorem]{系}
 
 
-\makeatletter
-\g@addto@macro\appendix{%
-  % セクション番号を A, B, C... にする（普通は自動だけど念のため）
-  \renewcommand{\thesection}{\Alph{section}}
-  % 式番号を A.1 の形式にする
-  \renewcommand{\theequation}{\thesection.\arabic{equation}}
-}
-\makeatother
+% \makeatletter
+% \g@addto@macro\appendix{%
+%   % セクション番号を A, B, C... にする（普通は自動だけど念のため）
+%   \renewcommand{\thesection}{\Alph{section}}
+%   % 式番号を A.1 の形式にする
+%   \renewcommand{\theequation}{\thesection.\arabic{equation}}
+% }
+% \makeatother
