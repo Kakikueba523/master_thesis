@@ -1,0 +1,22 @@
+\section{崩壊幅の評価}
+
+複合核の崩壊幅を計算する手法はその多くが統計的な見積りによるものが大きい．
+この章では最も簡単な例である，遷移状態理論について説明する．
+ここでの議論は\cite{frobrich2023theory}の10.4を参照した．
+
+\subsection{フェルミの黄金律を用いた評価}
+複合核の崩壊について考える．エネルギー$E_C$，スピン$J$を持つ複合核状態$C$
+がエネルギー$(\mathcal{E}_b，\mathcal{E}_b + \dd{\mathcal{E}}_b)$，スピン$I_y$
+を持った軽い粒子$y$を放出し，残留核としてスピン$I_B$が残る系を考える．
+このとき，フェルミの黄金律から反応率が
+\begin{align}
+  \dd{R}^J_{\qty{C;J;E_C}\rightarrow \qty{b;I_y I_B;\mathcal{E}_b}} = \frac{2\pi}{\hbar} P^J_{\qty{C;J;E_C}\rightarrow \qty{b;I_y I_B;\mathcal{E}_b}} \notag \\
+  \times \rho_B(E^*_C -B_b -\mathcal{E}_b; I_B) (2I_B+1)(2I_y+1)\frac{V4\pi\mu_{\beta}p_b}{(2\pi \hbar)^3}\dd{\mathcal{E}_b}
+\end{align}
+であらわされる．ここで，$P_{\qty{C;J;E_C}\rightarrow \qty{b;I_y I_B;\mathcal{E}_b}}$は
+複合核状態$\qty{C;J;E_C}$から蒸発チャネル$\qty{b;I_y I_b;\mathcal{E}_b}$への遷移行列の二乗である．
+また，残留核$B$の準位密度$\rho_B$および，相対運動の状態密度
+\begin{align}
+  \rho(\mathcal{E}_b) = \frac{V4\pi p_b^2}{(2\pi\hbar)^3}\dv{p_b}{\mathcal{E}_b} = \frac{V4\pi \mu_\beta p_b}{(2\pi\hbar)^3}
+\end{align}
+を掛けてある．また，$B_b$は蒸発粒子$y$の結合エネルギーである．

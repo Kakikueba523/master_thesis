@@ -12,6 +12,96 @@ M3Y double folding potentialは，
 \end{align}
 のように定義される．
 ここで，$v_\mathrm{M3Y}(\bm{r})$は，Reidポテンシャルから導かれる有効核子間相互作用である．
+これに，デルタ関数型の核子間相互作用
+\begin{align}
+  v_{\mathrm{r}}(\bm{r}) = v_r \delta(\bm{r})
+\end{align}
+を加える．これは原子核の非圧縮率を考慮に入れるための項であり，
+異なる原子核間における核子間のパウリ原理を反映したものだと解釈することができる．
+Double Foldingの形で書くと，
+\begin{align}
+  U_{\mathrm{r}}(\bm{r}) = \int \dd{\bm{r}_1} \dd{\bm{r}_2} \rho_{1\mathrm{r}}(\bm{r}_1) \rho_{2\mathrm{r}}(\bm{r}_2) v_\mathrm{r} (\bm{r} + \bm{r}_2 - \bm{r}_1)
+\end{align}
+となる．
+
+本研究では，\isotope[12]{C}と\isotope[13]{C}を球形と近似して，
+原子核の密度分布$\rho$はM3Y項および斥力項ともにフェルミ分布関数
+\begin{align}
+  \rho_i (\bm{r}) = \frac{\rho_{0i}}{1 + \exp(-\frac{r-R_{0i}}{a_i})}
+\end{align}
+を用いる$(i = 1，2)$．
+M3Y項におけるパラメータ$R_{0i}$および$a_i$の決め方は，
+\isotope[12]{C}のpoint proton荷電半径を再現するように決める．
+ただし，$a_i$は\isotope[12]{C}と\isotope[13]{C}とで同じに取る．
+\begin{figure}[thpb]
+  \centering
+  \includegraphics[width=8cm]{figure/chap5/charge_distribution.png}
+  \caption{\cite{Esbensen2011}より引用．\isotope[12]{C}のpoint proton密度分布の実験データ\cite{DEVRIES1987495}と
+  $a = 0.44$fm，$R_0 = 2.155$fmとしたフェルミ分布関数のプロット図．}
+  \label{fig:charge_distribution}
+\end{figure}
+
+$a = 0.44$ fmというパラメータは図~\ref{fig:charge_distribution}にあるように，
+\isotope[12]{C}のpoint proton荷電分布のテール部分をよく再現する．半径パラメータについては，
+$R = 2.155$ fmという値を用いた．
+フェルミ分布関数において，平均二乗半径は，
+\begin{align}
+  \ev{r^2} = \frac{3}{5}\qty[R^2 + \frac{7}{3}(\pi a)^2]
+\end{align}
+と計算することができる．
+これらを用いて計算できる荷電半径は，文献\cite{ANGELI2004185}から得られるpoint proton荷電半径をよく再現する．
+この半径パラメータは理想的にはマター分布の半径と一致するはずなので，
+\isotope[12]{C}の計算においては，このパラメータを用いてポテンシャルを計算する．
+
+\isotope[13]{C}の計算について，
+マター分布の半径は\isotope[12]{C}の半径よりもバレンス中性子1個の影響により，
+大きくなるはずである．もっとも簡単な見積りとして，Woods-Saxonポテンシャルにおける
+一粒子軌道の平均二乗半径において$\ev{r_n^2} = 8.655$ fm$^2$という値が，$p_{1/2}$軌道
+において得られる．\isotope[12]{C}のpoint proton荷電半径，$\ev{r^2}_{12} = 5.462(9)$ fm$^2$
+という値を用いて，\isotope[13]{C}のマター分布の平均二乗半径を
+\begin{align}
+  13\ev{r^2}_{13} = 12\qty(\ev{r^2}_{12} + \frac{\ev{r_n^2}}{13})
+\end{align}
+という式で見積もると，
+マター分布の平均二乗半径は，2.378 fmとなる．
+これを用いて，$a = 0.44$ fmから，半径パラメータは
+$R = 2.228$ fmとなる．
+
+斥力項のパラメータ$v_{\mathrm{r}}$の合わせ方は，
+原子核の非圧縮率$K = 234$MeVが再現されるように選ぶ．
+具体的には，
+\begin{align}
+  V(r) = U_{\mathrm{M3Y}}(r) + U_{\mathrm{r}}(r)
+\end{align}
+とする．
+このとき，状態方程式について，飽和密度近傍で展開すると，
+\begin{align}
+  \varepsilon(\rho, \delta) = \varepsilon(\rho_0, \delta) + \frac{K}{18\rho_0^2} (\rho - \rho_0)^2
+\end{align}
+となる．また，$V(r)$において，$r=0$でのエネルギーの増分は
+\begin{align}
+  V(0) \approx 2 A_p \qty[\varepsilon(2\rho_0, \delta) - \varepsilon(\rho_0, \delta)]
+\end{align}
+となる．ここで，$A_p$は二つの原子核のうち少ない方の質量数である．
+よって，
+\begin{align}
+  V(0) = \frac{K A_p}{9}
+\end{align}
+となるように，$v_{\mathrm{r}}$を決める．
+
+原子核の密度分布は半径パラメータはM3Yと同じものを用いるが，diffusenessパラメータ
+$a_r$はM3Y項と斥力項では別のものを用いる．
+文献\cite{Esbensen2011}では，\isotope[13]{C}の半径パラメータは2.228 fmではなく，
+$R = 2.28$ fmとした方が実験データをよく再現することが指摘されている．
+そこで，本研究でも\isotope[13]{C}の半径パラメータは$R = 2.28$ fmの方を採用する．
+
+\begin{figure}[thpb]
+  \centering
+  \includegraphics[width=8cm]{figure/chap5/potential_12c_12c.png}
+  \caption{\isotope[12]{C}+\isotope[12]{C}ポテンシャルの例．$a_r = 0.31$とした．
+  赤線がM3Y+repulsionポテンシャルであり，青破線がM3Yポテンシャルである．}
+  \label{fig:potential_12c_12c}
+\end{figure}
 
 \subsection{Woods-Saxon Potential}
 

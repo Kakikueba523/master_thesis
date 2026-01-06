@@ -2,6 +2,7 @@
 本研究において，重要なパートを担う散乱理論についてこの節で議論する．
 クーロン場がない場合から始め，ある場合について述べる．
 また，同種粒子同士の散乱問題についても，相互作用がスピンに依らない場合に限り，議論する．
+なお，本章における議論は\cite{canto2013scattering}，\cite{1970586434905966474}を参考にした．
 
 \subsection{原子核間ポテンシャル}
 原子核間ポテンシャルは，相対距離$r$の関数として，
@@ -562,49 +563,100 @@ $X_+$，$X_-$についてのクロスタームは実になることから，
 原子核物理学においては古くから複素ポテンシャルを用いて
 原子核反応の計算が行われてきた．
 ここでは，Feshbachの方法に従って複素ポテンシャルの理論的な導出を考える．
-核子と原子核の散乱について考える．ただし，入射エネルギー$E$は，elastic channelのみがある場合
-を考える．
+核融合反応過程では，始状態の原子核が複合核と呼ばれる中間状態を経て
+$p，n，\alpha$のような粒子を放出しそれが終状態となる．
+それぞれのチャネルを$P$，$Q$，$R$と呼ぶことにする．一般に$R$は$\alpha$崩壊チャネル，$p$崩壊チャネルなど，
+複数のチャネルがあるが，簡単のために一つのチャンネルのみを考えることにする．
 まず，ハミルトニアンを
 \begin{align}\label{eq:hamiltonian_internal_ex}
-  H = H_0 + V + H'(\xi)
+  H = 
+  \begin{pmatrix}
+    H_{PP} & H_{PQ} & \\
+    H_{QP} & H_{QQ} & H_{QR} \\
+     & H_{RQ} & H_{RR}
+  \end{pmatrix}
 \end{align}
-とする．ここで，$H_0$は運動項であり，$V$は入射核と標的核の相互作用である．
-また，$H'(\xi)$は標的核の内部ハミルトニアンである．
-ここで，
-\begin{align}
+とする．ここで，
+\begin{align}\label{eq:feshbach_shcrodinger}
   (E - H)\Psi = 0
 \end{align}
 というシュレーディンガー方程式について考える．
-まず，$H'(\xi)$というハミルトニアンの固有状態
+ただし，
 \begin{align}
-  H'(\xi)\Phi_\alpha(\xi) = \varepsilon_\alpha \Phi_\alpha(\xi)
+  \Psi = 
+  \begin{pmatrix}
+    \ket{\psi_P} \\
+    \ket{\psi_Q} \\
+    \ket{\psi_R}
+  \end{pmatrix}
 \end{align}
-を用いて，波動関数$\Psi$を
+とした．ここで，
+式~(\ref{eq:feshbach_shcrodinger})の第三成分から，
 \begin{align}
-  \Psi = \sum_\alpha \psi_\alpha \Psi_\alpha(\xi)
+  \ket{\psi_R} = \frac{1}{E-H_{RR}}H_{RQ}\ket{\psi_Q}
 \end{align}
-と展開する．開いているチャネルが弾性チャネルのみである
-場合，$\Psi$の弾性チャネルの部分は$\psi_0\Phi_0$
-である．
-ここで，開いているチャネルへの射影演算子$P$とそれ以外へのチャネルへの射影演算子$Q$
-を導入する．
-すなわち，
+となる．また，この式と式~(\ref{eq:feshbach_shcrodinger})の第二成分から，
 \begin{align}
-  P\Psi = \psi_0 \Phi_0，\quad Q\Psi = (1 - P) \Psi
+  -H_{QP} \ket{\psi_P} + \qty(E - H_{QQ} - H_{QR} \frac{1}{E-H_{RR}}H_{RQ})\ket{\psi_Q} = 0
 \end{align}
-および，
+よって，式~(\ref{eq:feshbach_shcrodinger})を$P+Q$空間に射影することで，
 \begin{align}
-  P^2 \Psi = P \Psi，\quad Q^2 \Psi = Q \Psi，\quad QP \Psi = PQ\Psi = 0
-\end{align}
-を満たす演算子$P$および$Q$を導入する．
-シュレーディンガー方程式~$(E-H)(P+Q)\Psi = 0$
-に左から$P$と$Q$をそれぞれ掛けると，
-\begin{align}
-  (E - PHP)P\Psi = (PHQ)Q\Psi \label{eq:projected_to_P_space}\\
-  (E - QHQ)Q\Psi = (QHP)P\Psi \label{eq:projected_to_Q_space}
+  \qty(E - H_{P+Q})\Psi_{P+Q} = 0 
 \end{align}
 を得る．
-
+ただし，
+\begin{align}\label{eq:effective_PQ_hamiltonian}
+  H_{P+Q} =
+  \begin{pmatrix}
+    H_{PP} & H_{PQ} \\
+    H_{QP} & H'_{QQ}
+  \end{pmatrix}，\quad
+  \Psi_{P+Q} = 
+  \begin{pmatrix}
+    \ket{\psi_P} \\
+    \ket{\psi_Q}
+  \end{pmatrix}
+\end{align}
+とした．また，
+\begin{align}\label{eq:effective_h_qq}
+  H'_{QQ} = H_{QQ} - H_{QR}\frac{1}{E-H_{RR}}H_{RQ}
+\end{align}
+である．
+ここで，式~(\ref{eq:effective_h_qq})について，$H_{RR}$の固有状態
+\begin{align}
+  H_{RR}\ket{\phi(\varepsilon)} = \varepsilon \ket{\phi(\varepsilon)}
+\end{align}
+で展開すると，
+\begin{align}
+  H'_{QQ} = H_{QQ} - H_{QR} \int \dd{\varepsilon} \frac{\ket{\phi(\varepsilon)}\bra{\phi(\varepsilon)}}{E - \varepsilon + i0^+} H_{RQ}
+\end{align}
+となる．ここで，
+\begin{align}
+  \frac{1}{E - E' + i 0^+} = \mathcal{P} \frac{1}{E-E'} - i\pi \delta(E-E')
+\end{align}
+という関係式を用いると，
+\begin{align}
+  H'_{QQ} = H_{QQ} - \Delta + i \Gamma /2
+\end{align}
+となる．ただし，
+\begin{align}
+  \Delta &= H_{QR} \mathcal{P} \int \dd{\varepsilon} \frac{\ket{\phi(\varepsilon)}\bar{\ket{\phi(\varepsilon)}}}{E - \varepsilon} H_{RQ} \\
+  \Gamma &= 2 \pi H_{QR} \ket{\phi(E)}\bra{\phi(E)} H_{RQ}
+\end{align}
+である．
+さらに，式~(\ref{eq:effective_PQ_hamiltonian})を$P$空間へと射影すると，
+\begin{align}
+  \qty(E - H_{PP} - H_{PQ}\frac{1}{E-H'_{QQ}}H_{QP})\ket{\phi_{P}} = 0
+\end{align}
+となり，有効ハミルトニアンとして，
+\begin{align}
+  H'_{PP} = H_{PP} + H_{PQ} \frac{1}{E-H'_{qq}}H_{QP}
+\end{align}
+が得られる．~$H'_{QQ}$が一般に虚部をもつことから，
+有効ハミルトニアンにも虚部が現れる．これが虚数ポテンシャルの
+理論的定式化であり，プラクティカルには
+虚数ポテンシャルを実験データを再現するように
+半経験的な式を用いることが多い．
 
 
 \subsection{クーロン場があるときの散乱理論}

@@ -22,16 +22,26 @@ $\isotope{C} + \isotope{C}$チャネルおよび複合核($\isotope{Mg}$)チャ�
 
 \subsection{入口チャネル}
   $\bm{H}_\text{C+C}$は，
-炭素原子核$\isotope[12]{C}$，$\isotope[13]{C}$を球形と近似し，二つの原子核間の相対運動を記述する：
+炭素原子核$\isotope[12]{C}$，$\isotope[13]{C}$を球形と近似し，二つの原子核間の相対運動を記述する．
+二つの原子核間の重心間距離を$\bm{r}$とすると，動径方向のみを考えればよいので，ハミルトニアンは
+\begin{align}
+  \bm{H}^l_{\text{C+C}, ij} = -\frac{\hbar^2}{2\mu}\nabla^2 + V_l(r)
+\end{align}
+となる．
+$V_l(r)$は遠心力ポテンシャルを含む原子核間ポテンシャルであり，原子核間ポテンシャルとしては，いくつかのケースを
+試す．
+数値計算では，このハミルトニアンを動径方向$r$に関して等間隔メッシュ幅$\Delta r$で離散化し，
+差分近似により取り扱う．また，境界を$r_{\mathrm{max}} = N_{\text{C+C}}\Delta r$とする．
+これによりハミルトニアンは，$N_{\text{C+C}} \times N_{\text{C+C}}$行列として
 \begin{align}\label{eq:entrance_hamiltonian}
   \bm{H}^l_{\text{C+C}, ij} = \qty[2t + V_l(r_i)]\delta_{ij} - t\delta_{i, j+1} - t\delta_{i,j-1}．
 \end{align}
+となる．
 ここで，$i,j = (1, 2, \dots, N_\text{C+C})$，$N_\text{C+C}$は$\isotope{C}+\isotope{C}$チャネルのメッシュのサイト数
 であり，$t = \hbar^2/ 2\mu \Delta r^2$，$\mu$は換算質量である．
 また，$\Delta r$はメッシュ間隔であり，$r_i = i \Delta r$である．
 なお，ここで$\isotope[12]{C}$，$\isotope[13]{C}$の励起状態は考えず，質点として取り扱っている．
-$V_l(r_i)$は遠心力ポテンシャルを含む，原子核間ポテンシャルであり，原子核間ポテンシャルとしては，いくつかのケースを
-試す．
+
 
 \subsection{複合核チャネル}
   $\bm{H}^{J^\pi}_\text{CN}$は複合核状態を記述するハミルトニアンであり，
@@ -45,6 +55,8 @@ $V_l(r_i)$は遠心力ポテンシャルを含む，原子核間ポテンシャ�
 計算した．
 $\isotope[16]{O}$を不活性コアとし，$sd - pf$軌道をバレンス軌道として，励起スペクトルを計算した．
 用いた核子間相互作用はsdpf-mu\cite{PhysRevC.86.051301}と呼ばれる相互作用である．
+また，崩壊幅は\isotope[24]{Mg}および\isotope[25]{Mg}ともに，遷移状態理論と呼ばれる
+統計模型を用いて見積もる．
 
 \subsection{カップリング行列}
   $\bm{V}$は$\isotope{C} + \isotope{C}$チャネルと$\isotope{Mg}$チャネルを結合する行列であり，
