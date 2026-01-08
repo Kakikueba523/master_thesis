@@ -18,7 +18,7 @@
 
 \begin{figure}[thpb]
   \centering
-  \includegraphics[width=8cm]{figure/chap3/potential_example.pdf}
+  \includegraphics[width=0.9\textwidth]{figure/chap3/potential_example.pdf}
   \caption{原子核間ポテンシャルの相対角運動量が0の場合の例．
   赤の点線がクーロンポテンシャルであり，青の破線が核力に由来するポテンシャルであり，
   黒の実線がその和，全ポテンシャルを表している．}
@@ -741,8 +741,142 @@ $r\rightarrow\infty$で，0に近づく必要がある．
 \begin{align}\label{eq:coulomb_sc_solution}
   \phi_C(\bm{k};\bm{r}) = C e^{ikz} F(-i\eta, 1, ik(r-z))
 \end{align}
+である．$F(-i\eta, 1, ik(r-z))$はラプラス型の方程式の特殊解$W_1，W_2$
+の和で表せて，$|z| \rightarrow \infty$での漸近形が知られている．
+$C = \Gamma(1 + i\eta,)e^{\pi\eta/2}$とすることで，
+\begin{align}
+  \phi_C(\bm{k};\bm{r}) \sim e^{i(kz - \eta \ln k(r-z))} +  f_C(\theta) \frac{e^{ikr}}{r}\qty[e^{-i\eta \ln(2kr)}]
+\end{align}
+と漸近解が得られる．
+ただし，$f_C(\theta)$はクーロン散乱振幅であり，
+\begin{align}
+  f_C(\theta) = -\frac{\eta}{2k\sin^2(\theta/2)}e^{-i\eta\ln(\sin^2\theta/2)}e^{2i\sigma_0}
+\end{align}
+である．ここで，$\sigma_0$はクーロン位相差であり，
+\begin{align}
+  \sigma_0 = \arg \Gamma(1 + i\eta)
+\end{align}
 である．
 
+
+
+\section{同種粒子同士の散乱}
+原子核散乱ではしばしば入射粒子と標的粒子が同種粒子であることがある．
+この場合は，前節までで取り扱った結果に対していくつかの変更が加わる．
+まず，重心系で$\hat{\bm{r}}$の方向にある検出器へ粒子が届く場合，
+この粒子が入射粒子であるか標的粒子であるかを原理的に区別することができない．
+運動量保存則から，$\hat{\bm{r}} \equiv \theta，\varphi$の方向へと粒子が
+放出されたとき，もう片方の粒子は逆の方向へ，つまり$-\hat{\bm{r}} \equiv \pi-\theta，\varphi + \pi$
+へと放出されるとわかる．よって，これら二つの方位における断面積は混ざりあうことがわかる．
+
+量子力学において，全波動関数はボゾン同士の場合，二つの粒子の入れ替えに関して対称であり，
+フェルミオンの場合は，反対称であることが課せられる．
+スピンをもつ粒子の座標を$q = \bm{r}， \mu$とする．
+ここで，$\bm{r}$が位置ベクトルであり，$\mu$がスピンの$z$成分である．
+全波動関数が入れ替えの演算子，
+\begin{align}
+  P_{pt} = P^{\bm{r}}_{pt} P^{s}_{pt}
+\end{align}
+に関して固有状態である必要がある．
+ここで，$P^{\bm{r}}_{pt}$は$\bm{r}_p$と$\bm{r}_t$の入れ替えの演算子であり，
+$P^{s}_{pt}$は，$\mu_p$と$\mu_t$の入れ替えの演算子である．
+つまり，
+\begin{align}\label{eq:eigenstate_of_exchange_op}
+  P_{pt}\psi_\lambda(q_p, q_t) = \psi_\lambda (q_t, q_p ) = \lambda \psi_\lambda(q_p, q_t)
+\end{align}
+である．ここで，ボゾン同士の場合$\lambda = +1$であり，フェルミオン同士の場合，$\lambda = -1$である．
+式~(\ref{eq:eigenstate_of_exchange_op})を満たす波動関数は，対称化前の波動関数$\psi(q_t, q_p)$
+を
+用いることで，
+\begin{align}
+  \psi_+(q_p, q_t) = \frac{1}{\sqrt2}\qty[\psi(q_p, q_t) + \psi(q_t, q_p)] \\
+  \psi_-(q_p, q_t) = \frac{1}{\sqrt2}\qty[\psi(q_p, q_t) - \psi(q_t, q_p)]
+\end{align}
+のように書くことができる．
+
+最も簡単な場合として，スピンが入射粒子と標的核の入れ替えに関して対称な場合を考える．
+これはスピン$s=0$の場合は成り立つが，$s \neq  0$では一般に成り立たない．
+しかし，これはスピンが同じ方向に偏極した状況を考えると成り立つものである．
+このとき，粒子の入れ替えの演算子は位置の入れ替えの演算子として書き換えることができるので，
+波動関数は，
+\begin{align}
+  \psi_{\pm}(\bm{r}_p, \bm{r}_t) = \frac{1}{\sqrt{2}}\qty[\psi(\bm{r}_p, \bm{r}_t) \pm \psi(\bm{r}_t, \bm{r}_p)]
+\end{align}
+となる．ここで，$+$はボゾン同士，$-$はフェルミオン同士の場合である．
+
+散乱理論において，位置ベクトル$\bm{r}_p$と$\bm{r}_t$を
+重心位置ベクトル$\bm{R}_\text{c.m.}$と相対位置ベクトル$\bm{r}$で書くことがおおい．
+これらは，
+\begin{align}
+  \bm{R}_\text{c.m.} = \frac{\bm{r}_p + \bm{r}_t}{2}，\quad \bm{r} = \bm{r}_p - \bm{r}_t
+\end{align}
+と書かれるため，位置の入れ替え変換の下で，
+\begin{align}
+  P^\dagger_{pt}\bm{R}_\text{c.m.} P_{pt} = \bm{R}_\text{c.m.}，\quad P^\dagger_{pt} \bm{r} P_{pt} = -\bm{r}
+\end{align}
+となることがわかる．よって，入れ替えの演算子は
+\begin{align}
+  P_{pt} = \Pi
+\end{align}
+とパリティ変換で書くことができる．
+よって，重心系における全波動関数は，
+\begin{align}
+  \psi_{\pm} (\bm{r}) = \frac{1}{\sqrt{2}}\qty[\psi(\bm{r}) \pm \psi(-\bm{r})]
+\end{align}
+となる．入れ替えによる変換則から，全波動関数に関して，ボゾン同士の場合はパリティが正であること
+，フェルミオン同士の場合はパリティが負であることが要請される．
+
+全波動関数に関して，式~(\ref{eq:desired_wave_function})が変更されて，
+\begin{align}
+  \psi_{\pm}^{(+)} = \phi_{\pm} (\bm{r}) + \psi_{\pm}^{\text{sc}}(\bm{r}) 
+\end{align}
+となる．それぞれの漸近形は
+\begin{align}
+  \phi_{\pm}(\bm{r}) &\rightarrow \frac{1}{(2\pi)^{3/2}}\qty[\frac{e^{i\bm{k}_0 \cdot \bm{r}} \pm e^{-i\bm{k}_0 \cdot \bm{r}}}{\sqrt{2}}] \\
+  \psi_{\pm}^{(\text{sc})}(\bm{r}) &\rightarrow \frac{1}{(2\pi)^{3/2}}\qty[\frac{f(\theta)\pm f(\pi - \theta)}{\sqrt{2}}]\frac{e^{ikr}}{r}
+\end{align}
+となる．
+ここで，相互作用が球対称，つまり距離の大きさにのみよるという仮定のもと，散乱振幅$f$
+が$\theta$にのみによるという事実を用いた．
+
+逆向きに進む入射粒子が二つある（$e^{i\bm{k}_0 \cdot \bm{r}}$と$e^{-i \bm{k}_0 \cdot \bm{r}}$）．
+散乱波解は両方の粒子の散乱を考慮している．この波動関数から計算される
+フラックスは立体角$\dd{\Omega}$へ2つの粒子のどちらかが散乱される確率を与える．
+断面積は，このフラックスを入射平面波のどちらか一方におけるフラックスで割った比として与えられる．
+このことから，弾性散乱断面積は，
+\begin{align}
+  \dv{\sigma}{\Omega}_{\pm} = \abs{f(\theta) \pm f(\pi - \theta)}^2
+\end{align}
+と書くことができる．
+\begin{align}
+  f_{\pm}(\theta) = f(\theta) \pm f(\pi - \theta)
+\end{align}
+と書くことにすると，
+\begin{align}
+  \dv{\sigma}{\Omega}_{\pm} = \abs{f_{\pm}(\theta)}^2
+\end{align}
+と書ける．
+この式から，単なる足し合わせではなく
+干渉項
+\begin{align}
+  \pm 2 \mathrm{Re}\qty[f^*(\theta)f(\pi - \theta)]
+\end{align}
+という項も現れる．
+これは量子力学特有の項であり，古典力学では現れない項である．
+
+断面積は，$\theta = \pi//2$
+に関して対象となっていることがわかる．
+このことから，$f_{\pm}(\theta)$の部分波展開
+について，ルジャンドル多項式$P_l$について，
+\begin{align}
+  P_l\qty(\cos (\pi - \theta)) = P_l(-\cos \theta) = (-1)^lP_l(\cos\theta)
+\end{align}
+という関係式を用いて，
+\begin{align}
+  f_{\pm}(\theta) = \frac{1}{2ik} \sum_l \qty[(2l+1)P_l(\cos\theta) (S_l - 1)]\times\qty[1 \pm (-1)^l]
+\end{align}
+と書くことができる．
+この式から，ボゾンでは偶数の部分波，フェルミオンでは奇数の部分波のみが寄与することがわかる．
 
 % \section{合流型超幾何関数}
 

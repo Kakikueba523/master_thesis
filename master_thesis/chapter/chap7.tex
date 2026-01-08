@@ -20,7 +20,7 @@ M3Y + repulsionポテンシャルにおいては，Repulsion termのdifuseness�
 $a_r = 0.31$および，$v_0 = 0.1$としたときの$S$-factorの比較をしよう．
 \begin{figure}[t]
   \centering
-  \includegraphics[width=8cm]{figure/chap7/sfac_v0_0.1_comp.png}
+  \includegraphics[width=0.9\textwidth]{figure/chap7/sfac_v0_0.1_comp.png}
   \caption{
     $v_0 = 0.1$，$a_r=0.31$としたときの$S$-factorの比較．赤線が\isotope[12]{C}+
     \isotope[13]{C}核融合反応であり，青線が\isotope[12]{C}+\isotope[12]{C}核融合反応である．
@@ -41,17 +41,17 @@ $a_r = 0.31$および，$v_0 = 0.1$としたときの$S$-factorの比較をし�
   \centering
   \begin{subfigure}[t]{0.48\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{figure/chap7/sfac_v0_0.1_12c12c_eachl.png}
+    \includegraphics[width=0.9\textwidth]{figure/chap7/sfac_v0_0.1_12c12c_eachl.png}
     \caption{\isotope[12]{C}+\isotope[12]{C}}
     \label{fig:v001_ar031_12c_12c_eachl}
   \end{subfigure}\hfill
   \begin{subfigure}[t]{0.48\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{figure/chap7/sfac_v0_0.1_12c13c_eachl.png}
+    \includegraphics[width=0.9\textwidth]{figure/chap7/sfac_v0_0.1_12c13c_eachl.png}
     \caption{\isotope[12]{C}+\isotope[13]{C}}
     \label{fig:v001_ar031_12c_13c_eachl}
   \end{subfigure}
-  \caption{$v_0 = 0.1，a_r = 0.31$としたときの，$S$-factorの比較．左図が\isotope[12]{C}+\isotope[12]{C}
+  \caption{$v_0 = 0.1，a_r = 0.31$としたときの，$S$-factorの各$l$における比較．左図が\isotope[12]{C}+\isotope[12]{C}
   核融合反応であり，右図が\isotope[12]{C}+\isotope[13]{C}核融合反応である．}
   \label{fig:v001_ar031_c_c_eachl}
 \end{figure}
@@ -61,3 +61,155 @@ $a_r = 0.31$および，$v_0 = 0.1$としたときの$S$-factorの比較をし�
 大きくなるため，$S$-factorにおいてもおおきな値を持つことがわかる．
 
 次に，$a_r$は固定したまま，$v_0$を動かしていく．
+%横に2枚の画像(jpg/png)表示
+\begin{figure}[tb]
+\begin{center}
+\begin{tabular}{c}
+\begin{minipage}{0.5\hsize}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{figure/chap7/sfac_v0_0.3_comp.png}
+\end{center}
+\caption{
+    $v_0 = 0.3$，$a_r = 0.31$としたときの，$S$-factorの図．
+  }
+\label{fig:v003_ar031}
+\end{minipage}
+\begin{minipage}{0.5\hsize}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{figure/chap7/sfac_v0_0.6_comp.png}
+\end{center}
+\caption{
+    $v_0 = 0.6$，$a_r = 0.31$としたときの，$S$-factorの図．
+  }
+\label{fig:v006_ar031}
+\end{minipage}
+\end{tabular}
+\end{center}
+\end{figure}
+
+図\ref{fig:v003_ar031}は$v_0 = 0.3$とした$S$-factorであり，
+図\ref{fig:v006_ar031}は$v_0 = 0.6$とした$S$-factorである．
+$v_0$の値によらず，共鳴構造の発現には変化がないものの，
+全体の構造は変化することがわかる．
+
+次に，\isotope[12]{C}+\isotope[13]{C}
+核融合反応の$S$-factorが，
+\isotope[12]{C}+\isotope[12]{C}核融合反応の$S$-factor
+の上限となり，共鳴のピークで一致するという振る舞いを再現しよう．
+これを見るために，核融合チャネルへの遷移の効果がどのように効いてくるのかを確認する．
+まず，全体のハミルトニアン
+\begin{align}
+  \bm{H}^{l,J^\pi} = 
+  \begin{pmatrix}
+    \bm{H}^l_\text{C+C} & \bm{V} \\
+    \bm{V}^T & \bm{H}^{J^\pi}_\text{CN}
+  \end{pmatrix} \tag{\ref{eq:total_hamiltonian}}
+\end{align}
+について，\isotope{C}+\isotope{C}チャネルに射影する．
+このとき，有効ハミルトニアンとして，
+\begin{align}
+  \bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi} = \bm{H}^l_\text{C+C} + \bm{V}^T \frac{1}{E-\bm{H}^{J^\pi}_\text{CN}} \bm{V}
+\end{align}
+が得られる．
+このハミルトニアンの虚部は，
+\begin{align}\label{eq:effctive_imaginary_part}
+  \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi}) = \mathrm{Im}\sum_\mu \frac{v_0^2 \delta_{i,i_e}}{E - \mathcal{E}_\mu + i\Gamma_\mu /2}
+\end{align}
+となる．吸収断面積が，
+\begin{align}
+  \sigma_{r} \propto \int \dd{r} \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi}) \abs{u(r)}^2
+\end{align}
+と書かれるために，この虚部の値を\isotope[12]{C}+\isotope[12]{C}の共鳴エネルギー直上と，
+\isotope[12]{C}+\isotope[13]{C}とで，一致させるように$v_0$の比を決める．
+
+\isotope[12]{C}+\isotope[12]{C}の場合．
+$E \sim E_C$を考える．ただし，$E_C$は複合核の固有エネルギーとする．
+孤立共鳴に対応するため，式~(\ref{eq:effctive_imaginary_part})は
+\begin{align}\label{eq:12_12_imaginary}
+  \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi}) = - i \frac{2v_0^2}{\Gamma_C} \delta_{i, i_e}
+\end{align}
+となる．
+
+\isotope[12]{C}+\isotope[13]{C}の場合．
+$E \sim E_C$を考える．ただし，$E_C$は複合核の固有エネルギーである．
+準位間隔$D$と崩壊幅$\Gamma$を一定だと近似すると，
+\begin{align*}
+  \sum_\mu \frac{v_0^2}{-n D + i \Gamma/2} = -iv_0^2 \frac{\pi}{D}\coth \qty(\frac{\pi \Gamma}{2D})
+\end{align*}
+\begin{align}
+  \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi}) = - i v_0 ^2 \frac{\pi}{D} \coth \qty(\frac{\pi \Gamma}{2D})
+\end{align}
+であるため，$D \ll \Gamma$のもとで，
+\begin{align}
+  \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi}) = -i v_0^2 \pi \rho(E_C)
+\end{align}
+である．
+よって，有効ポテンシャルの虚部の比が１となるようにすると，
+\begin{align}\label{eq:strength_ratio_equation}
+  (v_0^{12+12})^2 / (v_0^{12+13})^2 = \frac{\Gamma^{24}_C}{2} \pi \rho^{25}(E_C)
+\end{align}
+と決めることができる．ただし，$\Gamma^{24}_C$は\isotope[24]{Mg}の$E \sim E_C$における崩壊幅であり，
+$\rho^{25}(E_C)$は\isotope[25]{Mg}の$E \sim E_C$における準位密度である．
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figure/chap2/sfac_ref_compared.png}
+  \caption{図\ref{fig:exp_data_comp}再掲}
+\end{figure}
+
+今までの計算結果から，\isotope[12]{C}+\isotope[12]{C}で最も寄与する部分波は，
+$l = 0，2$であり，\isotope[12]{C}+\isotope[13]{C}で最も寄与する部分波は，
+$l = 0，1，2$である．よって，これらの値における平均の値を比率の計算，式~(\ref{eq:strength_ratio_equation})
+に用いる．すなわち，\isotope[24]{Mg}の$J = 0，2$における平均崩壊幅と，
+\isotope[25]{Mg}の$J = 1/2, 3/2, 5/2$における平均準位間隔を用いて計算する．
+
+殻模型による計算と，遷移状態理論による見積りから，
+$\Gamma^{24} \sim 0.031$MeVであり，$\rho^{25} \sim 1/ 0.006$であるため，
+これらの値をもとに計算する．
+
+まず$v_0= 0.1，0.3，0.6$を
+\isotope[12]{C}+\isotope[13]{C}核融合反応に用いて，
+\isotope[12]{C}+\isotope[12]{C}核融合反応には式~(\ref{eq:strength_ratio_equation})
+を用いて変換した値を用いる．具体的には，
+$v_0 = 0.28，0.85, 1.7$を用いて計算し，同じ図にプロットする．
+\begin{figure}[t]
+  \centering
+  \includegraphics[width= 0.9\textwidth]{figure/chap7/sfac_v0_0.28_comp.png}
+  \caption{
+    $v_0^{12+12} = 0.28$，$v_0^{12+13} = 0.1$，$a_r = 0.31$としたときの$S$-factorの比較．
+  }
+  \label{fig:v0_1212_0.28}
+\end{figure}
+%横に2枚の画像(jpg/png)表示
+\begin{figure}[tb]
+\begin{center}
+\begin{tabular}{c}
+\begin{minipage}{0.5\hsize}
+\begin{center}
+\includegraphics[width=8cm]{figure/chap7/sfac_v0_0.85_comp.png}
+\end{center}
+\caption{$v_0^{12+12} = 0.85$，$v_0^{12+13} = 0.3$，$a_r = 0.31$としたときの$S$-factorの比較}
+\label{fig:v0_1212_0.85}
+\end{minipage}
+\begin{minipage}{0.5\hsize}
+\begin{center}
+\includegraphics[width=8cm]{figure/chap7/sfac_v0_1.7_comp.png}
+\end{center}
+\caption{$v_0^{12+12} = 1.7$，$v_0^{12+13} = 0.6$，$a_r = 0.31$としたときの$S$-factorの比較}
+\label{fig:v0_1212_1.7}
+\end{minipage}
+\end{tabular}
+\end{center}
+\end{figure}
+
+図\ref{fig:v0_1212_0.28}，\ref{fig:v0_1212_0.85}，\ref{fig:v0_1212_1.7}を見れば，
+広いエネルギー範囲において\isotope[12]{
+  C
+}+\isotope[12]{C}核融合反応の$S$-factorの共鳴ピークが，\isotope[12]{C}+\isotope[13]{C}
+核融合反応の$S$-factorと一致していることがわかる．
+
+以下では，\isotope[12]{C}+\isotope[12]{C}反応における$v_0$と\isotope[12]{C}+\isotope[13]{C}
+反応における$v_0$の比率を，式~(\ref{eq:strength_ratio_equation})を用いて決定する．
+
+次に，パラメータ$a_r$を決める．このパラメータの値は\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factor
+の値を実験と合うように決める．

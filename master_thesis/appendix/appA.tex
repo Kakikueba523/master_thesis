@@ -366,3 +366,93 @@ $F(0) = 1$であることから，
   A = \qty(1-e^{-2\pi i a})^{-1} \frac{\Gamma(b)}{\Gamma(a)\Gamma(b-a)}
 \end{align}
 となる．
+よって，合流型超幾何関数をラプラスの方法で積分表示すると，
+\begin{align}
+  F(a, b, z) = \frac{\Gamma(b)}{\qty(1-e^{-2\pi i a})\Gamma(a)\Gamma(b-a)} \int_{C_0} \dd{t}  t^{a-1} (1-t)^{b-a-1} e^{tz} 
+\end{align}
+となる．
+
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}[scale=2.5]
+        % --- パラメータ設定 ---
+        \def\eps{0.2}      % 実軸からのズレ（通路の幅の半分）
+        \def\L{2.0}        % 虚軸方向への長さ
+
+        % 座標軸
+        \draw[->, >=stealth, gray!50] (-1.0, 0) -- (1.0, 0) node[right, black] {Re($z$)};
+        \draw[->, >=stealth, gray!50] (0, -\L-0.5) -- (0, 1.0) node[above, black] {Im($z$)};
+
+        % 原点の特異点
+        \fill (0,0) circle (1pt) node[above left] {$0$};
+        
+        % 分枝切断線 (Branch Cut) - 負の虚軸
+        \draw[dashed, red!60, thick] (0,0) -- (0, -\L-0.2);
+
+        % Hankel経路の描画 (下から昇ってきて、原点を回り、下へ降りる)
+        \draw[
+            blue, thick,
+            decoration={
+                markings,
+                mark=at position 0.2 with {\arrow{Stealth}},
+                mark=at position 0.5 with {\arrow{Stealth}},
+                mark=at position 0.8 with {\arrow{Stealth}}
+            },
+            postaction={decorate}
+        ]
+        % 1. 右側：-i∞ 方向から原点へ向かう直線
+        (\eps, -\L) -- (\eps, 0) 
+        % 2. 原点周りの半円 (0度から180度まで反時計回り)
+        arc (0:180:\eps) 
+        % 3. 左側：原点から -i∞ 方向へ向かう直線
+        -- (-\eps, -\L);
+
+        % 経路のラベル
+        \node[blue, right] at (\eps, -\L/2) {$C_i$};
+        
+        % 無限大の記号
+        \node[below] at (0, -\L) {$-i\infty$};
+
+    \end{tikzpicture}
+    \caption{虚軸の負の方向に伸びるHankel型積分経路．$i = 1$で$t=0$，$i = 2$で$t= 1$を囲む経路とする．}
+    \label{fig:hankel_negative_im}
+\end{figure}
+経路$C_0$を$C_1$と$C_2$の和で書き換える．そうすると，二つの積分の寄与の和としてあらわされる．具体的には，
+\begin{align}
+  W_i ( a, b, z) = \frac{\Gamma(b)}{(1-e^{-2\pi i a})\Gamma(a)\Gamma(b-a)}\int_{C_i} \dd{t} e^{zt} t^{a-1} ( 1-t)^{b-a-1}
+\end{align}
+を用いる．ただし，$i=1,2$である．
+このとき，
+\begin{align}
+  F = W_1 + W_2
+\end{align}
+である．$W_1$について，
+\begin{align}
+  \int_{C_1} \dd{t} e^{zt}t^{a-1}(1-t)^{b-a-1}
+\end{align}
+という積分に関して，$zt \rightarrow -t$とすると，
+\begin{align}
+  \int_{C_1} \frac{\dd{t}}{-z}e^{-t} \qty(\frac{-t}{z})^{a-1}\qty(1+\frac{t}{z})^{b-a-1} \notag \\
+  = (-z)^{-a} \int_{C_1}\dd{t} e^{-t}t^{a-1} (1+\frac{t}{z})^{b-a-1}
+\end{align}
+である．よって，$\abs{t/z} \ll 1$のとき，
+\begin{align}
+  \qty(1 + \frac{t}{z})^{b-a-1} = \sum_{n=0}^{\infty} \frac{\Gamma(1+a-b+n)}{\Gamma(1+a-b)}\frac{(-z)^{-n}}{n!} t^n
+\end{align}
+と展開できるため，項別にみると，
+\begin{align}
+  \frac{\Gamma(1+a-b+n)}{\Gamma(1+a-b)}\frac{(-z)^{-n}}{n!} \int_{C_1} \dd{t} t^{n+a-1} e^{-t}
+\end{align}
+となる．この積分は，branchの定義に気を付けて実行すると，
+\begin{align}
+  W_1(a,b,z) \sim \frac{\Gamma(b)}{\Gamma(b-a)}(-z)^{-a} \sum_{n} \frac{\Gamma(n+a)}{\Gamma(a)} \frac{\Gamma(1+a-b+n)}{\Gamma(1+a-b)} \frac{(-z)^{-n}}{n!}
+\end{align}
+となる．また，
+\begin{align}
+  W_2(a, b, z) = e^{z} W_1(b-a,b,-z)
+\end{align}
+という関係式を用いると，
+\begin{align}
+  W_2(a, b, z) \sim  \frac{\Gamma(b)}{\Gamma(a)} e^{z} z^{b-a} \sum_n \frac{\Gamma(1-a+n)}{\Gamma(1-a)}\frac{\Gamma(b-a+n)}{\Gamma(b-a)} \frac{z^{-n}}{n!}
+\end{align}
+となる．
