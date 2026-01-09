@@ -137,11 +137,11 @@ $E \sim E_C$を考える．ただし，$E_C$は複合核の固有エネルギー
   \sum_\mu \frac{v_0^2}{-n D + i \Gamma/2} = -iv_0^2 \frac{\pi}{D}\coth \qty(\frac{\pi \Gamma}{2D})
 \end{align*}
 \begin{align}
-  \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi}) = - i v_0 ^2 \frac{\pi}{D} \coth \qty(\frac{\pi \Gamma}{2D})
+  \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi}) = - v_0 ^2 \frac{\pi}{D} \coth \qty(\frac{\pi \Gamma}{2D})
 \end{align}
 であるため，$D \ll \Gamma$のもとで，
 \begin{align}
-  \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi}) = -i v_0^2 \pi \rho(E_C)
+  \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi}) = - v_0^2 \pi \rho(E_C)
 \end{align}
 である．
 よって，有効ポテンシャルの虚部の比が１となるようにすると，
@@ -213,3 +213,49 @@ $v_0 = 0.28，0.85, 1.7$を用いて計算し，同じ図にプロットする�
 
 次に，パラメータ$a_r$を決める．このパラメータの値は\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factor
 の値を実験と合うように決める．
+$a_r = 0.31$から$a_r = 0.36$まで，0.01刻みで変化させると，
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figure/chap7/m3y_comp_plt_v0_0.1_ar_changes.png}
+  \caption{
+    $v_0 = 0.1$を固定し，$a_r = 0.31$から$a_r = 0.36$まで0.01刻みで変化させたときの
+    \isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの変化．
+  }
+\end{figure}
+%横に2枚の画像(jpg/png)表示
+\begin{figure}[t]
+\begin{center}
+\begin{tabular}{c}
+\begin{minipage}{0.5\hsize}
+\begin{center}
+\includegraphics[width=8cm]{figure/chap7/m3y_comp_plt_v0_0.3_ar_changes.png}
+\end{center}
+\caption{$v_0 = 0.3$を固定し，$a_r = 0.31$から$a_r = 0.36$まで0.01刻みで変化させたときの
+    \isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの変化．}
+\end{minipage}
+\begin{minipage}{0.5\hsize}
+\begin{center}
+\includegraphics[width=8cm]{figure/chap7/m3y_comp_plt_v0_0.6_ar_changes.png}
+\end{center}
+\caption{$v_0 = 0.6$を固定し，$a_r = 0.31$から$a_r = 0.36$まで0.01刻みで変化させたときの
+    \isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの変化．}
+\end{minipage}
+\end{tabular}
+\end{center}
+\end{figure}
+
+実験データとともにプロットした図を図~\ref{fig:exp_comp_v001_ar_changes}にプロットする．
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figure/chap7/m3y_exp_comp_plt_v0_0.1_ar_changes.png}
+  \caption{
+    $v_0 = 0.3$を固定し，$a_r = 0.31$から$a_r = 0.36$まで0.01刻みで変化させたときの
+    \isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの変化．実験データを赤点でプロットしてある．
+  }
+  \label{fig:exp_comp_v001_ar_changes}
+\end{figure}
+
+$v_0 = 0.3$あたりの概形が実験データの概形と一致するため，
+次に$v_0$を変化させながら実験に合わせる．
