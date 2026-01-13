@@ -5,17 +5,21 @@
 \section{M3Y + Rep ポテンシャル}
 M3Y + repulsionポテンシャルにおいては，Repulsion termのdifusenessパラメータ$a_r$と，
 カップリング行列のパラメータ$v_0$が実験にフィットすべきパラメータである．
-\section{二つの系で同じ$v_0$の値を用いる場合}
+
 最初に
 \isotope[12]{C}+\isotope[12]{C}と\isotope[12]{C}+\isotope[13]{C}の両方の系において
 おなじ$v_0$を用いて計算を行う．
 式~(\ref{eq:fus_cs_12_12})および~(\ref{eq:fus_cs_12_13})を用いて，断面積を求める．
-そこで得られた断面積をS-factorと呼ばれる量へと変換する．
-\begin{align}
+そこで得られた断面積をmodified $S$-factorと呼ばれる量へと変換する．
+\begin{align}\label{eq:modified_s_factor}
   S^*(E) = E \sigma(E) \exp(2\pi \eta + 0.46 E)
 \end{align}
-ここで，$\eta = 36/137 \sqrt{\mu c^2/(2 E_{\text{c.m.}})}$はゾンマーフェルトパラメータである．これは，断面積から自明なエネルギー依存性を取り除いたものになっており，
-クーロン障壁以下のエネルギーにおける核融合反応においてよく用いられる．
+ここで，$\eta = 36/137 \sqrt{\mu c^2/(2 E_{\text{c.m.}})}$はゾンマーフェルトパラメータである．
+式~(\ref{eq:modified_s_factor})の第一項は，運動学的な要素である，
+断面積の$1/E$依存性を取り除くための項であり，
+$\exp(2\pi \eta)$は，クーロン透過率の逆数であり，
+$\exp(0.46E)$は原子核の大きさによる補正項である．
+このことにより，$S$-factorは共鳴の寄与をあらわにあらわすことができる．
 
 $a_r = 0.31$および，$v_0 = 0.1$としたときの$S$-factorの比較をしよう．
 \begin{figure}[t]
@@ -151,7 +155,7 @@ $E \sim E_C$を考える．ただし，$E_C$は複合核の固有エネルギー
 と決めることができる．ただし，$\Gamma^{24}_C$は\isotope[24]{Mg}の$E \sim E_C$における崩壊幅であり，
 $\rho^{25}(E_C)$は\isotope[25]{Mg}の$E \sim E_C$における準位密度である．
 
-\begin{figure}[t]
+\begin{figure}[tb]
   \centering
   \includegraphics[width=0.9\textwidth]{figure/chap2/sfac_ref_compared.png}
   \caption{図\ref{fig:exp_data_comp}再掲}
@@ -215,7 +219,7 @@ $v_0 = 0.28，0.85, 1.7$を用いて計算し，同じ図にプロットする�
 の値を実験と合うように決める．
 $a_r = 0.31$から$a_r = 0.36$まで，0.01刻みで変化させると，
 
-\begin{figure}[t]
+\begin{figure}[tb]
   \centering
   \includegraphics[width=0.9\textwidth]{figure/chap7/m3y_comp_plt_v0_0.1_ar_changes.png}
   \caption{
@@ -224,7 +228,7 @@ $a_r = 0.31$から$a_r = 0.36$まで，0.01刻みで変化させると，
   }
 \end{figure}
 %横に2枚の画像(jpg/png)表示
-\begin{figure}[t]
+\begin{figure}[tb]
 \begin{center}
 \begin{tabular}{c}
 \begin{minipage}{0.5\hsize}
@@ -247,9 +251,9 @@ $a_r = 0.31$から$a_r = 0.36$まで，0.01刻みで変化させると，
 
 実験データとともにプロットした図を図~\ref{fig:exp_comp_v001_ar_changes}にプロットする．
 
-\begin{figure}[t]
+\begin{figure}[tb]
   \centering
-  \includegraphics[width=0.9\textwidth]{figure/chap7/m3y_exp_comp_plt_v0_0.1_ar_changes.png}
+  \includegraphics[width=0.8\textwidth]{figure/chap7/m3y_exp_comp_plt_v0_0.1_ar_changes.png}
   \caption{
     $v_0 = 0.3$を固定し，$a_r = 0.31$から$a_r = 0.36$まで0.01刻みで変化させたときの
     \isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの変化．実験データを赤点でプロットしてある．
@@ -259,3 +263,70 @@ $a_r = 0.31$から$a_r = 0.36$まで，0.01刻みで変化させると，
 
 $v_0 = 0.3$あたりの概形が実験データの概形と一致するため，
 次に$v_0$を変化させながら実験に合わせる．
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figure/chap7/m3y_exp_comp_plt_v0_0.2_ar_changes.png}
+  \caption{
+      $v_0 = 0.2$を固定し，$a_r = 0.31$から$a_r = 0.36$まで0.01刻みで変化させたときの
+    \isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの変化．実験データを赤点でプロットしてある．
+  }
+  \label{fig:exp_comp_v002_ar_changes}
+\end{figure}
+
+グラフの概形から，図\ref{fig:exp_comp_v002_ar_changes}から，$v_0 = 0.2$，$a_r = 0.33$が実験データをよく再現するパラメータとなる．
+そこで，式~(\ref{eq:strength_ratio_equation})から\isotope[12]{C}+\isotope[12]{C}系に
+おける$v_0$の値を求めると，
+$v_0 = 0.57$となるため，二つを同じ図にプロットすると，
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{figure/chap7/m3y_exp_comp_plt_v0_0.2_ar_3.png}
+  \caption{
+    \isotope[12]{C}+\isotope[12]{C}系では$v_0 = 0.57$，\isotope[12]{C}+\isotope[13]{C}系では，
+    $v_0=0.2$を用いて計算した$S$-factor．青線が\isotope[12]{C}+\isotope[12]{C}核融合反応であり，赤線が
+    \isotope[12]{C}+\isotope[13]{C}核融合反応に対応している．
+  }
+  \label{fig:m3y_rep_final_result}
+\end{figure}
+図\ref{fig:m3y_rep_final_result}のようになる．
+各部分波における寄与も図~\ref{fig:m3y_rep_final_result_12_12_eachl}と図~\ref{fig:m3y_rep_final_result_12_13_eachl}に
+プロットした．
+%横に2枚の画像(jpg/png)表示
+\begin{figure}[tb]
+\begin{center}
+\begin{tabular}{c}
+\begin{minipage}{0.5\hsize}
+\begin{center}
+\includegraphics[width=8cm]{figure/chap7/m3y_exp_comp_plt_v0_0.2_ar_3_eachl.png}
+\end{center}
+\caption{図\ref{fig:m3y_rep_final_result}における\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの各部分波による寄与．}
+\label{fig:m3y_rep_final_result_12_12_eachl}
+\end{minipage}
+\begin{minipage}{0.5\hsize}
+\begin{center}
+\includegraphics[width=8cm]{figure/chap7/m3y_exp_comp_plt_v0_0.57_ar_3_eachl.png}
+\end{center}
+\caption{図\ref{fig:m3y_rep_final_result}における\isotope[12]{C}+\isotope[12]{C}核融合反応の$S$-factorの各部分波による寄与．}
+\label{fig:m3y_rep_final_result_12_13_eachl}
+\end{minipage}
+\end{tabular}
+\end{center}
+\end{figure}
+
+図~\ref{fig:m3y_rep_final_result}を見ると，\isotope[12]{C}+\isotope[12]{C}核融合反応の$S$-factorでは，
+実験で得られたエネルギー領域においては同じ程度の大きさの共鳴構造を再現できていることがわかる．
+それに加えて，実験で得られていないさらに低エネルギー側においては，
+共鳴構造がさらに大きくなっていることがわかる．
+
+% \section{Woods-Saxonポテンシャルの場合}
+% 次に，原子核間ポテンシャルをWoods-Saxonポテンシャルとして計算した結果を表す．
+% まず，$v_0$の値を図\ref{fig:m3y_rep_final_result}と同じ値を用いて計算した
+% ものを図~\ref{fig:woods_pot_1st_edi}にプロットする．
+% \begin{figure}[tb]
+%   \centering
+%   \includegraphics[width=0.8\textwidth]{figure/chap7/aw_exp_comp_25_24.png}
+%   \caption{
+%     Woods-Saxonポテンシャルを用いて計算した$S$-factorの比較．
+%     ただし，$v_0$は図~\ref{fig:m3y_rep_final_result}と同じものを用いて計算した．
+%   }
+%   \label{fig:woods_pot_1st_edi}
+% \end{figure}

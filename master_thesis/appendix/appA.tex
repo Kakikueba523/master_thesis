@@ -240,219 +240,219 @@ $\theta$の微分項は，
   \end{align}
   となり，式~(\ref{eq:solution_cofluent_diffeq})の係数を1としたものが，式~(\ref{eq:expansion_cofluent_hyp})となっている．
 
-ここで，式~(\ref{eq:cofluent_hyp_geom_dif})の解について，
-\begin{align}
-  F(z) = \int_C \dd{t} e^{tz} v(t)
-\end{align}
-の形を仮定し，代入してみると，$v(t)$についての微分方程式が得られる．
-\begin{align}
-  \dv{F}{z} = \int_C \dd{t} e^{tz} t v(t)， \quad \dv[2]{F}{z} = \int_C \dd{t} e^{tz} t^2 v(t)
-\end{align}
-および，
-\begin{align}
-  z e^{tz} = \dv{t} e^{zt}
-\end{align}
-を用いることで，
-\begin{align}
-  \int_C \dd{t} \qty[\qty(t^2 - t)\dv{e^{zt}}{t} + (bt - a) e^{zt}]v(t) = 0
-\end{align}
-となる．ここで，第一項について部分積分をすると，
-\begin{align}
-  \int_C \dd{t} e^{zt}\qty{-(t^2 - t)\dv{v}{t} + \qty[(b-2)t -a + 1]v} + \qty[(t^2-t)ve^{zt}]_C = 0
-\end{align}
-となる．ここで，$\qty[\quad]_C$は経路$C$の始点と終点の差で定義される．
-$[\quad]_C = 0$とし，非積分関数$=0$から，
-\begin{align}
-  v(t) = A t^{a-1}(1-t)^{b-a-1}
-\end{align}
-となり，
-\begin{align}
-  F(z) = A \int_C \dd{t} t^{a-1} (1-t)^{b-a-1} e^{tz} 
-\end{align}
-を得る．ただし，積分経路$C$として，
-\begin{align}
-  \qty[t^a (1-t)^{b-a} e^{zt}]_C = 0
-\end{align}
-を課す．また，式~(\ref{eq:cofluent_hyp_geom_dif})において，$F = z^{1-b} F_1$と置き換えることで，
-$F_1$についての微分方程式
-\begin{align}
-  z \dv[2]{F_1}{z} + (2-b-z)\dv{F_1}{z} - (1-b+a)F_1 = 0
-\end{align}
-を得る．この方程式の解は，$F(1-b+a, 2-b, z)$であり，積分系は，同様にして，
-\begin{align}
-  F(z) = A_1\int_{C_1} \dd{t}e^{zt} t^{a-b}(1-t)^{-a}
-\end{align}
-となる．ただし経路$C_1$は，
-\begin{align}
-  \qty[t^{1-b+a}(1-t)^{1-a}e^{zt}]_{C_1} = 0
-\end{align}
-となるように取る．これらは$b=1$では同一の解となるが，それ以外では線形独立な解となっているため，
-式~(\ref{eq:cofluent_hyp_geom_dif})の一般解は，
-\begin{align}
-  F = c_1 F(a, b, z) + c_2 z^{1-b} F(1-b+a, 2-b, z)
-\end{align}
-となる．
-ここで，規格化定数$A$を求めよう．
-積分経路として，\ref{fig:dogbone_contour}をとる．
-ただし，$C_0$は実軸上において$\arg t - \arg(1-t) = 0$に取る．
-\begin{figure}[thbp]
-    \centering
-    \begin{tikzpicture}[scale=4]
-        % --- パラメータ設定 ---
-        \def\r{0.15}    % 両端の円の半径
-        \def\ang{30}    % 通路との接続角度 (degree)
+% ここで，式~(\ref{eq:cofluent_hyp_geom_dif})の解について，
+% \begin{align}
+%   F(z) = \int_C \dd{t} e^{tz} v(t)
+% \end{align}
+% の形を仮定し，代入してみると，$v(t)$についての微分方程式が得られる．
+% \begin{align}
+%   \dv{F}{z} = \int_C \dd{t} e^{tz} t v(t)， \quad \dv[2]{F}{z} = \int_C \dd{t} e^{tz} t^2 v(t)
+% \end{align}
+% および，
+% \begin{align}
+%   z e^{tz} = \dv{t} e^{zt}
+% \end{align}
+% を用いることで，
+% \begin{align}
+%   \int_C \dd{t} \qty[\qty(t^2 - t)\dv{e^{zt}}{t} + (bt - a) e^{zt}]v(t) = 0
+% \end{align}
+% となる．ここで，第一項について部分積分をすると，
+% \begin{align}
+%   \int_C \dd{t} e^{zt}\qty{-(t^2 - t)\dv{v}{t} + \qty[(b-2)t -a + 1]v} + \qty[(t^2-t)ve^{zt}]_C = 0
+% \end{align}
+% となる．ここで，$\qty[\quad]_C$は経路$C$の始点と終点の差で定義される．
+% $[\quad]_C = 0$とし，非積分関数$=0$から，
+% \begin{align}
+%   v(t) = A t^{a-1}(1-t)^{b-a-1}
+% \end{align}
+% となり，
+% \begin{align}
+%   F(z) = A \int_C \dd{t} t^{a-1} (1-t)^{b-a-1} e^{tz} 
+% \end{align}
+% を得る．ただし，積分経路$C$として，
+% \begin{align}
+%   \qty[t^a (1-t)^{b-a} e^{zt}]_C = 0
+% \end{align}
+% を課す．また，式~(\ref{eq:cofluent_hyp_geom_dif})において，$F = z^{1-b} F_1$と置き換えることで，
+% $F_1$についての微分方程式
+% \begin{align}
+%   z \dv[2]{F_1}{z} + (2-b-z)\dv{F_1}{z} - (1-b+a)F_1 = 0
+% \end{align}
+% を得る．この方程式の解は，$F(1-b+a, 2-b, z)$であり，積分系は，同様にして，
+% \begin{align}
+%   F(z) = A_1\int_{C_1} \dd{t}e^{zt} t^{a-b}(1-t)^{-a}
+% \end{align}
+% となる．ただし経路$C_1$は，
+% \begin{align}
+%   \qty[t^{1-b+a}(1-t)^{1-a}e^{zt}]_{C_1} = 0
+% \end{align}
+% となるように取る．これらは$b=1$では同一の解となるが，それ以外では線形独立な解となっているため，
+% 式~(\ref{eq:cofluent_hyp_geom_dif})の一般解は，
+% \begin{align}
+%   F = c_1 F(a, b, z) + c_2 z^{1-b} F(1-b+a, 2-b, z)
+% \end{align}
+% となる．
+% ここで，規格化定数$A$を求めよう．
+% 積分経路として，\ref{fig:dogbone_contour}をとる．
+% ただし，$C_0$は実軸上において$\arg t - \arg(1-t) = 0$に取る．
+% \begin{figure}[thbp]
+%     \centering
+%     \begin{tikzpicture}[scale=4]
+%         % --- パラメータ設定 ---
+%         \def\r{0.15}    % 両端の円の半径
+%         \def\ang{30}    % 通路との接続角度 (degree)
         
-        % 補助計算: 直線と円の接点の座標
-        % 0の周りの接点: (r*cos(ang), r*sin(ang))
-        % 1の周りの接点: (1-r*cos(ang), r*sin(ang))
-        \pgfmathsetmacro{\px}{ \r*cos(\ang) }
-        \pgfmathsetmacro{\py}{ \r*sin(\ang) }
-        \pgfmathsetmacro{\qx}{ 1 - \r*cos(\ang) }
+%         % 補助計算: 直線と円の接点の座標
+%         % 0の周りの接点: (r*cos(ang), r*sin(ang))
+%         % 1の周りの接点: (1-r*cos(ang), r*sin(ang))
+%         \pgfmathsetmacro{\px}{ \r*cos(\ang) }
+%         \pgfmathsetmacro{\py}{ \r*sin(\ang) }
+%         \pgfmathsetmacro{\qx}{ 1 - \r*cos(\ang) }
 
-        % 座標軸
-        \draw[->, >=stealth, gray!40] (-0.3, 0) -- (1.3, 0) node[right, black] {Re($t$)};
-        \draw[->, >=stealth, gray!40] (0, -0.3) -- (0, 0.3) node[above, black] {Im($t$)};
+%         % 座標軸
+%         \draw[->, >=stealth, gray!40] (-0.3, 0) -- (1.3, 0) node[right, black] {Re($t$)};
+%         \draw[->, >=stealth, gray!40] (0, -0.3) -- (0, 0.3) node[above, black] {Im($t$)};
 
-        % 特異点 0 と 1
-        \fill (0,0) circle (0.5pt) node[below left] {$0$};
-        \fill (1,0) circle (0.5pt) node[below right] {$1$};
+%         % 特異点 0 と 1
+%         \fill (0,0) circle (0.5pt) node[below left] {$0$};
+%         \fill (1,0) circle (0.5pt) node[below right] {$1$};
 
-        % 分枝切断線 (Branch Cut)
-        \draw[dashed, red!80] (0,0) -- (1,0);
+%         % 分枝切断線 (Branch Cut)
+%         \draw[dashed, red!80] (0,0) -- (1,0);
 
-        % ドッグボーン輪郭の描画
-        \draw[
-            blue, thick,
-            decoration={
-                markings,
-                mark=at position 0.10 with {\arrow{Stealth}},
-                mark=at position 0.35 with {\arrow{Stealth}},
-                mark=at position 0.60 with {\arrow{Stealth}},
-                mark=at position 0.85 with {\arrow{Stealth}}
-            },
-            postaction={decorate}
-        ]
-        % 1. 右端の円弧から開始 (1の右側を回る)
-        (1+\r, 0) arc (0 : {180-\ang} : \r) -- 
-        % 2. 上側の水平線 (1から0へ)
-        (\px, \py) arc (\ang : {360-\ang} : \r) -- 
-        % 3. 下側の水平線 (0から1へ)
-        (\qx, -\py) arc ({180+\ang} : 360 : \r) -- cycle;
+%         % ドッグボーン輪郭の描画
+%         \draw[
+%             blue, thick,
+%             decoration={
+%                 markings,
+%                 mark=at position 0.10 with {\arrow{Stealth}},
+%                 mark=at position 0.35 with {\arrow{Stealth}},
+%                 mark=at position 0.60 with {\arrow{Stealth}},
+%                 mark=at position 0.85 with {\arrow{Stealth}}
+%             },
+%             postaction={decorate}
+%         ]
+%         % 1. 右端の円弧から開始 (1の右側を回る)
+%         (1+\r, 0) arc (0 : {180-\ang} : \r) -- 
+%         % 2. 上側の水平線 (1から0へ)
+%         (\px, \py) arc (\ang : {360-\ang} : \r) -- 
+%         % 3. 下側の水平線 (0から1へ)
+%         (\qx, -\py) arc ({180+\ang} : 360 : \r) -- cycle;
 
-        % ラベル
-        \node[blue, above] at (0.5, \py) {$C_0$};
-    \end{tikzpicture}
-    \caption{$t=0$ と $t=1$ を囲むドッグボーン型（ダンベル型）積分路}
-    \label{fig:dogbone_contour}
-\end{figure}
+%         % ラベル
+%         \node[blue, above] at (0.5, \py) {$C_0$};
+%     \end{tikzpicture}
+%     \caption{$t=0$ と $t=1$ を囲むドッグボーン型（ダンベル型）積分路}
+%     \label{fig:dogbone_contour}
+% \end{figure}
 
-$F(0) = 1$であることから，
-\begin{align}
-  A^{-1} = \int_{C_0} \dd{t} t^{a-1}(1-t)^{b-1-a} = \int_{C_0} \dd{t} t^{b-2} \qty(\frac{t}{1-t})^{a-1}
-\end{align}
-となる．$t = 0$および，$t = 1$を囲む積分の寄与は0になる．
-また，$c$が正の整数であることから，$t^{b-2}$は1価関数であり，$\arg t - \arg(1-t) = 0$という仮定から，下を通る積分の値と
-上を通る積分の値では~$e^{-2i\pi a}$だけ位相がずれる．
-よって，
-\begin{align}
-  A^{-1} = (1-e^{-2\pi i a})B(a, b-a)
-\end{align}
-となる．ここで，$B(a, b-a)$はベータ関数であり，ガンマ関数を用いて
-\begin{align}
-  B(a, b-a) = \frac{\Gamma(a)\Gamma(b-a)}{\Gamma(b)}
-\end{align}
-と表されるために，
-\begin{align}
-  A = \qty(1-e^{-2\pi i a})^{-1} \frac{\Gamma(b)}{\Gamma(a)\Gamma(b-a)}
-\end{align}
-となる．
-よって，合流型超幾何関数をラプラスの方法で積分表示すると，
-\begin{align}
-  F(a, b, z) = \frac{\Gamma(b)}{\qty(1-e^{-2\pi i a})\Gamma(a)\Gamma(b-a)} \int_{C_0} \dd{t}  t^{a-1} (1-t)^{b-a-1} e^{tz} 
-\end{align}
-となる．
+% $F(0) = 1$であることから，
+% \begin{align}
+%   A^{-1} = \int_{C_0} \dd{t} t^{a-1}(1-t)^{b-1-a} = \int_{C_0} \dd{t} t^{b-2} \qty(\frac{t}{1-t})^{a-1}
+% \end{align}
+% となる．$t = 0$および，$t = 1$を囲む積分の寄与は0になる．
+% また，$c$が正の整数であることから，$t^{b-2}$は1価関数であり，$\arg t - \arg(1-t) = 0$という仮定から，下を通る積分の値と
+% 上を通る積分の値では~$e^{-2i\pi a}$だけ位相がずれる．
+% よって，
+% \begin{align}
+%   A^{-1} = (1-e^{-2\pi i a})B(a, b-a)
+% \end{align}
+% となる．ここで，$B(a, b-a)$はベータ関数であり，ガンマ関数を用いて
+% \begin{align}
+%   B(a, b-a) = \frac{\Gamma(a)\Gamma(b-a)}{\Gamma(b)}
+% \end{align}
+% と表されるために，
+% \begin{align}
+%   A = \qty(1-e^{-2\pi i a})^{-1} \frac{\Gamma(b)}{\Gamma(a)\Gamma(b-a)}
+% \end{align}
+% となる．
+% よって，合流型超幾何関数をラプラスの方法で積分表示すると，
+% \begin{align}
+%   F(a, b, z) = \frac{\Gamma(b)}{\qty(1-e^{-2\pi i a})\Gamma(a)\Gamma(b-a)} \int_{C_0} \dd{t}  t^{a-1} (1-t)^{b-a-1} e^{tz} 
+% \end{align}
+% となる．
 
-\begin{figure}[t]
-    \centering
-    \begin{tikzpicture}[scale=2.5]
-        % --- パラメータ設定 ---
-        \def\eps{0.2}      % 実軸からのズレ（通路の幅の半分）
-        \def\L{2.0}        % 虚軸方向への長さ
+% \begin{figure}[t]
+%     \centering
+%     \begin{tikzpicture}[scale=2.5]
+%         % --- パラメータ設定 ---
+%         \def\eps{0.2}      % 実軸からのズレ（通路の幅の半分）
+%         \def\L{2.0}        % 虚軸方向への長さ
 
-        % 座標軸
-        \draw[->, >=stealth, gray!50] (-1.0, 0) -- (1.0, 0) node[right, black] {Re($z$)};
-        \draw[->, >=stealth, gray!50] (0, -\L-0.5) -- (0, 1.0) node[above, black] {Im($z$)};
+%         % 座標軸
+%         \draw[->, >=stealth, gray!50] (-1.0, 0) -- (1.0, 0) node[right, black] {Re($z$)};
+%         \draw[->, >=stealth, gray!50] (0, -\L-0.5) -- (0, 1.0) node[above, black] {Im($z$)};
 
-        % 原点の特異点
-        \fill (0,0) circle (1pt) node[above left] {$0$};
+%         % 原点の特異点
+%         \fill (0,0) circle (1pt) node[above left] {$0$};
         
-        % 分枝切断線 (Branch Cut) - 負の虚軸
-        \draw[dashed, red!60, thick] (0,0) -- (0, -\L-0.2);
+%         % 分枝切断線 (Branch Cut) - 負の虚軸
+%         \draw[dashed, red!60, thick] (0,0) -- (0, -\L-0.2);
 
-        % Hankel経路の描画 (下から昇ってきて、原点を回り、下へ降りる)
-        \draw[
-            blue, thick,
-            decoration={
-                markings,
-                mark=at position 0.2 with {\arrow{Stealth}},
-                mark=at position 0.5 with {\arrow{Stealth}},
-                mark=at position 0.8 with {\arrow{Stealth}}
-            },
-            postaction={decorate}
-        ]
-        % 1. 右側：-i∞ 方向から原点へ向かう直線
-        (\eps, -\L) -- (\eps, 0) 
-        % 2. 原点周りの半円 (0度から180度まで反時計回り)
-        arc (0:180:\eps) 
-        % 3. 左側：原点から -i∞ 方向へ向かう直線
-        -- (-\eps, -\L);
+%         % Hankel経路の描画 (下から昇ってきて、原点を回り、下へ降りる)
+%         \draw[
+%             blue, thick,
+%             decoration={
+%                 markings,
+%                 mark=at position 0.2 with {\arrow{Stealth}},
+%                 mark=at position 0.5 with {\arrow{Stealth}},
+%                 mark=at position 0.8 with {\arrow{Stealth}}
+%             },
+%             postaction={decorate}
+%         ]
+%         % 1. 右側：-i∞ 方向から原点へ向かう直線
+%         (\eps, -\L) -- (\eps, 0) 
+%         % 2. 原点周りの半円 (0度から180度まで反時計回り)
+%         arc (0:180:\eps) 
+%         % 3. 左側：原点から -i∞ 方向へ向かう直線
+%         -- (-\eps, -\L);
 
-        % 経路のラベル
-        \node[blue, right] at (\eps, -\L/2) {$C_i$};
+%         % 経路のラベル
+%         \node[blue, right] at (\eps, -\L/2) {$C_i$};
         
-        % 無限大の記号
-        \node[below] at (0, -\L) {$-i\infty$};
+%         % 無限大の記号
+%         \node[below] at (0, -\L) {$-i\infty$};
 
-    \end{tikzpicture}
-    \caption{虚軸の負の方向に伸びるHankel型積分経路．$i = 1$で$t=0$，$i = 2$で$t= 1$を囲む経路とする．}
-    \label{fig:hankel_negative_im}
-\end{figure}
-経路$C_0$を$C_1$と$C_2$の和で書き換える．そうすると，二つの積分の寄与の和としてあらわされる．具体的には，
-\begin{align}
-  W_i ( a, b, z) = \frac{\Gamma(b)}{(1-e^{-2\pi i a})\Gamma(a)\Gamma(b-a)}\int_{C_i} \dd{t} e^{zt} t^{a-1} ( 1-t)^{b-a-1}
-\end{align}
-を用いる．ただし，$i=1,2$である．
-このとき，
-\begin{align}
-  F = W_1 + W_2
-\end{align}
-である．$W_1$について，
-\begin{align}
-  \int_{C_1} \dd{t} e^{zt}t^{a-1}(1-t)^{b-a-1}
-\end{align}
-という積分に関して，$zt \rightarrow -t$とすると，
-\begin{align}
-  \int_{C_1} \frac{\dd{t}}{-z}e^{-t} \qty(\frac{-t}{z})^{a-1}\qty(1+\frac{t}{z})^{b-a-1} \notag \\
-  = (-z)^{-a} \int_{C_1}\dd{t} e^{-t}t^{a-1} (1+\frac{t}{z})^{b-a-1}
-\end{align}
-である．よって，$\abs{t/z} \ll 1$のとき，
-\begin{align}
-  \qty(1 + \frac{t}{z})^{b-a-1} = \sum_{n=0}^{\infty} \frac{\Gamma(1+a-b+n)}{\Gamma(1+a-b)}\frac{(-z)^{-n}}{n!} t^n
-\end{align}
-と展開できるため，項別にみると，
-\begin{align}
-  \frac{\Gamma(1+a-b+n)}{\Gamma(1+a-b)}\frac{(-z)^{-n}}{n!} \int_{C_1} \dd{t} t^{n+a-1} e^{-t}
-\end{align}
-となる．この積分は，branchの定義に気を付けて実行すると，
-\begin{align}
-  W_1(a,b,z) \sim \frac{\Gamma(b)}{\Gamma(b-a)}(-z)^{-a} \sum_{n} \frac{\Gamma(n+a)}{\Gamma(a)} \frac{\Gamma(1+a-b+n)}{\Gamma(1+a-b)} \frac{(-z)^{-n}}{n!}
-\end{align}
-となる．また，
-\begin{align}
-  W_2(a, b, z) = e^{z} W_1(b-a,b,-z)
-\end{align}
-という関係式を用いると，
-\begin{align}
-  W_2(a, b, z) \sim  \frac{\Gamma(b)}{\Gamma(a)} e^{z} z^{b-a} \sum_n \frac{\Gamma(1-a+n)}{\Gamma(1-a)}\frac{\Gamma(b-a+n)}{\Gamma(b-a)} \frac{z^{-n}}{n!}
-\end{align}
-となる．
+%     \end{tikzpicture}
+%     \caption{虚軸の負の方向に伸びるHankel型積分経路．$i = 1$で$t=0$，$i = 2$で$t= 1$を囲む経路とする．}
+%     \label{fig:hankel_negative_im}
+% \end{figure}
+% 経路$C_0$を$C_1$と$C_2$の和で書き換える．そうすると，二つの積分の寄与の和としてあらわされる．具体的には，
+% \begin{align}
+%   W_i ( a, b, z) = \frac{\Gamma(b)}{(1-e^{-2\pi i a})\Gamma(a)\Gamma(b-a)}\int_{C_i} \dd{t} e^{zt} t^{a-1} ( 1-t)^{b-a-1}
+% \end{align}
+% を用いる．ただし，$i=1,2$である．
+% このとき，
+% \begin{align}
+%   F = W_1 + W_2
+% \end{align}
+% である．$W_1$について，
+% \begin{align}
+%   \int_{C_1} \dd{t} e^{zt}t^{a-1}(1-t)^{b-a-1}
+% \end{align}
+% という積分に関して，$zt \rightarrow -t$とすると，
+% \begin{align}
+%   \int_{C_1} \frac{\dd{t}}{-z}e^{-t} \qty(\frac{-t}{z})^{a-1}\qty(1+\frac{t}{z})^{b-a-1} \notag \\
+%   = (-z)^{-a} \int_{C_1}\dd{t} e^{-t}t^{a-1} (1+\frac{t}{z})^{b-a-1}
+% \end{align}
+% である．よって，$\abs{t/z} \ll 1$のとき，
+% \begin{align}
+%   \qty(1 + \frac{t}{z})^{b-a-1} = \sum_{n=0}^{\infty} \frac{\Gamma(1+a-b+n)}{\Gamma(1+a-b)}\frac{(-z)^{-n}}{n!} t^n
+% \end{align}
+% と展開できるため，項別にみると，
+% \begin{align}
+%   \frac{\Gamma(1+a-b+n)}{\Gamma(1+a-b)}\frac{(-z)^{-n}}{n!} \int_{C_1} \dd{t} t^{n+a-1} e^{-t}
+% \end{align}
+% となる．この積分は，branchの定義に気を付けて実行すると，
+% \begin{align}
+%   W_1(a,b,z) \sim \frac{\Gamma(b)}{\Gamma(b-a)}(-z)^{-a} \sum_{n} \frac{\Gamma(n+a)}{\Gamma(a)} \frac{\Gamma(1+a-b+n)}{\Gamma(1+a-b)} \frac{(-z)^{-n}}{n!}
+% \end{align}
+% となる．また，
+% \begin{align}
+%   W_2(a, b, z) = e^{z} W_1(b-a,b,-z)
+% \end{align}
+% という関係式を用いると，
+% \begin{align}
+%   W_2(a, b, z) \sim  \frac{\Gamma(b)}{\Gamma(a)} e^{z} z^{b-a} \sum_n \frac{\Gamma(1-a+n)}{\Gamma(1-a)}\frac{\Gamma(b-a+n)}{\Gamma(b-a)} \frac{z^{-n}}{n!}
+% \end{align}
+% となる．

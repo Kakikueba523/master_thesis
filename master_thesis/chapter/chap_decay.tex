@@ -99,3 +99,88 @@ $y + B \rightarrow C$という核融合反応の遷移行列要素である．
 準位密度パラメータ$a$については，実験データにフィットするやり方か
 半経験的な式を用いるやり方の二つがある．
 本研究では，半経験的な式を用いるやり方で行う．
+殻補正を考慮に入れた原子核の質量公式から，
+\begin{align}
+  a = \tilde{a}\qty[ 1 + \delta W_g f(U-\Delta)/(U-\Delta)]
+\end{align}
+ここで，
+\begin{align}
+  \tilde{a} = \alpha A + \beta A^{2/3} b_s
+\end{align}
+はフェルミガス模型による準位密度パラメータの式である．
+$\beta$は定数であり，$b_s$は同じ体積をもつ球の表面積を基準にしたときの
+原子核の表面積の比を表す量である．
+
+準位密度パラメータにおけるエネルギー依存性を持たせる項
+$f$は殻模型計算により見積もられ，
+\begin{align}
+  f(U) = 1 - \exp(-\gamma U)
+\end{align}
+と書かれる．
+
+$\delta$Wは，殻補正による効果を取り入れた項である．
+この式は，経験的な見積りである
+\begin{align}
+  \delta W_g = M_{\text{exp}} - M_{\text{LD}}
+\end{align}
+という式で見積もる方法がある．
+本研究では，文献\cite{ILJINOV1992517}で挙げられているように，
+MyersとSwiateckiによる経験的な殻補正項を用いる．
+また，各パラメータ
+$\alpha，\beta，\gamma$は，\cite{ILJINOV1992517}においてフィットされたデータ
+である，
+\begin{align*}
+  \alpha = 0.114, \quad \beta = 0.098, \quad \gamma = 0.051
+\end{align*}
+を用いる．
+
+これらのパラメータを用いて，具体的に\isotope[24]{Mg}
+と\isotope[25]{Mg}の準位密度を計算すると，図\ref{fig:level_density_24mg_and_25mg}のようになる．
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figure/chap_decay/decay_width_Mg25_and_Mg24.png}
+  \caption{
+    \isotope[24]{Mg}と\isotope[25]{Mg}の準位密度と実験データ\cite{ILJINOV1992517}の比較．
+  }
+  \label{fig:level_density_24mg_and_25mg}
+\end{figure}
+
+次に，式~(\ref{eq:decay_width_equation})を用いて，崩壊幅の見積りをしよう．
+まず，\isotope[24]{Mg}の崩壊幅を見積もると図\ref{fig:decay_width_24mg_j_0}のようになる．
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figure/chap_decay/decay_width_24mg_l0.png}
+  \caption{式~(\ref{eq:decay_width_equation})を用いて，$J=0$における\isotope[24]{Mg}
+  の崩壊幅の見積り．}
+  \label{fig:decay_width_24mg_j_0}
+\end{figure}
+ほしいエネルギー領域$E_{\text{c.m.}}<5$MeVにおいて，計算できていないことがわかる．
+これは，第2章で述べたように\isotope[12]{C}+\isotope[12]{C}核融合反応においては，
+$Q$値が小さく，終状態における準位密度の統計的な見積りが正しくできないことを反映している．
+そこで，
+式~(\ref{eq:decay_width_equation})を再びみると，崩壊幅は，
+\begin{align}
+  \Gamma = \frac{1}{2\pi \rho} \qty(\mathrm{Number}\quad \mathrm{of} \quad \mathrm{states})
+\end{align}
+のように見ることができるので，
+\isotope[23]{Mg}，\isotope[23]{Na}，\isotope[20]{Ne}のエネルギースペクトル
+をNNDC\cite{NNDC_NuDat3}から参照し，終状態の数を具体的に数えることにより崩壊幅を見積もる．
+すると，$J=0$における崩壊幅は，図\ref{fig:decay_width_24mg_j_0_real}のようになる．
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figure/chap_decay/decay_width_24mg_l0_direct_count.png}
+  \caption{状態数を数えることにより求めた\isotope[24]{Mg}の崩壊幅．}
+  \label{fig:decay_width_24mg_j_0_real}
+\end{figure}
+
+\isotope[25]{Mg}の崩壊幅については，十分統計的な見積りが成り立つ範囲での反応になっているため，
+式~(\ref{eq:decay_width_equation})を用いて見積もることで，図\ref{fig:decay_width_25mg_j_1/2_real}を得る．
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figure/chap_decay/decay_width_Mg25.png}
+  \caption{
+    式~(\ref{eq:decay_width_equation})を用いて，$J=1/2$における\isotope[25]{Mg}
+  の崩壊幅の見積り．
+  }
+  \label{fig:decay_width_25mg_j_1/2_real}
+\end{figure}
