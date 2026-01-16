@@ -1,6 +1,6 @@
-\chapter{散乱理論}
+\chapter{散乱理論}\label{chap:scattering_theory}
 本研究において，重要なパートを担う散乱理論についてこの節で議論する．
-クーロン場がない場合から始め，ある場合について述べる．
+クーロン場がない場合から始め，次にそれがある場合について述べる．
 また，同種粒子同士の散乱問題についても，相互作用がスピンに依らない場合に限り，議論する．
 なお，本章における議論は\cite{canto2013scattering}，\cite{1970586434905966474}を参考にした．
 
@@ -20,7 +20,7 @@
   \centering
   \includegraphics[width=0.9\textwidth]{figure/chap3/potential_example.pdf}
   \caption{原子核間ポテンシャルの相対角運動量が0の場合の例．
-  赤の点線がクーロンポテンシャルであり，青の破線が核力に由来するポテンシャルであり，
+  赤の点線がクーロンポテンシャルであり，青の破線が核力に由来するポテンシャルである．
   黒の実線がその和，全ポテンシャルを表している．}
   \label{fig:potential_example}
 \end{figure}
@@ -46,7 +46,7 @@
   \qty(\nabla^2 + k^2) \psi(\bm{r}) = U(r) \psi(\bm{r})
 \end{align}
 と書ける．ここで，$\mu$は系の換算質量であり，$U(r) = \frac{2\mu}{\hbar^2}V_0(r)$である．
-式~(\ref{eq:stationary_schrodinger_eq})の解は，平面波と散乱波の二つに分解できて，
+式~(\ref{eq:stationary_schrodinger_eq})の解は，入射平面波と散乱波の二つに分解できて，
 \begin{align}\label{eq:desired_wave_function}
   \psi^{(+)}(\bm{k}; \bm{r}) = \phi(\bm{k};\bm{r}) + \psi^{\text{sc}}(\bm{k}; \bm{r})
 \end{align}
@@ -64,7 +64,7 @@
 \begin{align}\label{eq:outgoing_asympt_form}
   \psi^{\text{(+)}}(\bm{k};\bm{r}) \rightarrow A\qty(e^{i\bm{k}\cdot \bm{r}} + f(\Omega)\frac{e^{ikr}}{r})
 \end{align}
-なる漸近形が得られる．
+という漸近形が得られる．
 次に，この散乱振幅を用いて，微分散乱断面積を求めよう．
 \begin{figure}[t]
 \centering
@@ -175,9 +175,9 @@
 で与えられる．
 
 \section{部分波展開}
-別のアプローチとして，部分波展開と呼ばれる方法がある．これは，ポテンシャルが球対称な場合かつ
+散乱振幅を求める方法の一つとして，部分波展開と呼ばれる方法がある．これは，ポテンシャルが球対称な場合かつ
 低エネルギーの解析において極めて有効な方法である．
-ハミルトニアンは運動エネルギー演算子$K \equiv -\frac{\hbar^2}{2\mu}\nabla^2$と，ポテンシャル$V$を用いて，
+ハミルトニアンを運動エネルギー演算子$K \equiv -\frac{\hbar^2}{2\mu}\nabla^2$と，ポテンシャル$V$を用いて，
 \begin{align}\label{eq:hamiltonian_op}
   H = K + V
 \end{align}
@@ -258,7 +258,7 @@ $V_0(r) = 0$の場合について考える．このとき，式~(\ref{eq:radial_
 \begin{align}\label{eq:def_of_hankel_func}
   h_l^{(\pm)}(\rho) = n_l(\rho) \pm i j_l(\rho)
 \end{align}
-で定義される．ハンケル関数も球ベッセル方程式の解であり，それらの漸近的な振る舞いは，
+で定義される，ハンケル関数も球ベッセル方程式の解であり，それらの漸近的な振る舞いは，
 外向き波と内向き波になる．つまり，
 \begin{align}\label{eq:asympt_form_of_hankel_func}
   h_l^{(\pm)}(\rho) \sim \frac{e^{\pm i(\rho-l\pi/2)}}{\rho}
@@ -287,8 +287,8 @@ $V_0(r) = 0$の場合について考える．このとき，式~(\ref{eq:radial_
 
 \section{位相差}
 
-$r = R$以降では，0と近似できるポテンシャル$V(r)$について考える．
-ここで，$r < R$の領域を領域Ⅰ，$r > R$の領域を領域Ⅱとする．
+$r = R$より大きな$r$では，0と近似できるポテンシャル$V(r)$について考える．
+ここで，$r \le R$の領域を領域Ⅰ，$r > R$の領域を領域Ⅱとする．
 領域Ⅱでの動径波動関数$u_l(k, r)$は，ポテンシャルの影響がないため，
 \begin{align}\label{eq:raidal_wf_in_region_2}
   u_l^{I\hspace{-1.2pt}I} (k, r) = \alpha_l \qty[\hat{\jmath}_l (kr)+\beta_l \hat{n}_l(kr)]
@@ -358,6 +358,7 @@ $e^{i\bm{k}\cdot \bm{r}} = e^{ikr\cos\theta}$となり，これを部分波展�
 \begin{align}\label{eq:x_plus}
   X_+ = \sum_l P_l(\cos\theta) \qty[-\frac{\gamma_l C_l}{k}e^{-il\pi/2} e^{2i\delta_l}]
 \end{align}
+である．
 散乱振幅を位相差で書くために，式~(\ref{eq:outoing_partial_wave_expansion})を式~(\ref{eq:outgoing_asympt_form})と
 比較しなければならない．
 ここで，式~(\ref{eq:plane_wave_exp_by_partial_wave})を外向き波と内向き波に分解しよう．
@@ -403,15 +404,15 @@ $e^{ikr}/r$と$e^{-ikr}/r$は線形独立であるために，
 \end{align}
 を得る．ただし，$e^{-il\pi/2} = (-i)^l$を用いた．
 
-弾性散乱断面積は
+弾性散乱断面積は式~\eqref{eq:diff_cross_section_by_scattering_amplitude}から
 \begin{align}
   \dv{\sigma}{\Omega} = \abs{f(\theta)}^2
 \end{align}
-から得られるので，ルジャンドル多項式の直交性
+で得られるので，ルジャンドル多項式の直交性
 \begin{align}
   \int_{-1}^{1} \dd{(\cos\theta)} P_l(\cos\theta)P_l'(\cos\theta) = \frac{2}{2l+1}\delta_{l,l'}
 \end{align}
-を用いることで，
+を用いることで，全断面積として，
 \begin{align}
   \sigma_{\text{el}} 
   &= \frac{\pi}{k^2}\sum_l (2l+1)\abs{S_l-1}^2 \\
@@ -445,10 +446,12 @@ $e^{ikr}/r$と$e^{-ikr}/r$は線形独立であるために，
   \qty[-\frac{\hbar^2}{2\mu}\nabla^2 + V(r) - iW(r)]\psi(\bm{r}) &= E \psi(\bm{r}) \label{eq:schrodinge_eq_with_imaginary} \\
   \qty[-\frac{\hbar^2}{2\mu}\nabla^2 + V(r) + iW(r)]\psi^*(\bm{r}) &= E \psi^*(\bm{r}) \label{eq:schrodinge_eq_with_imaginary_conjugate} 
 \end{align}
+と書ける．
 $\psi^*(\bm{r})\times $式~(\ref{eq:schrodinge_eq_with_imaginary})$- \psi(\bm{r}) \times$式~(\ref{eq:schrodinge_eq_with_imaginary_conjugate})から， 
 \begin{align}
   \frac{\hbar}{2i\mu}\qty[\psi^*(\bm{r})\nabla^2 \psi(\bm{r}) - \psi(\bm{r})\nabla^2\psi^*(\bm{r})] = -\frac{2}{\hbar} W(\bm{r}) \abs{\psi(\bm{r})}^2
 \end{align}
+となる．
 左辺を変形し，
 \begin{align}
   \nabla \cdot \bm{j} = -\frac{2}{\hbar}  W(\bm{r}) \abs{\psi(\bm{r})}^2
@@ -522,6 +525,7 @@ $X_+$，$X_-$についてのクロスタームは実になることから，
 \begin{align}
   j_r = \frac{v}{r^2} \qty(\abs{X_+}^2 - \abs{X_+}^2)
 \end{align}
+となる．
 ここで，式~(\ref{eq:x_minus})，式~(\ref{eq:x_plus})と式~(\ref{eq:gamma_l_c_l})から，
 \begin{align}
   X_- &=-\sum_{l=0}^{\infty} A \frac{2l+1}{2ik} (-1)^l P_l(\cos\theta) \\
@@ -571,9 +575,9 @@ $p，n，\alpha$のような粒子を放出しそれが終状態となる．
 \begin{align}\label{eq:hamiltonian_internal_ex}
   H = 
   \begin{pmatrix}
-    H_{PP} & H_{PQ} & \\
+    H_{PP} & H_{PQ} & 0\\
     H_{QP} & H_{QQ} & H_{QR} \\
-     & H_{RQ} & H_{RR}
+    0 & H_{RQ} & H_{RR}
   \end{pmatrix}
 \end{align}
 とする．ここで，
@@ -590,7 +594,7 @@ $p，n，\alpha$のような粒子を放出しそれが終状態となる．
     \ket{\psi_R}
   \end{pmatrix}
 \end{align}
-とした．ここで，
+とする．ここで，
 式~(\ref{eq:feshbach_shcrodinger})の第三成分から，
 \begin{align}
   \ket{\psi_R} = \frac{1}{E-H_{RR}}H_{RQ}\ket{\psi_Q}
@@ -650,7 +654,7 @@ $p，n，\alpha$のような粒子を放出しそれが終状態となる．
 \end{align}
 となり，有効ハミルトニアンとして，
 \begin{align}
-  H'_{PP} = H_{PP} + H_{PQ} \frac{1}{E-H'_{qq}}H_{QP}
+  H'_{PP} = H_{PP} + H_{PQ} \frac{1}{E-H'_{QQ}}H_{QP}
 \end{align}
 が得られる．~$H'_{QQ}$が一般に虚部をもつことから，
 有効ハミルトニアンにも虚部が現れる．これが虚数ポテンシャルの
@@ -663,8 +667,8 @@ $p，n，\alpha$のような粒子を放出しそれが終状態となる．
 
 波動関数の漸近形が，式~(\ref{eq:outgoing_asympt_form})で記述されるためには，ポテンシャル$V(r)$が$1/r$よりも
 $r\rightarrow\infty$で，0に近づく必要がある．
-そうでないとき，入射波動関数がポテンシャルによって歪められる．
-これは，荷電粒子同士の反応におけるクーロン力がその例である．
+そうでないときhは，入射波動関数がポテンシャルによって歪められる．
+荷電粒子同士の反応におけるクーロン力がその例である．
 入射粒子の電荷を$q_P$，標的粒子の電荷を$q_T$とすると，二粒子間のポテンシャルは，
 \begin{align}\label{eq:coulomb_pot_between_two_charged_particles}
   V_C(r) = \frac{q_P q_T}{r}
@@ -722,7 +726,9 @@ $r\rightarrow\infty$で，0に近づく必要がある．
 \begin{align}\label{eq:asymptotic_form}
   \psi(\bm{k};\bm{r}) \rightarrow e^{i \bm{k} \cdot \bm{r}} + f(\theta) \frac{e^{ikr}}{r}
 \end{align}
-であり，$e^{-ikr}$の形を含んでいない．このことから$e^{ikz}$という位相因子を取り出したときに，$g(r+z)$ではなくて$g(r-z)$となることが予想されるのである．
+であり，$e^{-ikr}$の形を含んでいない．
+このことから$e^{ikz}$という位相因子を取り出したときに，
+$g(r+z)$ではなくて$g(r-z)$となることが予想される．
 
 放物線座標において，$g$の従う方程式は，
 \begin{align}\label{eq:coulomb_sc_dif_eq}
@@ -776,7 +782,7 @@ $r \rightarrow \rho = kr$と変数変換することにより，
   u_{C, l}''(\rho) + \qty[1 - \frac{l(l+1)}{\rho^2} - \frac{2\eta }{\rho}]u_{C, l}(\rho) = 0
 \end{align}
 を得る．この方程式の解は二つの独立な解の線形結合としてあらわされる．
-一つは，原点で正則な解$F_l(\eta, \rho)$であり，もう一つは原点で非正則，ただし$l=0$では正則である，な解$G_l(\eta, \rho)$である．
+一つは，原点で正則な解$F_l(\eta, \rho)$であり，もう一つは$l=0$を除き，原点で非正則な解$G_l(\eta, \rho)$である．
 この二つの解の性質を以下にまとめよう．
 \begin{itemize}
   \item $\eta \rightarrow 0$において，ベッセル関数となる．
@@ -827,13 +833,13 @@ $H_l^{(\pm)}$はリッカチハンケル関数へと収束する
 この場合は，前節までで取り扱った結果に対していくつかの変更が加わる．
 まず，重心系で$\hat{\bm{r}}$の方向にある検出器へ粒子が届く場合，
 この粒子が入射粒子であるか標的粒子であるかを原理的に区別することができない．
-運動量保存則から，$\hat{\bm{r}} \equiv \theta，\varphi$の方向へと粒子が
-放出されたとき，もう片方の粒子は逆の方向へ，つまり$-\hat{\bm{r}} \equiv \pi-\theta，\varphi + \pi$
+運動量保存則から，$\hat{\bm{r}} \equiv (\theta，\varphi)$の方向へと粒子が
+放出されたとき，もう片方の粒子は逆の方向へ，つまり$-\hat{\bm{r}} \equiv (\pi-\theta，\varphi + \pi)$
 へと放出されるとわかる．よって，これら二つの方位における断面積は混ざりあうことがわかる．
 
 量子力学において，全波動関数はボゾン同士の場合，二つの粒子の入れ替えに関して対称であり，
 フェルミオンの場合は，反対称であることが課せられる．
-スピンをもつ粒子の座標を$q = \bm{r}， \mu$とする．
+スピンをもつ粒子の座標を$q = (\bm{r}， \mu)$とする．
 ここで，$\bm{r}$が位置ベクトルであり，$\mu$がスピンの$z$成分である．
 全波動関数が入れ替えの演算子，
 \begin{align}
@@ -927,7 +933,7 @@ $P^{s}_{pt}$は，$\mu_p$と$\mu_t$の入れ替えの演算子である．
 これは量子力学特有の項であり，古典力学では現れない項である．
 
 断面積は，$\theta = \pi//2$
-に関して対象となっていることがわかる．
+に関して対称となっていることがわかる．
 このことから，$f_{\pm}(\theta)$の部分波展開
 について，ルジャンドル多項式$P_l$について，
 \begin{align}

@@ -1,27 +1,27 @@
 \newpage
-\chapter{結果}
+\chapter{結果}\label{chap:result}
 
 ここでは，原子核ポテンシャルごとに計算結果を載せてその内容について議論する．
 \section{M3Y + Rep ポテンシャル}
 M3Y + repulsionポテンシャルにおいては，Repulsion termのdifusenessパラメータ$a_r$と，
-カップリング行列のパラメータ$v_0$が実験にフィットすべきパラメータである．
+カップリング行列のパラメータ$v_0$が実験データにフィットすべきパラメータである．
 
 最初に
 \isotope[12]{C}+\isotope[12]{C}と\isotope[12]{C}+\isotope[13]{C}の両方の系において
 同じ$v_0$を用いて計算を行う．
 式~(\ref{eq:fus_cs_12_12})および~(\ref{eq:fus_cs_12_13})を用いて，断面積を求める．
-そこで得られた断面積をmodified $S$-factorと呼ばれる量へと変換する．
+そこで得られた断面積をmodified $S$-factor ($S^*(E)$) と呼ばれる量へと変換する．
 \begin{align}\label{eq:modified_s_factor}
   S^*(E) = E \sigma(E) \exp(2\pi \eta + 0.46 E)
 \end{align}
 ここで，$\eta = 36/137 \sqrt{\mu c^2/(2 E_{\text{c.m.}})}$はゾンマーフェルトパラメータである．
-式~(\ref{eq:modified_s_factor})の第一項は，運動学的な要素である，
-断面積の$1/E$依存性を取り除くための項であり，
+式~(\ref{eq:modified_s_factor})の最初の因子は，運動学的な要素である，
+断面積の$1/E$依存性を取り除くためのものであり，
 $\exp(2\pi \eta)$は，クーロン透過率の逆数であり，
 $\exp(0.46E)$は原子核の大きさによる補正項である．
 このことにより，$S$-factorは共鳴の寄与をあらわに表すことができる．
 
-$a_r = 0.31$および，$v_0 = 0.1$としたときの\isotope[12]{C}+\isotope[12]{C}核融合反応と\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの比較をする．
+$a_r = 0.31$ fm および，$v_0 = 0.1$ MeV$\cdot$fm$^{-1/2}$ としたときの\isotope[12]{C}+\isotope[12]{C}核融合反応と\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの比較をする．
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.8\textwidth]{figure/chap7/sfac_v0_0.1_comp.png}
@@ -199,18 +199,18 @@ $l = 0，1，2$である．よって，これらの値における平均の値�
 に用いる．すなわち，\isotope[24]{Mg}の$J = 0，2$における平均崩壊幅と，
 \isotope[25]{Mg}の$J = 1/2, 3/2, 5/2$における平均準位間隔を用いて計算する．
 殻模型による計算と，遷移状態理論による見積りから，
-$\Gamma^{24} \sim 0.031$MeVであり，$\rho^{25} \sim 1/ 0.006$であるため，
+$\Gamma^{24} \sim 0.042$MeVであり，$\rho^{25} \sim 35.3$ MeV$^{-1}$ であるため，
 これらの値をもとに計算する．
 まず$v_0= 0.1，0.3，0.6$を
 \isotope[12]{C}+\isotope[13]{C}核融合反応に用いて，
 \isotope[12]{C}+\isotope[12]{C}核融合反応には式~(\ref{eq:strength_ratio_equation})
 を用いて変換した値を用いる．具体的には，
-$v_0 = 0.28，0.85, 1.7$を用いて計算し，同じ図にプロットする．
+$v_0 = 0.15，0.46, 0.92$ を用いて計算し，同じ図にプロットする．
 \begin{figure}[t]
   \centering
-  \includegraphics[width= 0.9\textwidth]{figure/chap7/sfac_v0_0.28_comp.png}
+  \includegraphics[width= 0.9\textwidth]{figure/chap7/sfac_v0_0.15_comp.png}
   \caption{
-    $v_0^{12+12} = 0.28$，$v_0^{12+13} = 0.1$，$a_r = 0.31$としたときの$S$-factorの比較．
+    $v_0^{12+12} = 0.15$ MeV$\cdot$fm$^{1/2}$，$v_0^{12+13} = 0.1$ MeV$\cdot$fm$^{1/2}$，$a_r = 0.31$ fm としたときの$S$-factorの比較．
   }
   \label{fig:v0_1212_0.28}
 \end{figure}
@@ -220,16 +220,16 @@ $v_0 = 0.28，0.85, 1.7$を用いて計算し，同じ図にプロットする�
 \begin{tabular}{c}
 \begin{minipage}{0.5\hsize}
 \begin{center}
-\includegraphics[width=8cm]{figure/chap7/sfac_v0_0.85_comp.png}
+\includegraphics[width=8cm]{figure/chap7/sfac_v0_0.46_comp.png}
 \end{center}
-\caption{$v_0^{12+12} = 0.85$，$v_0^{12+13} = 0.3$，$a_r = 0.31$としたときの$S$-factorの比較}
+\caption{$v_0^{12+12} = 0.46$，$v_0^{12+13} = 0.3$，$a_r = 0.31$としたときの$S$-factorの比較}
 \label{fig:v0_1212_0.85}
 \end{minipage}
 \begin{minipage}{0.5\hsize}
 \begin{center}
-\includegraphics[width=8cm]{figure/chap7/sfac_v0_1.7_comp.png}
+\includegraphics[width=8cm]{figure/chap7/sfac_v0_0.92_comp.png}
 \end{center}
-\caption{$v_0^{12+12} = 1.7$，$v_0^{12+13} = 0.6$，$a_r = 0.31$としたときの$S$-factorの比較}
+\caption{$v_0^{12+12} = 92$ MeV$\cdot$fm$^{1/2}$，$v_0^{12+13} = 0.6$ MeV$\cdot$fm$^{1/2}$，$a_r = 0.31$ fm としたときの$S$-factorの比較}
 \label{fig:v0_1212_1.7}
 \end{minipage}
 \end{tabular}

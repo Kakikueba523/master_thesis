@@ -1,6 +1,6 @@
-\chapter{殻模型計算}
+\chapter{殻模型計算}\label{chap:shell_model}
 
-本研究では，複合核(\isotope{Mg})の励起状態をKSHELLという計算コード\cite{SHIMIZU2019372}により求める．
+本研究では，\isotope{C}+\isotope{C}反応でできる複合核(\isotope{Mg})の励起状態をKSHELLという計算コード\cite{SHIMIZU2019372}により求める．
 そこで，本章で殻模型計算について簡単にまとめる．
 \section{Large-Scale Shell-Model}
 閉殻原子核の殻模型による記述の成功に基づいて，large-scale shell-model(LSSM)と呼ばれる
@@ -21,7 +21,21 @@
 とあらわされる．ここで，$A$と$\ket{-}$はそれぞれ活性核子の数と不活性コアを表している．
 スレーター行列式$\ket{M_i}$は，1番目の活性粒子が$a_{i, 1}$を2番目の活性粒子が$a_{i, 2}$
 をそして$A$番目の活性粒子が$a_{i, A}$という一粒子状態を占有していることを表している．
+生成演算子 $c^\dagger_{i, 1}$ は具体的に書くと
+主量子数$n$，全角運動量$J$，軌道角運動量$l$，全角運動量の$z$成分$m$を量子数に持つ軌道の
+生成演算子であるため，
+$c^\dagger_{njlm}$と書かれる．
+
+
+式~\eqref{eq:m_scheme_basis}を用いて生成される$M$-scheme基底の一例を図\ref{fig:m_basis_shcematic_fig}に書いた．
 これらを並べて書いた$(a_{i,1}, a_{i,2}, \dots, a_{i,A})$は配位と呼ばれ，コンピュータで表現するのに便利である．
+また，$M$-scheme基底で表される状態は，全角運動量$J$の固有状態になっていない．
+全角運動量の$z$成分およびパリティが固有状態であり，全角運動量の$z$成分は
+\begin{align}
+  M = \sum_i m_i
+\end{align}
+のように書かれる．
+
 
 模型空間がすべて$M$-scheme基底によって分けられるので，殻模型の波動関数はそれらの線形結合
 \begin{align}\label{eq:wf_expansion_m_scheme}
@@ -50,7 +64,7 @@ $M$と$\pi$とすると，$M$と$\pi$で分類されるブロック行列に分�
 奇数核の場合，$M = 1/2$の部分空間ですべての殻模型状態を得ることができる．
 $M$-scheme次元は，そのようなブロック行列の最大次元のことを指す．
 
-\begin{figure}[t]
+\begin{figure}[tb]
 \centering
 \begin{tikzpicture}[x=1cm,y=0.085cm,>=Latex, font=\small]
   %----------------------------
@@ -162,10 +176,23 @@ $M$-scheme次元は，そのようなブロック行列の最大次元のこと�
 
 \end{tikzpicture}
 \caption{
-  $M$-shceme基底の一例．白丸がホールを，黒丸がパーティクルを表している．
+  $M$-shceme基底の一例．白丸が空孔を，黒丸が粒子を表している．
   バレンス軌道内において，さまざまな配位が実現され，それを基底としてシュレーディンガー方程式を解く．
     }
 \label{fig:m_basis_shcematic_fig}
 \end{figure}
 
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figure/chap4/total_nos_24mg_25mg.png}
+  \caption{
+    KSHELLによる計算結果から求めた，累積状態数の比較．
+    \isotope[24]{Mg}が青線で書かれており，
+    \isotope[25]{Mg}が赤線で書かれている．
+    また，\isotope[24]{Mg}のスピンが偶数，パリティが正の状態数を水色でプロットした．
+    \isotope[25]{Mg}は正パリティは $J = 11/2$，負パリティは $J = 9/2$ 以下のスピンを
+    計算した． 
+  }
+  \label{fig:sekisan_state}
+\end{figure}
 

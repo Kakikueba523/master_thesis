@@ -1,0 +1,94 @@
+\appendix
+\chapter{ガモフピークおよびガモフ窓の導出}
+\label{app:gamow}
+
+\section{ガモフピークの位置}
+
+式\eqref{eq:reaction_rate_s}より，$S(E)$ を緩やかに変化するとみなすと，
+反応率の被積分関数は
+\begin{equation}
+I(E)\propto S(E)\exp\!\left[-\Phi(E)\right],
+\qquad
+\Phi(E)\equiv \frac{E}{k_BT}+2\pi\eta(E)
+\label{eq:I_Phi_app}
+\end{equation}
+と書ける．したがってガモフピークの位置 $E_0$ は $\Phi(E)$ を最小化することで求められる．
+
+ゾンマーフェルトパラメータ
+\(
+\eta(E)=Z_1Z_2\alpha\sqrt{\mu c^2/(2E)}
+\)
+を用いると
+\begin{equation}
+2\pi\eta(E)=\frac{b}{\sqrt{E}},
+\qquad
+b\equiv 2\pi Z_1Z_2\alpha\sqrt{\frac{\mu c^2}{2}}
+\label{eq:b_def_app}
+\end{equation}
+より
+\begin{equation}
+\Phi(E)=\frac{E}{k_BT}+\frac{b}{\sqrt{E}}
+\label{eq:Phi_app}
+\end{equation}
+である．よって，
+\begin{equation}
+\frac{d\Phi}{dE}
+= \frac{1}{k_BT}-\frac{b}{2}E^{-3/2} = 0
+\label{eq:dPhi_app}
+\end{equation}
+を解くと
+\begin{equation}
+E_0=\left(\frac{b\,k_BT}{2}\right)^{2/3}
+\label{eq:E0_app}
+\end{equation}
+を得る．
+
+\section{ガモフピークの幅 $\Delta$}
+
+次に $E_0$ 近傍で $\Phi(E)$ を2次まで展開すると
+\begin{equation}
+\Phi(E)\simeq \Phi(E_0)+\frac{1}{2}\Phi''(E_0)(E-E_0)^2
+\label{eq:Taylor_app}
+\end{equation}
+となる．式\eqref{eq:Phi_app}より
+\begin{equation}
+\Phi''(E)=\frac{3b}{4}E^{-5/2}
+\label{eq:Phi2_app}
+\end{equation}
+である．一方，式\eqref{eq:dPhi_app}から，
+\begin{align}
+  b = \frac{2}{k_B T} E_0^{3/2}
+\end{align}
+であるため，
+\begin{equation}
+\Phi''(E_0)=\frac{3b}{4}E_0^{-5/2}
+=\frac{3}{2k_BT}\frac{1}{E_0}
+\label{eq:Phi2_E0_app}
+\end{equation}
+を得る．
+
+ここで，
+\begin{align}
+  \exp\qty[\Phi(E)] \propto \exp\qty[-\frac{1}{2}\Phi''(E_0)(E-E_0)^2]
+\end{align}
+から，ガウシアンの幅
+\(
+  \sigma_{E_0}
+\)
+は，
+\begin{equation}
+\sigma_{E_0}^2= \frac{1}{\Phi''(E_0)} = \frac{2}{3}E_0 k_BT
+\label{eq:sigmaE_app}
+\end{equation}
+となる．ガモフピークの幅を
+\begin{equation}
+\Delta \equiv 2\sigma_E
+\label{eq:Delta_def_app}
+\end{equation}
+と定義すると，
+\begin{equation}
+\Delta = 2\sqrt{\frac{2}{3}E_0 k_BT}
+=\left(\frac{8 E_0 k_BT}{3}\right)^{1/2}
+\label{eq:Delta_app}
+\end{equation}
+を得る．

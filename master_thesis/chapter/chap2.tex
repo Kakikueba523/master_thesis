@@ -1,17 +1,17 @@
-\chapter{\isotope{C} + \isotope{C}核融合反応について}
+\chapter{\isotope{C} + \isotope{C}核融合反応について}\label{chap:c_c_fusion}
 
 本研究では，\isotope[12]{C} + \isotope[12]{C}核融合反応だけではなく，類似系である\isotope[12]{C} + \isotope[13]{C}核融合反応も同時に
 解析を行う．それは，先行研究\cite{PhysRevLett.110.072701}をリスペクトしたものである．
-そこで，ここではその研究の概要を紹介しよう．
-
-\section{\isotope[12]{C} + \isotope[12]{C}核融合反応}
+そこで，ここでは天体核反応領域における\isotope{C}+\isotope{C}核融合反応の概観
+を述べたのち，\isotope[12]{C}+\isotope[13]{C}核融合反応との違いを議論する．
+\section{\isotope{C} + \isotope{C}核融合反応}
 古くは，\isotope[12]{C} + \isotope[12]{C}核融合反応の共鳴の起源は，
 \begin{align}\label{eq:fusion_traditional_analisis}
   \sigma_\text{fus} = \sigma_\text{bkg} + \sigma_\text{BW}
 \end{align}
 のように，共鳴の寄与~($\sigma_\text{BW}$)と，非共鳴の寄与~($\sigma_\text{bkg}$)とを別に考えられていた．
 しかしながら，これらの分解は人為的なものであり，証明されているわけではない．
-そこで，著者らは類似系である\isotope[12]{C} + \isotope[13]{C}核融合反応
+そこで，文献\cite{PhysRevLett.110.072701}の著者らは類似系である\isotope[12]{C} + \isotope[13]{C}核融合反応
 と\isotope[13]{C} + \isotope[13]{C}核融合反応との比較を通じて，
 \isotope[12]{C} + \isotope[12]{C}核融合反応にのみ，$E_\text{c.m.} < 7 \text{MeV}$で
 断面積の「欠損」が生じている．と解釈したものである．そして，この「欠損」の起源は，
@@ -135,7 +135,7 @@
 \end{subfigure}
 
 \caption{
-炭素同位体融合反応における入口および終状態のエネルギー図。
+炭素同位体融合反応における始状態および終状態のエネルギー図。
 上図が\isotope[12]{C}+\isotope[12]{C}核融合反応，下図が
 \isotope[12]{C}+\isotope[13]{C}核融合反応．
 }
@@ -171,8 +171,8 @@
   Q_p = 2.2 \mathrm{MeV} \\
   Q_n = -2.6 \mathrm{MeV}
 \end{align*}
-である．特に中性子放出チャネルは$Q$値が負であり，低エネルギー領域においては
-ほか二つのチャネルに比べて強く抑制される．
+である．特に中性子放出チャネルは$Q$値が負であり，$E_{\mathrm{c.m.}} = 2.6$ MeV までは
+この反応チャネルは禁止される．
 
 \isotope[12]{C} + \isotope[13]{C}核融合反応では，
 終状態として，主に以下のチャネルが寄与する．
@@ -195,33 +195,108 @@
 $E_{\mathrm{c.m.}}> 2.6$MeVでないと\isotope[12]{C}+\isotope[12]{C}核融合反応において，中性子
 チャネルが開かないことがわかる．
 
-最後に，宇宙物理学において興味のあるエネルギー領域について述べる．
-宇宙における原子核反応は熱運動による運動エネルギーにより生じるため，低エネルギー反応であることが多い．
-さらに，荷電粒子同士の反応であるため，その反応率は地上では再現することが極めて難しくなるほど
-低くなってしまう．
-クーロン障壁のトンネリング確率と，熱運動でのエネルギー分布を乗じた量はガモフピークと呼ばれ，
-このエネルギー範囲における断面積が選択的に効く．温度が0.6GKのときのガモフピークを図\ref{fig:gamow_peak}
-にプロットした．
+\section{宇宙物理学における\isotope[12]{C}+\isotope[12]{C}核融合反応}
+
+\subsection{反応率とガモフピーク}
+天体内部の原子核反応は熱運動による運動エネルギーにより生じる．
+温度 $T$ の熱平衡下における二体反応の反応率は，単位粒子対あたりの熱平均
+\begin{equation}
+\langle \sigma v \rangle
+= \int \dd[3]{v}\, f_{\rm MB}(v)\, \sigma(v)\, v
+\label{eq:sv_def}
+\end{equation}
+で定義される．ここで $v$ は相対速度，$\sigma$ は反応断面積，$f_{\rm MB}(v)$ は
+マクスウェル・ボルツマン分布である．換算質量を $\mu$ とし，
+相対運動エネルギー $E=\mu v^2/2$ を用いると
+\begin{equation}
+\langle \sigma v \rangle
+= \left(\frac{8}{\pi\mu}\right)^{1/2}\frac{1}{(k_B T)^{3/2}}
+\int_0^\infty dE\; E\,\sigma(E)\, \exp\!\left(-\frac{E}{k_B T}\right)
+\label{eq:sv_E}
+\end{equation}
+と書き換えられる．
+
+荷電粒子同士の反応ではクーロン障壁の存在により，低エネルギー領域で断面積 $\sigma(E)$ が
+トンネリングによって指数的に抑制される．そこで
+$S$-factor $S(E)$ を
+\begin{equation}
+S(E) \equiv E\,\sigma(E)\,\exp(2\pi\eta)
+\label{eq:S_def}
+\end{equation}
+で定義する．ここで $\eta$ はゾンマーフェルトパラメータであり，
+\begin{equation}
+\eta = Z_1Z_2\alpha\sqrt{\frac{\mu c^2}{2E}}
+\label{eq:eta_def}
+\end{equation}
+で与えられる．ここで，$\mu$ は換算質量，$E$ は重心系での相対運動エネルギー，$\alpha$ は微細構造定数である．
+特に \isotope{C}+\isotope{C} 系では $Z_1=Z_2=6$ より
+\(
+\eta = \frac{36}{137}\sqrt{\mu c^2/(2E)}
+\)
+となる．式\eqref{eq:S_def}の $\exp(2\pi\eta)$ はWKB近似で求めたクーロン透過率の逆数であり，
+$\sigma(E)$のクーロン障壁のトンネリングによる低エネルギーでの抑制を打ち消す．
+$S(E)$ は一般に $\sigma(E)$ よりも緩やかにエネルギー変化する量として扱える．
+
+
+
+式\eqref{eq:sv_E}を式\eqref{eq:S_def}を用いて書き直すと，
+\begin{align}\label{eq:reaction_rate_s}
+  \ev{\sigma v} = \qty(\frac{8}{\pi \mu})^{1/2} \frac{1}{(k_B T)^{3/2}} \int_{0}^{\infty} \dd{E} S(E) \exp\qty[- \frac{E}{k_B T} - 2\pi \eta]
+\end{align}
+となる．$S(E)$はエネルギー依存性が緩やかであり，
+非積分関数のエネルギー依存性は
+\begin{align}\label{eq:dominant_behavior_in_reaction_rate}
+  \exp\qty[-\frac{E}{k_B T} - 2\pi\eta]
+\end{align}
+に支配される．
+熱分布による高エネルギー側の抑制とトンネリングによる低エネルギー側の抑制の競合により，
+あるエネルギー近傍でピークを形成する．このピークはガモフピークと呼ばれ，
+温度 $T$ において反応率に支配的に寄与するエネルギー領域を与える．
+ガモフピークの位置 $E_0$ およびガモフ窓の幅 $\Delta$ は
+\begin{align}
+E_0 &= \left(\frac{b\,k_BT}{2}\right)^{2/3},\label{eq:gamow_peak_pos}\\
+\Delta &\simeq \left(\frac{8E_0 k_BT}{3}\right)^{1/2},
+\label{eq:Gamow_results_main}
+\end{align}
+である．ただし
+\begin{equation}
+b \equiv 2\pi Z_1Z_2\alpha\sqrt{\frac{\mu c^2}{2}}
+\label{eq:b_main}
+\end{equation}
+とした．導出は付録~\ref{app:gamow}に示す．
+$T = 0.6$ GK としたときのガモフピークを図~\ref{fig:gamow_peak}にプロットした．
+% 最後に，天体核物理学において興味のあるエネルギー領域について述べる．
+% 天体内部の原子核反応は熱運動による運動エネルギーにより生じるため，
+% 低エネルギー反応であることが多い．
+% 温度$T$における粒子のエネルギー分布はマクスウェル・ボルツマン分布
+% ~$P(E) \propto \exp(-E/k_B T)$に従う．ここで，$k_B$はボルツマン定数である．
+% また，荷電粒子同士の反応であるため，クーロン障壁以下のエネルギー領域において
+% 核融合反応はクーロン障壁のトンネリングによって生じる．
+% $s$波のクーロン透過因子は~$P_C(E) \propto \exp(-2\pi \eta)$と表される．
+% ここで，$\eta$はゾンマーフェルトパラメータであり，\isotope{C}+\isotope{C}系では，
+% $\eta = 36/137 \sqrt{\mu c^2/(2 E)}$と表される．ただし，$\mu$は換算質量である．
+% これらの確率分布の積は，ガモフピークと呼ばれ
+% 温度$T$における荷電粒子同士の反応が生じるエネルギー分布を表している．
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.9\textwidth]{figure/chap2/gamow_peak.png}
   \caption{
-    $T=0.6$GKにおけるガモフピーク．赤の実線がガモフピークであり，紫のdash dotted線であらわされる
+    $T=0.6$GKにおけるガモフピーク．青の実線がガモフピークであり，紫のdash dotted線であらわされる
     温度$T = 0.6$GKにおける粒子のエネルギー分布であるマクスウェル分布と，クーロン透過確率を表す
     青の破線との積で表されている．
+    黒の破点線で，式~\eqref{eq:gamow_peak_pos}から求めたガモフピークのエネルギーを示した．
   }
   \label{fig:gamow_peak}
 \end{figure}
 
 
-\section{宇宙物理学における\isotope[12]{C}+\isotope[12]{C}核融合反応}
 
 宇宙物理学において，\isotope[12]{C}+\isotope[12]{C}核融合反応が注目を集めているのは，
-以下の3つの反応である．
+以下の3つの現象である．
 １）Ia型超新星爆発\cite{Bravo2011}
 ２）巨大恒星の進化の過程\cite{10.1111/j.1365-2966.2012.20193.x}
 ３）X線スーパーバースト\cite{Cooper_2009}
-それぞれの反応は温度が1.8GK，0.6GK，0.4GK程度と見積もられているため，それぞれのガモフピークを計算すると，
+それぞれの反応は温度が1.8 GK，0.6 GK，0.4 GK 程度と見積もられているため，それぞれのガモフピークを計算すると，
 図\ref{fig:gamow_peak_three_systems}のようになる．
 \begin{figure}[tb]
   \centering
@@ -244,12 +319,12 @@ Ia型超新星爆発に分類される
 \cite{annurev:/content/journals/10.1146/annurev.astro.38.1.191}
 ．
 \isotope[12]{C}+\isotope[12]{C}核融合断面積の低エネルギー，
-特に$E_{\text{c.m.}} < 2$ MeVという実験データのない領域での共鳴構造の詳細によって，
+特に $E_{\text{c.m.}} < 2$ MeV という実験データのない領域での共鳴構造の詳細によって，
 点火から超新星への遷移において，中心密度などへの強い影響があることが指摘された\cite{Bravo2011}．
 \subsection{巨大恒星の進化の過程}
-巨大恒星の進化の過程，特に質量が$M \ge 8 - 10 M_\odot $の恒星において，ヘリウム燃焼過程が終わると星の中心核には\isotope{C}と\isotope{O}
+巨大恒星の進化の過程，特に質量が $M \ge 8 - 10 M_\odot $ の恒星において，ヘリウム燃焼過程が終わると星の中心核には\isotope{C}と\isotope{O}
 が多く含まれるようになる．
-このとき，中心温度は$T \sim 0.5$GK程度である．
+このとき，中心温度は $T \sim 0.5$ GK 程度である．
 熱運動により二つの\isotope[12]{C}原子核が\isotope[24]{Mg}へと核融合反応を起こす．
 このガモフピークは1MeV程度であり，共鳴構造によって炭素燃焼過程の寿命や中心温度が変化することが指摘された\cite{10.1111/j.1365-2966.2012.20193.x}．
 \subsection{X線スーパーバースト}
@@ -272,14 +347,45 @@ X線スーパーバーストは一般にアウタークラストと呼ばれる�
   \includegraphics[width=0.9\textwidth]{figure/chap2/sfac_ref_compared.png}
   \caption{
     \isotope[12]{C}+\isotope[12]{C}核融合反応と\isotope[12]{C}+\isotope[13]{C}核融合反応
-    の実験データの比較．\isotope[12]{C}+\isotope[12]{C}は，\cite{PhysRevC.110.035808}，\cite{PhysRevC.73.064601}，
+    の実験データの比較．青のシンボルが\isotope[12]{C}+\isotope[12]{C}核融合反応の$S^*$-factorであり，赤のシンボルが\isotope[12]{C}+\isotope[13]{C}核融合反応の$S^*$-factorである．
+    \isotope[12]{C}+\isotope[12]{C}は，\cite{PhysRevC.110.035808}，\cite{PhysRevC.73.064601}，
     \cite{PhysRevLett.124.192702}，\cite{HIGH1977181}から引用．
     \isotope[12]{C}+\isotope[13]{C}は\cite{ZHANG2020135170}，\cite{PhysRevC.85.014607}から引用した．
   }
   \label{fig:exp_data_comp}
 \end{figure}
-図\ref{fig:exp_data_comp}に\isotope[12]{C}+\isotope[12]{C}核融合反応の$S$-factorと，\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの比較
-がされている．赤点は\isotope[12]{C}+\isotope[13]{C}核融合反応であり，エネルギーに対して
+図\ref{fig:exp_data_comp}に\isotope[12]{C}+\isotope[12]{C}核融合反応の$S^*$-factorと，
+\isotope[12]{C}+\isotope[13]{C}核融合反応の$S^*$-factorの比較
+がされている．
+ここで，$S^*$-factorは，式~\eqref{eq:S_def}のクーロンファクターである
+\(
+  \exp(2\pi\eta)
+\)
+に加えて，
+有限核半径をもつ黒体正方井戸模型の透過率の2次近似から
+\begin{align}
+  S^*(E) = S(E)\exp\qty(gE)
+\end{align}
+で定義される．ここで，
+\(
+  g
+\)
+は，
+\begin{align}
+  g = 1.22\sqrt{\frac{\mu R^3}{Z_1 Z_2}}
+\end{align}
+であり\cite{1969ApJ...157..367P}であり，
+\(
+  R
+\)
+引力を井戸型ポテンシャルとしたときの半径パラメータである．
+なお，\isotope{C}+\isotope{C}系において，
+\begin{align}
+  S^*(E) = E \sigma(E) \exp\qty[\frac{87.21}{\sqrt{E}} + 0.46 E]
+\end{align}
+と統一的に扱う．
+
+赤点は\isotope[12]{C}+\isotope[13]{C}核融合反応であり，エネルギーに対して
 滑らかな依存性を持っている一方で，青点で表されている\isotope[12]{C}+\isotope[12]{C}核融合反応は，
 多数の共鳴構造を持つことがわかる．
 それに加えて，\isotope[12]{C}+\isotope[12]{C}核融合反応の共鳴ピークが，\isotope[12]{C}+\isotope[
