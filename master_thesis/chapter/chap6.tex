@@ -6,7 +6,49 @@
 この模型は散乱状態と複合核状態を陽に取り扱うことのできる模型である．
 文献\cite{PhysRevC.98.014604}では，$n + \isotope[194]{Pt}$反応の解析をおこなっており，そこでは$s$波
 のみの解析に限られていたが，本研究ではそれを荷電粒子同士の反応，およびすべての部分波$l$で用いられるように拡張した．
+\begin{figure}[tbp]
+    \centering
+    \begin{tikzpicture}[>=Stealth]
 
+        % --- r軸の目盛り線と点 ---
+        \draw[blue, thick] (0,0) -- (12,0);
+        
+        % 各座標の点とラベル (r_ie-2 から r_ie+3)
+        \foreach \x/\label/\name/\col/\rad in {
+            1/{i_{e-2}}/r0/blue/0.15,
+            3/{i_{e-1}}/r1/blue/0.15,
+            5/{i_{e}}/r2/red/0.2,
+            7/{i_{e+1}}/r3/blue/0.15,
+            9/{i_{e+2}}/r4/blue/0.15,
+            11/{i_{e+3}}/r5/blue/0.15
+        } {
+            \fill[\col] (\x,0) circle (\rad);
+            \node[below, yshift=-2pt] at (\x,0) {$r_{\label}$};
+        }
+
+        % --- r軸の矢印 ---
+        \draw[->, thick] (2,1.5) -- (10,1.5) node[right, xshift=5pt] {$r$};
+
+        % --- 中央の垂直構造 (x=5) ---
+        % v0 部分
+        \draw[->, line width=5pt] (5,-1) -- (5,-3);
+        \node[right, font=\large] at (6,-2) {$v_0$};
+
+        % 崩壊部分
+        \draw[->, line width=5pt] (5,-5) -- (5,-6);
+        \node[right, font=\large] at (7.6,-5.5) {$\Gamma(p, n, \alpha \text{ decay})$};
+
+        % --- 複合成核 (CN) の円 ---
+        \draw[green, thick] (5,-4) circle (1.2cm);
+        \node[draw=none, fill=white, inner sep=2pt] at (5,-4) {\textbf{CN}};
+
+    \end{tikzpicture}
+    \caption{
+      本研究で用いるハミルトニアンの概念図．
+      $r = r_{i_e}$でのみ複合核と結合している．
+    }
+    \label{fig:model_schematic}
+\end{figure}
 具体的には，
 $\isotope{C} + \isotope{C}$チャネルおよび複合核($\isotope{Mg}$)チャネルを一つのハミルトニアンで，
 陽に取り扱う．系全体のハミルトニアンは，
@@ -19,13 +61,15 @@ $\isotope{C} + \isotope{C}$チャネルおよび複合核($\isotope{Mg}$)チャ�
 \end{align}
 のように書かれる．
 ここで，$l$は$\isotope{C}+\isotope{C}$チャネルの相対角運動量，$J^\pi$は$\isotope{Mg}$のスピンおよびパリティ，$\bm{H}_\text{C+C}$はC+Cチャネルのハミルトニアン，$\bm{H}_\text{CN}$は複合核チャネルのハミルトニアン，$\bm{V}$はカップリング行列である．
+図~\ref{fig:model_schematic}にハミルトニアン~\eqref{eq:total_hamiltonian}
+の概念図を書いた．
 
 \section{入口チャネル}
   $\bm{H}_\text{C+C}$は，
 炭素原子核$\isotope[12]{C}$，$\isotope[13]{C}$を球形と近似し，二つの原子核間の相対運動を記述する．
 二つの原子核間の重心間距離を$\bm{r}$とすると，動径方向のみを考えればよいので，ハミルトニアンは
 \begin{align}
-  \bm{H}^l_{\text{C+C}, ij} = -\frac{\hbar^2}{2\mu}\nabla^2 + V_l(r)
+  \bm{H}^l_{\text{C+C}} = -\frac{\hbar^2}{2\mu}\nabla^2 + V_l(r)
 \end{align}
 となる．
 $V_l(r)$は遠心力ポテンシャルを含む原子核間ポテンシャルであり，原子核間ポテンシャルとしては，いくつかのケースを
@@ -134,7 +178,7 @@ $G^{l, J^\pi}(E) = (E - \bm{H}^{l, J^\pi})^{-1}$を掛けて，第$N_\text{C+C}$
 
 
 式~(\ref{eq:s_matrix})と，~(\ref{eq:fus_cs_12_12})および~(\ref{eq:fus_cs_12_13})から，核融合断面積を計算するが，
-$S$行列は1にとても近い量であるため，直接計算すると精度が足りない．
+$S$行列の絶対値は1にとても近い量であるため，直接計算すると精度が足りない．
 よって，$1-\abs{S^{J^\pi}_l}^2$を直接計算する．そのために，解析的な式を以下で与えておく．
 式~(\ref{eq:coulomb_hankel_function})を用いて，
 \begin{align}
@@ -155,12 +199,12 @@ $1 - S^{J^\pi}_l = \delta^{J^\pi}_l$と$\delta^{J^\pi}_l$を定義すると，
 \isotope[25]{Mg}は，$E_{\mathrm{c.m.}} \sim 6$ MeVかつ相対角運動量が$ l_{\mathrm{max}} = 5$に対応する
 エネルギーまで，励起スペクトルを計算した．
 崩壊幅の計算が$E_{\mathrm{c.m.}} \gtrsim 0.5$MeVで計算できたことと併せて，
-断面積の計算は，$0.5$MeV$<E_{\mathrm{c.m.}} < 5.5$ MeVで行った．
+断面積の計算は，$0.5$ MeV $<E_{\mathrm{c.m.}} < 5.5$ MeV で行った．
 
-また，空間メッシュは$\Delta r = 0.01$fmであり，ボックスの大きさは，30fmとした．
+また，空間メッシュは$\Delta r = 0.01$fmであり，ボックスの大きさは，30 fm とした．
 KSHELLを用いた殻模型計算は，京都大学基礎物理学研究所の
 大型計算機システムYukawa-21を用いて実行した．
-その他全ての計算は，手元のノートパソコンでプログラミング言語Julia（version 1.11.6）を用いて実行した．
+その他全ての計算は，自前のノートパソコンでプログラミング言語Julia（version 1.11.6）を用いて実行した．
 
 
 

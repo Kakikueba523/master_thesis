@@ -2,9 +2,9 @@
 \chapter{結果}\label{chap:result}
 
 ここでは，原子核ポテンシャルごとに計算結果を載せてその内容について議論する．
-\section{M3Y + Rep ポテンシャル}
-M3Y + repulsionポテンシャルにおいては，Repulsion termのdifusenessパラメータ$a_r$と，
+また，M3Y + repulsionポテンシャルにおいては，Repulsion termのdifusenessパラメータ$a_r$と，
 カップリング行列のパラメータ$v_0$が実験データにフィットすべきパラメータである．
+\section{カップリングパラメータ$v_0$毎による振る舞いの違い}
 
 最初に
 \isotope[12]{C}+\isotope[12]{C}と\isotope[12]{C}+\isotope[13]{C}の両方の系において
@@ -21,7 +21,7 @@ $\exp(2\pi \eta)$は，クーロン透過率の逆数であり，
 $\exp(0.46E)$は原子核の大きさによる補正項である．
 このことにより，$S$-factorは共鳴の寄与をあらわに表すことができる．
 
-$a_r = 0.31$ fm および，$v_0 = 0.1$ MeV$\cdot$fm$^{-1/2}$ としたときの\isotope[12]{C}+\isotope[12]{C}核融合反応と\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの比較をする．
+$a_r = 0.31$ fm および，$v_0 = 0.1$ MeV$\cdot$fm$^{1/2}$ としたときの\isotope[12]{C}+\isotope[12]{C}核融合反応と\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの比較をする．
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.8\textwidth]{figure/chap7/sfac_v0_0.1_comp.png}
@@ -39,7 +39,7 @@ $a_r = 0.31$ fm および，$v_0 = 0.1$ MeV$\cdot$fm$^{-1/2}$ としたときの
 しかしながら，\isotope[12]{C}+\isotope[12]{C}の共鳴ピークが\isotope[12]{C}+\isotope[13]{C}の値に
 一致するような振る舞いは見せない．
 
-次に，$v_0 = 0.1$と$a_r = 0.31$を用いて計算した$S$-factorの各$l$ごとに振る舞いの違いを比較する．
+次に，$v_0 = 0.1$ MeV$\cdot$fm$^{1/2}$ と$a_r = 0.31$ fm を用いて計算した$S$-factorの各$l$ごとに振る舞いの違いを比較する．
 %横に2枚の画像(jpg/png)表示
 \begin{figure}[t]
   \centering
@@ -55,11 +55,11 @@ $a_r = 0.31$ fm および，$v_0 = 0.1$ MeV$\cdot$fm$^{-1/2}$ としたときの
     \caption{\isotope[12]{C}+\isotope[13]{C}}
     \label{fig:v001_ar031_12c_13c_eachl}
   \end{subfigure}
-  \caption{$v_0 = 0.1，a_r = 0.31$としたときの，$S$-factorの各$l$における比較．左図が\isotope[12]{C}+\isotope[12]{C}
+  \caption{$v_0 = 0.1$ MeV$\cdot$fm$^{1/2}$，$a_r = 0.31$ fm としたときの，$S$-factorの各$l$における比較．左図が\isotope[12]{C}+\isotope[12]{C}
   核融合反応であり，右図が\isotope[12]{C}+\isotope[13]{C}核融合反応である．}
   \label{fig:v001_ar031_c_c_eachl}
 \end{figure}
-図\ref{fig:v001_ar031_12c_12c_eachl}において，$E_{\mathrm{c.m.}} \approx 4.8$MeVにおいて，
+図\ref{fig:v001_ar031_12c_12c_eachl}において，$E_{\mathrm{c.m.}} \approx 4.8$ MeV において，
 大きなピークがみられることがわかる．これは，図\ref{fig:phase_shift_ar_case1_12_12}にあるように$l=0$の原子核間ポテンシャルにおける，位相差から求めることができる
 ポテンシャル共鳴のエネルギーの値と一致しており，このエネルギーの値においてクーロン障壁のトンネリング確率が
 大きくなるため，$S$-factorにおいても大きな値を持つことがわかる．
@@ -102,7 +102,7 @@ $l = 0，1，2$成分のポテンシャル共鳴による寄与だと分かる�
 \includegraphics[width=0.9\textwidth]{figure/chap7/sfac_v0_0.3_comp.png}
 \end{center}
 \caption{
-    $v_0 = 0.3$，$a_r = 0.31$としたときの，$S$-factorの図．
+    $v_0 = 0.3$ MeV$\cdot$fm$^{1/2}$，$a_r = 0.31$ fm としたときの，$S$-factorの図．
   }
 \label{fig:v003_ar031}
 \end{minipage}
@@ -111,27 +111,36 @@ $l = 0，1，2$成分のポテンシャル共鳴による寄与だと分かる�
 \includegraphics[width=0.9\textwidth]{figure/chap7/sfac_v0_0.6_comp.png}
 \end{center}
 \caption{
-    $v_0 = 0.6$，$a_r = 0.31$としたときの，$S$-factorの図．
+    $v_0 = 0.6$ MeV$\cdot$fm$^{1/2}$，$a_r = 0.31$ fm としたときの，$S^*$-factorの図．
   }
 \label{fig:v006_ar031}
 \end{minipage}
 \end{tabular}
 \end{center}
 \end{figure}
-次に，$a_r=0.31$は固定したまま，$v_0$を動かしていく．
-図\ref{fig:v003_ar031}は$v_0 = 0.3$とした$S$-factorであり，
-図\ref{fig:v006_ar031}は$v_0 = 0.6$とした$S$-factorである．
+次に，$a_r=0.31$ fm は固定したまま，$v_0$を動かしていく．
+図\ref{fig:v003_ar031}は$v_0 = 0.3$ MeV$\cdot$fm$^{1/2}$ とした$S$-factorであり，
+図\ref{fig:v006_ar031}は$v_0 = 0.6$ MeV$\cdot$fm$^{1/2}$ とした$S$-factorである．
 $v_0$の値によらず，共鳴構造の発現には変化がないものの，
 全体の構造は変化することがわかる．しかしながら，\isotope[12]{C}+\isotope[12]{C}核融合反応の
 共鳴ピークが\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorに一致する振る舞いは再現されていない．
-また，$v_0 = 0.1$で見えていたようなポテンシャル共鳴による寄与はほとんど見えなくなっている．
+また，$v_0 = 0.1$ MeV$\cdot$fm$^{1/2}$ で見えていたようなポテンシャル共鳴による寄与はほとんど見えなくなっている．
 
 
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figure/chap2/sfac_ref_compared.png}
+  \caption{図\ref{fig:exp_data_comp}再掲}
+\end{figure}
+
+\section{\isotope[12]{C}+\isotope[12]{C}と\isotope[12]{C}+\isotope[13]{C}のカップリングパラメータの比率の決定}
 ここで，\isotope[12]{C}+\isotope[13]{C}
 核融合反応の$S$-factorが，
 \isotope[12]{C}+\isotope[12]{C}核融合反応の$S$-factor
-の上限となり，共鳴のピークで一致するという振る舞いを再現しよう．
-これを見るために，核融合チャネルへの遷移の効果がどのように効いてくるのかを確認する．
+の上限となり，共鳴のピークで一致するという振る舞いをするという実験事実から，
+\isotope[12]{C}+\isotope[12]{C}と\isotope[12]{C}+\isotope[13]{C}との
+カップリングパラメータ$v_0$の値の比率を決める．
+これを見るために，複合核状態への遷移の効果がどのように効いてくるのかを確認する．
 まず，全体のハミルトニアン
 \begin{align}
   \bm{H}^{l,J^\pi} = 
@@ -165,13 +174,6 @@ $E \sim E_C$を考える．ただし，$E_C$は複合核の固有エネルギー
 \end{align}
 となる．
 
-
-\begin{figure}[tb]
-  \centering
-  \includegraphics[width=0.9\textwidth]{figure/chap2/sfac_ref_compared.png}
-  \caption{図\ref{fig:exp_data_comp}再掲}
-\end{figure}
-
 \isotope[12]{C}+\isotope[13]{C}の場合．
 $E \sim E_C$を考える．ただし，$E_C$は複合核の固有エネルギーである．
 準位間隔$D$と崩壊幅$\Gamma$を一定だと近似すると，
@@ -197,7 +199,7 @@ $\rho^{25}(E_C)$は\isotope[25]{Mg}の$E \sim E_C$における準位密度であ
 $l = 0，2$であり，\isotope[12]{C}+\isotope[13]{C}で最も寄与する部分波は，
 $l = 0，1，2$である．よって，これらの値における平均の値を比率の計算，式~(\ref{eq:strength_ratio_equation})
 に用いる．すなわち，\isotope[24]{Mg}の$J = 0，2$における平均崩壊幅と，
-\isotope[25]{Mg}の$J = 1/2, 3/2, 5/2$における平均準位間隔を用いて計算する．
+\isotope[25]{Mg}の$J = 1/2, 3/2, 5/2$における平均準位密度を用いて計算する．
 殻模型による計算と，遷移状態理論による見積りから，
 $\Gamma^{24} \sim 0.042$MeVであり，$\rho^{25} \sim 35.3$ MeV$^{-1}$ であるため，
 これらの値をもとに計算する．
@@ -205,7 +207,7 @@ $\Gamma^{24} \sim 0.042$MeVであり，$\rho^{25} \sim 35.3$ MeV$^{-1}$ であ�
 \isotope[12]{C}+\isotope[13]{C}核融合反応に用いて，
 \isotope[12]{C}+\isotope[12]{C}核融合反応には式~(\ref{eq:strength_ratio_equation})
 を用いて変換した値を用いる．具体的には，
-$v_0 = 0.15，0.46, 0.92$ を用いて計算し，同じ図にプロットする．
+$v_0 = 0.15，0.46, 0.92$ を用いて計算した結果を
 \begin{figure}[t]
   \centering
   \includegraphics[width= 0.9\textwidth]{figure/chap7/sfac_v0_0.15_comp.png}
@@ -215,220 +217,291 @@ $v_0 = 0.15，0.46, 0.92$ を用いて計算し，同じ図にプロットする
   \label{fig:v0_1212_0.28}
 \end{figure}
 %横に2枚の画像(jpg/png)表示
-\begin{figure}[tb]
-\begin{center}
-\begin{tabular}{c}
-\begin{minipage}{0.5\hsize}
-\begin{center}
-\includegraphics[width=8cm]{figure/chap7/sfac_v0_0.46_comp.png}
-\end{center}
-\caption{$v_0^{12+12} = 0.46$，$v_0^{12+13} = 0.3$，$a_r = 0.31$としたときの$S$-factorの比較}
-\label{fig:v0_1212_0.85}
-\end{minipage}
-\begin{minipage}{0.5\hsize}
-\begin{center}
-\includegraphics[width=8cm]{figure/chap7/sfac_v0_0.92_comp.png}
-\end{center}
-\caption{$v_0^{12+12} = 92$ MeV$\cdot$fm$^{1/2}$，$v_0^{12+13} = 0.6$ MeV$\cdot$fm$^{1/2}$，$a_r = 0.31$ fm としたときの$S$-factorの比較}
-\label{fig:v0_1212_1.7}
-\end{minipage}
-\end{tabular}
-\end{center}
+% \begin{figure}[tb]
+% \begin{center}
+% \begin{tabular}{c}
+% \begin{minipage}{0.5\hsize}
+% \begin{center}
+% \includegraphics[width=8cm]{figure/chap7/sfac_v0_0.46_comp.png}
+% \end{center}
+% \caption{$v_0^{12+12} = 0.46$ MeV$\cdot$fm$^{1/2}$，$v_0^{12+13} = 0.3$ MeV$\cdot$fm$^{1/2}$，$a_r = 0.31$ fm としたときの$S$-factorの比較}
+% \label{fig:v0_1212_0.85}
+% \end{minipage}
+% \begin{minipage}{0.5\hsize}
+% \begin{center}
+% \includegraphics[width=8cm]{figure/chap7/sfac_v0_0.92_comp.png}
+% \end{center}
+% \caption{$v_0^{12+12} = 92$ MeV$\cdot$fm$^{1/2}$，$v_0^{12+13} = 0.6$ MeV$\cdot$fm$^{1/2}$，$a_r = 0.31$ fm としたときの$S$-factorの比較}
+% \label{fig:v0_1212_1.7}
+% \end{minipage}
+% \end{tabular}
+% \end{center}
+% \end{figure}
+\begin{figure}[t]
+  \centering
+  \begin{subfigure}[t]{0.48\linewidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figure/chap7/sfac_v0_0.46_comp.png}
+    \caption{$v_0^{12+12} = 0.46$ MeV$\cdot$fm$^{1/2}$，$v_0^{12+13} = 0.3$ MeV$\cdot$fm$^{1/2}$，$a_r = 0.31$ fm}
+    \label{fig:v0_1212_0.85}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.48\linewidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figure/chap7/sfac_v0_0.92_comp.png}
+    \caption{$v_0^{12+12} = 0.92$ MeV$\cdot$fm$^{1/2}$，$v_0^{12+13} = 0.6$ MeV$\cdot$fm$^{1/2}$，$a_r = 0.31$ fm }
+    \label{fig:v0_1212_1.7}
+  \end{subfigure}
+  \caption{$a_r = 0.31$ fm を用いた$S$-factorの計算結果．
+  用いたパラメータはcaptionに書いた．}
+  \label{fig:strength_matched}
 \end{figure}
-図\ref{fig:v0_1212_0.28}，\ref{fig:v0_1212_0.85}，\ref{fig:v0_1212_1.7}を見れば，
-広いエネルギー範囲において\isotope[12]{
-  C
-}+\isotope[12]{C}核融合反応の$S$-factorの共鳴ピークが，\isotope[12]{C}+\isotope[13]{C}
-核融合反応の$S$-factorと一致していることがわかる．
-以下では，\isotope[12]{C}+\isotope[12]{C}反応における$v_0$と\isotope[12]{C}+\isotope[13]{C}
-反応における$v_0$の比率を，式~(\ref{eq:strength_ratio_equation})を用いて決定する．
+図\ref{fig:v0_1212_0.28}，\ref{fig:v0_1212_0.85}，\ref{fig:v0_1212_1.7}に
+にプロットする．
+以下では，式~\eqref{eq:strength_ratio_equation}からカップリングパラメータの比率を
+求めて計算する．
 
+\clearpage
+\section{パラメータセット$a_r$，$v_0$の決定}
+例として，図\ref{fig:exp_comp_v002_ar_changes}，\ref{fig:exp_comp_v004_ar_changes}
+に$v_0 = 0.2$ MeV$\cdot$fm$^{1/2}$と$v_0 = 0.4$ MeV$\cdot$fm$^{1/2}$とし，$a_r$を
+0.30 fm から 0.01 fm 刻みで 0.35 fm まで変化させたときの$S$-factorの変化をプロットした．
 実験データが比較的単純な構造をする\isotope[12]{C}+\isotope[13]{C}核融合反応
 について，$a_r$と$v_0$を実験値を再現するような値に決めて，\isotope[12]{C}+\isotope[12]{C}
 核融合反応についても同じ$a_r$と式~(\ref{eq:strength_ratio_equation})から求めた$v_0$を用いて
-$S$-factorを計算する．まず，
-パラメータ$a_r$について考える．このパラメータは二つの原子核がどの程度重なれば
-斥力を生むかを支配する項であり，$a_r$が大きければ二つの原子核の重なりが
-小さい場合でも斥力の寄与を生むことになる．
-したがって，$a_r$を大きくすれば原子核間ポテンシャルの斥力が大きくなるため
-クーロン障壁は大きくなりトンネリング確率が減少し
-結果として$S$-factorは小さくなる．
-そのため，$a_r = 0.31$fmでは，実験データを過大評価しているため
-$a_r$を大きくする方向へ変化させていく．図~\ref{fig:exp_comp_v002_ar_changes}に
-$v_0 = 0.2$MeV fm$^{-1/2}$で$a_r$を0.01fm刻みで変化させた\isotope[12]{C}+\isotope[13]{C}核融合反応の
-$S$-factorをプロットした．
-$v_0$については，$S$-factorの大小よりはむしろ全体の構造を変化させる寄与が大きいため，
-\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの実験値はほとんど一定の
-値をとるため，図~\ref{fig:v003_ar031}，\ref{fig:v0_0.1_and_ar_031}から，
-その振る舞いを再現するために，
-$v_0 = 0.15$MeV fm$^{-1/2}$から$v_0 = 0.3$MeV fm$^{-1/2}$の間で
-変化させる．
-\begin{figure}[tb]
+$S$-factorを計算する．
+しかしながら，本研究では炭素原子核の内部励起などの自由度が含まれていないため
+実験を高精度で再現するような厳密なパラメータフィットを目的としない．
+そこで，現段階では模型の典型的な振る舞いを示すための代表的なパラメータとして
+の$a_r$および$v_0$を決める．具体的には，パラメータセットとして，
+\begin{align*}
+  a_r = 0.30 \, \mbox{--}\, 0.35\, \mathrm{fm}, \qquad v_0 = 0.15 \,\mbox{--}\, 0.50\, \mathrm{MeV} \cdot \mathrm{fm}^{1/2}
+\end{align*}
+の範囲で，各組に対して計算した\isotope[12]{C}+\isotope[13]{C}核融合反応の
+$S$-factorの$\chi^2$を評価する．
+刻み幅は，$\Delta a_r$ = 0.01 fm，$\Delta v_0 = 0.01$ MeV$\cdot$ fm$^{1/2}$とした．
+\begin{figure}[t]
   \centering
-  \includegraphics[width=0.8\textwidth]{figure/chap7/m3y_exp_comp_plt_v0_0.2_ar_changes.png}
+  \begin{subfigure}[t]{0.48\linewidth}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure/chap7/m3y_exp_comp_plt_v0_0.2_ar_changes.png}
+    \caption{
+        $v_0 = 0.2$ MeV fm$^{-1/2}$
+    }
+    \label{fig:exp_comp_v002_ar_changes}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.48\linewidth}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure/chap7/m3y_exp_comp_plt_v0_0.4_ar_changes.png}
+    \caption{
+        $v_0 = 0.4$ MeV fm$^{-1/2}$
+    }
+    \label{fig:exp_comp_v004_ar_changes}
+  \end{subfigure}
   \caption{
-      $v_0 = 0.2$を固定し，$a_r = 0.31$から$a_r = 0.36$まで0.01刻みで変化させたときの
-    \isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの変化．実験データを赤点でプロットしてある．
-  }
-  \label{fig:exp_comp_v002_ar_changes}
+    $a_r = 0.30$ fm から$a_r = 0.35$ fm まで0.01 fm 刻みで変化させたときの
+      \isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの変化．実験データを赤点でプロットしてある．
+      またカップリングパラメータは
+    (a)では$v_0 = 0.2$ MeV fm$^{1/2}$，(b)では$v_0 = 0.4$ MeV fm$^{1/2}$とした．
+    }
+  \label{fig:a_r_varied}
 \end{figure}
-
-$v_0$と$a_r$を動かしながら，理論計算が
-\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの実験データを最もよく再現する組み合わせを求める．
 実験で得られた$S$-factorの値を$S_{\mathrm{exp}}$，その誤差を$\Delta S_{\mathrm{exp}}$とし，
 理論計算から得られた$S$-factorの値を$S_{\mathrm{th}}$とする．
 これらの値から$\chi^2$を
-\begin{align}
+\begin{align}\label{eq:chi2_def}
   \chi^2 = \sum_{\mathrm{exp}} \qty(\frac{S_{\mathrm{th}}(E_{\mathrm{exp}}) - S_{\mathrm{exp}}(E_{\mathrm{exp}})}{\Delta S_{\mathrm{exp}}(E_{\mathrm{exp}})})^2
 \end{align}
-に従って計算し，$\chi^2/N_{\text{exp}}$が最も小さい$v_0$と$a_r$の組み合わせを採用する．ただし，$N_{\text{exp}}$は実験データの数である．
-\begin{table}[t]
-\centering
-\caption{$v_0$ と $a_r$ 毎の$\chi^2/N_{\mathrm{exp}}$の値．実験データは\cite{ZHANG2020135170}と\cite{PhysRevC.85.014607}を用いた．}
-\label{tab:scan_v0_ar}
-\setlength{\tabcolsep}{6pt} % 列間（好みで調整）
-\renewcommand{\arraystretch}{1.2} % 行間（好みで調整）
-\begin{tabular}{c|*{6}{c}}
-\hline
-$v_0 \backslash a_r$
-& 0.31 & 0.32 & 0.33 & 0.34 & 0.35 & 0.36 \\
-\hline
-0.15 & 634.5 & 112.0 & 38.3 & 48.7 & 41.3 & 37.5 \\
-0.16 & 590.4 & 112.4 & 29.9 & 38.8 & 33.4 & 30.7 \\
-0.17 & 550.6 & 105.8 & 22.9 & 30.0 & 26.2 & 24.6 \\
-0.18 & 513.7 & 100.3 & 17.3 & 22.4 & 19.9 & 19.4 \\
-0.19 & 479.1 & 96.0 & 13.3 & 15.9 & 14.6 & 15.1 \\
-0.20 & 446.8 & 92.9 & 10.7 & 10.7 & 10.3 & 11.7 \\
-0.21 & 417.0 & 91.1 & 9.67 & 6.89 & 7.16 & 9.31 \\
-0.22 & 389.9 & 90.7 & 10.1 & 4.52 & 5.12 & 7.90 \\
-0.23 & 365.6 & 91.5 & 11.9 & 3.61 & 4.25 & 7.49 \\
-0.24 & 344.0 & 93.6 & 15.0 & 4.17 & 4.58 & 8.10 \\
-0.25 & 325.0 & 96.9 & 19.4 & 6.20 & 6.13 & 9.70 \\
-0.26 & 308.4 & 101.3 & 25.0 & 9.66 & 8.92 & 12.3 \\
-0.27 & 294.2 & 106.6 & 31.8 & 14.5 & 12.9 & 15.8 \\
-0.28 & 282.1 & 112.9 & 39.6 & 20.7 & 18.2 & 20.2 \\
-0.29 & 272.1 & 119.8 & 48.5 & 28.2 & 24.7 & 25.5 \\
-0.30 & 264.1 & 127.5 & 58.2 & 36.9 & 32.3 & 31.5 \\
-\hline
-\end{tabular}
-\end{table}
+に従って計算し，$\chi^2$が最も小さい$v_0$と$a_r$の組み合わせを採用する．
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figure/chap7/chi2_plt.png}
+  \caption{
+    $a_r$ を 0.30 fm から 0.35 fm，
+    $v_0$ を 0.15  MeV fm$^{1/2}$ から 0.50 MeV fm$^{1/2}$ と
+    変化させたときの\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの$\chi^2$
+    の値．星形のシンボルの位置，$a_r = 0.33$ fm，$v_0 = 0.41$ MeV fm$^{1/2}$ に最小値を示した．
+  }
+  \label{fig:chi2_plt}
+\end{figure}
+% \begin{table}[t]
+% \centering
+% \caption{$v_0$ と $a_r$ 毎の$\chi^2/N_{\mathrm{exp}}$の値．実験データは\cite{ZHANG2020135170}と\cite{PhysRevC.85.014607}を用いた．}
+% \label{tab:scan_v0_ar}
+% \setlength{\tabcolsep}{6pt} % 列間（好みで調整）
+% \renewcommand{\arraystretch}{1.2} % 行間（好みで調整）
+% \begin{tabular}{c|*{6}{c}}
+% \hline
+% $v_0 \backslash a_r$
+% & 0.31 & 0.32 & 0.33 & 0.34 & 0.35 & 0.36 \\
+% \hline
+% 0.15 & 634.5 & 112.0 & 38.3 & 48.7 & 41.3 & 37.5 \\
+% 0.16 & 590.4 & 112.4 & 29.9 & 38.8 & 33.4 & 30.7 \\
+% 0.17 & 550.6 & 105.8 & 22.9 & 30.0 & 26.2 & 24.6 \\
+% 0.18 & 513.7 & 100.3 & 17.3 & 22.4 & 19.9 & 19.4 \\
+% 0.19 & 479.1 & 96.0 & 13.3 & 15.9 & 14.6 & 15.1 \\
+% 0.20 & 446.8 & 92.9 & 10.7 & 10.7 & 10.3 & 11.7 \\
+% 0.21 & 417.0 & 91.1 & 9.67 & 6.89 & 7.16 & 9.31 \\
+% 0.22 & 389.9 & 90.7 & 10.1 & 4.52 & 5.12 & 7.90 \\
+% 0.23 & 365.6 & 91.5 & 11.9 & 3.61 & 4.25 & 7.49 \\
+% 0.24 & 344.0 & 93.6 & 15.0 & 4.17 & 4.58 & 8.10 \\
+% 0.25 & 325.0 & 96.9 & 19.4 & 6.20 & 6.13 & 9.70 \\
+% 0.26 & 308.4 & 101.3 & 25.0 & 9.66 & 8.92 & 12.3 \\
+% 0.27 & 294.2 & 106.6 & 31.8 & 14.5 & 12.9 & 15.8 \\
+% 0.28 & 282.1 & 112.9 & 39.6 & 20.7 & 18.2 & 20.2 \\
+% 0.29 & 272.1 & 119.8 & 48.5 & 28.2 & 24.7 & 25.5 \\
+% 0.30 & 264.1 & 127.5 & 58.2 & 36.9 & 32.3 & 31.5 \\
+% \hline
+% \end{tabular}
+% \end{table}
 
 
-表~\ref{tab:scan_v0_ar}から，$v_0 = 0.23$MeV fm$^{-1/2}$，$a_r = 0.34$fm が実験データをよく再現するパラメータとなる．
+図~\ref{fig:chi2_plt}から，$v_0 = 0.41$MeV fm$^{1/2}$，$a_r = 0.33$ fm が$\chi^2$が最も小さくなるパラメータとなる．
 そこで，式~(\ref{eq:strength_ratio_equation})から\isotope[12]{C}+\isotope[12]{C}系に
 おける$v_0$の値を求めると，
-$v_0 = 0.66$MeV fm$^{-1/2}$となるため，二つを同じ図にプロットすると，図\ref{fig:m3y_rep_final_result}のようになる．
-各部分波における寄与も図~\ref{fig:m3y_rep_final_result_12_12_eachl}と図~\ref{fig:m3y_rep_final_result_12_13_eachl}に
+$v_0 = 0.64$ MeV fm$^{1/2}$となるため，二つを同じ図にプロットすると，図\ref{fig:m3y_rep_final_result}のようになる．
+各部分波における寄与も\isotope[12]{C}+\isotope[12]{C}核融合反応は図~\ref{fig:m3y_final_result_12c_eachl}に，
+\isotope[12]{C}+\isotope[13]{C}核融合反応は図~\ref{fig:m3y_final_result_13c_eachl}にプロットした．
 プロットした．
 \begin{figure}[tb]
   \centering
-  \includegraphics[width = 0.8\textwidth]{figure/chap7/m3y_exp_comp_plt_final_result.png}
+  \includegraphics[width = 0.8\textwidth]{figure/chap7/m3y_exp_comp_final_result.png}
   \caption{
-    \isotope[12]{C}+\isotope[12]{C}系では$v_0 = 0.66$，\isotope[12]{C}+\isotope[13]{C}系では，
-    $v_0=0.23$を用いて計算した$S$-factor．青線が\isotope[12]{C}+\isotope[12]{C}核融合反応であり，赤線が
+    $a_r = 0.33$ fm とし，\isotope[12]{C}+\isotope[12]{C}系では$v_0 = 0.64$ MeV$\cdot$fm$^{1/2}$，\isotope[12]{C}+\isotope[13]{C}系では，
+    $v_0=0.41$ MeV$\cdot$fm$^{1/2}$ を用いて計算した$S$-factor．青線が\isotope[12]{C}+\isotope[12]{C}核融合反応であり，赤線が
     \isotope[12]{C}+\isotope[13]{C}核融合反応に対応している．
   }
   \label{fig:m3y_rep_final_result}
 \end{figure}
 %横に2枚の画像(jpg/png)表示
-\begin{figure}[tb]
-\begin{center}
-\begin{tabular}{c}
-\begin{minipage}{0.5\hsize}
-\begin{center}
-\includegraphics[width=8cm]{figure/chap7/m3y_exp_13c_eachl_plt_final_result.png}
-\end{center}
-\caption{図\ref{fig:m3y_rep_final_result}における\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの各部分波による寄与．}
-\label{fig:m3y_rep_final_result_12_12_eachl}
-\end{minipage}
-\begin{minipage}{0.5\hsize}
-\begin{center}
-\includegraphics[width=8cm]{figure/chap7/m3y_exp_12c_eachl_plt_final_result.png}
-\end{center}
-\caption{図\ref{fig:m3y_rep_final_result}における\isotope[12]{C}+\isotope[12]{C}核融合反応の$S$-factorの各部分波による寄与．}
-\label{fig:m3y_rep_final_result_12_13_eachl}
-\end{minipage}
-\end{tabular}
-\end{center}
+% \begin{figure}[tb]
+% \begin{center}
+% \begin{tabular}{c}
+% \begin{minipage}{0.5\hsize}
+% \begin{center}
+% \includegraphics[width=8cm]{figure/chap7/m3y_exp_13c_eachl_plt_final_result.png}
+% \end{center}
+% \caption{図\ref{fig:m3y_rep_final_result}における\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの各部分波による寄与．}
+% \label{fig:m3y_rep_final_result_12_12_eachl}
+% \end{minipage}
+% \begin{minipage}{0.5\hsize}
+% \begin{center}
+% \includegraphics[width=8cm]{figure/chap7/m3y_exp_12c_eachl_plt_final_result.png}
+% \end{center}
+% \caption{図\ref{fig:m3y_rep_final_result}における\isotope[12]{C}+\isotope[12]{C}核融合反応の$S$-factorの各部分波による寄与．}
+% \label{fig:m3y_rep_final_result_12_13_eachl}
+% \end{minipage}
+% \end{tabular}
+% \end{center}
+% \end{figure}
+\begin{figure}[t]
+  \centering
+  \begin{subfigure}[t]{0.48\linewidth}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure/chap7/m3y_exp_comp_12c_final_result_eachl.png}
+    \caption{
+        \isotope[12]{C}+\isotope[12]{C}核融合反応の$S$-factorの部分波の寄与．
+    }
+    \label{fig:m3y_final_result_12c_eachl}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.48\linewidth}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure/chap7/m3y_exp_comp_13c_final_result_eachl.png}
+    \caption{
+        \isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの部分波の寄与．
+    }
+    \label{fig:m3y_final_result_13c_eachl}
+  \end{subfigure}
+  \caption{
+     (a)は\isotope[12]{C}+\isotope[12]{C}核融合反応であり，
+     (b)は\isotope[13]{C}+\isotope[13]{C}核融合反応である．
+     パラメータは図~\ref{fig:m3y_rep_final_result}と同じものを用いた．
+    }
+  \label{fig:m3y_final_result_eachl}
 \end{figure}
 
 図~\ref{fig:m3y_rep_final_result}を見ると，\isotope[12]{C}+\isotope[12]{C}核融合反応の$S$-factorでは，
 実験で得られたエネルギー領域においては同じ程度の大きさの共鳴構造を再現できていることがわかる．
 それに加えて，実験で得られていないさらに低エネルギー側においては，
 共鳴構造がさらに大きくなっていることがわかる．
+また，本研究では式~\eqref{eq:strength_ratio_equation}から
+2.0 MeV $ < E_{\mathrm{c.m.}} < $ 5.5 MeV で共鳴のピークが
+一致するようにカップリングパラメータの比率を決めたため，
+$E_{\mathrm{c.m.}} < $ 2.0 MeV において共鳴のピークが
+\isotope[12]{C}+\isotope[13]{C}核融合反応の$S^*$-factorよりも大きな
+値をとっている．
 
 \clearpage
-\section{Woods-Saxonポテンシャルの場合}
-次に，原子核間ポテンシャルをWoods-Saxonポテンシャルとして計算した結果を表す．
-Woods-saxonポテンシャルを用いた計算の場合，実験データにフィットするべきパラメータは
-カップリング行列におけるパラメータ$v_0$のみである．
-M3Y+repulsionポテンシャルの場合と同様に
-\isotope[12]{C}+\isotope[12]{C}核融合反応と，\isotope[12]{C}+\isotope[13]{C}
-核融合反応において，カップリングパラメータ$v_0$の比率を式~(\ref{eq:strength_ratio_equation})
-で決めることにする．
-\begin{figure}[tb]
-  \centering
-  \includegraphics[width=0.8\textwidth]{figure/chap7/aw_exp_comp_25_24.png}
-  \caption{
-    Woods-Saxonポテンシャルを用いて計算した$S$-factorの比較．
-    ただし，$v_0$は図~\ref{fig:m3y_rep_final_result}と同じものを用いて計算した．
-  }
-  \label{fig:woods_pot_1st_edi}
-\end{figure}
-図\ref{fig:woods_pot_1st_edi}に\isotope[12]{C}+\isotope[12]{C}系に$v_0 = 0.66$MeV・fm$^{-1/2}$，
-\isotope[12]{C}+\isotope[13]{C}系に$v_0 = 0.23$ MeV・fm$^{-1/2}$を用いて計算した
-$S$-factorをプロットした．
-図\ref{fig:m3y_rep_final_result}と比べて実験データより大きな値を得ていることがわかる．
-\begin{figure}[tb]
-  \centering
-  \includegraphics[width=0.8\textwidth]{figure/chap7/aw_case4_potentials.png}
-  \caption{
-    \isotope[12]{C}+\isotope[13]{C}の原子核間ポテンシャル（$l = 0$）の比較．
-    青の破線がM3Y+repulsionポテンシャル（$a_r = 0.34$ fm）であり，
-    赤の実線がWoods saxonポテンシャルである．
-  }
-  \label{fig:woods_m3y_pot_comp}
-\end{figure}
-図\ref{fig:woods_m3y_pot_comp}から，
-M3Y + repulsionポテンシャル（$a_r = 0.34$ fm）と比べて
-Woods-Saxonポテンシャルはポテンシャル障壁が小さく，ポケットが深いことがわかる．
-このことから，Woods-Saxonポテンシャルはトンネリング確率が
-M3Y + repulsionポテンシャルよりも大きく，$S$-factorが大きくなるのである．
+% \section{Woods-Saxonポテンシャルの場合}
+% 次に，原子核間ポテンシャルをWoods-Saxonポテンシャルとして計算した結果を表す．
+% Woods-saxonポテンシャルを用いた計算の場合，実験データにフィットするべきパラメータは
+% カップリング行列におけるパラメータ$v_0$のみである．
+% M3Y+repulsionポテンシャルの場合と同様に
+% \isotope[12]{C}+\isotope[12]{C}核融合反応と，\isotope[12]{C}+\isotope[13]{C}
+% 核融合反応において，カップリングパラメータ$v_0$の比率を式~(\ref{eq:strength_ratio_equation})
+% で決めることにする．
+% \begin{figure}[tb]
+%   \centering
+%   \includegraphics[width=0.8\textwidth]{figure/chap7/aw_exp_comp_25_24.png}
+%   \caption{
+%     Woods-Saxonポテンシャルを用いて計算した$S$-factorの比較．
+%     ただし，$v_0$は図~\ref{fig:m3y_rep_final_result}と同じものを用いて計算した．
+%   }
+%   \label{fig:woods_pot_1st_edi}
+% \end{figure}
+% 図\ref{fig:woods_pot_1st_edi}に\isotope[12]{C}+\isotope[12]{C}系に$v_0 = 0.66$MeV・fm$^{-1/2}$，
+% \isotope[12]{C}+\isotope[13]{C}系に$v_0 = 0.23$ MeV・fm$^{-1/2}$を用いて計算した
+% $S$-factorをプロットした．
+% 図\ref{fig:m3y_rep_final_result}と比べて実験データより大きな値を得ていることがわかる．
+% \begin{figure}[tb]
+%   \centering
+%   \includegraphics[width=0.8\textwidth]{figure/chap7/aw_case4_potentials.png}
+%   \caption{
+%     \isotope[12]{C}+\isotope[13]{C}の原子核間ポテンシャル（$l = 0$）の比較．
+%     青の破線がM3Y+repulsionポテンシャル（$a_r = 0.34$ fm）であり，
+%     赤の実線がWoods saxonポテンシャルである．
+%   }
+%   \label{fig:woods_m3y_pot_comp}
+% \end{figure}
+% 図\ref{fig:woods_m3y_pot_comp}から，
+% M3Y + repulsionポテンシャル（$a_r = 0.34$ fm）と比べて
+% Woods-Saxonポテンシャルはポテンシャル障壁が小さく，ポケットが深いことがわかる．
+% このことから，Woods-Saxonポテンシャルはトンネリング確率が
+% M3Y + repulsionポテンシャルよりも大きく，$S$-factorが大きくなるのである．
 
-%横に2枚の画像(jpg/png)表示
-\begin{figure}[tb]
-\begin{center}
-\begin{tabular}{c}
-\begin{minipage}{0.5\hsize}
-\begin{center}
-\includegraphics[width=8cm]{figure/chap7/aw_25_v00.23_eachl.png}
-\end{center}
-\caption{
-  Woods-Saxonポテンシャルを用い，$v_0 = 0.23$ MeV・fm$^{-1/2}$として計算した
-  \isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorと，各部分波の寄与．
-}
-\label{fig:aw_12_13_v0023_eachl}
-\end{minipage}
-\begin{minipage}{0.5\hsize}
-\begin{center}
-\includegraphics[width=8cm]{figure/chap7/aw_24_v00.66_eachl.png}
-\end{center}
-\caption{
-  Woods-Saxonポテンシャルを用い，$v_0 = 0.66$ MeV・fm$^{-1/2}$として計算した
-  \isotope[12]{C}+\isotope[12]{C}核融合反応の$S$-factorと，各部分波の寄与．
-}
-\label{fig:aw_12_12_v0066_eachl}
-\end{minipage}
-\end{tabular}
-\end{center}
-\end{figure}
+% %横に2枚の画像(jpg/png)表示
+% \begin{figure}[tb]
+% \begin{center}
+% \begin{tabular}{c}
+% \begin{minipage}{0.5\hsize}
+% \begin{center}
+% \includegraphics[width=8cm]{figure/chap7/aw_25_v00.23_eachl.png}
+% \end{center}
+% \caption{
+%   Woods-Saxonポテンシャルを用い，$v_0 = 0.23$ MeV・fm$^{-1/2}$として計算した
+%   \isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorと，各部分波の寄与．
+% }
+% \label{fig:aw_12_13_v0023_eachl}
+% \end{minipage}
+% \begin{minipage}{0.5\hsize}
+% \begin{center}
+% \includegraphics[width=8cm]{figure/chap7/aw_24_v00.66_eachl.png}
+% \end{center}
+% \caption{
+%   Woods-Saxonポテンシャルを用い，$v_0 = 0.66$ MeV・fm$^{-1/2}$として計算した
+%   \isotope[12]{C}+\isotope[12]{C}核融合反応の$S$-factorと，各部分波の寄与．
+% }
+% \label{fig:aw_12_12_v0066_eachl}
+% \end{minipage}
+% \end{tabular}
+% \end{center}
+% \end{figure}
 
-図~\ref{fig:aw_12_12_v0066_eachl}から，
-\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorについて，
-$l= 3$成分で$E_{\mathrm{c.m.}} \approx 0.6$ MeVに
-$l=4$成分で$E_{\mathrm{c.m.}} \approx 4$ MeVに
-ピークと山が連なる構造が現れていることがわかる．
-これは原子核間ポテンシャルの構造に起因するものとなっている．
+% 図~\ref{fig:aw_12_12_v0066_eachl}から，
+% \isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorについて，
+% $l= 3$成分で$E_{\mathrm{c.m.}} \approx 0.6$ MeVに
+% $l=4$成分で$E_{\mathrm{c.m.}} \approx 4$ MeVに
+% ピークと山が連なる構造が現れていることがわかる．
+% これは原子核間ポテンシャルの構造に起因するものとなっている．
 
-\isotope[12]{C}+\isotope[13]{C}系における$v_0$を変化させて
-$S$-factorを計算する．
+% \isotope[12]{C}+\isotope[13]{C}系における$v_0$を変化させて
+% $S$-factorを計算する．
