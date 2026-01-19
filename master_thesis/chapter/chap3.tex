@@ -362,7 +362,7 @@ $e^{i\bm{k}\cdot \bm{r}} = e^{ikr\cos\theta}$となり，これを部分波展�
 散乱振幅を位相差で書くために，式~(\ref{eq:outoing_partial_wave_expansion})を式~(\ref{eq:outgoing_asympt_form})と
 比較しなければならない．
 ここで，式~(\ref{eq:plane_wave_exp_by_partial_wave})を外向き波と内向き波に分解しよう．
-\begin{align}
+\begin{align}\label{eq:phi_pwe}
   \phi_{\bm{k}}(\bm{r}) = A \sum_l (2l+1)P_l(\cos\theta) i^l \frac{\hat{\jmath}_l(kr)}{kr}
 \end{align}
 $\hat{\jmath}_l(kr)$の漸近形を用いて，$\sin(kr-l\pi/2)$を指数関数で書くことにより，
@@ -399,7 +399,7 @@ $e^{ikr}/r$と$e^{-ikr}/r$は線形独立であるために，
 を得る．また，これを用いることで，
 \begin{align}
   f(\theta) 
-  &= \frac{1}{2ik}\sum_l P_l(\cos\theta) (2l+1)\qty[S_l -1] \\
+  &= \frac{1}{2ik}\sum_l P_l(\cos\theta) (2l+1)\qty[S_l -1] \label{eq:sa_pwe} \\
   &= \frac{1}{k} \sum_l P_l(\cos\theta) (2l+1) e^{i\delta_l} \sin\delta_l \label{eq:scattering_amplitude_partial_expansion}
 \end{align}
 を得る．ただし，$e^{-il\pi/2} = (-i)^l$を用いた．
@@ -429,6 +429,36 @@ $e^{ikr}/r$と$e^{-ikr}/r$は線形独立であるために，
 \end{align}
 という関係式が得られる．これは光学定理と呼ばれる関係式であり，入射粒子のフラックスの$\theta = 0$での減少分が，
 断面積に反映されていることを表している．
+\subsection{部分波展開の収束について}
+短距離ポテンシャルが$r = R$より大きな$r$では0とみなせるような場合を考える．
+遠心力ポテンシャルは
+\(
+  l(l+1)/r^2
+\)
+で書かれる．短距離ポテンシャルを感じるためには$r < R$へと粒子が侵入しなくてはならない．
+つまり，波数$k$に対して，
+\begin{align}
+  \frac{l(l+1)}{R^2} < k^2
+\end{align}
+が成り立つような$l$のみが，位相差$\delta_l$を持つ．
+ここで，その最大の$l$，つまり
+\begin{align}
+  \frac{l(l+1)}{R^2} = k^2
+\end{align}
+が成り立つ$l$を$l_{\mathrm{cut}}$と置き，
+$l_{\mathrm{cut}}(l_{\mathrm{cut}} + 1) \approx l_{\mathrm{cut}}^2$
+と置き換えることで，
+\begin{align}
+  l_{\mathrm{cut}} = kR
+\end{align}
+を得る．同じ入射エネルギーに対して
+これ以上の$l$を持つとき，$r = R$は
+古典的には禁止された領域であるため，
+その寄与は小さくなることがわかる．
+よって，部分波展開は有限の$l$で収束することがわかる．
+
+
+
 
 \section{反応断面積}
 ポテンシャルに虚部がある場合について考えよう．
@@ -667,7 +697,7 @@ $p，n，\alpha$のような粒子を放出しそれが終状態となる．
 
 波動関数の漸近形が，式~(\ref{eq:outgoing_asympt_form})で記述されるためには，ポテンシャル$V(r)$が$1/r$よりも
 $r\rightarrow\infty$で，0に近づく必要がある．
-そうでないときhは，入射波動関数がポテンシャルによって歪められる．
+そうでないときは，入射波動関数がポテンシャルによって歪められる．
 荷電粒子同士の反応におけるクーロン力がその例である．
 入射粒子の電荷を$q_P$，標的粒子の電荷を$q_T$とすると，二粒子間のポテンシャルは，
 \begin{align}\label{eq:coulomb_pot_between_two_charged_particles}
@@ -752,15 +782,15 @@ $g(r+z)$ではなくて$g(r-z)$となることが予想される．
 である．$F(-i\eta, 1, ik(r-z))$はラプラス型の方程式の特殊解$W_1，W_2$
 の和で表せて，$|z| \rightarrow \infty$での漸近形が知られている\cite{Messiah1961QMv1}．
 $C = \Gamma(1 + i\eta,)e^{\pi\eta/2}$とすることで，
-\begin{align}
-  \phi_C(\bm{k};\bm{r}) \sim e^{i(kz - \eta \ln k(r-z))} +  f_C(\theta) \frac{e^{ikr}}{r}\qty[e^{-i\eta \ln(2kr)}]
+\begin{align}\label{eq:coulomb_sol_asym}
+  \phi_C(\bm{k};\bm{r}) \sim A\qty(e^{i(kz - \eta \ln k(r-z))} +  f_C(\theta) \frac{e^{ikr}}{r}\qty[e^{-i\eta \ln(2kr)}])
 \end{align}
-と漸近解が得られる．
+と漸近解が得られる．$A$は規格化定数である．
 ただし，$f_C(\theta)$はクーロン散乱振幅であり，
-\begin{align}
+\begin{align}\label{eq:pure_c_sa}
   f_C(\theta) = -\frac{\eta}{2k\sin^2(\theta/2)}e^{-i\eta\ln(\sin^2\theta/2)}e^{2i\sigma_0}
 \end{align}
-である．ここで，$\sigma_0$はクーロン位相差であり，
+である．ここで，$\sigma_0$は$l = 0$のクーロン位相差であり，
 \begin{align}
   \sigma_0 = \arg \Gamma(1 + i\eta)
 \end{align}
@@ -768,8 +798,8 @@ $C = \Gamma(1 + i\eta,)e^{\pi\eta/2}$とすることで，
 
 \subsection{部分波展開}
 
-クーロン波動関数$\phi_C(\bm{r};\bm{r})$を部分波展開すると，
-\begin{align}
+クーロン波動関数$\phi_C(\bm{k};\bm{r})$を部分波展開すると，
+\begin{align}\label{eq:coulomb_partial_exp}
   \phi_C(\bm{k};\bm{r}) = \frac{1}{(2\pi)^{3/2}}\sum_{l,m} C_{lm}Y_{lm}(\hat{\bm{r}}) \frac{u_{C,l }(k, r)}{kr}
 \end{align}
 となり，$u_{C,l}$についてのシュレーディンガー方程式は，
@@ -808,8 +838,8 @@ $r \rightarrow \rho = kr$と変数変換することにより，
 \end{itemize}
 式~(\ref{eq:regular_coulomb_asympt})と~(\ref{eq:irregular_coulomb_asympt})
 において，$l$部分波におけるクーロン位相差
-\begin{align}
-  \sigma_l = \arg\qty[\Gamma(1+l + i\eta)]
+\begin{align}\label{eq:coulomb_ps}
+  \sigma_l = \frac{1}{2i}\ln\qty(\frac{\Gamma(l+1+i\eta)}{\Gamma(l+1-i\eta)}) =\arg\qty[\Gamma(1+l + i\eta)]
 \end{align}
 を導入した．
 クーロン波動関数は外向き波と内向き波として表すこともできる．それぞれを$H_l^{(+)}，H_l^{(-)}$と書くと，
@@ -818,7 +848,7 @@ $r \rightarrow \rho = kr$と変数変換することにより，
 \end{align}
 となる．
 これらの漸近形は，
-\begin{align}
+\begin{align}\label{eq:coulomb_wave_asympt}
   H_l^{(\pm)} (\eta, \rho \rightarrow \infty) \rightarrow e^{\pm i \qty[\rho - \frac{l\pi}{2} - \eta \ln(2\rho) + \sigma_l]}
 \end{align}
 である．クーロン場が弱い極限$\eta \rightarrow 0$においては，
@@ -826,6 +856,200 @@ $H_l^{(\pm)}$はリッカチハンケル関数へと収束する
 \begin{align}
   H_l^{(\pm)}(\eta \rightarrow 0, \rho) \rightarrow \hat{h}_l^{(\pm)}(\rho)．
 \end{align}
+
+式~\eqref{eq:coulomb_partial_exp}は
+\begin{align}
+  u_{C, l} (k, r) = F_l(\eta, \rho)
+\end{align}
+としたもので与えられ，係数は
+\begin{align}\label{eq:n_c_for_c}
+  C_{lm} = 4\pi Y_{lm}^*(\hat{\bm{k}}) i^l e^{i \sigma_l}
+\end{align}
+である\cite{Messiah1961QMv1}．
+つまり，
+\begin{align}
+  \phi_C(\bm{k};\bm{r}) &= \frac{1}{(2\pi)^{3/2}} \sum_{lm} 4\pi Y_{lm}^*(\hat{\bm{k}}) Y_{lm}(\hat{\bm{r}}) i^l e^{i\sigma_l}\frac{F_l(\eta, \rho)}{kr} \\
+  &=\frac{1}{(2\pi)^{3/2}}\sum_l (2l+1) P_l(\cos\theta) i^l e^{i\sigma_l} \frac{F_l(\eta, \rho)}{kr}
+\end{align}
+となる．また，$\eta \rightarrow 0$ の極限において，
+$\sigma_l \rightarrow 0$，$F_l(\eta, \rho) \rightarrow \hat{\jmath}(\rho)$
+となるため，上式が式~\eqref{eq:phi_pwe}に収束することがわかる．
+ただし，ここでは規格化定数として
+$
+  A = 1 /(2\pi)^{3/2}
+$
+を採用した．
+また，外向きクーロン波と内向きクーロン波で書き直すと，
+\begin{align}
+  \phi_C(\bm{k};\bm{r}) &= \frac{1}{(2\pi)^{3/2}} \sum_{lm} 4\pi Y_{lm}^*(\hat{\bm{k}}) Y_{lm}(\hat{\bm{r}}) i^l e^{i\sigma_l}\times\frac{i}{2}\qty[\frac{H_l^{(-)}(\eta, \rho) - H_l^{(+)}(\eta, \rho)}{kr}] \label{eq:coulomb_sol_aym} \\
+  &=\frac{1}{(2\pi)^{3/2}}\sum_l (2l+1) P_l(\cos\theta) i^l e^{i\sigma_l} \times \frac{i}{2}\qty[\frac{H_l^{(-)}(\eta, \rho) - H_l^{(+)}(\eta, \rho)}{kr}]
+\end{align}
+となる．$r\rightarrow\infty$の極限で，式~\eqref{eq:coulomb_wave_asympt}を用いることで，
+\begin{align}\label{eq:pure_c_asym}
+  \phi_C(\bm{k};\bm{r}) \rightarrow \frac{1}{(2\pi)^{3/2}}\qty[\frac{e^{-i\Theta(r)}}{r}Z_- + \frac{e^{i\Theta(r)}}{r}Z_+]
+\end{align}
+を得る．ここで，
+\begin{align}
+  Z_- = -\frac{1}{2ik}\sum_{lm} 4\pi Y_{lm}^*(\hat{\bm{k}}) Y_{lm}(\hat{\bm{r}}) i^{2l}
+\end{align}
+および，
+\begin{align}
+  Z_+ = \frac{1}{2ik}\sum_{lm} 4\pi Y_{lm}^*(\hat{\bm{k}}) Y_{lm}(\hat{\bm{r}}) e^{2i\sigma_l}
+\end{align}
+とした．また，
+\begin{align}\label{eq:coulomb_aympt_phase}
+  \Theta(r) = kr - \eta \ln 2kr
+\end{align}
+である．
+
+\subsection{部分波展開の収束について}
+クーロン位相差は$l$を大きくしていくとむしろ増大し，0にならない．
+$l$を十分に大きくとり，
+式~\eqref{eq:coulomb_ps}でスターリンの公式を用いると，
+\begin{align}
+  \sigma_l 
+  &= \mathrm{Im} \qty( \ln\Gamma(l+1 + i\eta)) \notag \\
+  &\rightarrow \mathrm{Im} \qty[(l+\frac{1}{2}+i\eta)\ln(l+1+i\eta) - i\eta] \rightarrow \eta \ln l
+\end{align}
+となる．これは，$ \rightarrow \infty$においてクーロンポテンシャルが
+全ての$l$について遠心力ポテンシャルよりも大きな値をとるためであると理解できる．
+このことから，
+部分波展開から求めたクーロン散乱振幅
+\begin{align}
+  f_C(\theta) = \frac{1}{2ik} \sum_l (2l +1)P_l(\cos\theta) \qty(e^{2i\sigma_l} - 1)
+\end{align}
+は収束しない．
+
+しかし，式~\eqref{eq:pure_c_sa}ではあらゆる$r$で収束した形が得られている．
+部分波展開が収束しなかったのは$r \rightarrow \infty$の極限を先にとり，そのあと$l$についての和をとったことに起因する．
+
+\section{クーロン＋短距離ポテンシャル}
+現実の原子核同士の相互作用を記述するためには，核力に由来する短距離ポテンシャルだけでなく，
+原子核が電荷をもつことに由来するクーロンポテンシャルも考慮しなくてはならない．
+そこで，
+ポテンシャルが，
+\begin{align}
+  V(r) = V_C(r) + V_0(r)
+\end{align}
+で与えられたときのポテンシャル散乱を考える．
+ここで，$V_C(r)$はクーロンポテンシャルであり，$V_0(r)$は $r > R$で 0
+とみなせる短距離ポテンシャルである．
+この場合も$r$を大きくとっても $1/r$ で振る舞うポテンシャルが残るため前節で議論した部分波展開の収束の問題が生じる．しかし，クーロンポテンシャル下での解は閉じた形で記述できるため，波動関数からクーロンのみの寄与を分離し，残りを部分波で取り扱うことができる．
+
+シュレーディンガー方程式は，
+\begin{align}\label{eq:scheq_nucl_plus_coulomb}
+  \qty[\nabla^2 + k^2 - \frac{2\eta k}{r}\psi(\bm{k};\bm{r})] = \frac{2\mu}{\hbar^2}V(r) \psi(\bm{k};\bm{r})
+\end{align}
+と書ける．クーロンポテンシャルがない場合と同様に，
+\begin{align}\label{eq:c_plus_n_aym}
+  \psi^{(+)}(\bm{k};\bm{r}) = \phi_C(\bm{k};\bm{r}) + \bar{\psi}^{\mathrm{sc}}(\bm{k}; \bm{r})
+\end{align}
+の形の解を探す．ここで，
+\(
+  \phi_C(\bm{k};\bm{r})
+\)
+は一様な解を与え，
+\(
+  \psi^{\mathrm{sc}}
+\)
+はポテンシャル$V_0(r)$の影響を受けた外向きの球面波である．
+しかし，クーロンポテンシャルの存在により漸近形が歪められて，
+\begin{align}\label{eq:c_plus_n_f}
+  \bar{\psi}^{\mathrm{sc}}(\bm{k};\bm{r}) _{\abs{r-z}\rightarrow \infty} \rightarrow \frac{1}{(2\pi)^{3/2}}\qty[\bar{f}(\theta)\frac{e^{i\Theta(r)}}{r}]
+\end{align}
+になる．$\Theta(r)$は式~\eqref{eq:coulomb_aympt_phase}で定義され位相であり，
+$\bar{f}(\theta)$は短距離ポテンシャル$V_0(r)$の存在により生じるクーロン散乱振幅の補正である．
+
+$\bar{f}(\theta)$を求めるために部分波展開，
+\begin{align}
+  \psi^{(+)}(\bm{k};\bm{r}) = \frac{1}{(2\pi)^{3/2}} \sum_{lm}C_{lm}Y_{lm}(\hat{\bm{r}}) \frac{u_l(k, r)}{kr}
+\end{align}
+の動径波動関数$u_l(k, r)$が満たす方程式は
+\begin{align}\label{eq:c_plus_n_radial}
+  -\frac{\hbar^2}{2\mu}\qty[\dv[2]{r} - \frac{l(l+1)}{r^2} - \frac{2\eta k }{r}] u_l(k, r) + V_0(r)u_l(k,r) = E u_l(k,r)
+\end{align}
+となる．$r > R$において，$V_0(r)$は0とできるため，式~\eqref{eq:c_plus_n_radial}
+はクーロンポテンシャルのみの方程式に帰着される．
+よって，$u_l(k, r > R)$は$H_l^{(+)}(\eta, \rho)$と$H_l^{(-)}(\eta, \rho)$の線形結合で表される．
+規格化定数を$i/2$とすると，
+\begin{align}\label{eq:c_plus_n_outside}
+  u_l(k, r>R) = \frac{i}{2}\qty[H_l^{(-)}(\eta, \rho) - \bar{S}_l H_l^{(+)}(\eta,\rho)]
+\end{align}
+と書ける．
+ここで，$\bar{S}_l = e^{2i\bar{\delta}_l}$は第$l$部分波の$V_0(r)$による$S$行列であり，
+$\bar{\delta}_l$はその位相差である．$C_{lm}$は式~\eqref{eq:n_c_for_c}で定義されている．
+式~\eqref{eq:c_plus_n_outside}から，
+\begin{align}
+  \psi^{(+)}(\bm{k};\bm{r}) \rightarrow \frac{1}{(2\pi)^{3/2}}\qty[\frac{e^{-i\Theta(r)}}{r}Z_- + \frac{e^{i\Theta(r)}}{r}\bar{Z}_+]
+\end{align}
+と書かれる．ここで，
+\begin{align}
+  \bar{Z}_+ = \frac{1}{2ik}\sum_{lm} 4\pi Y_{lm}^*(\hat{\bm{k}}) Y_{lm}(\hat{\bm{r}}) e^{2i\sigma_l} \bar{S}_l
+\end{align}
+とした．
+
+次に，式~\eqref{eq:c_plus_n_f}，~\eqref{eq:pure_c_asym}，を用いて~\eqref{eq:c_plus_n_aym}は，
+\begin{align}
+  \psi^{(+)}(\bm{k};\bm{r}) \rightarrow \frac{1}{(2\pi)^{3/2}}\qty[\frac{e^{-i\Theta(r)}}{r} Z_- + \frac{e^{i\Theta(r)}}{r} \tilde{Z}_+]
+\end{align}
+と書ける．ここで，
+\begin{align}
+  \tilde{Z}_+ = \bar{f}(\theta) + \frac{1}{2ik}\sum_{lm} 4\pi Y_{lm}^*(\hat{\bm{k}}) Y_{lm}(\hat{\bm{r}}) e^{2i\sigma_l}
+\end{align}
+である．ここで，
+\begin{align*}
+  \tilde{Z}_+ = \bar{Z}_+
+\end{align*}
+から，
+\begin{align}
+  \bar{f}(\theta) &= \frac{1}{2ik} 4\pi Y_{lm}^*(\hat{\bm{k}}) Y_{lm}(\hat{\bm{r}}) e^{2i\sigma_l} \qty(\bar{S}_l - 1) \\
+  &= \frac{1}{2ik}\sum_l (2l+1)P_l(\cos\theta) e^{2i\sigma_l} \qty(\bar{S}_l -1) \label{eq:c_plus_n_sa}
+\end{align}
+と分かる．
+式~\eqref{eq:c_plus_n_aym}において，球面波の寄与は$\phi_C(\bm{k};\bm{r})$からもある．式~\eqref{eq:coulomb_sol_asym}，~\eqref{eq:c_plus_n_f}から
+散乱振幅は
+\begin{align}
+  f(\theta) = f_C(\theta) + \bar{f}(\theta)
+\end{align}
+と書ける．よって微分散乱断面積は，
+\begin{align}
+  \dv{\sigma_C(\Omega)}{\Omega} = \abs{f_C(\theta) + \bar{f}(\theta)}
+\end{align}
+となる．
+短距離の核力の影響を見るために，断面積をラザフォード散乱断面積との比で
+規格化されることが多い．
+
+クーロンポテンシャルのみの散乱では部分波展開が収束しなかったが，式~\eqref{eq:c_plus_n_sa}で書かれた無限和は収束する．$\bar{\delta}_l$は短距離ポテンシャル
+の影響を受けなければ0となる．
+よって，$r = R$より粒子が内側へと侵入する必要がある．
+つまり，
+\begin{align}
+  \frac{l(l+1)}{R^2} + \frac{2k\eta}{R} < k^2
+\end{align}
+を満たす必要がある．これを満たす最大の$l$を$l_{\mathrm{cut}}$と置き，
+$l_{\mathrm{cut}}(l_{\mathrm{cut}+1}) \approx l_{\mathrm{cut}}^2$
+とし，
+\begin{align}
+  \frac{l_{\mathrm{cut}}(l_{\mathrm{cut}}+1)}{R^2} + \frac{2k\eta}{R} = k^2
+\end{align}
+を解くと，
+\begin{align}
+  l_{\mathrm{cut}} = ka \sqrt{1 - \frac{2\eta}{ka}}
+\end{align}
+を得る．同じ入射エネルギーにおいて$l > l_{\mathrm{cut}}$の部分波では，
+$r = R$は古典的に禁止された領域であるため，その寄与は小さくなることがわかる．
+よって，式~\eqref{eq:c_plus_n_sa}は収束することがわかる．
+
+
+位相差$\bar{\delta}_l$の評価は，クーロンがない場合とまったく同様にして，
+\begin{align}
+  \tan \bar{\delta}_l = - \qty[\frac{k R F'_l(\eta, kR) - F_l(\eta, kR)\mathcal{L}^I}{kR G'_l(\eta, kR) - G_l(\eta, kR)\mathcal{L}^I}]
+\end{align}
+で得られる．ここで，$\mathcal{L}^I$は$r < R$の解からもとめた $r = R$における
+動径波動関数の対数微分の値である．
+また，$F_l，G_l$の微分は$\rho = kr$に対して行われる．
+
+
 
 
 \section{同種粒子同士の散乱}

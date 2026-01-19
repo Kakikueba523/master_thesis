@@ -10,16 +10,12 @@
 \isotope[12]{C}+\isotope[12]{C}と\isotope[12]{C}+\isotope[13]{C}の両方の系において
 同じ$v_0$を用いて計算を行う．
 式~(\ref{eq:fus_cs_12_12})および~(\ref{eq:fus_cs_12_13})を用いて，断面積を求める．
-そこで得られた断面積をmodified $S$-factor ($S^*(E)$) と呼ばれる量へと変換する．
+そこで得られた断面積をmodified $S$-factor ($S^*(E)$) と呼ばれる量へと変換する
 \begin{align}\label{eq:modified_s_factor}
-  S^*(E) = E \sigma(E) \exp(2\pi \eta + 0.46 E)
+  S^*(E) = E \sigma(E) \exp(\frac{87.21}{\sqrt{E}} + 0.46 E).
 \end{align}
-ここで，$\eta = 36/137 \sqrt{\mu c^2/(2 E_{\text{c.m.}})}$はゾンマーフェルトパラメータである．
-式~(\ref{eq:modified_s_factor})の最初の因子は，運動学的な要素である，
-断面積の$1/E$依存性を取り除くためのものであり，
-$\exp(2\pi \eta)$は，クーロン透過率の逆数であり，
-$\exp(0.46E)$は原子核の大きさによる補正項である．
-このことにより，$S$-factorは共鳴の寄与をあらわに表すことができる．
+以下では，modified $S$-factorのことを単に$S$-factorと呼ぶ．
+
 
 $a_r = 0.31$ fm および，$v_0 = 0.1$ MeV$\cdot$fm$^{1/2}$ としたときの\isotope[12]{C}+\isotope[12]{C}核融合反応と\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの比較をする．
 \begin{figure}[t]
@@ -132,7 +128,7 @@ $v_0$の値によらず，共鳴構造の発現には変化がないものの，
   \includegraphics[width=0.9\textwidth]{figure/chap2/sfac_ref_compared.png}
   \caption{図\ref{fig:exp_data_comp}再掲}
 \end{figure}
-
+\clearpage
 \section{\isotope[12]{C}+\isotope[12]{C}と\isotope[12]{C}+\isotope[13]{C}のカップリングパラメータの比率の決定}
 ここで，\isotope[12]{C}+\isotope[13]{C}
 核融合反応の$S$-factorが，
@@ -149,7 +145,7 @@ $v_0$の値によらず，共鳴構造の発現には変化がないものの，
     \bm{V}^T & \bm{H}^{J^\pi}_\text{CN}
   \end{pmatrix} \tag{\ref{eq:total_hamiltonian}}
 \end{align}
-について，\isotope{C}+\isotope{C}チャネルに射影する．
+を\isotope{C}+\isotope{C}チャネルに射影する．
 このとき，有効ハミルトニアンとして，
 \begin{align}
   \bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi} = \bm{H}^l_\text{C+C} + \bm{V}^T \frac{1}{E-\bm{H}^{J^\pi}_\text{CN}} \bm{V}
@@ -157,62 +153,69 @@ $v_0$の値によらず，共鳴構造の発現には変化がないものの，
 が得られる．
 このハミルトニアンの虚部は，
 \begin{align}\label{eq:effctive_imaginary_part}
-  \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi})_{i,j} = \mathrm{Im}\sum_\mu \frac{v_0^2 \delta_{i,i_e}}{E - \mathcal{E}_\mu + i\Gamma_\mu /2} \delta_{ij}
+  \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi})_{i,j} = \mathrm{Im}\sum_\mu \frac{v_0^2 \delta_{i,i_e}}{E - \mathcal{E}^{J^\pi}_\mu + i\Gamma^{J^\pi}(\mathcal{E}^{J^\pi}_\mu) /2} \delta_{ij}
 \end{align}
-となる．吸収断面積が，
+となる．ここで，吸収断面積は
 \begin{align}
-  \sigma_{r} \propto \int \dd{r} \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi}) \abs{u(r)}^2
+  \sigma_{r} \propto w_J \int \dd{r} \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi}) \abs{u(r)}^2
 \end{align}
-と書かれるために，この虚部の値を\isotope[12]{C}+\isotope[12]{C}の共鳴エネルギー直上と，
+と書かれる．この値が\isotope[12]{C}+\isotope[12]{C}の共鳴エネルギー直上と，
 \isotope[12]{C}+\isotope[13]{C}とで，一致させるように$v_0$の比を決める．
-
+ただし，$w_J$はスピン統計因子であり，
+\begin{align}
+  w_J = (2J+1)\, \mathrm{for}\, \isotope[12]{C}+\isotope[12]{C}, \qquad w_J = \frac{2J+1}{2}\, \mathrm{for} \, \isotope[12]{C}+\isotope[13]{C}
+\end{align}
+である．
 \isotope[12]{C}+\isotope[12]{C}の場合．
 $E \sim E_C$を考える．ただし，$E_C$は複合核の固有エネルギーとする．
 孤立共鳴に対応するため，式~(\ref{eq:effctive_imaginary_part})は
 \begin{align}\label{eq:12_12_imaginary}
-  \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi}) = - i \frac{2v_0^2}{\Gamma_C} \delta_{i, i_e}
+  \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi}) = - i \frac{2v_0^2}{\Gamma^{J^\pi}(\mathcal{E}^{J^\pi}_C)} \delta_{i, i_e}
 \end{align}
 となる．
 
 \isotope[12]{C}+\isotope[13]{C}の場合．
 $E \sim E_C$を考える．ただし，$E_C$は複合核の固有エネルギーである．
-準位間隔$D$と崩壊幅$\Gamma$を一定だと近似すると，
+準位間隔$D$と崩壊幅$\Gamma$を一定だと近似し，
 \begin{align*}
   \sum_\mu \frac{v_0^2}{-n D + i \Gamma/2} = -iv_0^2 \frac{\pi}{D}\coth \qty(\frac{\pi \Gamma}{2D})
 \end{align*}
+を用いると，
 \begin{align}
   \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi}) = - v_0 ^2 \frac{\pi}{D} \coth \qty(\frac{\pi \Gamma}{2D})
 \end{align}
 であるため，$D \ll \Gamma$のもとで，
 \begin{align}
-  \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi}) = - v_0^2 \pi \rho(E_C)
+  \mathrm{Im} \qty(\bm{H}_{\mathrm{C+C，eff}}^{l, J^\pi}) = - v_0^2 \pi \rho^{J^\pi}(E_C)
 \end{align}
-である．
-よって，有効ポテンシャルの虚部の比が１となるようにすると，
+である．ただし，$\rho = 1/D$である．
+
+よって，スピン統計因子を含めた有効ポテンシャルの虚部の比が１となるようにすると，
 \begin{align}\label{eq:strength_ratio_equation}
-  (v_0^{12+12})^2 / (v_0^{12+13})^2 = \frac{\Gamma^{24}_C}{2} \pi \rho^{25}(E_C)
+  (v_0^{12+12})^2 / (v_0^{12+13})^2 = \frac{\pi}{2}\ev{w_{J^{24}}\Gamma^{24}(E_C)} \ev{ w_{J^{25}}\rho^{25}(E_C)}
 \end{align}
-と決めることができる．ただし，$\Gamma^{24}_C$は\isotope[24]{Mg}の$E \sim E_C$における崩壊幅であり，
-$\rho^{25}(E_C)$は\isotope[25]{Mg}の$E \sim E_C$における準位密度である．
+と決めることができる．ただし，$\ev{w_{J^{24}}\Gamma^{24}(E_C)} $は\isotope[24]{Mg}の崩壊幅とスピン統計因子の積のエネルギーおよびスピン平均であり，
+$\ev{ w_{J^{25}}\rho^{25}(E_C)}$は\isotope[25]{Mg}の準位密度とスピン統計因子の積のエネルギーおよびスピン平均である．
 
 今までの計算結果から，\isotope[12]{C}+\isotope[12]{C}で最も寄与する部分波は，
 $l = 0，2$であり，\isotope[12]{C}+\isotope[13]{C}で最も寄与する部分波は，
-$l = 0，1，2$である．よって，これらの値における平均の値を比率の計算，式~(\ref{eq:strength_ratio_equation})
+$l = 0，1，2$であることがわかる．よって，これらの値における平均の値を比率の計算，式~(\ref{eq:strength_ratio_equation})
 に用いる．すなわち，\isotope[24]{Mg}の$J = 0，2$における平均崩壊幅と，
-\isotope[25]{Mg}の$J = 1/2, 3/2, 5/2$における平均準位密度を用いて計算する．
+\isotope[25]{Mg}の$J = 1/2, 3/2, 5/2$における平均準位密度を
+2.0 MeV $< E_{\mathrm{c.m.}} <$ 5.5 MeV で計算する．
 殻模型による計算と，遷移状態理論による見積りから，
-$\Gamma^{24} \sim 0.042$MeVであり，$\rho^{25} \sim 35.3$ MeV$^{-1}$ であるため，
+$\ev{w_J \Gamma^{24}} \sim 0.051$ MeV であり，$\ev{w_J \rho^{25}} \sim 39.8$ MeV$^{-1}$ であるため，
 これらの値をもとに計算する．
-まず$v_0= 0.1，0.3，0.6$を
+まず$v_0= 0.1，0.3，0.6$ MeV$\cdot$fm$^{1/2}$ を
 \isotope[12]{C}+\isotope[13]{C}核融合反応に用いて，
 \isotope[12]{C}+\isotope[12]{C}核融合反応には式~(\ref{eq:strength_ratio_equation})
 を用いて変換した値を用いる．具体的には，
-$v_0 = 0.15，0.46, 0.92$ を用いて計算した結果を
+$v_0 = 0.18，0.54, 1.1$ MeV$\cdot$fm$^{1/2}$  を用いて計算した結果を
 \begin{figure}[t]
   \centering
   \includegraphics[width= 0.9\textwidth]{figure/chap7/sfac_v0_0.15_comp.png}
   \caption{
-    $v_0^{12+12} = 0.15$ MeV$\cdot$fm$^{1/2}$，$v_0^{12+13} = 0.1$ MeV$\cdot$fm$^{1/2}$，$a_r = 0.31$ fm としたときの$S$-factorの比較．
+    $v_0^{12+12} = 0.18$ MeV$\cdot$fm$^{1/2}$，$v_0^{12+13} = 0.1$ MeV$\cdot$fm$^{1/2}$，$a_r = 0.31$ fm としたときの$S$-factorの比較．
   }
   \label{fig:v0_1212_0.28}
 \end{figure}
@@ -242,13 +245,13 @@ $v_0 = 0.15，0.46, 0.92$ を用いて計算した結果を
   \begin{subfigure}[t]{0.48\linewidth}
     \centering
     \includegraphics[width=0.9\textwidth]{figure/chap7/sfac_v0_0.46_comp.png}
-    \caption{$v_0^{12+12} = 0.46$ MeV$\cdot$fm$^{1/2}$，$v_0^{12+13} = 0.3$ MeV$\cdot$fm$^{1/2}$，$a_r = 0.31$ fm}
+    \caption{$v_0^{12+12} = 0.54$ MeV$\cdot$fm$^{1/2}$，$v_0^{12+13} = 0.3$ MeV$\cdot$fm$^{1/2}$，$a_r = 0.31$ fm}
     \label{fig:v0_1212_0.85}
   \end{subfigure}\hfill
   \begin{subfigure}[t]{0.48\linewidth}
     \centering
     \includegraphics[width=0.9\textwidth]{figure/chap7/sfac_v0_0.92_comp.png}
-    \caption{$v_0^{12+12} = 0.92$ MeV$\cdot$fm$^{1/2}$，$v_0^{12+13} = 0.6$ MeV$\cdot$fm$^{1/2}$，$a_r = 0.31$ fm }
+    \caption{$v_0^{12+12} = 1.1$ MeV$\cdot$fm$^{1/2}$，$v_0^{12+13} = 0.6$ MeV$\cdot$fm$^{1/2}$，$a_r = 0.31$ fm }
     \label{fig:v0_1212_1.7}
   \end{subfigure}
   \caption{$a_r = 0.31$ fm を用いた$S$-factorの計算結果．
@@ -256,7 +259,8 @@ $v_0 = 0.15，0.46, 0.92$ を用いて計算した結果を
   \label{fig:strength_matched}
 \end{figure}
 図\ref{fig:v0_1212_0.28}，\ref{fig:v0_1212_0.85}，\ref{fig:v0_1212_1.7}に
-にプロットする．
+にプロットする．比率を調整しなかった場合に比べて，\isotope[12]{C}+\isotope[13]{C}の
+$S$-factorがよい上限を与えるようになったことが分かる．
 以下では，式~\eqref{eq:strength_ratio_equation}からカップリングパラメータの比率を
 求めて計算する．
 
@@ -427,7 +431,7 @@ $v_0 = 0.64$ MeV fm$^{1/2}$となるため，二つを同じ図にプロット�
 2.0 MeV $ < E_{\mathrm{c.m.}} < $ 5.5 MeV で共鳴のピークが
 一致するようにカップリングパラメータの比率を決めたため，
 $E_{\mathrm{c.m.}} < $ 2.0 MeV において共鳴のピークが
-\isotope[12]{C}+\isotope[13]{C}核融合反応の$S^*$-factorよりも大きな
+\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorよりも大きな
 値をとっている．
 
 \clearpage
