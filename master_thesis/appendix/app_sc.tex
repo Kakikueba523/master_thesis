@@ -1,0 +1,319 @@
+\chapter{散乱波について}\label{app:sa}
+式~\eqref{eq:scatt_asympt_form}では解の形を仮定したが，ここでは理論的な定式化を行う．
+\section{リップマン・シュウィンガー方程式}
+波数ベクトル$\bm{k}$，エネルギー$E_{\bm{k}} := \hbar^2 k^2 / 2\mu$の自由粒子のシュレーディンガー方程式は，
+\begin{align}\label{eq:free_p_shcrodinger}
+  (E_k - H_0) \ket{\phi(\bm{k})} = 0
+\end{align}
+であり，$r>\bar{R}$で消えるポテンシャル$V$をもつシュレーディンガー方程式は，
+\begin{align}\label{eq:int_p_schrodinger}
+  (E_k - H)\ket{\psi(\bm{k})} = 0
+\end{align}
+と書ける．ここで，$H_0 = K$は運動エネルギー演算子であり，$H = H_0 + V$である．
+
+$H = H^\dagger, H_0 = H_0^\dagger$であることから，$\ket{\phi(\bm{k})}$と$\ket{\psi(\bm{k})}$は，以下の関係で正規化される．
+\begin{align}\label{eq:normalization_condition}
+  \braket{\phi(\bm{k}')}{\phi(\bm{k})} &= \delta (\bm{k}- \bm{k}') \\
+  \braket{\psi(\bm{k}')}{\psi(\bm{k})} &= \delta (\bm{k}-\bm{k}') \\
+  \braket{\psi_m}{\psi(\bm{k})} &= 0 \\
+  \braket{\psi_m}{\psi_n} &= \delta_{mn}
+\end{align}
+$m$，$n$はハミルトニアン$H$の負エネルギー固有状態を表している．
+$\ket{\psi(\bm{k})}$，$\ket{\phi(\bm{k})}$
+における完全系の式は，
+\begin{gather}\label{eq:complete_set}
+  \int \ket{\phi(\bm{k})} \dd[3]{\bm{k}} \bra{\phi(\bm{k})} = \bm{1} \\
+  \int \ket{\psi(\bm{k})} \dd[3]{\bm{k}} \bra{\psi(\bm{k})} + \sum_n \ket{\psi_n} \bra{\psi_n} = \bm{1} 
+\end{gather}
+である．
+
+freeとfullのグリーン関数はそれぞれ，
+\begin{align}\label{eq:def_green_fnc}
+  G_0(E) = \frac{1}{E - H_0} \\
+  G(E) = \frac{1}{E- H}
+\end{align}
+と定義される．
+$G$と$G_0$の間の関係を求めるために，
+\begin{align*}
+  A^{-1} = B^{-1} + B^{-1}(B-A)A^{-1}
+\end{align*}
+という恒等式を用い，$A = E-H = E - (H_0 + V)$，$B = E - H_0$
+と置き換えることで，
+\begin{align}\label{eq:G_equal_G_0_equation}
+  G(E) = G_0(E) + G_0(E)V G(E)
+\end{align}
+となり，$A = E - H_0$，$B = E-(H_0 +V)$と置き換えることで，
+\begin{align}\label{eq:G_0_equal_G_equation}
+  G_0(E) = G(E) + G(E)(-V)G_0(E) \notag \\
+  G(E) = G_0(E) + G(E) V G_0(E)  
+\end{align}
+となる．
+
+$\ket{\psi(\bm{k})}$についてみてみよう．
+いま，式\eqref{eq:int_p_schrodinger}において，
+\begin{align}\label{eq:int_p_shcro_rev}
+  (E_k-H_0) \ket{\psi(\bm{k})} = V \ket{\psi(\bm{k})}
+\end{align}
+と書き換えて，
+$\ket{\psi(\bm{k})} = \ket{\phi(\bm{k})} + \ket{\psi^\mathrm{sc} (\bm{k})}$と分解し，式\eqref{eq:int_p_shcro_rev}
+に代入し式\eqref{eq:free_p_shcrodinger}を用いると，
+\begin{align}\label{eq:int_p_shcro_rev_2}
+  (E_k - H_0) \ket{\psi^\mathrm{sc}(\bm{k})} = V \ket{\psi(\bm{k})}
+\end{align}
+を得る．式\eqref{eq:int_p_shcro_rev_2}に左から$G_0(E_k)$を掛けて，
+$\ket{\psi^\mathrm{sc}(\bm{k})} = \ket{\psi (\bm{k})} - \ket{\phi(\bm{k})}$
+を代入して，
+\begin{align}\label{eq:lippman_schwinger_eq_1}
+  \ket{\psi(\bm{k})} = \ket{\phi(\bm{k})} + G_0(E_k) V \ket{\psi(\bm{k})}
+\end{align}
+を得る．
+一方で，式\eqref{eq:int_p_shcro_rev_2}の右辺に，$\ket{\psi(\bm{k})} = \ket{\phi(\bm{k})} + \ket{\psi^\mathrm{sc} (\bm{k})}$
+という関係式を用いることで，
+\begin{align}\label{eq:inti_p_shcro_rev_3}
+  (E_k - H_0 - V) \ket{\psi^\mathrm{sc}(\bm{k})} = V \ket{\phi(\bm{k})}
+\end{align}
+となり，左から$G(E_k)$を掛けて，
+\begin{align*}
+  \ket{\psi^\mathrm{sc}(\bm{k})} = G(E_k) V \ket{\phi(\bm{k})}
+\end{align*}
+を得る．よって，$\ket{\psi(\bm{k})} = \ket{\phi(\bm{k})} + \ket{\psi^\mathrm{sc} (\bm{k})}$
+を用いると，
+\begin{align}\label{eq:lippman_scwinger_eq_2}
+  \ket{\psi(\bm{k})} = \ket{\phi(\bm{k})} + G(E_k) V \ket{\phi(\bm{k})} = (1 + G(E_k) V) \ket{\phi(\bm{k})}
+\end{align}
+となる．式\eqref{eq:lippman_schwinger_eq_1}，\eqref{eq:lippman_scwinger_eq_2}がリップマン・シュウィンガー方程式である．
+
+\section{自由粒子のグリーン関数}
+$G_0(E_k)$の座標表示を得る．
+まず，自由粒子のグリーン関数について，
+完全系で展開すると，
+\begin{align}
+  G_0(E_k) 
+  &= \int \dd[3]{\bm{q}} \frac{\ket{\phi(\bm{q})}\bra{\phi(\bm{q})}}{E_k - E_q} \notag \\
+  &= - \qty(\frac{2\mu}{\hbar^2}) \int \dd[3]{\bm{q}} \frac{\ket{\phi(\bm{q})}\bra{\phi(\bm{q})}}{q^2 - k^2} \label{eq:g_0_decomposition}
+\end{align}
+となる．
+式~\eqref{eq:g_0_decomposition}から，~$\mel{\bm{r}}{G_0(E_k)}{\bm{r}'} = G_0(E_k; \bm{r}, \bm{r}')$は，
+\begin{align}\label{eq:mel_g0}
+  G_0(E_k;\bm{r}, \bm{r}') = - \qty(\frac{2\mu}{\hbar^2}) \int \dd[3]{\bm{q}} \frac{\phi(\bm{q};\bm{r})\phi^*(\bm{q};\bm{r}')}{q^2 - k^2}
+\end{align}
+となる．ここで，
+\begin{align}
+  \braket{\bm{r}}{\bm{q}} = \phi(\bm{q};\bm{r}) = \frac{1}{(2\pi)^{3/2}}e^{i \bm{q}\cdot \bm{r}}
+\end{align}
+を用いた．
+\begin{align}
+  \bm{R} = \bm{r} - \bm{r}'
+\end{align}
+を用い，
+\begin{align}
+  \bm{R} \cdot \bm{q} = Rq \cos\theta_{\bm{q}}
+\end{align}
+とすると，
+式~\eqref{eq:mel_g0}は
+\begin{align}
+  G_0(E_k; \bm{r}, \bm{r}') = -\qty(\frac{2\mu}{\hbar^2})\frac{1}{(2\pi)^2} \int_{0}^{\infty} \dd{q} \frac{q^2}{q^2 - k^2} \int_{-1}^{1} \dd{\qty(\cos\theta_{q})} e^{iqR\cos\theta_{q}}
+\end{align}
+となる．グリーン関数における$\bm{r}，\bm{r}'$依存性が，その間の距離~$\abs{R} = \abs{\bm{r} -\bm{r}'}$のみに依るのは，$H_0$の並進および回転対称性に起因する．
+
+ここで，
+\(
+  \cos\theta_{q}
+\)
+についての積分を実行すると，
+\begin{align}\label{eq:mel_g0_2}
+  G_0(E_k;\bm{r}, \bm{r}') = \qty(\frac{2\mu}{\hbar^2}) \frac{i}{(2\pi)^2 R} \qty(I_1 + I_2)
+\end{align}
+となる．ここで，
+\begin{align}
+  I_1 = \int_{0}^{\infty} \dd{q} \frac{qe^{iqR}}{q^2-k^2}, \qquad I_2 = - \int_{0}^{\infty} \dd{q} \frac{qe^{-iqR}}{q^2-k^2}
+\end{align}
+とした．
+$I_2$について，$q \rightarrow -q$と積分変数を変換すると，
+\begin{align}
+  I_2 = - \int_{0}^{-\infty} \dd{q} \frac{qe^{iqR}}{q^2 - k^2}
+\end{align}
+となるため，
+\begin{align}
+  I_1 + I_2 = \int_{-\infty}^{\infty}\dd{q} \frac{qe^{iqR}}{q^2 - k^2}
+\end{align}
+となる．また，
+\begin{align}
+  \frac{q}{q^2-k^2} = \frac{1}{2}\qty(\frac{1}{q-k} + \frac{1}{q+k})
+\end{align}
+を用いることで，式~\eqref{eq:mel_g0_2}は，
+\begin{align}\label{eq:mel_g0_3}
+  G_0(E_k;\bm{r},\bm{r}') = \qty(\frac{2\mu}{\hbar^2}) \frac{i}{2(2\pi)^2 R} \int_{-\infty}^{\infty}\dd{q} \qty[\frac{1}{q-k} + \frac{1}{q+k}]e^{iqR}  
+\end{align}
+となる．式~\eqref{eq:mel_g0_3}は実軸上の極 $q = \pm k$ のために定義できないが，
+この極を
+\begin{align}
+  \pm k \rightarrow \pm ( k + i\epsilon') , \qquad \pm k \rightarrow \pm ( k - i\epsilon')
+\end{align}
+と動かすことにより定義される
+\(
+  G_0^{(\pm)}(E_k;\bm{r}, \bm{r}')
+\)
+は定義できる．これらは，
+\begin{align}
+  G_0(E_k) \rightarrow G_0^{\pm}(E_k) = \lim_{\epsilon \rightarrow 0}\qty[\frac{1}{E_k - H_0 \pm i \epsilon}]
+\end{align}
+として対応付けられる．
+ここで，
+\begin{align*}
+  \epsilon = \frac{\hbar^2 k}{\mu}\epsilon'
+\end{align*}
+は微小量である．
+% また，$G_0^{(\pm)}(E_k;\bm{r},\bm{r}')$は，
+% \begin{align}
+%   \qty[E_k + \frac{\hbar^2}{2\mu}\nabla_{r}^2]G_0^{(\pm)}(E_k;\bm{r},\bm{r}') = \delta(\bm{r} - \bm{r}')
+% \end{align}
+% の解であることもわかる．
+% また，明らかに
+% \begin{align}
+%   \qty[G_0^{(\pm)}(E_k)]^\dagger = G_0^{(\mp)}(E_k)
+% \end{align}
+% が成り立つ．
+
+また，
+\begin{align}
+  \lim_{\epsilon \rightarrow 0} \frac{1}{x \pm i\epsilon} = \mathcal{P} \frac{1}{x} \mp i\pi \delta(x)
+\end{align}
+という関係式を用いると，
+\begin{align}
+  G_0^{(\pm)}(E_k) = \mathcal{P}\frac{1}{E_k - H_0}\mp i\pi \delta(E_k - H_0)
+\end{align}
+となる．$\mathcal{P}$はコーシーの主値である．
+第一項がオフシェル，第二項がオンシェル部分である．
+
+極をずらし定義した$G_0^{(\pm)}$について，
+\begin{align}\label{eq:mel_g0_4}
+  G_0^{(\pm)}(E_k;\bm{r},\bm{r}') =\qty(\frac{2\mu}{\hbar^2}) \frac{i}{2(2\pi)^2 R} I^{(\pm)}
+\end{align}
+である．ここで，
+\begin{align}\label{eq:g0_integrant}
+  I^{(\pm)} = \int_{-\infty}^{\infty}\dd{q} \qty[\frac{1}{q - (k\pm i\epsilon')} + \frac{1}{q + (k\pm i \epsilon')}]e^{iqR}
+\end{align}
+とした．この積分は，図~\ref{fig:contour_k_plane_b}の
+経路をとる複素積分として評価される．
+\begin{figure}[t]
+  \centering
+  % \usepackage{tikz}
+  % \usetikzlibrary{decorations.markings}
+
+  \begin{tikzpicture}[>=Latex, scale=1.05]
+    \def\R{4.0} % 半円の半径
+
+    % ---- axes ----
+    \draw[->, thick] (-\R-0.8,0) -- (\R+1.2,0) node[below right] {$\mathrm{Re}\{q\}$};
+    \draw[->, thick] (0,-1.4) -- (0,\R+0.9) node[left] {$\mathrm{Im}\{q\}$};
+
+    % ---- contour Gamma (upper semicircle) ----
+    \draw[thick,
+      postaction={decorate},
+      decoration={markings,
+        mark=at position 0.18 with {\arrow{Latex}},
+        mark=at position 0.48 with {\arrow{Latex}},
+        mark=at position 0.78 with {\arrow{Latex}}
+      }
+    ] (\R,0) arc (0:180:\R);
+
+    % ---- real-axis part with arrows to the right ----
+    \draw[thick,
+      postaction={decorate},
+      decoration={markings,
+        mark=at position 0.20 with {\arrow{Latex}},
+        mark=at position 0.50 with {\arrow{Latex}},
+        mark=at position 0.80 with {\arrow{Latex}}
+      }
+    ] (-\R,0) -- (\R,0);
+
+    \node at (2.1,3.1) {$\Gamma$};
+
+    % ---- dashed line D ----
+    \draw[dashed, thick] (0,0) -- ({\R*cos(35)},{\R*sin(35)});
+    \node at (1.55,1.55) {$D$};
+
+    % ---- symbols (open circles + filled dots) ----
+    \coordinate (xL) at (-2.4,0);
+    \coordinate (xR) at ( 2.4,0);
+
+    \draw[thick] (xL) circle (0.13);
+    \fill (xL)+(0,-0.60) circle (0.15);
+
+    \draw[thick] (xR) circle (0.13);
+    \fill (xR)+(0,+0.60) circle (0.15);
+
+    % ---- panel label ----
+    % \node at (-2.9,2.6) {\Large (b)};
+  \end{tikzpicture}
+
+  \caption{複素$q$平面上の積分路．例として，$\pm k \rightarrow \pm(k + i \epsilon) $
+  とずらした極を黒丸で書いた．}
+  \label{fig:contour_k_plane_b}
+\end{figure}
+図\ref{fig:contour_k_plane_b}で$D \rightarrow \infty$の極限をとると，
+式~\eqref{eq:g0_integrant}の指数関数部分が，
+\begin{align*}
+  e^{iDR(\cos\theta + i\sin\theta)} = e^{IDR\cos\theta} \times e^{-DR\sin\theta}
+\end{align*}
+となる．ここで，$q = D(\cos\theta + i \sin \theta)$とした．
+$R$が0でなければ，経路$\Gamma$において，$\sin\theta > 0$であることから，
+$D \rightarrow \infty$の極限において，
+\begin{align*}
+  e^{iqR} \rightarrow 0 
+\end{align*}
+となる．よって，留数定理により
+\begin{align}
+  I^{(\pm)} = 2\pi i \times \Res[q = \pm(k\pm i\epsilon)] = 2\pi i e^{\pm i kR}
+\end{align}
+を得る．
+よって，式~\eqref{eq:mel_g0_4}は
+\begin{align}\label{eq:mel_g0_final}
+  G_0^{(\pm)}(E_k; \bm{r}, \bm{r}') = -\qty(\frac{2\mu}{\hbar^2}) \frac{1}{4\pi} \frac{e^{\pm i k \abs{\bm{r}-\bm{r}'}}}{\abs{\bm{r}-\bm{r}'}}
+\end{align}
+となる．
+\section{散乱振幅}
+リップマン・シュウィンガー方程式から，座標表示をとると，
+\begin{align}
+  \psi^{(\pm)}(\bm{k};\bm{r}) = \phi(\bm{k};\bm{r}) + \int \dd[3]{\bm{r}'} G_0^{(\pm)}(E_k;\bm{r},\bm{r}') V(\bm{r}') \psi^{(\pm)}(\bm{k};\bm{r}')
+\end{align}
+となり，式~\eqref{eq:mel_g0_final}を用いて
+\begin{align}\label{eq:sc_g0_mel}
+  \psi^{(\pm)}(\bm{k};\bm{r}) = \phi(\bm{k};\bm{r}) - \frac{\mu}{2\pi\hbar^2}\int \dd[3]{\bm{r}'} \frac{e^{\pm ik\abs{\bm{r}-\bm{r}'}}}{\abs{\bm{r} - \bm{r}'}} V(\bm{r}') \psi^{(\pm)}(\bm{k};\bm{r}')
+\end{align}
+となる．
+ここで，$\abs{\bm{r}} \rightarrow \infty$の極限をとる．
+\begin{align}
+  \frac{1}{\abs{\bm{r}' - \bm{r}}} \rightarrow \frac{1}{r}
+\end{align}
+であり，
+\begin{align*}
+  k\abs{\bm{r}-\bm{r}'}  = k\qty(r^2 + r'^2 -2\bm{r}\cdot \bm{r}')^{1/2} \approx kr -k \hat{\bm{r}} \cdot \bm{r}'
+\end{align*}
+と近似すると，
+\begin{align*}
+  e^{\pm i k \abs{\bm{r}-\bm{r}'}} \approx e^{\pm ikr} \times e^{ \mp i k \hat{\bm{r}}\cdot \bm{r}'}
+\end{align*}
+となるため，式~\eqref{eq:sc_g0_mel}は，
+\begin{align}\label{eq:sc_asym_g0}
+  \psi^{(\pm)}(\bm{k};\bm{r}) \rightarrow \phi(\bm{k};\bm{r}) + \frac{e^{\pm ikr}}{r}  \qty[- \frac{\mu}{2\pi \hbar^2 } \int \dd[3]{\bm{r}'} e^{\mp i \bm{q} \cdot \bm{r}'} V(\bm{r}') \psi^{(\pm)}(\bm{k};\bm{r}')]
+\end{align}
+となる．ここで，~$\bm{q} = k \hat{\bm{r}}$を用いた．
+$\bm{q}$は終状態の波数ベクトルである．また，式~\eqref{eq:sc_asym_g0}を書き換えると，
+\begin{align}\label{eq:sc_sym_mel_g0}
+  \psi^{(\pm)}(\bm{k}; \bm{r}) \rightarrow \frac{1}{(2\pi)^{3/2}} \qty{ e^{i\bm{k}\cdot \bm{r}} + \frac{e^{ikr}}{r} \qty[-2\pi^2 \qty(\frac{2\mu }{\hbar^2}) \mel{\phi(\pm\bm{q})}{V}{\psi^{(\pm)}(\bm{k})}]}
+\end{align}
+となる．
+
+\(
+  \psi^{(+)}
+\)
+についての式を見ると，漸近形が平面波と外向きの球面波の重ね合わせで表現されており，
+第\ref{chap:scattering_theory}章で仮定した解の形を再現していることが分かる．
+ここで，式~\eqref{eq:scatt_asympt_form}と比較すると，散乱振幅は
+\begin{align}
+  f(\theta) = -2\pi^2 \qty(\frac{2\mu}{\hbar^2})\mel{\phi(\bm{q})}{V}{\psi^{(+)}(\bm{k})}
+\end{align}
+と書かれることが分かる．
+$\theta$は始状態の波数ベクトル$\bm{k}$と終状態の波数ベクトル$\bm{q}$のなす角である．

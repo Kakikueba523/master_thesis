@@ -53,7 +53,14 @@ M3Y double folding potentialは，
   v_{\mathrm{M3Y}}(\bm{r}) = A \frac{e^{-\beta_1 r}}{\beta_1 r} + B \frac{e^{-\beta_2 r}}{\beta_2 r} + C \delta(s)
 \end{align}
 と書かれる．ここで，
-$A = 7999$ MeV，$B = -2134$ MeV，$C = -276$ MeV fm$^{-1}$，$\beta_1 = 4$ fm $^{-1}$，$\beta_2 = 2.5$ fm $^{-1}$である．
+$A = 7999$ MeV，$B = -2134$ MeV，$C = -276$ MeV fm$^{-3}$，
+$\beta_1 = 4$ fm $^{-1}$，$\beta_2 = 2.5$ fm $^{-1}$である\cite{SATCHLER1979183}．
+本来は
+\begin{align*}
+  C = (1 - 0.005\frac{E}{A}) \mathrm{MeV}\,\mathrm{fm}^{-3}
+\end{align*}
+と書かれるが，第二項は微小であるため無視した．
+
 また，式~\eqref{eq:m3y_interaction}の第三項であるデルタ関数型の相互作用は，
 異なる原子核の核子間における反対称化の影響を表す交換項である．
 

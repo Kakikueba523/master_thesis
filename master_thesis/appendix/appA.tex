@@ -4,7 +4,7 @@
 \begin{align}\label{eq:spherical_bessel_differential_equation}
   \qty[\dv[2]{}{\rho} + \frac{2}{\rho}\dv{\rho} + 1 - \frac{l(l+1)}{\rho^2}]f_l(\rho) = 0
 \end{align}
-であらわされる．この解を式~(\ref{eq:spherical_bessel_sol})と書けることを示そう．
+であらわされる．
 まず，
 \begin{align}\label{eq:f_l_by_chi}
   f_l (\rho) = (-\rho)^l \chi_l(\rho)
@@ -76,16 +76,16 @@ $F_l(\rho)$についての式に書き直すと，
 \end{align}
 は，球ノイマン関数と呼ばれる\footnote{式~\ref{eq:def_of_nuemann_func}について，符号の異なる定義もあることに注意．}．
 
-また，式~(\ref{eq:f_l_by_chi})と~(\ref{eq:reccursion_chi})から，
-\begin{align}
-  f_{l+1} 
-  &= (-\rho)^{l+1} \frac{1}{\rho} \dv{\rho}\qty(\frac{f_{l}}{(-\rho)^{l}}) \notag \\
-  &= \frac{l}{\rho} f_{l} - \dv{\rho} f_{l}
-\end{align}
-という関係式が得られる．また，式~(\ref{eq:sol_of_spherical_bessel_in_deriv})から，
-\begin{align}
-  f_l = (-\rho)^l
-\end{align}
+% また，式~(\ref{eq:f_l_by_chi})と~(\ref{eq:reccursion_chi})から，
+% \begin{align}
+%   f_{l+1} 
+%   &= (-\rho)^{l+1} \frac{1}{\rho} \dv{\rho}\qty(\frac{f_{l}}{(-\rho)^{l}}) \notag \\
+%   &= \frac{l}{\rho} f_{l} - \dv{\rho} f_{l}
+% \end{align}
+% という関係式が得られる．また，式~(\ref{eq:sol_of_spherical_bessel_in_deriv})から，
+% \begin{align}
+%   f_l = (-\rho)^l
+% \end{align}
 
 \section{クーロンポテンシャル下}\label{app:coulomb_diff_eq}
 

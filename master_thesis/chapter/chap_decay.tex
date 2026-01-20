@@ -5,7 +5,38 @@
 ここでの議論は\cite{frobrich2023theory}の10.4を参照した．
 
 \section{フェルミの黄金律を用いた評価}
-複合核の崩壊について考える．エネルギー$E_C$，スピン$J$を持つ複合核状態$C$
+\begin{figure}[t]
+  \centering
+  \begin{tikzpicture}[
+    >=Stealth,
+    thick,
+    nuc/.style={circle, draw, minimum size=18mm, align=center},
+    part/.style={circle, draw, minimum size=3mm, align=center},
+  ]
+
+    % --- nodes ---
+    \node[nuc] (C) {複合核\\[-1mm]$E_C,\;J$};
+
+    % split point (optional, makes the branching look nice)
+    \coordinate (V) at ($(C.east)+(2.4,0)$);
+
+    \node[part, minimum size=7mm] (y) at ($(V)+(3.6, 2.0)$) {$y$};
+
+    \node[nuc]  (B) at ($(V)+(2.6,-0.4)$) {残留核\\[-1mm]$B,\;I_B$};
+
+    % --- arrows ---
+    \draw[->] ($(C.east)+(0.4, 0)$) -- (V);
+    % \draw[->] (V) -- (y.west);
+    % \draw[->] (V) -- (B.west);
+    \draw[<->] (y) -- node[midway, right] {$\mathcal{E}_b +\dd{\mathcal{E}_b}$} (B);
+
+  \end{tikzpicture}
+  \caption{複合核の崩壊過程の模式図．
+  複合核 $(E_C,J)$ が蒸発粒子 $y$ と残留核 $B$ に崩壊する。}
+  \label{fig:compound_decay}
+\end{figure}
+
+複合核の崩壊について考える．図~\ref{fig:compound_decay}のようにエネルギー$E_C$，スピン$J$を持つ複合核状態$C$
 がエネルギー$(\mathcal{E}_b，\mathcal{E}_b + \dd{\mathcal{E}}_b)$，スピン$I_y$
 を持った軽い粒子$y$を放出し，残留核$B$としてスピン$I_B$が残る系を考える．
 このとき，フェルミの黄金律から反応率が
@@ -133,7 +164,6 @@ $\alpha，\beta，\gamma$は，\cite{ILJINOV1992517}においてフィットさ�
   \alpha = 0.114, \quad \beta = 0.098, \quad \gamma = 0.051
 \end{align*}
 を用いる．
-
 これらのパラメータを用いて，具体的に\isotope[24]{Mg}
 と\isotope[25]{Mg}の準位密度を計算すると，図\ref{fig:level_density_24mg_and_25mg}のようになる．
 \begin{figure}[t]

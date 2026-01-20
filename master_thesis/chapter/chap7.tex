@@ -1,7 +1,7 @@
 \newpage
 \chapter{結果}\label{chap:result}
 
-ここでは，原子核ポテンシャルごとに計算結果を載せてその内容について議論する．
+ここでは，第\ref{chap:model_explanation}章で説明した模型による計算結果を載せてその内容について議論する．
 また，M3Y + repulsionポテンシャルにおいては，Repulsion termのdifusenessパラメータ$a_r$と，
 カップリング行列のパラメータ$v_0$が実験データにフィットすべきパラメータである．
 \section{カップリングパラメータ$v_0$毎による振る舞いの違い}
@@ -259,7 +259,8 @@ $v_0 = 0.18，0.54, 1.1$ MeV$\cdot$fm$^{1/2}$  を用いて計算した結果を
   \label{fig:strength_matched}
 \end{figure}
 図\ref{fig:v0_1212_0.28}，\ref{fig:v0_1212_0.85}，\ref{fig:v0_1212_1.7}に
-にプロットする．比率を調整しなかった場合に比べて，\isotope[12]{C}+\isotope[13]{C}の
+にプロットする．比率を調整しなかった場合に比べて，特に図~\ref{fig:v0_1212_1.7}を見れば
+顕著であるが，\isotope[12]{C}+\isotope[13]{C}の
 $S$-factorがよい上限を与えるようになったことが分かる．
 以下では，式~\eqref{eq:strength_ratio_equation}からカップリングパラメータの比率を
 求めて計算する．
@@ -323,7 +324,7 @@ $S$-factorの$\chi^2$を評価する．
     $a_r$ を 0.30 fm から 0.35 fm，
     $v_0$ を 0.15  MeV fm$^{1/2}$ から 0.50 MeV fm$^{1/2}$ と
     変化させたときの\isotope[12]{C}+\isotope[13]{C}核融合反応の$S$-factorの$\chi^2$
-    の値．星形のシンボルの位置，$a_r = 0.33$ fm，$v_0 = 0.41$ MeV fm$^{1/2}$ に最小値を示した．
+    の値．星形のシンボルの位置が$\chi^2$の最小値であり，$a_r = 0.33$ fm，$v_0 = 0.41$ MeV fm$^{1/2}$ である．
   }
   \label{fig:chi2_plt}
 \end{figure}
@@ -365,7 +366,7 @@ $S$-factorの$\chi^2$を評価する．
 $v_0 = 0.64$ MeV fm$^{1/2}$となるため，二つを同じ図にプロットすると，図\ref{fig:m3y_rep_final_result}のようになる．
 各部分波における寄与も\isotope[12]{C}+\isotope[12]{C}核融合反応は図~\ref{fig:m3y_final_result_12c_eachl}に，
 \isotope[12]{C}+\isotope[13]{C}核融合反応は図~\ref{fig:m3y_final_result_13c_eachl}にプロットした．
-プロットした．
+
 \begin{figure}[tb]
   \centering
   \includegraphics[width = 0.8\textwidth]{figure/chap7/m3y_exp_comp_final_result.png}
@@ -426,7 +427,8 @@ $v_0 = 0.64$ MeV fm$^{1/2}$となるため，二つを同じ図にプロット�
 図~\ref{fig:m3y_rep_final_result}を見ると，\isotope[12]{C}+\isotope[12]{C}核融合反応の$S$-factorでは，
 実験で得られたエネルギー領域においては同じ程度の大きさの共鳴構造を再現できていることがわかる．
 それに加えて，実験で得られていないさらに低エネルギー側においては，
-共鳴構造がさらに大きくなっていることがわかる．
+実験データが得られたエネルギー範囲における共鳴構造をよりも
+大きな共鳴構造が現れていることがわかる．
 また，本研究では式~\eqref{eq:strength_ratio_equation}から
 2.0 MeV $ < E_{\mathrm{c.m.}} < $ 5.5 MeV で共鳴のピークが
 一致するようにカップリングパラメータの比率を決めたため，
