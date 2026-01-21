@@ -192,9 +192,9 @@ $E \sim E_C$を考える．ただし，$E_C$は複合核の固有エネルギー
 
 よって，スピン統計因子を含めた有効ポテンシャルの虚部の比が１となるようにすると，
 \begin{align}\label{eq:strength_ratio_equation}
-  (v_0^{12+12})^2 / (v_0^{12+13})^2 = \frac{\pi}{2}\ev{w_{J^{24}}\Gamma^{24}(E_C)} \ev{ w_{J^{25}}\rho^{25}(E_C)}
+  (v_0^{12+12})^2 / (v_0^{12+13})^2 = \frac{\pi}{2}\left. \ev{ w_{J^{25}}\rho^{25}(E_C)} \middle/ \ev{w_{J^{24}}/ \Gamma^{24}(E_C)}\right.
 \end{align}
-と決めることができる．ただし，$\ev{w_{J^{24}}\Gamma^{24}(E_C)} $は\isotope[24]{Mg}の崩壊幅とスピン統計因子の積のエネルギーおよびスピン平均であり，
+と決めることができる．ただし，$\ev{w_{J^{24}}/\Gamma^{24}(E_C)} $は\isotope[24]{Mg}の崩壊幅の逆数とスピン統計因子の積のエネルギーおよびスピン平均であり，
 $\ev{ w_{J^{25}}\rho^{25}(E_C)}$は\isotope[25]{Mg}の準位密度とスピン統計因子の積のエネルギーおよびスピン平均である．
 
 今までの計算結果から，\isotope[12]{C}+\isotope[12]{C}で最も寄与する部分波は，
@@ -204,13 +204,16 @@ $l = 0，1，2$であることがわかる．よって，これらの値にお�
 \isotope[25]{Mg}の$J = 1/2, 3/2, 5/2$における平均準位密度を
 2.0 MeV $< E_{\mathrm{c.m.}} <$ 5.5 MeV で計算する．
 殻模型による計算と，遷移状態理論による見積りから，
-$\ev{w_J \Gamma^{24}} \sim 0.051$ MeV であり，$\ev{w_J \rho^{25}} \sim 39.8$ MeV$^{-1}$ であるため，
+\begin{align}
+  \ev{w_{J^{24}}/\Gamma^{24}(E_C)} \simeq 24.1 \, \mathrm{MeV}^{-1} , \qquad  \ev{ w_{J^{25}}\rho^{25}(E_C)} \simeq 39.8 \, \mathrm{MeV}^{-1}
+\end{align}
+であるため，
 これらの値をもとに計算する．
 まず$v_0= 0.1，0.3，0.6$ MeV$\cdot$fm$^{1/2}$ を
 \isotope[12]{C}+\isotope[13]{C}核融合反応に用いて，
 \isotope[12]{C}+\isotope[12]{C}核融合反応には式~(\ref{eq:strength_ratio_equation})
 を用いて変換した値を用いる．具体的には，
-$v_0 = 0.18，0.54, 1.1$ MeV$\cdot$fm$^{1/2}$  を用いて計算した結果を
+$v_0 = 0.16，0.48, 0.97$ MeV$\cdot$fm$^{1/2}$  を用いて計算した結果を
 \begin{figure}[t]
   \centering
   \includegraphics[width= 0.9\textwidth]{figure/chap7/sfac_v0_0.15_comp.png}
@@ -363,7 +366,7 @@ $S$-factorの$\chi^2$を評価する．
 図~\ref{fig:chi2_plt}から，$v_0 = 0.41$MeV fm$^{1/2}$，$a_r = 0.33$ fm が$\chi^2$が最も小さくなるパラメータとなる．
 そこで，式~(\ref{eq:strength_ratio_equation})から\isotope[12]{C}+\isotope[12]{C}系に
 おける$v_0$の値を求めると，
-$v_0 = 0.64$ MeV fm$^{1/2}$となるため，二つを同じ図にプロットすると，図\ref{fig:m3y_rep_final_result}のようになる．
+$v_0 = 0.66$ MeV fm$^{1/2}$となるため，二つを同じ図にプロットすると，図\ref{fig:m3y_rep_final_result}のようになる．
 各部分波における寄与も\isotope[12]{C}+\isotope[12]{C}核融合反応は図~\ref{fig:m3y_final_result_12c_eachl}に，
 \isotope[12]{C}+\isotope[13]{C}核融合反応は図~\ref{fig:m3y_final_result_13c_eachl}にプロットした．
 
@@ -371,7 +374,7 @@ $v_0 = 0.64$ MeV fm$^{1/2}$となるため，二つを同じ図にプロット�
   \centering
   \includegraphics[width = 0.8\textwidth]{figure/chap7/m3y_exp_comp_final_result.png}
   \caption{
-    $a_r = 0.33$ fm とし，\isotope[12]{C}+\isotope[12]{C}系では$v_0 = 0.64$ MeV$\cdot$fm$^{1/2}$，\isotope[12]{C}+\isotope[13]{C}系では，
+    $a_r = 0.33$ fm とし，\isotope[12]{C}+\isotope[12]{C}系では$v_0 = 0.66$ MeV$\cdot$fm$^{1/2}$，\isotope[12]{C}+\isotope[13]{C}系では，
     $v_0=0.41$ MeV$\cdot$fm$^{1/2}$ を用いて計算した$S$-factor．青線が\isotope[12]{C}+\isotope[12]{C}核融合反応であり，赤線が
     \isotope[12]{C}+\isotope[13]{C}核融合反応に対応している．
   }
